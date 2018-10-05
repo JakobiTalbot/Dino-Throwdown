@@ -29,6 +29,11 @@ public class PlayerController : MonoBehaviour
         float rightMovement = Input.GetAxis("Horizontal");
         float forwardMovement = Input.GetAxis("Vertical");
 
+        if (Input.GetButtonDown("Jump"))
+        {
+            GetComponent<Dash>().DoDash();
+        }
+
         // Get origin of raycast above player so it doesn't bug when just using player position
         Vector3 v3OriginPos = transform.position;
         v3OriginPos.y += 1.0f;
@@ -53,6 +58,6 @@ public class PlayerController : MonoBehaviour
             v3Force.Normalize();
 
         // Add force to rigidbody
-        m_rigidbody.AddForce(v3Force * m_fForce * Time.deltaTime);
+        m_rigidbody.velocity += (v3Force * m_fForce * Time.deltaTime);
     }
 }

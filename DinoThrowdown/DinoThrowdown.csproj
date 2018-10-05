@@ -307,6 +307,7 @@
     <Compile Include="Assets\OutsideAssets\ProCore\ProBuilder\API Examples\Runtime Editing\RuntimeEdit.cs" />
     <Compile Include="Assets\OutsideAssets\ProCore\ProBuilder\API Examples\Vertex Colors\HighlightNearestFace.cs" />
     <Compile Include="Assets\Scripts\AI.cs" />
+    <Compile Include="Assets\Scripts\Dash.cs" />
     <Compile Include="Assets\Scripts\DestroyOnFall.cs" />
     <Compile Include="Assets\Scripts\DestroySelf.cs" />
     <Compile Include="Assets\Scripts\Knockback.cs" />
