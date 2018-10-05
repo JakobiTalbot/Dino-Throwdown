@@ -684,7 +684,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 0
   m_CollisionDetection: 2
 --- !u!1001 &1808762661
 Prefab:
@@ -903,15 +903,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4673507625936762, guid: 1dfb8fbd918215e439dcfd4fb2f8ec30, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4673507625936762, guid: 1dfb8fbd918215e439dcfd4fb2f8ec30, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4673507625936762, guid: 1dfb8fbd918215e439dcfd4fb2f8ec30, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4673507625936762, guid: 1dfb8fbd918215e439dcfd4fb2f8ec30, type: 2}
       propertyPath: m_LocalRotation.w
@@ -929,6 +929,14 @@ Prefab:
     - target: {fileID: 1518203636766616, guid: 1dfb8fbd918215e439dcfd4fb2f8ec30, type: 2}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4673507625936762, guid: 1dfb8fbd918215e439dcfd4fb2f8ec30, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4673507625936762, guid: 1dfb8fbd918215e439dcfd4fb2f8ec30, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1dfb8fbd918215e439dcfd4fb2f8ec30, type: 2}
