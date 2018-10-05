@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DinoThrowdown", "Assembly-CSharp.csproj", "{68221165-0354-0CC7-4422-96E02617C793}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DinoThrowdown", "Assembly-CSharp-Editor.csproj", "{33730FF1-ADB6-69C3-F6CB-C8FDDBD8B274}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{68221165-0354-0CC7-4422-96E02617C793}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68221165-0354-0CC7-4422-96E02617C793}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68221165-0354-0CC7-4422-96E02617C793}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68221165-0354-0CC7-4422-96E02617C793}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33730FF1-ADB6-69C3-F6CB-C8FDDBD8B274}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33730FF1-ADB6-69C3-F6CB-C8FDDBD8B274}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33730FF1-ADB6-69C3-F6CB-C8FDDBD8B274}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33730FF1-ADB6-69C3-F6CB-C8FDDBD8B274}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
