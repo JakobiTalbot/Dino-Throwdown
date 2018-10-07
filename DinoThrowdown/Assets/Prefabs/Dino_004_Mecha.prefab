@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33092430335045812}
   - component: {fileID: 23451014292142050}
   - component: {fileID: 95135193783067628}
+  - component: {fileID: 114304874609598412}
   m_Layer: 0
   m_Name: Dino_004_Mecha
   m_TagString: Untagged
@@ -100,3 +101,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114304874609598412
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1291836731397066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 349a247b76377884dbe7111260b2a1c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_fKnockbackForce: 500
+  m_fBaseKnockbackForce: 500
+  m_fVelocityFactor: 100
