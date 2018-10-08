@@ -4,15 +4,36 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    // used to change movement for a limited time
+    public struct CruiseControl
+    {
+        public bool bFlag;
+        public float fTimer;
+    }
+
     public float m_fForce = 1000.0f;
     public float m_fCorrectionSpeed = 0.01f;
+    // the movement speed during cruise control
+    public float m_fCruiseSpeed = 8.0f;
+    // the speed at which the weapon swings
+    public float m_fAttackSpeed = 0.1f;
+    // reference to the arm which contains the weapon
+    public GameObject m_arm;
+    // handles when the player should cruise
+    [HideInInspector]
+    public CruiseControl m_cruiseControl;
 
     private Rigidbody m_rigidbody;
+    // reference to the rigidbody of the arm
+    private Rigidbody m_armRigidbody;
+    // determines if the player is attacking
+    private bool m_bIsAttacking = false;
 
 	// Use this for initialization
 	void Awake()
     {
         m_rigidbody = GetComponent<Rigidbody>();
+        m_armRigidbody = m_arm.GetComponent<Rigidbody>();
 
         // Set friction to 0 so object doesn't get stuck to other objects
         GetComponent<BoxCollider>().material = new PhysicMaterial()
@@ -20,6 +41,9 @@ public class PlayerController : MonoBehaviour
             dynamicFriction = 0,
             frictionCombine = PhysicMaterialCombine.Minimum
         };
+
+        m_cruiseControl.bFlag = false;
+        m_cruiseControl.fTimer = 5.0f;
 	}
 	
 	// Update is called once per frame
@@ -28,6 +52,16 @@ public class PlayerController : MonoBehaviour
         // Get player input
         float rightMovement = Input.GetAxis("Horizontal");
         float forwardMovement = Input.GetAxis("Vertical");
+
+        // moves based on the cruise control flag
+        if (!m_cruiseControl.bFlag)
+        {
+            Move(rightMovement, forwardMovement);
+        }
+        else
+        {
+            Cruise(rightMovement, forwardMovement);
+        }
 
         if (Input.GetButtonDown("Jump"))
         {
@@ -49,6 +83,23 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.Lerp(transform.rotation, 
             Quaternion.Euler(0.0f, transform.rotation.eulerAngles.y, 0.0f), m_fCorrectionSpeed);
 
+        // checks if the fire button was pressed
+        if (Input.GetAxisRaw("Fire1") != 0)
+        {
+            // sets the player to attacking
+            m_bIsAttacking = true;
+        }
+
+        if (m_bIsAttacking)
+        {
+            // swings the weapon
+            Attack();
+        }
+    }
+
+    // moves normally based on input
+    private void Move(float rightMovement, float forwardMovement)
+    {
         // Put input into force vector3
         Vector3 v3Force = new Vector3();
         v3Force += Vector3.forward * forwardMovement;
@@ -59,5 +110,49 @@ public class PlayerController : MonoBehaviour
 
         // Add force to rigidbody
         m_rigidbody.velocity += (v3Force * m_fForce * Time.deltaTime);
+    }
+
+    // moves with little momentum based on input
+    private void Cruise(float fHorizontal, float fVertical)
+    {
+        //direction based on input
+        Vector3 v3Direction = new Vector3(0.0f, 0.0f, 0.0f);
+        v3Direction.x = fHorizontal * m_fCruiseSpeed * Time.deltaTime;
+        v3Direction.z = fVertical * m_fCruiseSpeed * Time.deltaTime;
+
+        // moves the rigidbody by the direction
+        m_rigidbody.MovePosition(m_rigidbody.position + v3Direction);
+
+        // decrements the timer
+        m_cruiseControl.fTimer -= Time.deltaTime;
+        // checks if the timer has run out
+        if (m_cruiseControl.fTimer <= 0.0f)
+        {
+            // resets the cruise control
+            m_cruiseControl.bFlag = false;
+            m_cruiseControl.fTimer = 5.0f;
+        }
+    }
+
+    // swings the weapon
+    private void Attack()
+    {
+        // checks if the arm should still rotate
+        if (m_arm.transform.rotation.eulerAngles.y > 245.0f || (m_arm.transform.rotation.eulerAngles.y <= 0.1f && m_arm.transform.rotation.eulerAngles.y >= -0.1f))
+        {
+            // rotates the arm
+            m_armRigidbody.MoveRotation(Quaternion.Lerp(m_armRigidbody.rotation, Quaternion.Euler(0.0f, 240.0f, 0.0f), m_fAttackSpeed));
+            // ensures that the arm is in the same position
+            m_arm.transform.localPosition = new Vector3(0.75f, 0.75f, 0.5f);
+        }
+        else
+        {
+            // sets the transform back to the original
+            m_arm.transform.localScale = new Vector3(2.0f, 0.2f, 0.2f);
+            m_arm.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
+            m_arm.transform.localPosition = new Vector3(0.75f, 0.75f, 0.5f);
+            // sets the player to not attacking
+            m_bIsAttacking = false;
+        }
     }
 }
