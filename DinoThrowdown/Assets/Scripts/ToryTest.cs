@@ -5,7 +5,7 @@ using XboxCtrlrInput;
 
 public class ToryTest : MonoBehaviour {
 
-    public Rigidbody rigidbody;
+    private Rigidbody m_rigidbody;
     public XboxController controller;
 
     public float movementSpeed = 60;
@@ -15,7 +15,7 @@ public class ToryTest : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        rigidbody = GetComponent<Rigidbody>();
+        m_rigidbody = GetComponent<Rigidbody>();
 	}
 
     private void FixedUpdate()
@@ -30,11 +30,11 @@ public class ToryTest : MonoBehaviour {
 
         Vector3 movement = new Vector3(axisX, 0, axisZ);
 
-        rigidbody.AddForce(movement * movementSpeed);
+        m_rigidbody.AddForce(movement * movementSpeed);
 
-        if (rigidbody.velocity.magnitude > maxSpeed)
+        if (m_rigidbody.velocity.magnitude > maxSpeed)
         {
-            rigidbody.velocity = rigidbody.velocity.normalized * maxSpeed;
+            m_rigidbody.velocity = m_rigidbody.velocity.normalized * maxSpeed;
         }
     }
 
