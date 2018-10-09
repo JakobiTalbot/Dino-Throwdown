@@ -302,6 +302,9 @@
     <Reference Include="UnityEngine.StandardEvents">
       <HintPath>C:/Users/tyson/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
     </Reference>
+    <Reference Include="XInputDotNetPure">
+      <HintPath>Assets/XInput/Plugins/x86_64/XInputDotNetPure.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\OutsideAssets\ProCore\ProBuilder\API Examples\Icosphere FFT\Scripts\CameraControls.cs" />
@@ -326,8 +329,16 @@
     <Compile Include="Assets\Scripts\KnockbackShield.cs" />
     <Compile Include="Assets\Scripts\PickupManager.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\ToryTest.cs" />
     <Compile Include="Assets\Scripts\UI.cs" />
     <Compile Include="Assets\Scripts\WeaponSize.cs" />
+    <Compile Include="Assets\XInput\Plugins\XboxCtrlrInput.cs" />
+    <Compile Include="Assets\XInput\Plugins\XboxCtrlrInput_Helpers\XciAxisDeadzoneData.cs" />
+    <Compile Include="Assets\XInput\Plugins\XboxCtrlrInput_Helpers\XciInputManagerClone.cs" />
+    <Compile Include="Assets\XInput\Plugins\XboxCtrlrInput_Helpers\XciInputManagerReader.cs" />
+    <Compile Include="Assets\XInput\XboxCtrlrInputExample\MoveLaser.cs" />
+    <Compile Include="Assets\XInput\XboxCtrlrInputExample\MovePlayer.cs" />
+    <Compile Include="Assets\XInput\XInputDotNet\Examples\XInputTestCS.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\OutsideAssets\ProCore\ProBuilder\API Examples\Icosphere FFT\README.txt" />
@@ -356,6 +367,7 @@
     <None Include="Assets\ProCore\ProGrids\About\pc_AboutEntry_ProGrids.txt" />
     <None Include="Assets\ProCore\ProGrids\Shader\pg_GridShader.shader" />
     <None Include="Assets\Textures\Delete.txt" />
+    <None Include="Assets\XInput\XInputDotNet\MITLicense.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
