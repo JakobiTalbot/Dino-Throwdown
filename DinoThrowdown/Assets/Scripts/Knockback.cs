@@ -20,6 +20,8 @@ public class Knockback : MonoBehaviour
 
     private Rigidbody m_rigidbody;
     private float m_fKnockbackMeter = 0;
+    // used to check if being hit by a larger weapon
+    private Vector3 m_v3Larger;
 
     // Use this for initialization
     void Awake()
@@ -28,6 +30,8 @@ public class Knockback : MonoBehaviour
 
         m_shield.bFlag = false;
         m_shield.fTimer = 5.0f;
+
+        m_v3Larger = new Vector3(4.0f, 0.4f, 0.4f);
 	}
 
     private void OnCollisionEnter(Collision collision)
@@ -40,6 +44,13 @@ public class Knockback : MonoBehaviour
             v3ExplosionPos.y += 0.1f;
             float fRelaVelForce = (collision.rigidbody.velocity - GetComponent<Rigidbody>().velocity).magnitude * m_fVelocityFactor;
             float fExplosionForce = (m_fKnockbackForce + fRelaVelForce) * (m_fKnockbackMeter / 100.0f) + m_fBaseKnockbackForce;
+
+            // checks if the object is a weapon with the increase size pickup
+            if (collision.gameObject.transform.localScale == m_v3Larger)
+            {
+                // doubles the force
+                fExplosionForce *= 2.0f;
+            }
 
             // checks if the shield is on
             if (m_shield.bFlag)
