@@ -169,4 +169,9 @@ public class PlayerController : MonoBehaviour
             m_bIsAttacking = false;
         }
     }
+
+    public bool GetAttacking()
+    {
+        return m_bIsAttacking;
+    }
 }
