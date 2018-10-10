@@ -11,8 +11,11 @@ public class PlayerController : MonoBehaviour
         public float fTimer;
     }
 
-    public float m_fForce = 1000.0f;
+    public float m_fVelocity = 10.0f;
+    // how fast the object lerps rotation to X and Z = 0
     public float m_fCorrectionSpeed = 0.01f;
+    // the upwards force to push the rigidbody when above another object
+    public float m_fHoverForce = 550.0f;
     // the movement speed during cruise control
     public float m_fCruiseSpeed = 8.0f;
     // the speed at which the weapon swings
@@ -76,7 +79,7 @@ public class PlayerController : MonoBehaviour
             m_rigidbody.AddForce(Vector3.up * m_rigidbody.mass * (550.0f - transform.position.y) * Time.deltaTime);
         }
 
-        // Nullify angular velocity
+        // Nullify angular velocity so it doesn't conflict with quaternion lerp
         m_rigidbody.angularVelocity = new Vector3(0, 0, 0);
 
         //Correct X and Z rotation of object
@@ -101,15 +104,15 @@ public class PlayerController : MonoBehaviour
     private void Move(float rightMovement, float forwardMovement)
     {
         // Put input into force vector3
-        Vector3 v3Force = new Vector3();
-        v3Force += Vector3.forward * forwardMovement;
-        v3Force += Vector3.right * rightMovement;
+        Vector3 v3Direction = new Vector3();
+        v3Direction += Vector3.forward * forwardMovement;
+        v3Direction += Vector3.right * rightMovement;
 
-        if (v3Force.sqrMagnitude > 1)
-            v3Force.Normalize();
+        if (v3Direction.sqrMagnitude > 1)
+            v3Direction.Normalize();
 
         // Add force to rigidbody
-        m_rigidbody.velocity += (v3Force * m_fForce * Time.deltaTime);
+        m_rigidbody.velocity += (v3Direction * m_fVelocity * Time.deltaTime);
     }
 
     // moves with little momentum based on input
