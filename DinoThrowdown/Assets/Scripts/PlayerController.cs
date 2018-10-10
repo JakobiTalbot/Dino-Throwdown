@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
         public float fTimer;
     }
 
+    // used to distinguish between players
+    public int m_cPlayerNumber = 0;
     public float m_fVelocity = 10.0f;
     // how fast the object lerps rotation to X and Z = 0
     public float m_fCorrectionSpeed = 0.01f;
@@ -57,8 +59,8 @@ public class PlayerController : MonoBehaviour
 	void Update()
     {
         // Get player input
-        float rightMovement = Input.GetAxis("Horizontal");
-        float forwardMovement = Input.GetAxis("Vertical");
+        float rightMovement = Input.GetAxis("Horizontal" + m_cPlayerNumber);
+        float forwardMovement = Input.GetAxis("Vertical" + m_cPlayerNumber);
 
         // moves based on the cruise control flag
         if (!m_cruiseControl.bFlag)
@@ -70,14 +72,14 @@ public class PlayerController : MonoBehaviour
             Cruise(rightMovement, forwardMovement);
         }
 
-        if (Input.GetButton("Rotate"))
+        if (Input.GetButton("Rotate" + m_cPlayerNumber))
         {
-            float fRotate = Input.GetAxis("Rotate");
+            float fRotate = Input.GetAxis("Rotate" + m_cPlayerNumber);
             transform.Rotate(new Vector3(0.0f, fRotate * m_fRotateSpeed, 0.0f));
         }
 
         // Activate dash
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump" + m_cPlayerNumber))
         {
             GetComponent<Dash>().DoDash();
         }
@@ -98,7 +100,7 @@ public class PlayerController : MonoBehaviour
             Quaternion.Euler(0.0f, transform.rotation.eulerAngles.y, 0.0f), m_fCorrectionSpeed);
 
         // checks if the fire button was pressed
-        if (Input.GetAxisRaw("Fire1") != 0)
+        if (Input.GetAxisRaw("Fire" + m_cPlayerNumber) != 0)
         {
             // sets the player to attacking
             m_bIsAttacking = true;
