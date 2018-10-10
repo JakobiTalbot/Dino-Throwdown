@@ -20,7 +20,7 @@ public class AI : MonoBehaviour
         m_rigidbody = GetComponent<Rigidbody>();
 
         // Set friction to 0 so object doesn't get stuck to other objects
-        GetComponent<BoxCollider>().material = new PhysicMaterial()
+        GetComponent<MeshCollider>().material = new PhysicMaterial()
         {
             dynamicFriction = 0,
             frictionCombine = PhysicMaterialCombine.Minimum

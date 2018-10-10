@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using XboxCtrlrInput;
 
 public class PlayerController : MonoBehaviour
 {
@@ -33,6 +34,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody m_rigidbody;
     // reference to the rigidbody of the arm
     private Rigidbody m_armRigidbody;
+    // contains weapon
+    public GameObject m_weapon;
     // determines if the player is attacking
     private bool m_bIsAttacking = false;
 
@@ -40,12 +43,12 @@ public class PlayerController : MonoBehaviour
 	void Awake()
     {
         // Ignore collision between weapon and player
-        Physics.IgnoreCollision(m_arm.GetComponentInChildren<BoxCollider>(), GetComponent<BoxCollider>());
+        Physics.IgnoreCollision(m_arm.GetComponentInChildren<BoxCollider>(), GetComponent<MeshCollider>());
         m_rigidbody = GetComponent<Rigidbody>();
         m_armRigidbody = m_arm.GetComponent<Rigidbody>();
 
         // Set friction to 0 so object doesn't get stuck to other objects
-        GetComponent<BoxCollider>().material = new PhysicMaterial()
+        GetComponent<MeshCollider>().material = new PhysicMaterial()
         {
             dynamicFriction = 0,
             frictionCombine = PhysicMaterialCombine.Minimum
@@ -59,8 +62,8 @@ public class PlayerController : MonoBehaviour
 	void Update()
     {
         // Get player input
-        float rightMovement = Input.GetAxis("Horizontal" + m_cPlayerNumber);
-        float forwardMovement = Input.GetAxis("Vertical" + m_cPlayerNumber);
+        float rightMovement = Input.GetAxis("Horizontal" + m_cPlayerNumber.ToString());
+        float forwardMovement = Input.GetAxis("Vertical" + m_cPlayerNumber.ToString());
 
         // moves based on the cruise control flag
         if (!m_cruiseControl.bFlag)
@@ -72,17 +75,18 @@ public class PlayerController : MonoBehaviour
             Cruise(rightMovement, forwardMovement);
         }
 
-        if (Input.GetButton("Rotate" + m_cPlayerNumber))
+        if (Input.GetButton("Rotate" + m_cPlayerNumber.ToString()))
         {
-            float fRotate = Input.GetAxis("Rotate" + m_cPlayerNumber);
+            float fRotate = Input.GetAxis("Rotate" + m_cPlayerNumber.ToString());
             transform.Rotate(new Vector3(0.0f, fRotate * m_fRotateSpeed, 0.0f));
         }
 
         // Activate dash
-        if (Input.GetButtonDown("Jump" + m_cPlayerNumber))
+        if (Input.GetButtonDown("Jump" + m_cPlayerNumber.ToString()))
         {
             GetComponent<Dash>().DoDash();
         }
+        
 
         // Get origin of raycast above player so it doesn't bug when just using player position
         Vector3 v3OriginPos = transform.position;
@@ -100,7 +104,7 @@ public class PlayerController : MonoBehaviour
             Quaternion.Euler(0.0f, transform.rotation.eulerAngles.y, 0.0f), m_fCorrectionSpeed);
 
         // checks if the fire button was pressed
-        if (Input.GetAxisRaw("Fire" + m_cPlayerNumber) != 0)
+        if (Input.GetAxis("Fire" + m_cPlayerNumber.ToString()) != 0.0f)
         {
             // sets the player to attacking
             m_bIsAttacking = true;
@@ -158,15 +162,12 @@ public class PlayerController : MonoBehaviour
         {
             // rotates the arm
             m_arm.transform.localRotation = (Quaternion.Lerp(m_arm.transform.localRotation, Quaternion.Euler(0.0f, -90, 0.0f), m_fAttackSpeed));
-            // ensures that the arm is in the same position
-            m_arm.transform.localPosition = new Vector3(0.75f, 0.75f, 0.5f);
         }
         else
         {
             // sets the transform back to the original
-            m_arm.transform.localScale = new Vector3(2.0f, 0.2f, 0.2f);
             m_arm.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
-            m_arm.transform.localPosition = new Vector3(0.75f, 0.75f, 0.5f);
+            m_weapon.transform.localScale = new Vector3(2.0f, 0.2f, 0.2f);
             // sets the player to not attacking
             m_bIsAttacking = false;
         }
