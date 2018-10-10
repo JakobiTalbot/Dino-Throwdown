@@ -66,6 +66,7 @@ public class PlayerController : MonoBehaviour
             Cruise(rightMovement, forwardMovement);
         }
 
+        // Activate dash
         if (Input.GetButtonDown("Jump"))
         {
             GetComponent<Dash>().DoDash();

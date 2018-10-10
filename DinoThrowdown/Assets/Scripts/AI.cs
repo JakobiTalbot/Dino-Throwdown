@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class AI : MonoBehaviour
 {
-    public float m_fForce = 1000.0f;
+    public float m_fVelocity = 10.0f;
     public float m_fCorrectionSpeed = 0.01f;
 
     private GameObject[] m_enemyObjects;
@@ -67,6 +67,6 @@ public class AI : MonoBehaviour
             v3Dir.Normalize();
 
         // Add force to rigidbody
-        m_rigidbody.velocity += (v3Dir * m_fForce * Time.deltaTime);
+        m_rigidbody.velocity += (v3Dir * m_fVelocity * Time.deltaTime);
     }
 }

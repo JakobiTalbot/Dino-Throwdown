@@ -8025,7 +8025,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14a44a0728fc9404a845377530034271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_fForce: 1000
+  m_fVelocity: 10
   m_fCorrectionSpeed: 0.01
 --- !u!65 &1740110316
 BoxCollider:
@@ -8357,7 +8357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14a44a0728fc9404a845377530034271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_fForce: 1000
+  m_fVelocity: 10
   m_fCorrectionSpeed: 0.01
 --- !u!65 &1898356202
 BoxCollider:
@@ -8846,7 +8846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14a44a0728fc9404a845377530034271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_fForce: 1000
+  m_fVelocity: 10
   m_fCorrectionSpeed: 0.01
 --- !u!65 &2062251478
 BoxCollider:
