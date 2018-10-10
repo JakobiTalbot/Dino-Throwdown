@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     public float m_fCorrectionSpeed = 0.01f;
     // the upwards force to push the rigidbody when above another object
     public float m_fHoverForce = 550.0f;
+    // the speed in which the body rotates
+    public float m_fRotateSpeed = 10.0f;
     // the movement speed during cruise control
     public float m_fCruiseSpeed = 8.0f;
     // the speed at which the weapon swings
@@ -35,6 +37,8 @@ public class PlayerController : MonoBehaviour
 	// Use this for initialization
 	void Awake()
     {
+        // Ignore collision between weapon and player
+        Physics.IgnoreCollision(m_arm.GetComponentInChildren<BoxCollider>(), GetComponent<BoxCollider>());
         m_rigidbody = GetComponent<Rigidbody>();
         m_armRigidbody = m_arm.GetComponent<Rigidbody>();
 
@@ -64,6 +68,12 @@ public class PlayerController : MonoBehaviour
         else
         {
             Cruise(rightMovement, forwardMovement);
+        }
+
+        if (Input.GetButton("Rotate"))
+        {
+            float fRotate = Input.GetAxis("Rotate");
+            transform.Rotate(new Vector3(0.0f, fRotate * m_fRotateSpeed, 0.0f));
         }
 
         // Activate dash
@@ -142,10 +152,10 @@ public class PlayerController : MonoBehaviour
     private void Attack()
     {
         // checks if the arm should still rotate
-        if (m_arm.transform.rotation.eulerAngles.y > 245.0f || (m_arm.transform.rotation.eulerAngles.y <= 0.1f && m_arm.transform.rotation.eulerAngles.y >= -0.1f))
+        if (m_arm.transform.localRotation.eulerAngles.y > 271.0f || (m_arm.transform.localRotation.eulerAngles.y <= 0.1f && m_arm.transform.localRotation.eulerAngles.y >= -0.1f))
         {
             // rotates the arm
-            m_armRigidbody.MoveRotation(Quaternion.Lerp(m_armRigidbody.rotation, Quaternion.Euler(0.0f, 240.0f, 0.0f), m_fAttackSpeed));
+            m_arm.transform.localRotation = (Quaternion.Lerp(m_arm.transform.localRotation, Quaternion.Euler(0.0f, -90, 0.0f), m_fAttackSpeed));
             // ensures that the arm is in the same position
             m_arm.transform.localPosition = new Vector3(0.75f, 0.75f, 0.5f);
         }
