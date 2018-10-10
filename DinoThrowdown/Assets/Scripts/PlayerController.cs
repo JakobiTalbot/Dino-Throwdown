@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // used to distinguish between players
-    public int m_cPlayerNumber = 0;
+    public int m_cPlayerNumber = 1;
     public float m_fVelocity = 10.0f;
     // how fast the object lerps rotation to X and Z = 0
     public float m_fCorrectionSpeed = 0.01f;
