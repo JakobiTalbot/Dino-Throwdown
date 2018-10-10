@@ -22,9 +22,51 @@ public class PickupManager : MonoBehaviour
     {
         // random location index
         int iSpawnPointIndex = Random.Range(0, m_spawnPoints.Length);
+        // copy of the index minus 1
+        int iCopy = iSpawnPointIndex - 1;
+        // wraps around
+        if (iCopy == -1)
+        {
+            iCopy = 3;
+        }
+
         // random pickup type index
         int iPickupTypeIndex = Random.Range(0, m_pickupTypes.Length);
-        // creates the random pickup at the random location
-        Instantiate(m_pickupTypes[iPickupTypeIndex], m_spawnPoints[iSpawnPointIndex].position, m_spawnPoints[iSpawnPointIndex].rotation);
+
+        // loops until a spawn point does not have a pickup
+        while (m_spawnPoints[iSpawnPointIndex].GetComponent<SpawnPoint>().m_bHasPickup)
+        {
+            // checks if a full loop occured
+            if (iSpawnPointIndex == iCopy)
+            {
+                break;
+            }
+            else
+            {
+                // increments the index
+                iSpawnPointIndex++;
+                // wraps around
+                if (iSpawnPointIndex == 4)
+                {
+                    iSpawnPointIndex = 0;
+                }
+            }
+        }
+
+        // gets the spawn point component
+        SpawnPoint spawnPoint = m_spawnPoints[iSpawnPointIndex].GetComponent<SpawnPoint>();
+
+        // checks if the spawn point has a pickup
+        if (!spawnPoint.m_bHasPickup)
+        {
+            // creates the random pickup at the random location
+            GameObject obj = Instantiate(m_pickupTypes[iPickupTypeIndex], m_spawnPoints[iSpawnPointIndex].position, m_spawnPoints[iSpawnPointIndex].rotation);
+            // gets the pickup component from the instantiated object
+            Pickup pickup = obj.GetComponent<Pickup>();
+            // sets the pickup's spawn point
+            pickup.m_spawnPoint = spawnPoint;
+            // sets the spawn point pickup status to true
+            spawnPoint.m_bHasPickup = true;
+        }
     }
 }

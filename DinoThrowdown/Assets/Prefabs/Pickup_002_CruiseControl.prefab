@@ -57,7 +57,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: bc3c6b14bda578b4cb6ed2a0cefc019b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -95,6 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f3580075254a5f4a8e646bce756853c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_spawnPoint: {fileID: 0}
 --- !u!135 &135231439391065820
 SphereCollider:
   m_ObjectHideFlags: 1

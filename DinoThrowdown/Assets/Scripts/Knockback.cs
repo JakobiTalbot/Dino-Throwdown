@@ -34,6 +34,21 @@ public class Knockback : MonoBehaviour
         m_v3Larger = new Vector3(4.0f, 0.4f, 0.4f);
 	}
 
+    private void Update()
+    {
+        // checks if the shield is on
+        if (m_shield.bFlag)
+        {
+            m_shield.fTimer -= Time.deltaTime;
+            if (m_shield.fTimer <= 0.0f)
+            {
+                // resets the shield
+                m_shield.bFlag = false;
+                m_shield.fTimer = 5.0f;
+            }
+        }
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         // checks if the collision is with a player or an arm
@@ -41,7 +56,7 @@ public class Knockback : MonoBehaviour
         {
             // Find average position of two agents colliding
             Vector3 v3ExplosionPos = (collision.gameObject.transform.position + transform.position) * 0.5f;
-            v3ExplosionPos.y += 0.5f;
+            v3ExplosionPos.y += 0.1f;
             float fRelaVelForce = (collision.rigidbody.velocity - GetComponent<Rigidbody>().velocity).magnitude * m_fVelocityFactor;
             float fExplosionForce = (m_fKnockbackForce + fRelaVelForce) * (m_fKnockbackMeter / 100.0f) + m_fBaseKnockbackForce;
 
@@ -57,14 +72,6 @@ public class Knockback : MonoBehaviour
             {
                 // halves the force
                 fExplosionForce /= 2.0f;
-
-                m_shield.fTimer -= Time.deltaTime;
-                if (m_shield.fTimer <= 0.0f)
-                {
-                    // resets the shield
-                    m_shield.bFlag = false;
-                    m_shield.fTimer = 5.0f;
-                }
             }
 
             m_rigidbody.AddExplosionForce(fExplosionForce, v3ExplosionPos, 5.0f);

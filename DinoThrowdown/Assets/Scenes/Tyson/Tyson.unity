@@ -211,6 +211,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 236004867}
+  - component: {fileID: 236004868}
   m_Layer: 0
   m_Name: SpawnPoint4
   m_TagString: Untagged
@@ -231,6 +232,18 @@ Transform:
   m_Father: {fileID: 601031575}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &236004868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 236004866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21dc5c9a61330ef46aa327fdb63f349b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_bHasPickup: 0
 --- !u!1 &264829848
 GameObject:
   m_ObjectHideFlags: 0
@@ -6792,6 +6805,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 842471462}
+  - component: {fileID: 842471463}
   m_Layer: 0
   m_Name: SpawnPoint2
   m_TagString: Untagged
@@ -6812,6 +6826,18 @@ Transform:
   m_Father: {fileID: 601031575}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &842471463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 842471461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21dc5c9a61330ef46aa327fdb63f349b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_bHasPickup: 0
 --- !u!1 &860933867
 GameObject:
   m_ObjectHideFlags: 0
@@ -7841,6 +7867,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1463058999}
+  - component: {fileID: 1463059000}
   m_Layer: 0
   m_Name: SpawnPoint1
   m_TagString: Untagged
@@ -7861,6 +7888,18 @@ Transform:
   m_Father: {fileID: 601031575}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1463059000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1463058998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21dc5c9a61330ef46aa327fdb63f349b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_bHasPickup: 0
 --- !u!1 &1501008447
 GameObject:
   m_ObjectHideFlags: 0
@@ -7905,7 +7944,7 @@ MonoBehaviour:
   - {fileID: 1177029968323070, guid: d723e3a13b282a041b69d58ad06d2074, type: 2}
   - {fileID: 1376881934740160, guid: 654ced65e19a04341ae7d00170f3e92d, type: 2}
   - {fileID: 1445116149922076, guid: 3dd781b0dcc22c540bc32dec6230a568, type: 2}
-  m_fSpawnTime: 10
+  m_fSpawnTime: 2
   m_spawnPoints:
   - {fileID: 1463058999}
   - {fileID: 842471462}
@@ -7984,6 +8023,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1713923619}
+  - component: {fileID: 1713923620}
   m_Layer: 0
   m_Name: SpawnPoint3
   m_TagString: Untagged
@@ -8004,6 +8044,18 @@ Transform:
   m_Father: {fileID: 601031575}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1713923620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1713923618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21dc5c9a61330ef46aa327fdb63f349b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_bHasPickup: 0
 --- !u!1 &1740110310 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1052191428888532, guid: 0b3a5af2ca7462342957812407a5eb99,
@@ -8025,7 +8077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14a44a0728fc9404a845377530034271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_fForce: 1000
+  m_fVelocity: 10
   m_fCorrectionSpeed: 0.01
 --- !u!65 &1740110316
 BoxCollider:
@@ -8075,8 +8127,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b9ca1816ce344e4fa006fd6ceebf888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_fForce: 10
+  m_fVelocity: 10
   m_fCorrectionSpeed: 0.01
+  m_fHoverForce: 550
+  m_fRotateSpeed: 10
   m_fCruiseSpeed: 8
   m_fAttackSpeed: 0.1
   m_arm: {fileID: 1974397602}
@@ -8356,7 +8410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14a44a0728fc9404a845377530034271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_fForce: 1000
+  m_fVelocity: 10
   m_fCorrectionSpeed: 0.01
 --- !u!65 &1898356202
 BoxCollider:
@@ -8845,7 +8899,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14a44a0728fc9404a845377530034271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_fForce: 1000
+  m_fVelocity: 10
   m_fCorrectionSpeed: 0.01
 --- !u!65 &2062251478
 BoxCollider:
