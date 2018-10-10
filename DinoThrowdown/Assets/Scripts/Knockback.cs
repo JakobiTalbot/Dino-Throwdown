@@ -41,7 +41,7 @@ public class Knockback : MonoBehaviour
         {
             // Find average position of two agents colliding
             Vector3 v3ExplosionPos = (collision.gameObject.transform.position + transform.position) * 0.5f;
-            v3ExplosionPos.y += 0.1f;
+            v3ExplosionPos.y += 0.5f;
             float fRelaVelForce = (collision.rigidbody.velocity - GetComponent<Rigidbody>().velocity).magnitude * m_fVelocityFactor;
             float fExplosionForce = (m_fKnockbackForce + fRelaVelForce) * (m_fKnockbackMeter / 100.0f) + m_fBaseKnockbackForce;
 
