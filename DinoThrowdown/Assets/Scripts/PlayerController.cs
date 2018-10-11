@@ -160,15 +160,16 @@ public class PlayerController : MonoBehaviour
         if (!m_bPickedUp && !m_bIsOut && !m_bInCrane)
         {
             RaycastHit ray = new RaycastHit();
+
             // Get origin of raycast above player so it doesn't bug when just using player position
             Vector3 v3OriginPos = transform.position;
             v3OriginPos.y += 1.0f;
-            if (Physics.Raycast(v3OriginPos, Vector3.down, 2.5f))
+            // raycast to hit ground
+            if (Physics.Raycast(v3OriginPos, Vector3.down, out ray, m_fHoverHeight)
+                && ray.collider.CompareTag("Ground"))
             {
-                m_rigidbody.AddForce(Vector3.up * m_rigidbody.mass * (550.0f - transform.position.y) * Time.deltaTime);
+                m_rigidbody.AddForce(Vector3.up * m_rigidbody.mass * (m_fHoverForce - (transform.position.y * m_fHeightFromHoverMultiplier)) * Time.deltaTime);
             }
-            m_rigidbody.AddForce(Vector3.up * m_rigidbody.mass * (550.0f - transform.position.y) * Time.deltaTime);
-            m_rigidbody.AddForce(Vector3.up * m_rigidbody.mass * (m_fHoverForce - (transform.position.y * m_fHeightFromHoverMultiplier)) * Time.deltaTime);
         }
 
         // Nullify angular velocity so it doesn't conflict with quaternion lerp

@@ -49,7 +49,7 @@ public class Dash : MonoBehaviour
             Vector3 v3ExplosionPos = transform.position;
             v3ExplosionPos.x -= 0.5f; // because the transform.position isn't the centre of the model
             v3ExplosionPos.x -= (Input.GetAxis("Horizontal" + m_cPlayerNumber) + m_gamePadState.ThumbSticks.Left.X) * 3.0f;
-            v3ExplosionPos.y = transform.position.y + 1.0f; // So the dash up
+            v3ExplosionPos.y = transform.position.y + 1.0f; // So the player doesn't dash up
             v3ExplosionPos.z -= (Input.GetAxis("Vertical" + m_cPlayerNumber) + m_gamePadState.ThumbSticks.Left.Y) * 3.0f;
 
             m_rigidbody.AddExplosionForce(m_fDashForce, v3ExplosionPos, 20.0f);
