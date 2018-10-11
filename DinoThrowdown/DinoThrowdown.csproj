@@ -317,6 +317,8 @@
     <Compile Include="Assets\ProCore\ProGrids\Classes\pg_Util.cs" />
     <Compile Include="Assets\ProCore\ProGrids\MonoBehaviour\pg_IgnoreSnap.cs" />
     <Compile Include="Assets\Scripts\AI.cs" />
+    <Compile Include="Assets\Scripts\Claw.cs" />
+    <Compile Include="Assets\Scripts\CraneOccupied.cs" />
     <Compile Include="Assets\Scripts\Dash.cs" />
     <Compile Include="Assets\Scripts\DestroyOnFall.cs" />
     <Compile Include="Assets\Scripts\DestroySelf.cs" />
@@ -324,6 +326,7 @@
     <Compile Include="Assets\Scripts\MainMenu\ActivateMenu.cs" />
     <Compile Include="Assets\Scripts\MainMenu\ReturnToMenu.cs" />
     <Compile Include="Assets\Scripts\MainMenu\SelectPlay.cs" />
+    <Compile Include="Assets\Scripts\OutOfBounds.cs" />
     <Compile Include="Assets\Scripts\Pickups\CruiseControl.cs" />
     <Compile Include="Assets\Scripts\Pickups\KnockbackShield.cs" />
     <Compile Include="Assets\Scripts\Pickups\Pickup.cs" />
