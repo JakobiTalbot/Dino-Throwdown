@@ -222,7 +222,7 @@ public class PlayerController : MonoBehaviour
     {
         // prevent stutter
         m_rigidbody.velocity = Vector3.zero;
-        //direction based on input
+        // direction based on input
         Vector3 v3Direction = new Vector3(0.0f, 0.0f, 0.0f);
         v3Direction.x = fHorizontal * m_fCruiseSpeed * Time.deltaTime;
         v3Direction.z = fVertical * m_fCruiseSpeed * Time.deltaTime;
