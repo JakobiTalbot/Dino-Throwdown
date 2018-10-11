@@ -152,29 +152,23 @@ public class PlayerController : MonoBehaviour
         }
 
         // Activate dash (keyboard || controller)
-        if (Input.GetButtonDown("Jump" + m_cPlayerNumber.ToString() && !m_bIsOut && !m_bInCrane) || m_gamePadState.Triggers.Left > 0.0f)
+        if ((Input.GetButtonDown("Jump" + m_cPlayerNumber.ToString()) || m_gamePadState.Triggers.Left > 0.0f) && !m_bIsOut && !m_bInCrane)
         {
             GetComponent<Dash>().DoDash();
         }
 
         if (!m_bPickedUp && !m_bIsOut && !m_bInCrane)
         {
+            RaycastHit ray = new RaycastHit();
             // Get origin of raycast above player so it doesn't bug when just using player position
             Vector3 v3OriginPos = transform.position;
             v3OriginPos.y += 1.0f;
-            RaycastHit ray = new RaycastHit();
-            if (Physics.Raycast(v3OriginPos, Vector3.down, out ray, m_fHoverHeight) && ray.collider.CompareTag("Ground"))
+            if (Physics.Raycast(v3OriginPos, Vector3.down, 2.5f))
             {
-                // Get origin of raycast above player so it doesn't bug when just using player position
-                Vector3 v3OriginPos = transform.position;
-                v3OriginPos.y += 1.0f;
-                if (Physics.Raycast(v3OriginPos, Vector3.down, 2.5f))
-                {
-                    m_rigidbody.AddForce(Vector3.up * m_rigidbody.mass * (550.0f - transform.position.y) * Time.deltaTime);
-                }
                 m_rigidbody.AddForce(Vector3.up * m_rigidbody.mass * (550.0f - transform.position.y) * Time.deltaTime);
-                m_rigidbody.AddForce(Vector3.up * m_rigidbody.mass * (m_fHoverForce - (transform.position.y * m_fHeightFromHoverMultiplier)) * Time.deltaTime);
             }
+            m_rigidbody.AddForce(Vector3.up * m_rigidbody.mass * (550.0f - transform.position.y) * Time.deltaTime);
+            m_rigidbody.AddForce(Vector3.up * m_rigidbody.mass * (m_fHoverForce - (transform.position.y * m_fHeightFromHoverMultiplier)) * Time.deltaTime);
         }
 
         // Nullify angular velocity so it doesn't conflict with quaternion lerp
