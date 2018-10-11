@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
     public CruiseControl m_cruiseControl;
 
     private GamePadState m_gamePadState;
-    PlayerIndex m_playerIndex;
+    private PlayerIndex m_playerIndex;
 
     private Rigidbody m_rigidbody;
     // reference to the rigidbody of the arm
@@ -103,6 +103,11 @@ public class PlayerController : MonoBehaviour
             float fRotate = Input.GetAxis("Rotate" + m_cPlayerNumber.ToString());
             transform.Rotate(new Vector3(0.0f, fRotate * m_fRotateSpeed, 0.0f));
         }
+
+        // rotate (controller)
+        Vector3 v3LookDirection = new Vector3(rightRotation, 0.0f, forwardRotation);
+        if (v3LookDirection.magnitude > 0.0f)
+            transform.rotation = Quaternion.LookRotation(v3LookDirection);
 
         // Activate dash (keyboard || controller)
         if (Input.GetButtonDown("Jump" + m_cPlayerNumber.ToString())

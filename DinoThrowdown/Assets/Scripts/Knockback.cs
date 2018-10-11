@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using XInputDotNetPure;
 
 public class Knockback : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class Knockback : MonoBehaviour
     public float m_fBaseWeaponKnockbackForce = 500.0f;
 
     public float m_fVelocityFactor = 100.0f;
+    public float m_fVibrateTime = 0.5f;
+
     // handles when the player should recieve less knockback
     [HideInInspector]
     public KnockbackShield m_shield;
@@ -23,10 +26,13 @@ public class Knockback : MonoBehaviour
     private float m_fKnockbackMeter = 0;
     // used to check if being hit by a larger weapon
     private Vector3 m_v3Larger;
+    private float m_fVibrateTimer;
+    private bool m_bIsVibrating;
 
     // Use this for initialization
     void Awake()
     {
+        m_fVibrateTimer = m_fVibrateTime;
         m_rigidbody = GetComponent<Rigidbody>();
 
         m_shield.bFlag = false;
@@ -85,7 +91,6 @@ public class Knockback : MonoBehaviour
             m_rigidbody.AddExplosionForce(fExplosionForce, v3ExplosionPos, 5.0f);
 
             Debug.Log("weapon");
-
             m_fKnockbackMeter += fExplosionForce * 0.02f;
 
             // Clamp knockback meter
@@ -94,6 +99,17 @@ public class Knockback : MonoBehaviour
                 m_fKnockbackMeter = 100.0f;
             }
 
+            // vibrate player's controller
+            if (!m_bIsVibrating)
+            {
+                GamePad.SetVibration((PlayerIndex)GetComponent<PlayerController>().m_cPlayerNumber - 1, 1.0f, 1.0f);
+                m_fVibrateTimer = m_fVibrateTime;
+
+                if (m_fVibrateTimer <= 0.0f)
+                {
+                    m_bIsVibrating = false;
+                }
+            }
         }
     }
 
