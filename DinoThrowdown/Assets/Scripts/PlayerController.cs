@@ -178,6 +178,8 @@ public class PlayerController : MonoBehaviour
     // moves with little momentum based on input
     private void Cruise(float fHorizontal, float fVertical)
     {
+        // prevent stutter
+        m_rigidbody.velocity = Vector3.zero;
         //direction based on input
         Vector3 v3Direction = new Vector3(0.0f, 0.0f, 0.0f);
         v3Direction.x = fHorizontal * m_fCruiseSpeed * Time.deltaTime;
