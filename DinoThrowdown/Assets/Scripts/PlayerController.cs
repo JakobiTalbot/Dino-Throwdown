@@ -91,7 +91,9 @@ public class PlayerController : MonoBehaviour
         // Get origin of raycast above player so it doesn't bug when just using player position
         Vector3 v3OriginPos = transform.position;
         v3OriginPos.y += 1.0f;
-        if (Physics.Raycast(v3OriginPos, Vector3.down, 2.5f))
+        RaycastHit ray = new RaycastHit();
+        if (Physics.Raycast(v3OriginPos, Vector3.down, out ray, 2.5f)
+            && ray.collider.CompareTag("Ground"))
         {
             m_rigidbody.AddForce(Vector3.up * m_rigidbody.mass * (550.0f - transform.position.y) * Time.deltaTime);
         }
@@ -104,7 +106,7 @@ public class PlayerController : MonoBehaviour
             Quaternion.Euler(0.0f, transform.rotation.eulerAngles.y, 0.0f), m_fCorrectionSpeed);
 
         // checks if the fire button was pressed
-        if (Input.GetAxis("Fire" + m_cPlayerNumber.ToString()) != 0.0f)
+        if (Input.GetAxis("Fire" + m_cPlayerNumber.ToString()) > 0.0f)
         {
             // sets the player to attacking
             m_bIsAttacking = true;
