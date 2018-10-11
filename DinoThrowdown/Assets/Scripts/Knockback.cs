@@ -54,6 +54,16 @@ public class Knockback : MonoBehaviour
                 m_shield.fTimer = 5.0f;
             }
         }
+
+        if (m_bIsVibrating)
+        {
+            // decrement vibration timer
+            m_fVibrateTimer -= Time.deltaTime;
+            if (m_fVibrateTimer <= 0.0f)
+            {
+                m_bIsVibrating = false;
+            }
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -105,14 +115,6 @@ public class Knockback : MonoBehaviour
                 GamePad.SetVibration((PlayerIndex)GetComponent<PlayerController>().m_cPlayerNumber - 1, 1.0f, 1.0f);
                 m_fVibrateTimer = m_fVibrateTime;
                 m_bIsVibrating = true;
-            }
-            else
-            {
-                m_fVibrateTimer -= Time.deltaTime;
-                if (m_fVibrateTimer <= 0.0f)
-                {
-                    m_bIsVibrating = false;
-                }
             }
         }
     }
