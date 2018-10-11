@@ -62,6 +62,7 @@ public class Knockback : MonoBehaviour
             if (m_fVibrateTimer <= 0.0f)
             {
                 m_bIsVibrating = false;
+                GamePad.SetVibration((PlayerIndex)GetComponent<PlayerController>().m_cPlayerNumber - 1, 0.0f, 0.0f);
             }
         }
     }
