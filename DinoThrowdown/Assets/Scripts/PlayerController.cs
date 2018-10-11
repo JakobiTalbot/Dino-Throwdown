@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
 
         // Get player input (controller)
         v2Movement.x += m_gamePadState.ThumbSticks.Left.X;
-        v2Movement.y += m_gamePadState.ThumbSticks.Right.Y;
+        v2Movement.y += m_gamePadState.ThumbSticks.Left.Y;
 
         v2Movement.Normalize();
 
@@ -94,6 +94,7 @@ public class PlayerController : MonoBehaviour
             Cruise(v2Movement.x, v2Movement.y);
         }
 
+        // get gamepad right stick input
         float rightRotation = m_gamePadState.ThumbSticks.Right.X;
         float forwardRotation = m_gamePadState.ThumbSticks.Right.Y;
 
