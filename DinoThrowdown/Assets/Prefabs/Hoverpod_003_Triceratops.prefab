@@ -74,13 +74,14 @@ GameObject:
   - component: {fileID: 33400327851218914}
   - component: {fileID: 23250090906469464}
   - component: {fileID: 95799842443841190}
+  - component: {fileID: 114924188071209448}
   - component: {fileID: 114416280622046642}
   - component: {fileID: 114068037925105280}
   - component: {fileID: 54827285120791870}
   - component: {fileID: 64355101867880034}
   m_Layer: 0
   m_Name: Hoverpod_003_Triceratops
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -292,7 +293,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 32
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!64 &64355101867880034
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -387,3 +388,16 @@ MonoBehaviour:
   m_fWeaponKnockbackForce: 500
   m_fBaseWeaponKnockbackForce: 500
   m_fVelocityFactor: 100
+--- !u!114 &114924188071209448
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1985458462396902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03df447142469fb41931c95036fcb8ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_fDashForce: 1000
+  m_fDashCooldown: 5

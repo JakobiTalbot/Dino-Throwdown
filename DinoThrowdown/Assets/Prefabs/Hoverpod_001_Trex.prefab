@@ -40,10 +40,11 @@ GameObject:
   - component: {fileID: 54952487217749096}
   - component: {fileID: 64780288528316264}
   - component: {fileID: 114425542154673888}
+  - component: {fileID: 114213850701857672}
   - component: {fileID: 114190588944442738}
   m_Layer: 0
   m_Name: Hoverpod_001_Trex
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,7 +107,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1224762412957598}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -9.51, y: 2.6, z: -0.01}
+  m_LocalPosition: {x: -11, y: 2.6, z: -0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4007746815654916}
@@ -277,7 +278,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 32
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!54 &54979239995693344
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -367,6 +368,19 @@ MonoBehaviour:
   m_fWeaponKnockbackForce: 500
   m_fBaseWeaponKnockbackForce: 500
   m_fVelocityFactor: 100
+--- !u!114 &114213850701857672
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1224762412957598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03df447142469fb41931c95036fcb8ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_fDashForce: 1000
+  m_fDashCooldown: 5
 --- !u!114 &114425542154673888
 MonoBehaviour:
   m_ObjectHideFlags: 1

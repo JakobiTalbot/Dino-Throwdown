@@ -42,9 +42,10 @@ public class Dash : MonoBehaviour
         {
             // Get position for explosive force
             Vector3 v3ExplosionPos = transform.position;
-            v3ExplosionPos.x -= Input.GetAxis("Horizontal");
-            v3ExplosionPos.y = transform.position.y + 0.7f; // So the player doesn't fly
-            v3ExplosionPos.z -= Input.GetAxis("Vertical");
+            v3ExplosionPos.x -= 0.5f; // because the transform.position isn't the centre of the model
+            v3ExplosionPos.x -= Input.GetAxis("Horizontal" + GetComponent<PlayerController>().m_cPlayerNumber.ToString()) * 3.0f;
+            v3ExplosionPos.y = transform.position.y + 1.0f; // So the player doesn't fly
+            v3ExplosionPos.z -= Input.GetAxis("Vertical" + GetComponent<PlayerController>().m_cPlayerNumber.ToString()) * 3.0f;
 
             m_rigidbody.AddExplosionForce(m_fDashForce, v3ExplosionPos, 20.0f);
             m_bCanDash = false;
