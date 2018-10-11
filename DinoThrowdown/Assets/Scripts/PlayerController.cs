@@ -36,8 +36,6 @@ public class PlayerController : MonoBehaviour
     private PlayerIndex m_playerIndex;
 
     private Rigidbody m_rigidbody;
-    // reference to the rigidbody of the arm
-    private Rigidbody m_armRigidbody;
     // contains weapon
     public GameObject m_weapon;
     // determines if the player is attacking
@@ -49,7 +47,6 @@ public class PlayerController : MonoBehaviour
         // Ignore collision between weapon and player
         Physics.IgnoreCollision(m_arm.GetComponentInChildren<BoxCollider>(), GetComponent<MeshCollider>());
         m_rigidbody = GetComponent<Rigidbody>();
-        m_armRigidbody = m_arm.GetComponent<Rigidbody>();
 
         // Get playerindex (-1 because XInput starts index at 0)
         m_playerIndex = (PlayerIndex)m_cPlayerNumber - 1;
