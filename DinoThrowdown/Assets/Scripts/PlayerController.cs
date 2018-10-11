@@ -24,8 +24,10 @@ public class PlayerController : MonoBehaviour
     public float m_fHoverForce = 550.0f;
     // the effectiveness of height decreasing hover force
     public float m_fHeightFromHoverMultiplier = 50.0f;
-    // the speed in which the body rotates
-    public float m_fRotateSpeed = 10.0f;
+    // the speed in which the body rotates for keyboard input
+    public float m_fRotateSpeedKeyboard = 10.0f;
+    // the speed in which the body rotates for controller input
+    public float m_fRotateSpeedController = 0.1f;
     // the movement speed during cruise control
     public float m_fCruiseSpeed = 8.0f;
     // the speed at which the weapon swings
@@ -110,13 +112,13 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButton("Rotate" + m_cPlayerNumber.ToString()))
         {
             float fRotate = Input.GetAxis("Rotate" + m_cPlayerNumber.ToString());
-            transform.Rotate(new Vector3(0.0f, fRotate * m_fRotateSpeed, 0.0f));
+            transform.Rotate(new Vector3(0.0f, fRotate * m_fRotateSpeedKeyboard, 0.0f));
         }
 
         // rotate (controller)
         Vector3 v3LookDirection = new Vector3(rightRotation, 0.0f, forwardRotation);
         if (v3LookDirection.magnitude > 0.0f)
-            transform.rotation = Quaternion.LookRotation(v3LookDirection);
+            transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.LookRotation(v3LookDirection), m_fRotateSpeedController);
 
         // Activate dash (keyboard || controller)
         if (Input.GetButtonDown("Jump" + m_cPlayerNumber.ToString())
