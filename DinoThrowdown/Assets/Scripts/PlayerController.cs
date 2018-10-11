@@ -143,7 +143,7 @@ public class PlayerController : MonoBehaviour
         v3Direction.z = fVertical * m_fCruiseSpeed * Time.deltaTime;
 
         // moves the rigidbody by the direction
-        m_rigidbody.MovePosition(m_rigidbody.position + v3Direction);
+        transform.position += v3Direction;
 
         // decrements the timer
         m_cruiseControl.fTimer -= Time.deltaTime;
