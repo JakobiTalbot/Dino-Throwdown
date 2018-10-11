@@ -64,14 +64,17 @@ public class PlayerController : MonoBehaviour
     // determines if the player is grabbing with the claw
     private bool m_bIsGrabbing = false;
 
-    private Vector3 v3StartArmRotation;
-    private Vector3 v3EndArmRotation;
+    private Vector3 m_v3StartArmRotation;
+    private Vector3 m_v3EndArmRotation;
+
+    private BoxCollider m_attackTrigger;
+
+    [HideInInspector]
+    public bool m_bWeaponHit = false;
 
 	// Use this for initialization
 	void Awake()
     {
-        // Ignore collision between weapon and player
-        Physics.IgnoreCollision(m_arm.GetComponentInChildren<BoxCollider>(), GetComponent<MeshCollider>());
         m_rigidbody = GetComponent<Rigidbody>();
 
         // Get playerindex (-1 because XInput starts index at 0)
@@ -90,9 +93,13 @@ public class PlayerController : MonoBehaviour
         m_cruiseControl.bFlag = false;
         m_cruiseControl.fTimer = 5.0f;
 
-        v3StartArmRotation = m_arm.transform.localRotation.eulerAngles;
-        v3EndArmRotation = v3StartArmRotation;
-        v3EndArmRotation.y -= 90.0f;
+        // get start and end rotation for the weapon
+        m_v3StartArmRotation = m_arm.transform.localRotation.eulerAngles;
+        m_v3EndArmRotation = m_v3StartArmRotation;
+        m_v3EndArmRotation.y -= 90.0f;
+
+        // get attack trigger
+        m_attackTrigger = GetComponent<BoxCollider>();
     }
 	
 	// Update is called once per frame
@@ -251,18 +258,19 @@ public class PlayerController : MonoBehaviour
     private void Attack()
     {
         // checks if the arm should still rotate
-        if (m_arm.transform.localRotation.eulerAngles.y > (360.0f + v3EndArmRotation.y + 1.0f) || (m_arm.transform.localRotation.eulerAngles.y <= 0.1f && m_arm.transform.localRotation.eulerAngles.y >= -0.1f))
+        if (m_arm.transform.localRotation.eulerAngles.y > (360.0f + m_v3EndArmRotation.y + 1.0f) || (m_arm.transform.localRotation.eulerAngles.y <= 0.1f && m_arm.transform.localRotation.eulerAngles.y >= -0.1f))
         {
             // rotates the arm
-            m_arm.transform.localRotation = (Quaternion.Lerp(m_arm.transform.localRotation, Quaternion.Euler(v3EndArmRotation), m_fAttackSpeed));
+            m_arm.transform.localRotation = (Quaternion.Lerp(m_arm.transform.localRotation, Quaternion.Euler(m_v3EndArmRotation), m_fAttackSpeed));
         }
         else
         {
             // sets the transform back to the original
-            m_arm.transform.localRotation = Quaternion.Euler(v3StartArmRotation);
+            m_arm.transform.localRotation = Quaternion.Euler(m_v3StartArmRotation);
             m_weapon.transform.localScale = new Vector3(2.0f, 0.2f, 0.2f);
             // sets the player to not attacking
             m_bIsAttacking = false;
+            m_bWeaponHit = false;
         }
     }
 

@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 114425542154673888}
   - component: {fileID: 114213850701857672}
   - component: {fileID: 114190588944442738}
+  - component: {fileID: 65246966589078592}
   m_Layer: 0
   m_Name: Hoverpod_001_Trex
   m_TagString: Player
@@ -76,9 +77,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4531765856121030}
   - component: {fileID: 33155399181688672}
-  - component: {fileID: 65572498074203188}
   - component: {fileID: 23304492678065514}
-  - component: {fileID: 54979239995693344}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Weapon
@@ -279,21 +278,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 32
   m_CollisionDetection: 2
---- !u!54 &54979239995693344
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1736143221799452}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 0
 --- !u!64 &64780288528316264
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -308,18 +292,18 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 4306f2652fc619c4a820a309fcf19e7a, type: 3}
---- !u!65 &65572498074203188
+--- !u!65 &65246966589078592
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1736143221799452}
+  m_GameObject: {fileID: 1224762412957598}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.85, y: 1, z: 1}
-  m_Center: {x: 0.075, y: 0, z: 0}
+  m_Size: {x: 3.7907, y: 1.2696843, z: 3.0919964}
+  m_Center: {x: 0.86310744, y: 0.9271834, z: 3.2735038}
 --- !u!95 &95738656593871630
 Animator:
   serializedVersion: 3
@@ -367,6 +351,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_fWeaponKnockbackForce: 500
   m_fBaseWeaponKnockbackForce: 500
+  m_fForceToKnockbackMeter: 0.01
   m_fVelocityFactor: 100
   m_fVibrateTime: 0.2
 --- !u!114 &114213850701857672
@@ -410,3 +395,4 @@ MonoBehaviour:
   m_bInCrane: 0
   m_claw: {fileID: 0}
   m_weapon: {fileID: 1736143221799452}
+  m_bWeaponHit: 0

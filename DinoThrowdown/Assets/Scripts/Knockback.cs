@@ -15,6 +15,8 @@ public class Knockback : MonoBehaviour
     public float m_fWeaponKnockbackForce = 500.0f;
     public float m_fBaseWeaponKnockbackForce = 500.0f;
 
+    public float m_fForceToKnockbackMeter = 0.01f;
+
     public float m_fVelocityFactor = 100.0f;
     public float m_fVibrateTime = 0.5f;
 
@@ -67,18 +69,20 @@ public class Knockback : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerStay(Collider other)
     {
-        if (collision.gameObject.CompareTag("Weapon") && collision.gameObject.GetComponentInParent<Component>().GetComponentInParent<Component>().GetComponentInParent<PlayerController>().GetAttacking())
+        if (other.gameObject.CompareTag("Weapon") 
+            && other.gameObject.GetComponentInParent<Component>().GetComponentInParent<Component>().GetComponentInParent<PlayerController>().GetAttacking() 
+            && !other.gameObject.GetComponentInParent<Component>().GetComponentInParent<Component>().GetComponentInParent<PlayerController>().m_bWeaponHit)
         {
             // Find average position of two objects colliding
-            Vector3 v3ExplosionPos = (collision.gameObject.transform.position + transform.position) * 0.5f;
+            Vector3 v3ExplosionPos = (other.gameObject.transform.position + transform.position) * 0.5f;
             v3ExplosionPos.y += 0.5f;
-            float fRelaVelForce = (collision.rigidbody.velocity - GetComponent<Rigidbody>().velocity).magnitude * m_fVelocityFactor;
+            float fRelaVelForce = (other.gameObject.GetComponentInParent<Component>().GetComponentInParent<Component>().GetComponentInParent<Rigidbody>().velocity - GetComponent<Rigidbody>().velocity).magnitude * m_fVelocityFactor;
             float fExplosionForce = (m_fWeaponKnockbackForce + fRelaVelForce) * (m_fKnockbackMeter / 100.0f) + m_fBaseWeaponKnockbackForce;
 
             // checks if the object is a weapon with the increase size pickup
-            if (collision.gameObject.transform.localScale == m_v3Larger)
+            if (other.gameObject.transform.localScale == m_v3Larger)
             {
                 // doubles the force
                 fExplosionForce *= 2.0f;
@@ -99,11 +103,13 @@ public class Knockback : MonoBehaviour
                 }
             }
 
+            // do knockback
             m_rigidbody.AddExplosionForce(fExplosionForce, v3ExplosionPos, 5.0f);
 
-            m_fKnockbackMeter += fExplosionForce * 0.01f;
+            // increase knockback meter
+            m_fKnockbackMeter += fExplosionForce * m_fForceToKnockbackMeter;
 
-            // Clamp knockback meter
+            // clamp knockback meter
             if (m_fKnockbackMeter > 100.0f)
             {
                 m_fKnockbackMeter = 100.0f;
@@ -116,6 +122,8 @@ public class Knockback : MonoBehaviour
                 m_fVibrateTimer = m_fVibrateTime;
                 m_bIsVibrating = true;
             }
+
+            other.gameObject.GetComponentInParent<Component>().GetComponentInParent<Component>().GetComponentInParent<PlayerController>().m_bWeaponHit = true;
         }
     }
 
