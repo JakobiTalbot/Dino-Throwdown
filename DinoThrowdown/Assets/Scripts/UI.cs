@@ -19,8 +19,8 @@ public class UI : MonoBehaviour
             m_knockbackTexts[i].GetComponent<Text>().text = value.ToString() + "%";
 
             // Set bar size
-            m_knockbackBars[i].GetComponent<RectTransform>().sizeDelta = new Vector2(value,
-                m_knockbackBars[i].GetComponent<RectTransform>().sizeDelta.y);
+            //m_knockbackBars[i].GetComponent<RectTransform>().sizeDelta = new Vector2(value,
+            //    m_knockbackBars[i].GetComponent<RectTransform>().sizeDelta.y);
         }
     }
 	// Update is called once per frame
@@ -35,8 +35,8 @@ public class UI : MonoBehaviour
                 m_knockbackTexts[i].GetComponent<Text>().text = value.ToString() + "%";
 
                 // Set bar size
-                m_knockbackBars[i].GetComponent<RectTransform>().sizeDelta = new Vector2(value,
-                    m_knockbackBars[i].GetComponent<RectTransform>().sizeDelta.y);
+                //m_knockbackBars[i].GetComponent<RectTransform>().sizeDelta = new Vector2(value,
+                //    m_knockbackBars[i].GetComponent<RectTransform>().sizeDelta.y);
             }
             else
             {

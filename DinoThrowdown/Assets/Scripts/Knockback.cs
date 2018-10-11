@@ -101,7 +101,7 @@ public class Knockback : MonoBehaviour
 
             m_rigidbody.AddExplosionForce(fExplosionForce, v3ExplosionPos, 5.0f);
 
-            m_fKnockbackMeter += fExplosionForce * 0.02f;
+            m_fKnockbackMeter += fExplosionForce * 0.01f;
 
             // Clamp knockback meter
             if (m_fKnockbackMeter > 100.0f)
