@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using XboxCtrlrInput;
+using XInputDotNetPure;
 
 public class PlayerController : MonoBehaviour
 {
@@ -31,6 +32,9 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     public CruiseControl m_cruiseControl;
 
+    private GamePadState m_gamePadState;
+    PlayerIndex m_playerIndex;
+
     private Rigidbody m_rigidbody;
     // reference to the rigidbody of the arm
     private Rigidbody m_armRigidbody;
@@ -47,6 +51,12 @@ public class PlayerController : MonoBehaviour
         m_rigidbody = GetComponent<Rigidbody>();
         m_armRigidbody = m_arm.GetComponent<Rigidbody>();
 
+        // Get playerindex (-1 because XInput starts index at 0)
+        m_playerIndex = (PlayerIndex)m_cPlayerNumber - 1;
+
+        // get player's gamepad
+        m_gamePadState = GamePad.GetState(m_playerIndex);
+
         // Set friction to 0 so object doesn't get stuck to other objects
         GetComponent<MeshCollider>().material = new PhysicMaterial()
         {
@@ -61,28 +71,42 @@ public class PlayerController : MonoBehaviour
 	// Update is called once per frame
 	void Update()
     {
-        // Get player input
-        float rightMovement = Input.GetAxis("Horizontal" + m_cPlayerNumber.ToString());
-        float forwardMovement = Input.GetAxis("Vertical" + m_cPlayerNumber.ToString());
+        // get controller input
+        m_gamePadState = GamePad.GetState(m_playerIndex);
+
+        // Get player input (keyboard)
+        Vector2 v2Movement = new Vector2(Input.GetAxis("Horizontal" + m_cPlayerNumber.ToString()), 
+            Input.GetAxis("Vertical" + m_cPlayerNumber.ToString()));
+
+        // Get player input (controller)
+        v2Movement.x += m_gamePadState.ThumbSticks.Left.X;
+        v2Movement.y += m_gamePadState.ThumbSticks.Right.Y;
+
+        v2Movement.Normalize();
 
         // moves based on the cruise control flag
         if (!m_cruiseControl.bFlag)
         {
-            Move(rightMovement, forwardMovement);
+            Move(v2Movement.x, v2Movement.y);
         }
         else
         {
-            Cruise(rightMovement, forwardMovement);
+            Cruise(v2Movement.x, v2Movement.y);
         }
 
+        float rightRotation = m_gamePadState.ThumbSticks.Right.X;
+        float forwardRotation = m_gamePadState.ThumbSticks.Right.Y;
+
+        // rotate (keyboard)
         if (Input.GetButton("Rotate" + m_cPlayerNumber.ToString()))
         {
             float fRotate = Input.GetAxis("Rotate" + m_cPlayerNumber.ToString());
             transform.Rotate(new Vector3(0.0f, fRotate * m_fRotateSpeed, 0.0f));
         }
 
-        // Activate dash
-        if (Input.GetButtonDown("Jump" + m_cPlayerNumber.ToString()))
+        // Activate dash (keyboard || controller)
+        if (Input.GetButtonDown("Jump" + m_cPlayerNumber.ToString())
+            || m_gamePadState.Triggers.Left > 0.0f)
         {
             GetComponent<Dash>().DoDash();
         }
@@ -105,8 +129,9 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.Lerp(transform.rotation, 
             Quaternion.Euler(0.0f, transform.rotation.eulerAngles.y, 0.0f), m_fCorrectionSpeed);
 
-        // checks if the fire button was pressed
-        if (Input.GetAxis("Fire" + m_cPlayerNumber.ToString()) > 0.0f)
+        // checks if the fire button was pressed (keyboard || controller)
+        if (Input.GetAxis("Fire" + m_cPlayerNumber.ToString()) > 0.0f
+            || m_gamePadState.Triggers.Right > 0.0f)
         {
             // sets the player to attacking
             m_bIsAttacking = true;
