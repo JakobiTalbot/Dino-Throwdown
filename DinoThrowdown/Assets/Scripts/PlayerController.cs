@@ -18,8 +18,12 @@ public class PlayerController : MonoBehaviour
     public float m_fVelocity = 10.0f;
     // how fast the object lerps rotation to X and Z = 0
     public float m_fCorrectionSpeed = 0.01f;
+    // the height at which the player hovers
+    public float m_fHoverHeight = 2.0f;
     // the upwards force to push the rigidbody when above another object
     public float m_fHoverForce = 550.0f;
+    // the effectiveness of height decreasing hover force
+    public float m_fHeightFromHoverMultiplier = 50.0f;
     // the speed in which the body rotates
     public float m_fRotateSpeed = 10.0f;
     // the movement speed during cruise control
@@ -126,10 +130,10 @@ public class PlayerController : MonoBehaviour
         Vector3 v3OriginPos = transform.position;
         v3OriginPos.y += 1.0f;
         RaycastHit ray = new RaycastHit();
-        if (Physics.Raycast(v3OriginPos, Vector3.down, out ray, 2.5f)
+        if (Physics.Raycast(v3OriginPos, Vector3.down, out ray, m_fHoverHeight)
             && ray.collider.CompareTag("Ground"))
         {
-            m_rigidbody.AddForce(Vector3.up * m_rigidbody.mass * (550.0f - transform.position.y) * Time.deltaTime);
+            m_rigidbody.AddForce(Vector3.up * m_rigidbody.mass * (m_fHoverForce - (transform.position.y * m_fHeightFromHoverMultiplier)) * Time.deltaTime);
         }
 
         // Nullify angular velocity so it doesn't conflict with quaternion lerp
