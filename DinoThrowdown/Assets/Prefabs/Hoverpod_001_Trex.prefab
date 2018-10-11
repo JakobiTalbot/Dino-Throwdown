@@ -107,7 +107,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1224762412957598}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -11, y: 2.6, z: -0.01}
+  m_LocalPosition: {x: -8.84198, y: 2.0802245, z: -0.3173504}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4007746815654916}
@@ -368,6 +368,7 @@ MonoBehaviour:
   m_fWeaponKnockbackForce: 500
   m_fBaseWeaponKnockbackForce: 500
   m_fVelocityFactor: 100
+  m_fVibrateTime: 0.5
 --- !u!114 &114213850701857672
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -393,9 +394,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_cPlayerNumber: 1
-  m_fVelocity: 10
-  m_fCorrectionSpeed: 0.01
-  m_fHoverForce: 550
+  m_fVelocity: 20
+  m_fCorrectionSpeed: 0.5
+  m_fHoverForce: 750
   m_fRotateSpeed: 5
   m_fCruiseSpeed: 8
   m_fAttackSpeed: 0.1
