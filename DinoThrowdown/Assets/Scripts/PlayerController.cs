@@ -197,10 +197,6 @@ public class PlayerController : MonoBehaviour
         // checks if the arm should still rotate
         if (m_arm.transform.localRotation.eulerAngles.y > (360.0f + v3EndArmRotation.y + 1.0f) || (m_arm.transform.localRotation.eulerAngles.y <= 0.1f && m_arm.transform.localRotation.eulerAngles.y >= -0.1f))
         {
-            if (m_cPlayerNumber == 1)
-            {
-                Debug.Log((360.0f + v3EndArmRotation.y + 1.0f));
-            }
             // rotates the arm
             m_arm.transform.localRotation = (Quaternion.Lerp(m_arm.transform.localRotation, Quaternion.Euler(v3EndArmRotation), m_fAttackSpeed));
         }
