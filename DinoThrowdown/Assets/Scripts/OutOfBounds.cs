@@ -43,7 +43,7 @@ public class OutOfBounds : MonoBehaviour
                 }
 
                 // sends the player to the crane
-                playerController.transform.position = new Vector3(-22.5f, 7.3f, 31.5f);
+                playerController.transform.position = new Vector3(-17.0f, 6.0f, 21.0f);
                 playerController.transform.localRotation = Quaternion.Euler(0.0f, 144.0f, 0.0f);
                 // changes the status of the player to in the crane
                 playerController.m_bInCrane = true;

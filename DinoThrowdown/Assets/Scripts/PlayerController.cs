@@ -324,7 +324,7 @@ public class PlayerController : MonoBehaviour
             m_crane.m_player = gameObject;
 
             // sends the player to the crane
-            transform.position = new Vector3(-22.5f, 7.3f, 31.5f);
+            transform.position = new Vector3(-17.0f, 6.0f, 21.0f);
             transform.localRotation = Quaternion.Euler(0.0f, 144.0f, 0.0f);
             // sets the status as not out or picked up and in the crane
             m_bIsOut = false;
