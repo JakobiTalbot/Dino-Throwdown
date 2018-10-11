@@ -401,3 +401,4 @@ MonoBehaviour:
   m_fWeaponKnockbackForce: 500
   m_fBaseWeaponKnockbackForce: 500
   m_fVelocityFactor: 100
+  m_fVibrateTime: 0.2
