@@ -5517,6 +5517,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4245531155439254, guid: d44514199fc1c544798a8c0e5049d02a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 1.25
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 65286583393798310, guid: d44514199fc1c544798a8c0e5049d02a, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d44514199fc1c544798a8c0e5049d02a, type: 2}
@@ -6605,6 +6609,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4969998510758350, guid: e052215332d9f374398dae35bb823016, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 1.25
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 65729450021800644, guid: e052215332d9f374398dae35bb823016, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: e052215332d9f374398dae35bb823016, type: 2}
@@ -6657,6 +6665,14 @@ Prefab:
     - target: {fileID: 4376638378856238, guid: caac8ffd014267b45a4594e09c28a2c2, type: 2}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065441409727548, guid: caac8ffd014267b45a4594e09c28a2c2, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065441409727548, guid: caac8ffd014267b45a4594e09c28a2c2, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 2.5
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 65980529732327078, guid: caac8ffd014267b45a4594e09c28a2c2, type: 2}
@@ -7059,6 +7075,10 @@ Prefab:
     - target: {fileID: 4268429517351810, guid: 233ef30d6ae3ae546af22cc1d97724af, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531765856121030, guid: 233ef30d6ae3ae546af22cc1d97724af, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 1.25
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 65246966589078592, guid: 233ef30d6ae3ae546af22cc1d97724af, type: 2}

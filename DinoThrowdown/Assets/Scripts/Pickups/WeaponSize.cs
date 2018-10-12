@@ -16,6 +16,10 @@ public class WeaponSize : Pickup
             GameObject weapon = other.GetComponent<PlayerController>().m_weapon;
             // doubles the scale of the object
             weapon.transform.localScale = weapon.transform.localScale * 2.0f;
+            // set position of weapon because of changed scale
+            Vector3 v3ScaledPos = weapon.transform.localPosition;
+            v3ScaledPos.x *= 2.0f;
+            weapon.transform.localPosition = v3ScaledPos;
             // sets this object to inactive
             gameObject.SetActive(false);
             // empties the spawn point

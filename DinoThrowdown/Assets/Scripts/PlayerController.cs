@@ -267,7 +267,8 @@ public class PlayerController : MonoBehaviour
         {
             // sets the transform back to the original
             m_arm.transform.localRotation = Quaternion.Euler(m_v3StartArmRotation);
-            m_weapon.transform.localScale = new Vector3(2.0f, 0.2f, 0.2f);
+            m_weapon.transform.localScale = new Vector3(2.5f, 0.2f, 0.2f);
+            m_weapon.transform.localPosition = new Vector3(1.25f, 0.0f, 0.0f);
             // sets the player to not attacking
             m_bIsAttacking = false;
             m_bWeaponHit = false;
