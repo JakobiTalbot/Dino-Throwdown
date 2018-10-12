@@ -32,6 +32,12 @@ public class PlayerController : MonoBehaviour
     public float m_fCruiseSpeed = 8.0f;
     // the speed at which the weapon swings
     public float m_fAttackSpeed = 0.1f;
+    // speed of the claw movement
+    public float m_fClawSpeed = 15.0f;
+    // speed at which the player is picked up
+    public float m_fPickupSpeed = 15.0f;
+    // reference to the claw that will be used
+    public GameObject m_claw;
     // reference to the arm which contains the weapon
     public GameObject m_arm;
     // reference to the crane
@@ -49,9 +55,6 @@ public class PlayerController : MonoBehaviour
     // handles when the player should cruise
     [HideInInspector]
     public CruiseControl m_cruiseControl;
-    // reference to the claw that will be used
-
-    public GameObject m_claw;
 
     private GamePadState m_gamePadState;
     private PlayerIndex m_playerIndex;
@@ -247,8 +250,8 @@ public class PlayerController : MonoBehaviour
     {
         //direction based on input
         Vector3 v3Direction = new Vector3(0.0f, 0.0f, 0.0f);
-        v3Direction.x = fHorizontal * m_fCruiseSpeed * Time.deltaTime;
-        v3Direction.z = fVertical * m_fCruiseSpeed * Time.deltaTime;
+        v3Direction.x = fHorizontal * m_fClawSpeed * Time.deltaTime;
+        v3Direction.z = fVertical * m_fClawSpeed * Time.deltaTime;
 
         // moves the claw by the direction
         m_claw.GetComponent<Rigidbody>().MovePosition(m_claw.transform.position + v3Direction);
@@ -287,7 +290,7 @@ public class PlayerController : MonoBehaviour
         if (transform.position.y < 13.0f)
         {
             // moves the player up
-            transform.Translate(transform.up * Time.deltaTime * 10.0f);
+            transform.Translate(transform.up * Time.deltaTime * m_fPickupSpeed);
             // sets the object to kinematic
             m_rigidbody.isKinematic = true;
         }

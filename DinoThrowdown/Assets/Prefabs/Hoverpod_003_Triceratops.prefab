@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 4245531155439254}
   - component: {fileID: 33633085459991214}
   - component: {fileID: 23911105903550504}
+  - component: {fileID: 65284253377081376}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Weapon
@@ -74,7 +75,6 @@ GameObject:
   - component: {fileID: 95799842443841190}
   - component: {fileID: 54827285120791870}
   - component: {fileID: 64355101867880034}
-  - component: {fileID: 65286583393798310}
   - component: {fileID: 114924188071209448}
   - component: {fileID: 114416280622046642}
   - component: {fileID: 114068037925105280}
@@ -92,7 +92,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1985458462396902}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.2, z: -11}
+  m_LocalPosition: {x: -0.27, y: 2.1122246, z: -11.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4792236251450104}
@@ -120,7 +120,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1081126811455660}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalPosition: {x: 1.25, y: 0, z: 0}
   m_LocalScale: {x: 2.5, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 4243718335595824}
@@ -292,18 +292,18 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 19c8ca76c85e3f74b8171fecba73860a, type: 3}
---- !u!65 &65286583393798310
+--- !u!65 &65284253377081376
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1985458462396902}
+  m_GameObject: {fileID: 1081126811455660}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.7907, y: 1.2696843, z: 3.0919964}
-  m_Center: {x: 0.86310744, y: 0.9271834, z: 3.2735038}
+  m_Size: {x: 1, y: 3, z: 3}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &95640806077099672
 Animator:
   serializedVersion: 3
@@ -357,14 +357,16 @@ MonoBehaviour:
   m_fHeightFromHoverMultiplier: 50
   m_fRotateSpeedKeyboard: 10
   m_fRotateSpeedController: 0.1
-  m_fCruiseSpeed: 10
-  m_fAttackSpeed: 0.1
+  m_fCruiseSpeed: 15
+  m_fAttackSpeed: 0.5
+  m_fClawSpeed: 20
+  m_fPickupSpeed: 20
+  m_claw: {fileID: 0}
   m_arm: {fileID: 1880584305834530}
   m_crane: {fileID: 0}
   m_bPickedUp: 0
   m_bIsOut: 0
   m_bInCrane: 0
-  m_claw: {fileID: 0}
   m_weapon: {fileID: 1081126811455660}
   m_bWeaponHit: 0
 --- !u!114 &114416280622046642
@@ -383,6 +385,8 @@ MonoBehaviour:
   m_fForceToKnockbackMeter: 0.01
   m_fVelocityFactor: 100
   m_fVibrateTime: 0.2
+  m_hitParticles: {fileID: 1479954545993554, guid: 7ab8d50f7aa39104a8f7c08393d40ea6,
+    type: 2}
 --- !u!114 &114924188071209448
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -394,5 +398,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03df447142469fb41931c95036fcb8ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_fDashForce: 1000
+  m_fDashForce: 850
   m_fDashCooldown: 5

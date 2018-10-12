@@ -66,7 +66,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1479954545993554}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -17.389471, y: 0.053852558, z: -42.21745}
+  m_LocalPosition: {x: 6.83769, y: 8.73, z: -10.3398485}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4209684678927036}
@@ -92,7 +92,7 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1479954545993554}
   serializedVersion: 5
-  lengthInSec: 0.1
+  lengthInSec: 0.05
   simulationSpeed: 1
   stopAction: 0
   looping: 0
@@ -145,15 +145,15 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1757563786
+  randomSeed: -976069602
   InitialModule:
     serializedVersion: 3
     enabled: 1
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1
-      minScalar: 0.5
+      scalar: 2.46
+      minScalar: 0.15
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -193,8 +193,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 15
-      minScalar: 10
+      scalar: 26.2
+      minScalar: 25.7
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -541,13 +541,13 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 1000
+    maxNumParticles: 2117
     size3D: 0
     rotation3D: 0
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 12.56
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -787,7 +787,7 @@ ParticleSystem:
     m_BurstCount: 0
     m_Bursts: []
   SizeModule:
-    enabled: 0
+    enabled: 1
     curve:
       serializedVersion: 2
       minMaxState: 1
@@ -803,10 +803,10 @@ ParticleSystem:
           outSlope: 0
           tangentMode: 0
         - serializedVersion: 2
-          time: 1
+          time: 0.9473579
           value: 0
-          inSlope: 1
-          outSlope: 1
+          inSlope: -3.5212092
+          outSlope: -3.5212092
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -2493,7 +2493,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 3
     type: 1
     collisionMode: 0
@@ -3506,7 +3506,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1521323995
+  randomSeed: 1719516785
   InitialModule:
     serializedVersion: 3
     enabled: 1
