@@ -72,12 +72,12 @@ GameObject:
   - component: {fileID: 33400327851218914}
   - component: {fileID: 23250090906469464}
   - component: {fileID: 95799842443841190}
-  - component: {fileID: 114924188071209448}
-  - component: {fileID: 114416280622046642}
-  - component: {fileID: 114068037925105280}
   - component: {fileID: 54827285120791870}
   - component: {fileID: 64355101867880034}
   - component: {fileID: 65286583393798310}
+  - component: {fileID: 114924188071209448}
+  - component: {fileID: 114416280622046642}
+  - component: {fileID: 114068037925105280}
   m_Layer: 0
   m_Name: Hoverpod_003_Triceratops
   m_TagString: Player
@@ -92,7 +92,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1985458462396902}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.27, y: 2.1122246, z: -11.49}
+  m_LocalPosition: {x: 0, y: 2.2, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4792236251450104}
@@ -120,7 +120,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1081126811455660}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.85, y: 0, z: 0}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
   m_LocalScale: {x: 2.5, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 4243718335595824}
@@ -133,7 +133,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1046098025165754}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.026000023, y: -0.032000065, z: -0.045999527}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4243718335595824}

@@ -41,11 +41,11 @@ GameObject:
   - component: {fileID: 23649151448494540}
   - component: {fileID: 95834091752423452}
   - component: {fileID: 54509249671839196}
+  - component: {fileID: 64999080058313600}
+  - component: {fileID: 65980529732327078}
   - component: {fileID: 114421806135641628}
   - component: {fileID: 114506779149361908}
   - component: {fileID: 114435316115007682}
-  - component: {fileID: 64999080058313600}
-  - component: {fileID: 65980529732327078}
   m_Layer: 0
   m_Name: Hoverpod_004_Raptor
   m_TagString: Player
@@ -93,7 +93,7 @@ Transform:
   m_GameObject: {fileID: 1935560064609562}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1, y: 0, z: -0}
-  m_LocalScale: {x: 2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 2.5, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 4128220233615966}
   m_RootOrder: 0
@@ -104,14 +104,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1532377755639988}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.0000030696388}
-  m_LocalPosition: {x: 3, y: 0.5, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1, y: 0.5, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4065441409727548}
   m_Father: {fileID: 4630118261999084}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180.00002, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4376638378856238
 Transform:
   m_ObjectHideFlags: 1
@@ -119,7 +119,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1313030149833832}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.0000029504295}
-  m_LocalPosition: {x: 0.07473755, y: 2.129224, z: 10.944424}
+  m_LocalPosition: {x: 0, y: 2.2, z: 11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4630118261999084}
@@ -133,7 +133,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1268147710206090}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.038000394, y: -0.049000025, z: -0.06699969}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4128220233615966}

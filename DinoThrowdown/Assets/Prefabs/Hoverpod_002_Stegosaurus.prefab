@@ -72,12 +72,12 @@ GameObject:
   - component: {fileID: 33221205576588590}
   - component: {fileID: 23170689043471476}
   - component: {fileID: 95884372837274992}
-  - component: {fileID: 114324380469644154}
-  - component: {fileID: 114068198277403476}
-  - component: {fileID: 114924402863239786}
   - component: {fileID: 54455192504706170}
   - component: {fileID: 64429160980839438}
   - component: {fileID: 65729450021800644}
+  - component: {fileID: 114068198277403476}
+  - component: {fileID: 114924402863239786}
+  - component: {fileID: 114324380469644154}
   m_Layer: 0
   m_Name: Hoverpod_002_Stegosaurus
   m_TagString: Player
@@ -92,7 +92,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1837874915799138}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.013999939, z: -0.09200001}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4600617819987808}
@@ -105,14 +105,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1862514045751648}
-  m_LocalRotation: {x: -0, y: -0.70710576, z: -0, w: 0.70710784}
-  m_LocalPosition: {x: 9.32659, y: 2.0942245, z: -0.65594006}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 11, y: 2.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4007622429306952}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!4 &4600617819987808
 Transform:
   m_ObjectHideFlags: 1

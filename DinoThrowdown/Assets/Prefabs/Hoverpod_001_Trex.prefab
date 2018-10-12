@@ -39,10 +39,10 @@ GameObject:
   - component: {fileID: 95808770593571730}
   - component: {fileID: 54952487217749096}
   - component: {fileID: 64780288528316264}
-  - component: {fileID: 114425542154673888}
+  - component: {fileID: 65246966589078592}
   - component: {fileID: 114213850701857672}
   - component: {fileID: 114190588944442738}
-  - component: {fileID: 65246966589078592}
+  - component: {fileID: 114425542154673888}
   m_Layer: 0
   m_Name: Hoverpod_001_Trex
   m_TagString: Player
@@ -106,7 +106,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1224762412957598}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -8.84198, y: 2.0802245, z: -0.3173504}
+  m_LocalPosition: {x: -11, y: 2.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4007746815654916}
@@ -134,7 +134,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1736143221799452}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.989, y: 0, z: -0}
+  m_LocalPosition: {x: 1, y: 0, z: -0}
   m_LocalScale: {x: 2.5, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 4515662245231780}
