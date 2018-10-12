@@ -322,6 +322,7 @@
     <Compile Include="Assets\Scripts\Dash.cs" />
     <Compile Include="Assets\Scripts\DestroyOnFall.cs" />
     <Compile Include="Assets\Scripts\DestroySelf.cs" />
+    <Compile Include="Assets\Scripts\GameStateManager.cs" />
     <Compile Include="Assets\Scripts\Knockback.cs" />
     <Compile Include="Assets\Scripts\MainMenu\ReturnToMenu.cs" />
     <Compile Include="Assets\Scripts\MainMenu\SelectPlay.cs" />
