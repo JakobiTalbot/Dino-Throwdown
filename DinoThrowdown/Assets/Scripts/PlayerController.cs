@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     public CruiseControl m_cruiseControl;
     // reference to the claw that will be used
-    [HideInInspector]
+
     public GameObject m_claw;
 
     private GamePadState m_gamePadState;

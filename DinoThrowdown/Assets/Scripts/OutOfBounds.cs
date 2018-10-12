@@ -49,6 +49,8 @@ public class OutOfBounds : MonoBehaviour
                 playerController.m_bInCrane = true;
                 // gives the player control of the claw
                 playerController.m_claw = m_claw;
+
+                other.GetComponent<Rigidbody>().velocity = new Vector3(0.0f, 0.0f, 0.0f);
             }
             else
             {
