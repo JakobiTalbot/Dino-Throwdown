@@ -20,6 +20,8 @@ public class Knockback : MonoBehaviour
     public float m_fVelocityFactor = 100.0f;
     public float m_fVibrateTime = 0.5f;
 
+    public GameObject m_hitParticles;
+
     // handles when the player should recieve less knockback
     [HideInInspector]
     public KnockbackShield m_shield;
@@ -124,6 +126,8 @@ public class Knockback : MonoBehaviour
             }
 
             other.gameObject.GetComponentInParent<Component>().GetComponentInParent<Component>().GetComponentInParent<PlayerController>().m_bWeaponHit = true;
+
+            Instantiate(m_hitParticles, v3ExplosionPos, Quaternion.Euler(0, 0, 0));
         }
     }
 
