@@ -323,7 +323,6 @@
     <Compile Include="Assets\Scripts\DestroyOnFall.cs" />
     <Compile Include="Assets\Scripts\DestroySelf.cs" />
     <Compile Include="Assets\Scripts\Knockback.cs" />
-    <Compile Include="Assets\Scripts\MainMenu\ActivateMenu.cs" />
     <Compile Include="Assets\Scripts\MainMenu\ReturnToMenu.cs" />
     <Compile Include="Assets\Scripts\MainMenu\SelectPlay.cs" />
     <Compile Include="Assets\Scripts\OutOfBounds.cs" />

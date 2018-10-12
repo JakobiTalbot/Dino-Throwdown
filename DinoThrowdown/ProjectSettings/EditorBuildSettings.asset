@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Tyson/TysonMenu.unity
+    guid: 198ac085b4e980b49b455038685a22cd
+  - enabled: 1
+    path: Assets/Scenes/Main-LastStand.unity
+    guid: 68efcb5bd9826e44da28334876d627af
