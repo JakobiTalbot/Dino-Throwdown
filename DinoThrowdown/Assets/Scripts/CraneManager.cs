@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CraneOccupied : MonoBehaviour
+public class CraneManager : MonoBehaviour
 {
     // determines if there is a player at the crane controller
     [HideInInspector]

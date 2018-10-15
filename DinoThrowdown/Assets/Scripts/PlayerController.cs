@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
 
     // used to distinguish between players
     public int m_cPlayerNumber = 1;
+    // speed of the player
     public float m_fVelocity = 10.0f;
     // how fast the object lerps rotation to X and Z = 0
     public float m_fCorrectionSpeed = 0.01f;
@@ -36,13 +37,12 @@ public class PlayerController : MonoBehaviour
     public float m_fClawSpeed = 15.0f;
     // speed at which the player is picked up
     public float m_fPickupSpeed = 15.0f;
-    // reference to the claw that will be used
-    public GameObject m_claw;
     // reference to the arm which contains the weapon
     public GameObject m_arm;
-    // reference to the crane
-    public CraneOccupied m_crane;
 
+    // reference to the claw that will be used
+    [HideInInspector]
+    public Claw m_claw;
     // determines if the player is being picked up
     [HideInInspector]
     public bool m_bPickedUp = false;
@@ -64,8 +64,6 @@ public class PlayerController : MonoBehaviour
     public GameObject m_weapon;
     // determines if the player is attacking
     private bool m_bIsAttacking = false;
-    // determines if the player is grabbing with the claw
-    private bool m_bIsGrabbing = false;
 
     private Vector3 m_v3StartArmRotation;
     private Vector3 m_v3EndArmRotation;
@@ -118,30 +116,25 @@ public class PlayerController : MonoBehaviour
 
         v2Movement.Normalize();
 
-        // checks if the player is in the game and not on cruise control
-        if (!m_cruiseControl.bFlag && !m_bIsOut && !m_bInCrane)
+        // checks if the player is being picked up
+        if (m_bPickedUp)
         {
-            Move(v2Movement.x, v2Movement.y);
+            Pickup();
+        }
+        // checks if the player is in the crane
+        else if (m_bInCrane)
+        {
+            MoveClaw(v2Movement.x, v2Movement.y);
         }
         // checks if the player is on cruise control
-        else if (!m_bIsOut && !m_bInCrane)
+        else if (m_cruiseControl.bFlag && !m_bIsOut)
         {
             Cruise(v2Movement.x, v2Movement.y);
         }
-        // checks if the player is in the crane
+        // checks if the player is in the game and not on cruise control
         else if (!m_bIsOut)
         {
-            MoveClaw(v2Movement.x, v2Movement.y);
-            // checks if the player is grabbing another with the claw
-            if (m_bIsGrabbing)
-            {
-                m_bIsGrabbing = m_claw.GetComponent<Claw>().Grab();
-            }
-        }
-        // checks if the player is being picked up
-        else if (m_bPickedUp)
-        {
-            Pickup();
+            Move(v2Movement.x, v2Movement.y);
         }
 
         // get gamepad right stick input
@@ -189,18 +182,18 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0.0f, transform.rotation.eulerAngles.y, 0.0f), m_fCorrectionSpeed);
 
         // checks if the fire button was pressed (keyboard || controller)
-        if ((Input.GetAxis("Fire" + m_cPlayerNumber.ToString()) > 0.0f || m_gamePadState.Triggers.Right > 0.0f) && !m_bIsOut && !m_bInCrane)
+        if ((Input.GetAxis("Fire" + m_cPlayerNumber.ToString()) > 0.0f || m_gamePadState.Triggers.Right > 0.0f) && !m_bIsOut)
         {
             // sets the player to attacking
             m_bIsAttacking = true;
         }
-        else if ((Input.GetAxis("Fire" + m_cPlayerNumber.ToString()) > 0.0f || m_gamePadState.Triggers.Right > 0.0f) && !m_bIsOut)
-        {
-            // sets the player to grabbing
-            m_bIsGrabbing = true;
-        }
 
-        if (m_bIsAttacking)
+        // checks if the player is grabbing another with the claw
+        if (m_bIsAttacking && m_bInCrane)
+        {
+            m_bIsAttacking = m_claw.Grab();
+        }
+        else if (m_bIsAttacking)
         {
             // swings the weapon
             Attack();
@@ -225,8 +218,6 @@ public class PlayerController : MonoBehaviour
     // moves with little momentum based on input
     private void Cruise(float fHorizontal, float fVertical)
     {
-        // prevent stutter
-        m_rigidbody.velocity = Vector3.zero;
         // direction based on input
         Vector3 v3Direction = new Vector3(0.0f, 0.0f, 0.0f);
         v3Direction.x = fHorizontal * m_fCruiseSpeed * Time.deltaTime;
@@ -254,7 +245,7 @@ public class PlayerController : MonoBehaviour
         v3Direction.z = fVertical * m_fClawSpeed * Time.deltaTime;
 
         // moves the claw by the direction
-        m_claw.GetComponent<Rigidbody>().MovePosition(m_claw.transform.position + v3Direction);
+        m_claw.transform.Translate(v3Direction);
     }
 
     // swings the weapon
@@ -287,7 +278,7 @@ public class PlayerController : MonoBehaviour
     public void Pickup()
     {
         // checks if the player is below the desired height
-        if (transform.position.y < 13.0f)
+        if (transform.position.y < 14.0f)
         {
             // moves the player up
             transform.Translate(transform.up * Time.deltaTime * m_fPickupSpeed);
@@ -296,48 +287,43 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            // checks if there is already a player at the crane
-            if (m_crane.m_bOccupied)
-            {
-                // creates a position underneath this object
-                Vector3 v3Pos = new Vector3(transform.position.x, 3.1f, transform.position.z);
-                // swaps the players
-                m_crane.m_player.transform.position = v3Pos;
-                m_crane.m_player.GetComponent<PlayerController>().m_bInCrane = false;
-                m_crane.m_player.GetComponent<Rigidbody>().isKinematic = false;
-            }
-            else
-            {
-                // sets the crane to occupied
-                m_crane.m_bOccupied = true;
-            }
-
+            // creates a position underneath this object
+            Vector3 v3Pos = new Vector3(transform.position.x, 3.1f, transform.position.z);
+            // swaps the players
+            m_claw.GetCrane().m_player.transform.position = v3Pos;
+            m_claw.GetCrane().m_player.GetComponent<PlayerController>().m_bInCrane = false;
+            m_claw.GetCrane().m_player.GetComponent<Rigidbody>().isKinematic = false;
+            
             // resets the claw
-            m_claw.transform.position = new Vector3(0.0f, 15.0f, 0.0f);
+            m_claw.transform.position = new Vector3(0.0f, 16.0f, 0.0f);
+            Light light = m_claw.GetComponentInChildren<Light>();
 
             // sets the colour of the light to the colour of the player
             switch (m_cPlayerNumber)
             {
                 case 1:
-                    m_claw.GetComponentInChildren<Light>().color = Color.cyan;
+                    light.color = Color.cyan;
                     break;
                 case 2:
-                    m_claw.GetComponentInChildren<Light>().color = Color.red;
+                    light.color = Color.red;
                     break;
                 case 3:
-                    m_claw.GetComponentInChildren<Light>().color = Color.green;
+                    light.color = Color.green;
                     break;
                 case 4:
-                    m_claw.GetComponentInChildren<Light>().color = Color.yellow;
+                    light.color = Color.yellow;
                     break;
             }
 
             // sets this player as the one in the crane
-            m_crane.m_player = gameObject;
+            m_claw.GetCrane().m_player = gameObject;
 
             // sends the player to the crane
-            transform.position = new Vector3(-17.0f, 6.0f, 21.0f);
-            transform.localRotation = Quaternion.Euler(0.0f, 144.0f, 0.0f);
+            transform.position = new Vector3(m_claw.GetCrane().transform.position.x,
+                                             m_claw.GetCrane().transform.position.y,
+                                             m_claw.GetCrane().transform.position.z + 3.0f);
+            transform.localRotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
+
             // sets the status as not out or picked up and in the crane
             m_bIsOut = false;
             m_bInCrane = true;

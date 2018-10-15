@@ -5,9 +5,21 @@ using UnityEngine;
 public class OutOfBounds : MonoBehaviour
 {
     // reference to the crane
-    public CraneOccupied m_crane;
+    public CraneManager[] m_crane;
+
     // reference to the claw
-    public GameObject m_claw;
+    private Claw[] m_claw;
+
+    private void Start()
+    {
+        m_claw = new Claw[2];
+
+        // gets and sets the claw component from each crane
+        for (int i = 0; i < m_crane.Length; i++)
+        {
+            m_claw[i] = m_crane[i].GetComponentInChildren<Claw>();
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -16,47 +28,56 @@ public class OutOfBounds : MonoBehaviour
         {
             PlayerController playerController = other.GetComponent<PlayerController>();
 
-            if (!m_crane.m_bOccupied)
+            // iterates through each crane
+            for (int i = 0; i < m_crane.Length; i++)
             {
-                // sets the crane to occupied
-                m_crane.m_bOccupied = true;
-                m_crane.m_player = playerController.gameObject;
-
-                // activates the claw
-                m_claw.SetActive(true);
-
-                // sets the colour of the light to the colour of the player
-                switch (playerController.m_cPlayerNumber)
+                // checks if the crane is occupied
+                if (!m_crane[i].m_bOccupied)
                 {
-                    case 1:
-                        m_claw.GetComponentInChildren<Light>().color = Color.cyan;
-                        break;
-                    case 2:
-                        m_claw.GetComponentInChildren<Light>().color = Color.red;
-                        break;
-                    case 3:
-                        m_claw.GetComponentInChildren<Light>().color = Color.green;
-                        break;
-                    case 4:
-                        m_claw.GetComponentInChildren<Light>().color = Color.yellow;
-                        break;
+                    // sets the crane to occupied
+                    m_crane[i].m_bOccupied = true;
+                    m_crane[i].m_player = playerController.gameObject;
+
+                    // gets the claw's light
+                    Light light = m_claw[i].GetComponentInChildren<Light>();
+                    light.intensity = 500.0f;
+
+                    // sets the colour of the light to the colour of the player
+                    switch (playerController.m_cPlayerNumber)
+                    {
+                        case 1:
+                            light.color = Color.cyan;
+                            break;
+                        case 2:
+                            light.color = Color.red;
+                            break;
+                        case 3:
+                            light.color = Color.green;
+                            break;
+                        case 4:
+                            light.color = Color.yellow;
+                            break;
+                    }
+
+                    // sends the player to the crane
+                    playerController.transform.position = new Vector3(m_crane[i].transform.position.x,
+                                                                      m_crane[i].transform.position.y,
+                                                                      m_crane[i].transform.position.z + 3.0f);
+                    playerController.transform.localRotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
+
+                    // changes the status of the player to in the crane
+                    playerController.m_bInCrane = true;
+                    // gives the player control of the claw
+                    playerController.m_claw = m_claw[i];
+
+                    other.GetComponent<Rigidbody>().velocity = new Vector3(0.0f, 0.0f, 0.0f);
+
+                    return;
                 }
-
-                // sends the player to the crane
-                playerController.transform.position = new Vector3(-17.0f, 6.0f, 21.0f);
-                playerController.transform.localRotation = Quaternion.Euler(0.0f, 144.0f, 0.0f);
-                // changes the status of the player to in the crane
-                playerController.m_bInCrane = true;
-                // gives the player control of the claw
-                playerController.m_claw = m_claw;
-
-                other.GetComponent<Rigidbody>().velocity = new Vector3(0.0f, 0.0f, 0.0f);
             }
-            else
-            {
-                // sets the player as out
-                playerController.m_bIsOut = true;
-            }
+
+            // sets the player as out if all cranes are occupied
+            playerController.m_bIsOut = true;
         }
     }
 }

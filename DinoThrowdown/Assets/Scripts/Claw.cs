@@ -6,16 +6,30 @@ public class Claw : MonoBehaviour
 {
     // speed at which the claw drops
     public float m_fMoveSpeed = 10.0f;
-    // reference to the crane
-    public CraneOccupied m_crane;
+
     // determines if the claw has dropped
+    [HideInInspector]
     public bool m_bDropped = false;
+
+    // reference to the crane
+    private CraneManager m_crane;
+
+    private void Start()
+    {
+        m_crane = GetComponentInParent<CraneManager>();
+    }
+
+    // returns the crane
+    public CraneManager GetCrane()
+    {
+        return m_crane;
+    }
 
     // drops the claw
     private void Drop()
     {
         // checks if the claw is above the target height
-        if (transform.position.y > 5.5f)
+        if (transform.localPosition.y > -3.5f)
         {
             // moves the claw down
             transform.Translate(-transform.up * Time.deltaTime * m_fMoveSpeed);
@@ -30,7 +44,7 @@ public class Claw : MonoBehaviour
     private bool Raise()
     {
         // check is the claw is below the target height
-        if (transform.position.y < 15.0f)
+        if (transform.localPosition.y < 10.0f)
         {
             // moves the claw up
             transform.Translate(transform.up * Time.deltaTime * m_fMoveSpeed);
@@ -38,6 +52,7 @@ public class Claw : MonoBehaviour
         }
         else
         {
+            // the claw has risen back to the top
             m_bDropped = false;
             return false;
         }
@@ -63,13 +78,16 @@ public class Claw : MonoBehaviour
         // checks if the claw collides with a player
         if (other.CompareTag("Player"))
         {
+            // sets the claw to have dropped
+            m_bDropped = true;
+
             // gets the player controller from the player
             PlayerController playerController = other.GetComponent<PlayerController>();
             // sets the player to picked up
             playerController.m_bPickedUp = true;
             playerController.m_bIsOut = true;
             // gives the player control over the claw
-            playerController.m_claw = gameObject;
+            playerController.m_claw = gameObject.GetComponent<Claw>();
         }
     }
 }
