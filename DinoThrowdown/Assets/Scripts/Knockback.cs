@@ -25,9 +25,10 @@ public class Knockback : MonoBehaviour
     // handles when the player should recieve less knockback
     [HideInInspector]
     public KnockbackShield m_shield;
+    public float m_fKnockbackMeter = 0;
+
 
     private Rigidbody m_rigidbody;
-    private float m_fKnockbackMeter = 0;
     // used to check if being hit by a larger weapon
     private Vector3 m_v3Larger;
     private float m_fVibrateTimer;

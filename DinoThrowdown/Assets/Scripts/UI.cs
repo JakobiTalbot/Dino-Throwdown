@@ -9,6 +9,9 @@ public class UI : MonoBehaviour
     public GameObject[] m_players = new GameObject[4];
     public GameObject[] m_knockbackBars = new GameObject[4];
 
+    public GameObject[][] m_roundImages;
+    public GameObject m_winText;
+
     // Use this for initialization
     void Awake()
     {
@@ -44,6 +47,35 @@ public class UI : MonoBehaviour
                 m_knockbackTexts[i].GetComponent<Text>().text = "DEAD";
                 m_knockbackBars[i].GetComponent<RectTransform>().sizeDelta = new Vector2(0,
                     m_knockbackBars[i].GetComponent<RectTransform>().sizeDelta.y);
+            }
+        }
+    }
+
+    public void EnableRoundImage(GameObject player)
+    {
+        for (int i = 0; i < m_players.Length; ++i)
+        {
+            if (m_players[i] == player)
+            {
+                for (int j = 0; j < GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameStateManager>().m_nRoundsToWin; ++j)
+                {
+                    if (!m_roundImages[i][j].activeSelf)
+                    {
+                        m_roundImages[i][j].SetActive(true);
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
+    public void EnablePlayerWon(GameObject player)
+    {
+        for (int i = 0; i < m_players.Length; ++i)
+        {
+            if (m_players[i] == player)
+            {
+                m_winText.GetComponent<Text>().text = "PLAYER " + i + " WINS!";
             }
         }
     }
