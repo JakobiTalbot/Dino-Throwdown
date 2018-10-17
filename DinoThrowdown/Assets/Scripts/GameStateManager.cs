@@ -65,13 +65,13 @@ public class GameStateManager : MonoBehaviour
                     {
                         // increment rounds won
                         ++m_nRoundsWon[i];
-                        m_canvas.GetComponent<UI>().EnableRoundImage(m_players[i]);
+                        //m_canvas.GetComponent<UI>().EnableRoundImage(m_players[i]);
 
                         // check if they won the amount of rounds needed to win game
                         if (m_nRoundsWon[i] == m_nRoundsToWin)
                         {
                             m_bPlayerWon = true;
-                            m_canvas.GetComponent<UI>().EnablePlayerWon(m_players[i]);
+                            //m_canvas.GetComponent<UI>().EnablePlayerWon(m_players[i]);
                         }
                         else
                         {
