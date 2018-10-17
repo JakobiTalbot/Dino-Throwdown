@@ -8,7 +8,7 @@ public class KnockbackShield : Pickup
     {
         // checks if the colliding object is a player and they don't already have a pickup
         if (other.CompareTag("Player") &&
-            other.GetComponent<PlayerController>().m_weapon.transform.localScale.x < 4.0f &&
+            other.GetComponent<PlayerController>().m_weapon.transform.localScale.x < 8.0f &&
             other.GetComponent<PlayerController>().m_cruiseControl.bFlag != true &&
             other.GetComponent<Knockback>().m_shield.bFlag != true)
         {

@@ -8,12 +8,13 @@ public class CruiseControl : Pickup
     {
         // checks if the colliding object is a player and they don't already have a pickup
         if (other.CompareTag("Player") &&
-            other.GetComponent<PlayerController>().m_weapon.transform.localScale.x < 4.0f &&
+            other.GetComponent<PlayerController>().m_weapon.transform.localScale.x < 8.0f &&
             other.GetComponent<PlayerController>().m_cruiseControl.bFlag != true &&
             other.GetComponent<Knockback>().m_shield.bFlag != true)
         {
             // turns on the player's cruise control
             other.GetComponent<PlayerController>().m_cruiseControl.bFlag = true;
+            other.GetComponent<Rigidbody>().velocity = Vector3.zero;
             // sets this object to inactive
             gameObject.SetActive(false);
             // empties the spawn point
