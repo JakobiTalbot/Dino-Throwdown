@@ -37,7 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4668653233727562}
   - component: {fileID: 198073492016130054}
-  - component: {fileID: 114732927311927224}
+  - component: {fileID: 114501669449829252}
   - component: {fileID: 199714465530857088}
   m_Layer: 0
   m_Name: HitParticle
@@ -73,7 +73,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114732927311927224
+--- !u!114 &114501669449829252
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -81,10 +81,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1479954545993554}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a20033a213b07fc4594255995067c354, type: 3}
+  m_Script: {fileID: 11500000, guid: 53ae6994c843c924e856b93f1227c101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_timeToDestroy: 3
+  m_nTimeToDestroy: 5
 --- !u!198 &198073492016130054
 ParticleSystem:
   m_ObjectHideFlags: 1
