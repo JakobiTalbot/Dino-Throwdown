@@ -6,6 +6,8 @@ public class OutOfBounds : MonoBehaviour
 {
     // reference to the crane
     public CraneManager[] m_crane;
+    // reference to the crane seats
+    public Transform[] m_seats;
 
     // reference to the claw
     private Claw[] m_claw;
@@ -60,9 +62,8 @@ public class OutOfBounds : MonoBehaviour
                     }
 
                     // sends the player to the crane
-                    playerController.transform.position = new Vector3(m_crane[i].transform.position.x,
-                                                                      m_crane[i].transform.position.y,
-                                                                      m_crane[i].transform.position.z + 3.0f);
+                    playerController.transform.position = m_seats[i].transform.position;
+
                     playerController.transform.localRotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
 
                     // changes the status of the player to in the crane

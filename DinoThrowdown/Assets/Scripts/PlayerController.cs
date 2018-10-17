@@ -39,6 +39,8 @@ public class PlayerController : MonoBehaviour
     public float m_fPickupSpeed = 15.0f;
     // reference to the arm which contains the weapon
     public GameObject m_arm;
+    // reference to the crane seats
+    public Transform[] m_seats;
 
     // reference to the claw that will be used
     [HideInInspector]
@@ -314,9 +316,15 @@ public class PlayerController : MonoBehaviour
             m_claw.GetCrane().m_player = gameObject;
 
             // sends the player to the crane
-            transform.position = new Vector3(m_claw.GetCrane().transform.position.x,
-                                             m_claw.GetCrane().transform.position.y,
-                                             m_claw.GetCrane().transform.position.z + 3.0f);
+            if (m_claw.GetCrane().name == "Crane1")
+            {
+                transform.position = m_seats[0].transform.position;
+            }
+            else
+            {
+                transform.position = m_seats[1].transform.position;
+            }
+
             transform.localRotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
 
             // sets the status as not out or picked up and in the crane
