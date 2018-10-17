@@ -8,6 +8,8 @@ TagManager:
   - Weapon
   - Ground
   - Canvas
+  - Crane
+  - Claw
   layers:
   - Default
   - TransparentFX
