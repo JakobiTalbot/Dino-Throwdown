@@ -27,13 +27,17 @@ public class GameStateManager : MonoBehaviour
 	// Use this for initialization
 	void Awake()
     {
+        m_cranes = GameObject.FindGameObjectsWithTag("Crane");
+        m_claws = GameObject.FindGameObjectsWithTag("Claw");
         m_playerOriginalPositions = new Vector3[m_players.Length];
         m_playerOriginalRotations = new Quaternion[m_players.Length];
+        m_craneOriginalPositions = new Vector3[m_cranes.Length];
+        m_craneOriginalRotations = new Quaternion[m_cranes.Length];
+        m_clawOriginalPositions = new Vector3[m_claws.Length];
+        m_clawOriginalRotations = new Quaternion[m_claws.Length];
         m_playersRemaining = new List<GameObject>();
         m_nRoundsWon = new int[m_players.Length];
         m_canvas = GameObject.FindGameObjectWithTag("Canvas");
-        m_cranes = GameObject.FindGameObjectsWithTag("Crane");
-        m_claws = GameObject.FindGameObjectsWithTag("Claw");
 
         for (int i = 0; i < m_players.Length; ++i)
         {
