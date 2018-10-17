@@ -156,6 +156,8 @@ public class GameStateManager : MonoBehaviour
             m_players[i].GetComponent<PlayerController>().m_cruiseControl.fTimer = 0.0f;
             m_players[i].GetComponent<Knockback>().m_shield.bFlag = false;
             m_players[i].GetComponent<Knockback>().m_shield.fTimer = 0.0f;
+            m_players[i].GetComponent<PlayerController>().m_weapon.transform.localScale = m_players[i].GetComponent<PlayerController>().m_v3BaseWeaponScale;
+            m_players[i].GetComponent<PlayerController>().m_weapon.transform.localPosition = m_players[i].GetComponent<PlayerController>().m_v3BaseWeaponPosition;
             m_players[i].GetComponent<PlayerController>().StopAttack();
             // reset player status
             m_players[i].GetComponent<PlayerController>().m_bInCrane = false;

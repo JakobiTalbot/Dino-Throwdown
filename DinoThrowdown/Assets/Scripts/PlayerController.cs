@@ -73,8 +73,10 @@ public class PlayerController : MonoBehaviour
     private Vector3 m_v3StartArmRotation;
     private Vector3 m_v3EndArmRotation;
 
-    private Vector3 m_v3BaseWeaponScale;
-    private Vector3 m_v3BaseWeaponPosition;
+    [HideInInspector]
+    public Vector3 m_v3BaseWeaponScale;
+    [HideInInspector]
+    public Vector3 m_v3BaseWeaponPosition;
 
     private bool m_bRightTriggerDown;
 
