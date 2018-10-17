@@ -68,6 +68,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 m_v3StartArmRotation;
     private Vector3 m_v3EndArmRotation;
 
+    private Vector3 m_v3BaseWeaponScale;
+    private Vector3 m_v3BaseWeaponPosition;
 
     [HideInInspector]
     public bool m_bWeaponHit = false;
@@ -98,7 +100,8 @@ public class PlayerController : MonoBehaviour
         m_v3EndArmRotation = m_v3StartArmRotation;
         m_v3EndArmRotation.y -= 90.0f;
 
-        // get attack trigger
+        m_v3BaseWeaponScale = m_weapon.transform.localScale;
+        m_v3BaseWeaponPosition = m_weapon.transform.localPosition;
     }
 	
 	// Update is called once per frame
@@ -327,8 +330,8 @@ public class PlayerController : MonoBehaviour
     {
         // sets the transform back to the original
         m_arm.transform.localRotation = Quaternion.Euler(m_v3StartArmRotation);
-        m_weapon.transform.localScale = new Vector3(2.5f, 0.2f, 0.2f);
-        m_weapon.transform.localPosition = new Vector3(1.25f, 0.0f, 0.0f);
+        m_weapon.transform.localScale = m_v3BaseWeaponScale;
+        m_weapon.transform.localPosition = m_v3BaseWeaponPosition;
         // sets the player to not attacking
         m_bIsAttacking = false;
         m_bWeaponHit = false;
