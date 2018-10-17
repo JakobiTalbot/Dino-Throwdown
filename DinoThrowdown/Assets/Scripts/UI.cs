@@ -8,8 +8,10 @@ public class UI : MonoBehaviour
     public GameObject[] m_knockbackTexts = new GameObject[4];
     public GameObject[] m_players = new GameObject[4];
     public GameObject[] m_knockbackBars = new GameObject[4];
-
-    public GameObject[][] m_roundImages;
+    public GameObject[] m_p1RoundImages;
+    public GameObject[] m_p2RoundImages;
+    public GameObject[] m_p3RoundImages;
+    public GameObject[] m_p4RoundImages;
     public GameObject m_winText;
 
     // Use this for initialization
@@ -57,11 +59,21 @@ public class UI : MonoBehaviour
         {
             if (m_players[i] == player)
             {
+                GameObject[] playerRoundImages;
+                if (i == 0)
+                    playerRoundImages = m_p1RoundImages;
+                else if (i == 1)
+                    playerRoundImages = m_p2RoundImages;
+                else if (i == 2)
+                    playerRoundImages = m_p3RoundImages;
+                else
+                    playerRoundImages = m_p4RoundImages;
+
                 for (int j = 0; j < GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameStateManager>().m_nRoundsToWin; ++j)
                 {
-                    if (!m_roundImages[i][j].activeSelf)
+                    if (!playerRoundImages[j].activeSelf)
                     {
-                        m_roundImages[i][j].SetActive(true);
+                        playerRoundImages[i].SetActive(true);
                         return;
                     }
                 }
