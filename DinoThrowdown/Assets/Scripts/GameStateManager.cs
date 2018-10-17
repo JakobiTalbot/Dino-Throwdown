@@ -1,16 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameStateManager : MonoBehaviour
 {
     public int m_nRoundsToWin = 3;
     public GameObject[] m_players;
 
+    private GameObject[] m_cranes;
+    private GameObject[] m_claws;
     private GameObject m_canvas;
     private List<GameObject> m_playersRemaining;
-    private Vector3[] m_originalPositions;
-    private Quaternion[] m_originalRotations;
+    private Vector3[] m_playerOriginalPositions;
+    private Quaternion[] m_playerOriginalRotations;
+    private Vector3[] m_craneOriginalPositions;
+    private Quaternion[] m_craneOriginalRotations;
+    private Vector3[] m_clawOriginalPositions;
+    private Quaternion[] m_clawOriginalRotations;
     private UI m_UI;
     private float m_fVictoryWaitTime = 5.0f;
     private int[] m_nRoundsWon;
@@ -20,11 +27,13 @@ public class GameStateManager : MonoBehaviour
 	// Use this for initialization
 	void Awake()
     {
-        m_originalPositions = new Vector3[m_players.Length];
-        m_originalRotations = new Quaternion[m_players.Length];
+        m_playerOriginalPositions = new Vector3[m_players.Length];
+        m_playerOriginalRotations = new Quaternion[m_players.Length];
         m_playersRemaining = new List<GameObject>();
         m_nRoundsWon = new int[m_players.Length];
         m_canvas = GameObject.FindGameObjectWithTag("Canvas");
+        m_cranes = GameObject.FindGameObjectsWithTag("Crane");
+        m_claws = GameObject.FindGameObjectsWithTag("Claw");
 
         for (int i = 0; i < m_players.Length; ++i)
         {
@@ -35,8 +44,19 @@ public class GameStateManager : MonoBehaviour
             m_playersRemaining.Add(m_players[i]);
 
             // get original positions/rotations of each player
-            m_originalPositions[i] = m_players[i].transform.position;
-            m_originalRotations[i] = m_players[i].transform.rotation;
+            m_playerOriginalPositions[i] = m_players[i].transform.position;
+            m_playerOriginalRotations[i] = m_players[i].transform.rotation;
+        }
+
+        for (int i = 0; i < m_cranes.Length; ++i)
+        {
+            // get original crane position/rotation
+            m_craneOriginalPositions[i] = m_cranes[i].transform.localPosition;
+            m_craneOriginalRotations[i] = m_cranes[i].transform.localRotation;
+
+            // get original claw position/rotation
+            m_clawOriginalPositions[i] = m_claws[i].transform.localPosition;
+            m_clawOriginalRotations[i] = m_claws[i].transform.localRotation;
         }
 	}
 	
@@ -54,6 +74,17 @@ public class GameStateManager : MonoBehaviour
                     || m_playersRemaining[i].GetComponent<PlayerController>().m_bInCrane)
                 {
                     m_playersRemaining.RemoveAt(i);
+                }
+            }
+            
+            for (int i = 0; i < m_players.Length; ++i)
+            {
+                // add players back
+                if (!m_players[i].GetComponent<PlayerController>().m_bIsOut
+                    && !m_players[i].GetComponent<PlayerController>().m_bInCrane
+                    && !m_playersRemaining.Contains(m_players[i]))
+                {
+                    m_playersRemaining.Add(m_players[i]);
                 }
             }
 
@@ -106,9 +137,9 @@ public class GameStateManager : MonoBehaviour
             m_playersRemaining.Add(m_players[i]);
 
             // reset player position
-            m_players[i].transform.position = m_originalPositions[i];
+            m_players[i].transform.position = m_playerOriginalPositions[i];
             // reset player rotation
-            m_players[i].transform.rotation = m_originalRotations[i];
+            m_players[i].transform.rotation = m_playerOriginalRotations[i];
             // reset player velocities
             m_players[i].GetComponent<Rigidbody>().velocity = Vector3.zero;
             m_players[i].GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
@@ -125,6 +156,21 @@ public class GameStateManager : MonoBehaviour
             m_players[i].GetComponent<PlayerController>().m_bIsOut = false;
             m_players[i].GetComponent<PlayerController>().m_bPickedUp = false;
             m_players[i].GetComponent<PlayerController>().m_bWeaponHit = false;
+
+            m_players[i].GetComponent<PlayerController>().m_claw = null;
+        }
+
+        for (int i = 0; i < m_cranes.Length; ++i)
+        {
+            m_cranes[i].transform.localPosition = m_craneOriginalPositions[i];
+            m_cranes[i].transform.localRotation = m_craneOriginalRotations[i];
+            m_cranes[i].GetComponent<CraneManager>().m_bOccupied = false;
+            m_cranes[i].GetComponent<CraneManager>().m_player = null;
+
+            m_claws[i].transform.localPosition = m_clawOriginalPositions[i];
+            m_claws[i].transform.localRotation = m_clawOriginalRotations[i];
+            m_claws[i].GetComponent<Claw>().m_bDropped = false;
+            m_claws[i].GetComponentInChildren<Light>().color = new Color(0, 0, 0, 0);
         }
     }
 }
