@@ -7,6 +7,7 @@ public class GameStateManager : MonoBehaviour
 {
     public int m_nRoundsToWin = 3;
     public GameObject[] m_players;
+    public GameObject m_confetti;
 
     private GameObject[] m_cranes;
     private GameObject[] m_claws;
@@ -107,6 +108,7 @@ public class GameStateManager : MonoBehaviour
                         // check if they won the amount of rounds needed to win game
                         if (m_nRoundsWon[i] == m_nRoundsToWin)
                         {
+                            m_confetti.SetActive(true);
                             m_bPlayerWon = true;
                             //m_canvas.GetComponent<UI>().EnablePlayerWon(m_players[i]);
                         }
