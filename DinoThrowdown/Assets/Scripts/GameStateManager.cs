@@ -160,8 +160,10 @@ public class GameStateManager : MonoBehaviour
             m_players[i].GetComponent<PlayerController>().m_bIsOut = false;
             m_players[i].GetComponent<PlayerController>().m_bPickedUp = false;
             m_players[i].GetComponent<PlayerController>().m_bWeaponHit = false;
-
+            // set claw to null
             m_players[i].GetComponent<PlayerController>().m_claw = null;
+            // set kinematic to false
+            m_players[i].GetComponent<Rigidbody>().isKinematic = false;
         }
 
         for (int i = 0; i < m_cranes.Length; ++i)
