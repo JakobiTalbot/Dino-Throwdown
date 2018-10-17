@@ -10,9 +10,13 @@ ModelImporter:
     400000: //RootNode
     400002: Arena_001_Base 1
     2100000: lambert2
+    2100002: lambert1
     2300000: Arena_001_Base 1
+    2300002: //RootNode
     3300000: Arena_001_Base 1
+    3300002: //RootNode
     4300000: Arena_001_Base
+    4300002: Arena_001_Base1
     9500000: //RootNode
   externalObjects: {}
   materials:
