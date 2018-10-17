@@ -164,6 +164,8 @@ public class GameStateManager : MonoBehaviour
             m_players[i].GetComponent<PlayerController>().m_claw = null;
             // set kinematic to false
             m_players[i].GetComponent<Rigidbody>().isKinematic = false;
+            // reset dash timer
+            m_players[i].GetComponent<Dash>().ResetTimer();
         }
 
         for (int i = 0; i < m_cranes.Length; ++i)

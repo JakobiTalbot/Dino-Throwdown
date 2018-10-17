@@ -34,8 +34,7 @@ public class Dash : MonoBehaviour
             // Reset timer and allow dash after dash cooldown
             if (m_fTimer <= 0.0f)
             {
-                m_bCanDash = true;
-                m_fTimer = m_fDashCooldown;
+                ResetTimer();
             }
         }
 	}
@@ -60,5 +59,11 @@ public class Dash : MonoBehaviour
     public float GetCooldown()
     {
         return m_fTimer;
+    }
+
+    public void ResetTimer()
+    {
+        m_bCanDash = true;
+        m_fTimer = m_fDashCooldown;
     }
 }
