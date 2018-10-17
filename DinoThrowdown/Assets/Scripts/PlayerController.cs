@@ -73,6 +73,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 m_v3BaseWeaponScale;
     private Vector3 m_v3BaseWeaponPosition;
 
+    private bool m_bRightTriggerDown;
+
     [HideInInspector]
     public bool m_bWeaponHit = false;
 
@@ -185,10 +187,18 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0.0f, transform.rotation.eulerAngles.y, 0.0f), m_fCorrectionSpeed);
 
         // checks if the fire button was pressed (keyboard || controller)
-        if ((Input.GetAxis("Fire" + m_cPlayerNumber.ToString()) > 0.0f || m_gamePadState.Triggers.Right > 0.0f) && !m_bIsOut)
+        if ((Input.GetAxis("Fire" + m_cPlayerNumber.ToString()) > 0.0f 
+            || m_gamePadState.Triggers.Right > 0.0f) 
+            && !m_bIsOut && !m_bRightTriggerDown)
         {
             // sets the player to attacking
             m_bIsAttacking = true;
+            m_bRightTriggerDown = true;
+        }
+
+        if (m_gamePadState.Triggers.Right == 0.0f)
+        {
+            m_bRightTriggerDown = false;
         }
 
         // checks if the player is grabbing another with the claw
