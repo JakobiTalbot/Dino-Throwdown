@@ -76,7 +76,7 @@ public class Claw : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // checks if the claw collides with a player
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !other.GetComponent<PlayerController>().m_bInCrane)
         {
             // sets the claw to have dropped
             m_bDropped = true;

@@ -385,7 +385,12 @@ Prefab:
     - target: {fileID: 114068037925105280, guid: d44514199fc1c544798a8c0e5049d02a,
         type: 2}
       propertyPath: m_fPickupSpeed
-      value: 10
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114068037925105280, guid: d44514199fc1c544798a8c0e5049d02a,
+        type: 2}
+      propertyPath: m_fClawSpeed
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d44514199fc1c544798a8c0e5049d02a, type: 2}
@@ -6713,7 +6718,12 @@ Prefab:
     - target: {fileID: 114425542154673888, guid: 233ef30d6ae3ae546af22cc1d97724af,
         type: 2}
       propertyPath: m_fPickupSpeed
-      value: 10
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114425542154673888, guid: 233ef30d6ae3ae546af22cc1d97724af,
+        type: 2}
+      propertyPath: m_fClawSpeed
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 233ef30d6ae3ae546af22cc1d97724af, type: 2}
@@ -6775,7 +6785,12 @@ Prefab:
     - target: {fileID: 114435316115007682, guid: caac8ffd014267b45a4594e09c28a2c2,
         type: 2}
       propertyPath: m_fPickupSpeed
-      value: 10
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114435316115007682, guid: caac8ffd014267b45a4594e09c28a2c2,
+        type: 2}
+      propertyPath: m_fClawSpeed
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: caac8ffd014267b45a4594e09c28a2c2, type: 2}
@@ -6833,7 +6848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb9c635ced4e90f48ac7379352b134ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_fMoveSpeed: 10
+  m_fMoveSpeed: 20
   m_bDropped: 0
 --- !u!65 &596633258
 BoxCollider:
@@ -7343,7 +7358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb9c635ced4e90f48ac7379352b134ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_fMoveSpeed: 10
+  m_fMoveSpeed: 20
   m_bDropped: 0
 --- !u!65 &807689492
 BoxCollider:
@@ -9095,6 +9110,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  m_winText: {fileID: 0}
 --- !u!1001 &1771258885
 Prefab:
   m_ObjectHideFlags: 0
@@ -9229,7 +9245,12 @@ Prefab:
     - target: {fileID: 114324380469644154, guid: e052215332d9f374398dae35bb823016,
         type: 2}
       propertyPath: m_fPickupSpeed
-      value: 10
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114324380469644154, guid: e052215332d9f374398dae35bb823016,
+        type: 2}
+      propertyPath: m_fClawSpeed
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e052215332d9f374398dae35bb823016, type: 2}

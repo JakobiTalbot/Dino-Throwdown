@@ -120,17 +120,17 @@ public class PlayerController : MonoBehaviour
             Pickup();
         }
         // checks if the player is in the crane
-        else if (m_bInCrane)
+        else if (m_bInCrane && !m_bIsAttacking)
         {
             MoveClaw(v2Movement.x, v2Movement.y);
         }
         // checks if the player is on cruise control
-        else if (m_cruiseControl.bFlag && !m_bIsOut)
+        else if (m_cruiseControl.bFlag && !m_bIsOut && !m_bInCrane)
         {
             Cruise(v2Movement.x, v2Movement.y);
         }
         // checks if the player is in the game and not on cruise control
-        else if (!m_bIsOut)
+        else if (!m_bIsOut && !m_bInCrane)
         {
             Move(v2Movement.x, v2Movement.y);
         }
