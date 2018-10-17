@@ -43,13 +43,15 @@ public class GameStateManager : MonoBehaviour
 	// Update is called once per frame
 	void Update()
     {
+        Debug.Log(m_playersRemaining.Count);
         // if there is not yet a winner
         if (!m_bPlayerWon)
         {
             for (int i = 0; i < m_playersRemaining.Count; ++i)
             {
                 // remove player from players remaining if they are out
-                if (m_playersRemaining[i].GetComponent<PlayerController>().m_bIsOut)
+                if (m_playersRemaining[i].GetComponent<PlayerController>().m_bIsOut
+                    || m_playersRemaining[i].GetComponent<PlayerController>().m_bInCrane)
                 {
                     m_playersRemaining.RemoveAt(i);
                 }
@@ -118,6 +120,11 @@ public class GameStateManager : MonoBehaviour
             m_players[i].GetComponent<Knockback>().m_shield.bFlag = false;
             m_players[i].GetComponent<Knockback>().m_shield.fTimer = 0.0f;
             m_players[i].GetComponent<PlayerController>().StopAttack();
+            // reset player status
+            m_players[i].GetComponent<PlayerController>().m_bInCrane = false;
+            m_players[i].GetComponent<PlayerController>().m_bIsOut = false;
+            m_players[i].GetComponent<PlayerController>().m_bPickedUp = false;
+            m_players[i].GetComponent<PlayerController>().m_bWeaponHit = false;
         }
     }
 }
