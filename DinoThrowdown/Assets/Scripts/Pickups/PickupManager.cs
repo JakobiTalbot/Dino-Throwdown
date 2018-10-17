@@ -27,7 +27,7 @@ public class PickupManager : MonoBehaviour
         // wraps around
         if (iCopy == -1)
         {
-            iCopy = 3;
+            iCopy = m_spawnPoints.Length - 1;
         }
 
         // random pickup type index
@@ -46,7 +46,7 @@ public class PickupManager : MonoBehaviour
                 // increments the index
                 iSpawnPointIndex++;
                 // wraps around
-                if (iSpawnPointIndex == 4)
+                if (iSpawnPointIndex == m_spawnPoints.Length)
                 {
                     iSpawnPointIndex = 0;
                 }
