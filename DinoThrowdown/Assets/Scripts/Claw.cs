@@ -85,7 +85,6 @@ public class Claw : MonoBehaviour
             PlayerController playerController = other.GetComponent<PlayerController>();
             // sets the player to picked up
             playerController.m_bPickedUp = true;
-            playerController.m_bIsOut = true;
             // gives the player control over the claw
             playerController.m_claw = gameObject.GetComponent<Claw>();
         }
