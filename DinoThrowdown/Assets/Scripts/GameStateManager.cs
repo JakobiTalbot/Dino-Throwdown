@@ -6,8 +6,8 @@ public class GameStateManager : MonoBehaviour
 {
     public int m_nRoundsToWin = 3;
     public GameObject[] m_players;
-    public Canvas m_canvas;
 
+    private GameObject m_canvas;
     private List<GameObject> m_playersRemaining;
     private Vector3[] m_originalPositions;
     private Quaternion[] m_originalRotations;
@@ -22,8 +22,9 @@ public class GameStateManager : MonoBehaviour
     {
         m_originalPositions = new Vector3[m_players.Length];
         m_originalRotations = new Quaternion[m_players.Length];
+        m_playersRemaining = new List<GameObject>();
         m_nRoundsWon = new int[m_players.Length];
-        m_UI = GameObject.FindGameObjectWithTag("Canvas").GetComponent<UI>();
+        m_canvas = GameObject.FindGameObjectWithTag("Canvas");
 
         for (int i = 0; i < m_players.Length; ++i)
         {
@@ -64,13 +65,13 @@ public class GameStateManager : MonoBehaviour
                     {
                         // increment rounds won
                         ++m_nRoundsWon[i];
-                        m_UI.EnableRoundImage(m_players[i]);
+                        m_canvas.GetComponent<UI>().EnableRoundImage(m_players[i]);
 
                         // check if they won the amount of rounds needed to win game
                         if (m_nRoundsWon[i] == m_nRoundsToWin)
                         {
                             m_bPlayerWon = true;
-                            m_UI.EnablePlayerWon(m_players[i]);
+                            m_canvas.GetComponent<UI>().EnablePlayerWon(m_players[i]);
                         }
                         else
                         {
