@@ -134,8 +134,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1736143221799452}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.25, y: 0, z: -0}
-  m_LocalScale: {x: 2.5, y: 0.2, z: 0.2}
+  m_LocalPosition: {x: 1.93, y: 0, z: 0}
+  m_LocalScale: {x: 4, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 4515662245231780}
   m_RootOrder: 0
@@ -350,7 +350,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_fWeaponKnockbackForce: 400
-  m_fBaseWeaponKnockbackForce: 400
+  m_fBaseWeaponKnockbackForce: 750
   m_fForceToKnockbackMeter: 0.01
   m_fVelocityFactor: 100
   m_fVibrateTime: 0.2
@@ -394,6 +394,9 @@ MonoBehaviour:
   m_fClawSpeed: 25
   m_fPickupSpeed: 30
   m_arm: {fileID: 1000575598159676}
+  m_seats:
+  - {fileID: 0}
+  - {fileID: 0}
   m_claw: {fileID: 0}
   m_bPickedUp: 0
   m_bIsOut: 0
