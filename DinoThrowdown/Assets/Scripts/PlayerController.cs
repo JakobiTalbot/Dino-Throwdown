@@ -7,7 +7,7 @@ using XInputDotNetPure;
 public class PlayerController : MonoBehaviour
 {
     // used to change movement for a limited time
-    public struct CruiseControl
+    public struct PickupTimer
     {
         public bool bFlag;
         public float fTimer;
@@ -56,7 +56,10 @@ public class PlayerController : MonoBehaviour
     public bool m_bInCrane = false;
     // handles when the player should cruise
     [HideInInspector]
-    public CruiseControl m_cruiseControl;
+    public PickupTimer m_cruiseControl;
+    // handles when the player should have a larger weapon
+    [HideInInspector]
+    public PickupTimer m_weaponSize;
 
     private GamePadState m_gamePadState;
     private PlayerIndex m_playerIndex;
@@ -98,6 +101,8 @@ public class PlayerController : MonoBehaviour
 
         m_cruiseControl.bFlag = false;
         m_cruiseControl.fTimer = 5.0f;
+        m_weaponSize.bFlag = false;
+        m_weaponSize.fTimer = 3.0f;
 
         // get start and end rotation for the weapon
         m_v3StartArmRotation = m_arm.transform.localRotation.eulerAngles;
@@ -210,6 +215,21 @@ public class PlayerController : MonoBehaviour
         {
             // swings the weapon
             Attack();
+        }
+
+        if (m_weaponSize.bFlag)
+        {
+            // decrements the timer
+            m_weaponSize.fTimer -= Time.deltaTime;
+            // checks if the timer has run out
+            if (m_weaponSize.fTimer <= 0.0f)
+            {
+                // resets the weapon size
+                m_weaponSize.bFlag = false;
+                m_weaponSize.fTimer = 5.0f;
+                m_weapon.transform.localScale = m_v3BaseWeaponScale;
+                m_weapon.transform.localPosition = m_v3BaseWeaponPosition;
+            }
         }
     }
 
@@ -348,8 +368,7 @@ public class PlayerController : MonoBehaviour
     {
         // sets the transform back to the original
         m_arm.transform.localRotation = Quaternion.Euler(m_v3StartArmRotation);
-        m_weapon.transform.localScale = m_v3BaseWeaponScale;
-        m_weapon.transform.localPosition = m_v3BaseWeaponPosition;
+
         // sets the player to not attacking
         m_bIsAttacking = false;
         m_bWeaponHit = false;

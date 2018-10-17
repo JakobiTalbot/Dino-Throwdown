@@ -8,7 +8,7 @@ public class WeaponSize : Pickup
     {
         // checks if the colliding object is a player and they don't already have a pickup
         if (other.CompareTag("Player") &&
-            other.GetComponent<PlayerController>().m_weapon.transform.localScale.x < 8.0f &&
+            other.GetComponent<PlayerController>().m_weaponSize.bFlag != true &&
             other.GetComponent<PlayerController>().m_cruiseControl.bFlag != true &&
             other.GetComponent<Knockback>().m_shield.bFlag != true)
         {
@@ -16,6 +16,7 @@ public class WeaponSize : Pickup
             GameObject weapon = other.GetComponent<PlayerController>().m_weapon;
             // doubles the scale of the object
             weapon.transform.localScale = weapon.transform.localScale * 2.0f;
+            other.GetComponent<PlayerController>().m_weaponSize.bFlag = true;
             // set position of weapon because of changed scale
             Vector3 v3ScaledPos = weapon.transform.localPosition;
             v3ScaledPos.x *= 2.0f;
