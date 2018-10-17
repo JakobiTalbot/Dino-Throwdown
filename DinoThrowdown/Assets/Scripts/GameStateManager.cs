@@ -125,7 +125,7 @@ public class GameStateManager : MonoBehaviour
 
             if (m_fVictoryWaitTime <= 0.0f)
             {
-                // go back to main menu
+                SceneManager.LoadScene("Main");
             }
         }
 	}
