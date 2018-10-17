@@ -372,11 +372,10 @@ MonoBehaviour:
   m_fRotateSpeedController: 0.1
   m_fCruiseSpeed: 15
   m_fAttackSpeed: 0.3
-  m_fClawSpeed: 20
-  m_fPickupSpeed: 20
-  m_claw: {fileID: 0}
+  m_fClawSpeed: 25
+  m_fPickupSpeed: 30
   m_arm: {fileID: 1795285150917014}
-  m_crane: {fileID: 0}
+  m_claw: {fileID: 0}
   m_bPickedUp: 0
   m_bIsOut: 0
   m_bInCrane: 0
@@ -400,3 +399,4 @@ MonoBehaviour:
   m_fVibrateTime: 0.2
   m_hitParticles: {fileID: 1479954545993554, guid: 7ab8d50f7aa39104a8f7c08393d40ea6,
     type: 2}
+  m_fKnockbackMeter: 0

@@ -356,6 +356,7 @@ MonoBehaviour:
   m_fVibrateTime: 0.2
   m_hitParticles: {fileID: 1479954545993554, guid: 7ab8d50f7aa39104a8f7c08393d40ea6,
     type: 2}
+  m_fKnockbackMeter: 0
 --- !u!114 &114213850701857672
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -388,13 +389,12 @@ MonoBehaviour:
   m_fHeightFromHoverMultiplier: 50
   m_fRotateSpeedKeyboard: 10
   m_fRotateSpeedController: 0.1
-  m_fCruiseSpeed: 15
+  m_fCruiseSpeed: 10
   m_fAttackSpeed: 0.3
   m_fClawSpeed: 25
-  m_fPickupSpeed: 20
-  m_claw: {fileID: 0}
+  m_fPickupSpeed: 30
   m_arm: {fileID: 1000575598159676}
-  m_crane: {fileID: 0}
+  m_claw: {fileID: 0}
   m_bPickedUp: 0
   m_bIsOut: 0
   m_bInCrane: 0
