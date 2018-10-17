@@ -29,7 +29,7 @@ public class Claw : MonoBehaviour
     private void Drop()
     {
         // checks if the claw is above the target height
-        if (transform.localPosition.y > -3.5f)
+        if (transform.localPosition.y > -10.0f)
         {
             // moves the claw down
             transform.Translate(-transform.up * Time.deltaTime * m_fMoveSpeed);
@@ -75,11 +75,11 @@ public class Claw : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        // sets the claw to have dropped
+        m_bDropped = true;
         // checks if the claw collides with a player
         if (other.CompareTag("Player") && !other.GetComponent<PlayerController>().m_bInCrane)
         {
-            // sets the claw to have dropped
-            m_bDropped = true;
 
             // gets the player controller from the player
             PlayerController playerController = other.GetComponent<PlayerController>();
@@ -87,6 +87,12 @@ public class Claw : MonoBehaviour
             playerController.m_bPickedUp = true;
             // gives the player control over the claw
             playerController.m_claw = gameObject.GetComponent<Claw>();
+        }
+        // checks if the claw collided with the platform
+        else if (other.CompareTag("Ground"))
+        {
+            // sets the claw to have dropped
+            m_bDropped = true;
         }
     }
 }

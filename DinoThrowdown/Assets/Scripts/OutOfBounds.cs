@@ -64,7 +64,7 @@ public class OutOfBounds : MonoBehaviour
                     // sends the player to the crane
                     playerController.transform.position = m_seats[i].transform.position;
 
-                    playerController.transform.localRotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
+                    playerController.transform.localRotation = Quaternion.Euler(0.0f, m_seats[i].transform.rotation.eulerAngles.y, 0.0f);
 
                     // changes the status of the player to in the crane
                     playerController.m_bInCrane = true;

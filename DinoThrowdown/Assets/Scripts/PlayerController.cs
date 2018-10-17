@@ -349,13 +349,13 @@ public class PlayerController : MonoBehaviour
             if (m_claw.GetCrane().name == "Crane1")
             {
                 transform.position = m_seats[0].transform.position;
+                transform.localRotation = Quaternion.Euler(0.0f, m_seats[0].transform.rotation.eulerAngles.y, 0.0f);
             }
             else
             {
                 transform.position = m_seats[1].transform.position;
+                transform.localRotation = Quaternion.Euler(0.0f, m_seats[1].transform.rotation.eulerAngles.y, 0.0f);
             }
-
-            transform.localRotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
 
             // sets the status as not out or picked up and in the crane
             m_bIsOut = false;
