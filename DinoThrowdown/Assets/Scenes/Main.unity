@@ -8400,7 +8400,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh16332
+  m_Name: pb_Mesh12092
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -9095,6 +9095,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  m_winText: {fileID: 0}
 --- !u!1001 &1771258885
 Prefab:
   m_ObjectHideFlags: 0
