@@ -43,6 +43,7 @@ public class Dash : MonoBehaviour
     {
         if (m_bCanDash)
         {
+            m_rigidbody.velocity = Vector3.zero;
             GamePadState m_gamePadState = GamePad.GetState((PlayerIndex)m_cPlayerNumber - 1);
             // Get position for explosive force
             Vector3 v3ExplosionPos = transform.position;
