@@ -260,7 +260,7 @@ public class PlayerController : MonoBehaviour
 
         // moves the rigidbody by the direction
         transform.position += v3Direction;
-
+        m_rigidbody.velocity = v3Direction * m_fVelocity;
         // decrements the timer
         m_cruiseControl.fTimer -= Time.deltaTime;
         // checks if the timer has run out

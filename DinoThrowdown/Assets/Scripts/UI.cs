@@ -87,7 +87,8 @@ public class UI : MonoBehaviour
         {
             if (m_players[i] == player)
             {
-                m_winText.GetComponent<Text>().text = "PLAYER " + i + " WINS!";
+                m_winText.GetComponent<Text>().text = "PLAYER " + (i + 1) + " WINS!";
+                return;
             }
         }
     }
