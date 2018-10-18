@@ -47,8 +47,8 @@ public class PlayerController : MonoBehaviour
     public float m_fWeaponSizeTime = 3.0f;
     // contains weapon
     public GameObject m_weapon;
-    // square magnitude to set knocked back to false
-    public float m_fMinimumKnockedBackVelocity = 1.0f;
+    // stores the amount of time to not be able to cruise after being hit
+    public float m_fStopCruiseAfterHitTime = 2.0f;
 
     // reference to the claw that will be used
     [HideInInspector]
@@ -65,9 +65,6 @@ public class PlayerController : MonoBehaviour
     // stores default weapon position
     [HideInInspector]
     public Vector3 m_v3BaseWeaponPosition;
-    // stores if the player has been knocked back recently
-    [HideInInspector]
-    public bool m_bKnockedBack = false;
     // stores if the attack hit
     [HideInInspector]
     public bool m_bWeaponHit = false;
@@ -80,6 +77,9 @@ public class PlayerController : MonoBehaviour
     // determines if the player is in the crane
     [HideInInspector]
     public bool m_bInCrane = false;
+    // stores timer for being knocked back
+    [HideInInspector]
+    public float m_fKnockedBackTimer;
 
     private GamePadState m_gamePadState;
     private PlayerIndex m_playerIndex;
@@ -148,7 +148,7 @@ public class PlayerController : MonoBehaviour
         // checks if the player is on cruise control
         else if (m_cruiseControl.bFlag && !m_bIsOut && !m_bInCrane)
         {
-            if (m_bKnockedBack)
+            if (m_fKnockedBackTimer <= 0.0f)
                 Cruise(v2Movement.x, v2Movement.y);
             else
                 Move(v2Movement.x, v2Movement.y);
@@ -159,9 +159,6 @@ public class PlayerController : MonoBehaviour
             Move(v2Movement.x, v2Movement.y);
         }
         
-        // set knocked back to false if under specified velocity
-        if (m_rigidbody.velocity.sqrMagnitude < m_fMinimumKnockedBackVelocity)
-            m_bKnockedBack = false;
 
         // get gamepad right stick input
         float rightRotation = m_gamePadState.ThumbSticks.Right.X;
@@ -257,6 +254,19 @@ public class PlayerController : MonoBehaviour
                 m_weapon.transform.localPosition = m_v3BaseWeaponPosition;
             }
         }
+
+        if (m_cruiseControl.bFlag)
+        {
+            // decrements the timer
+            m_cruiseControl.fTimer -= Time.deltaTime;
+            // checks if the timer has run out
+            if (m_cruiseControl.fTimer <= 0.0f)
+            {
+                // resets the cruise control
+                m_cruiseControl.bFlag = false;
+                m_cruiseControl.fTimer = m_fCruiseControlTime;
+            }
+        }
     }
 
     // moves normally based on input
@@ -285,18 +295,6 @@ public class PlayerController : MonoBehaviour
 
         // moves the rigidbody by the direction
         transform.position += v3Direction;
-        // decrements the timer
-        if (m_cruiseControl.bFlag)
-        {
-            m_cruiseControl.fTimer -= Time.deltaTime;
-            // checks if the timer has run out
-            if (m_cruiseControl.fTimer <= 0.0f)
-            {
-                // resets the cruise control
-                m_cruiseControl.bFlag = false;
-                m_cruiseControl.fTimer = m_fCruiseControlTime;
-            }
-        }
     }
 
     // swings the weapon

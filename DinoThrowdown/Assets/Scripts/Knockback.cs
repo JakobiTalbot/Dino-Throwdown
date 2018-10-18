@@ -76,10 +76,9 @@ public class Knockback : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Weapon") 
+        if (other.gameObject.CompareTag("Weapon") && !CompareTag("Weapon")
             && other.gameObject.GetComponentInParent<Component>().GetComponentInParent<Component>().GetComponentInParent<PlayerController>().GetAttacking() 
-            && !other.gameObject.GetComponentInParent<Component>().GetComponentInParent<Component>().GetComponentInParent<PlayerController>().m_bWeaponHit
-            && CompareTag("Player"))
+            && !other.gameObject.GetComponentInParent<Component>().GetComponentInParent<Component>().GetComponentInParent<PlayerController>().m_bWeaponHit)
         {
             // Find average position of two objects colliding
             Vector3 v3ExplosionPos = (other.gameObject.transform.position + transform.position) * 0.5f;
@@ -122,7 +121,7 @@ public class Knockback : MonoBehaviour
             }
 
             other.gameObject.GetComponentInParent<Component>().GetComponentInParent<Component>().GetComponentInParent<PlayerController>().m_bWeaponHit = true;
-            GetComponent<PlayerController>().m_bKnockedBack = true;
+            GetComponent<PlayerController>().m_fKnockedBackTimer = GetComponent<PlayerController>().m_fStopCruiseAfterHitTime;
             Instantiate(m_hitParticles, v3ExplosionPos, Quaternion.Euler(0, 0, 0));
         }
     }
