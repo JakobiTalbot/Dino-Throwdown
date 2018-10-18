@@ -13,6 +13,7 @@ public class UI : MonoBehaviour
     public GameObject[] m_p3RoundImages;
     public GameObject[] m_p4RoundImages;
     public GameObject m_winText;
+    public GameObject m_roundText;
 
     // Use this for initialization
     void Awake()
@@ -87,9 +88,40 @@ public class UI : MonoBehaviour
         {
             if (m_players[i] == player)
             {
-                m_winText.GetComponent<Text>().text = "PLAYER " + (i + 1) + " WINS!";
+                m_winText.SetActive(true);
+
+                switch (i)
+                {
+                    case 0:
+                        m_winText.GetComponent<Text>().text = "BLUE WINS!";
+                        m_winText.GetComponent<Text>().color = Color.cyan;
+                        break;
+                    case 1:
+                        m_winText.GetComponent<Text>().text = "RED WINS!";
+                        m_winText.GetComponent<Text>().color = Color.red;
+                        break;
+                    case 2:
+                        m_winText.GetComponent<Text>().text = "GREEN WINS!";
+                        m_winText.GetComponent<Text>().color = Color.green;
+                        break;
+                    case 3:
+                        m_winText.GetComponent<Text>().text = "YELLOW WINS!";
+                        m_winText.GetComponent<Text>().color = Color.yellow;
+                        break;
+                }
+
                 return;
             }
         }
+    }
+
+    public void RoundText(int cRoundNumber)
+    {
+        m_roundText.SetActive(true);
+        m_roundText.GetComponent<Text>().text = "ROUND " + cRoundNumber.ToString();
+    }
+    public void DisableText()
+    {
+        m_roundText.SetActive(false);
     }
 }
