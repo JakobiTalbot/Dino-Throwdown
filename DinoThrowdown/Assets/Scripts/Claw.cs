@@ -21,6 +21,9 @@ public class Claw : MonoBehaviour
     // reference to the item that is picked up
     [HideInInspector]
     public GameObject m_item = null;
+    // stores the previous position
+    [HideInInspector]
+    public Vector3 m_v3PrevPos = Vector3.zero;
 
     // reference to the crane
     private CraneManager m_crane;
@@ -92,6 +95,8 @@ public class Claw : MonoBehaviour
     // moves the claw and potentially the item being held
     public void Move(float fHorizontal, float fVertical, float fSpeed)
     {
+        m_v3PrevPos = transform.position;
+
         //direction based on input
         Vector3 v3Direction = new Vector3(0.0f, 0.0f, 0.0f);
         v3Direction.x = fHorizontal * Time.deltaTime;

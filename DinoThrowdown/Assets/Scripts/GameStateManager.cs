@@ -174,6 +174,7 @@ public class GameStateManager : MonoBehaviour
                     m_confetti.SetActive(true);
                     m_bPlayerWon = true;
                     m_canvas.GetComponent<UI>().EnablePlayerWon(m_players[i]);
+                    m_canvas.GetComponent<UI>().DisableText();
                 }
             }
         }

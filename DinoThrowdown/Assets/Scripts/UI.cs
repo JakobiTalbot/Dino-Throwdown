@@ -142,5 +142,6 @@ public class UI : MonoBehaviour
     public void DisableText()
     {
         m_roundText.SetActive(false);
+        m_roundWinText.SetActive(false);
     }
 }
