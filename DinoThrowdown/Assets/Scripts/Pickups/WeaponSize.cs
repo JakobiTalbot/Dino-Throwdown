@@ -17,6 +17,7 @@ public class WeaponSize : Pickup
             // doubles the scale of the object
             weapon.transform.localScale = weapon.transform.localScale * 2.0f;
             other.GetComponent<PlayerController>().m_weaponSize.bFlag = true;
+            other.GetComponent<PlayerController>().m_weaponSize.fTimer = other.GetComponent<PlayerController>().m_fWeaponSizeTime;
             // set position of weapon because of changed scale
             Vector3 v3ScaledPos = weapon.transform.localPosition;
             v3ScaledPos.x *= 2.0f;
