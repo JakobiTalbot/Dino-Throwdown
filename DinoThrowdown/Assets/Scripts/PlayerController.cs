@@ -246,7 +246,7 @@ public class PlayerController : MonoBehaviour
         if (v3Direction.sqrMagnitude > 1)
             v3Direction.Normalize();
 
-        // Add force to rigidbody
+        // Add velocity to rigidbody
         m_rigidbody.velocity += (v3Direction * m_fVelocity * Time.deltaTime);
     }
 
@@ -257,10 +257,10 @@ public class PlayerController : MonoBehaviour
         Vector3 v3Direction = new Vector3(0.0f, 0.0f, 0.0f);
         v3Direction.x = fHorizontal * m_fCruiseSpeed * Time.deltaTime;
         v3Direction.z = fVertical * m_fCruiseSpeed * Time.deltaTime;
+        m_rigidbody.velocity = new Vector3(fHorizontal * m_fVelocity, m_rigidbody.velocity.y, fVertical * m_fVelocity);
 
         // moves the rigidbody by the direction
         transform.position += v3Direction;
-        m_rigidbody.velocity = v3Direction * m_fVelocity;
         // decrements the timer
         m_cruiseControl.fTimer -= Time.deltaTime;
         // checks if the timer has run out
