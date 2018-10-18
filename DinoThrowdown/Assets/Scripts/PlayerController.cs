@@ -272,7 +272,8 @@ public class PlayerController : MonoBehaviour
         // moves the rigidbody by the direction
         transform.position += v3Direction;
         // decrements the timer
-        m_cruiseControl.fTimer -= Time.deltaTime;
+        if (m_cruiseControl.bFlag)
+            m_cruiseControl.fTimer -= Time.deltaTime;
         // checks if the timer has run out
         if (m_cruiseControl.fTimer <= 0.0f)
         {

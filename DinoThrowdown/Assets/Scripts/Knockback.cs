@@ -25,6 +25,7 @@ public class Knockback : MonoBehaviour
     // handles when the player should recieve less knockback
     [HideInInspector]
     public KnockbackShield m_shield;
+    [HideInInspector]
     public float m_fKnockbackMeter = 0;
 
 
