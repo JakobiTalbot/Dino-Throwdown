@@ -8,6 +8,8 @@ public class Claw : MonoBehaviour
     public float m_fMoveSpeed = 10.0f;
     // speed at which items fall
     public float m_fFallSpeed = 15.0f;
+    // distance the claw can move from the origin
+    public float m_fMoveRadius = 30.0f;
     // types of items to pick up
     public GameObject[] m_itemTypes;
 
@@ -112,11 +114,11 @@ public class Claw : MonoBehaviour
         // gets the claw's position in the x and z axis
         Vector2 v2Origin = new Vector2(transform.position.x, transform.position.z);
         // checks if the claw is too far
-        if (v2Origin.magnitude > 31.0f)
+        if (v2Origin.magnitude > m_fMoveRadius)
         {
             // sets the claw's position at the limit
             v2Origin.Normalize();
-            v2Origin *= 31.0f;
+            v2Origin *= m_fMoveRadius;
             transform.position = new Vector3(v2Origin.x, transform.position.y, v2Origin.y);
         }
 
