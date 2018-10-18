@@ -41,6 +41,8 @@ public class PlayerController : MonoBehaviour
     public GameObject m_arm;
     // reference to the crane seats
     public Transform[] m_seats;
+    public float m_fCruiseControlTime = 5.0f;
+    public float m_fWeaponSizeTime = 3.0f;
 
     // reference to the claw that will be used
     [HideInInspector]
@@ -102,9 +104,9 @@ public class PlayerController : MonoBehaviour
         };
 
         m_cruiseControl.bFlag = false;
-        m_cruiseControl.fTimer = 5.0f;
+        m_cruiseControl.fTimer = m_fCruiseControlTime;
         m_weaponSize.bFlag = false;
-        m_weaponSize.fTimer = 3.0f;
+        m_weaponSize.fTimer = m_fWeaponSizeTime;
 
         // get start and end rotation for the weapon
         m_v3StartArmRotation = m_arm.transform.localRotation.eulerAngles;
@@ -238,7 +240,7 @@ public class PlayerController : MonoBehaviour
             {
                 // resets the weapon size
                 m_weaponSize.bFlag = false;
-                m_weaponSize.fTimer = 5.0f;
+                m_weaponSize.fTimer = m_fWeaponSizeTime;
                 m_weapon.transform.localScale = m_v3BaseWeaponScale;
                 m_weapon.transform.localPosition = m_v3BaseWeaponPosition;
             }
@@ -273,13 +275,15 @@ public class PlayerController : MonoBehaviour
         transform.position += v3Direction;
         // decrements the timer
         if (m_cruiseControl.bFlag)
-            m_cruiseControl.fTimer -= Time.deltaTime;
-        // checks if the timer has run out
-        if (m_cruiseControl.fTimer <= 0.0f)
         {
-            // resets the cruise control
-            m_cruiseControl.bFlag = false;
-            m_cruiseControl.fTimer = 5.0f;
+            m_cruiseControl.fTimer -= Time.deltaTime;
+            // checks if the timer has run out
+            if (m_cruiseControl.fTimer <= 0.0f)
+            {
+                // resets the cruise control
+                m_cruiseControl.bFlag = false;
+                m_cruiseControl.fTimer = m_fCruiseControlTime;
+            }
         }
     }
 
