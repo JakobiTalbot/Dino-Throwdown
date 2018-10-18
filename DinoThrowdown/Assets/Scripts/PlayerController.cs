@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
     public bool m_bInCrane = false;
     // stores timer for being knocked back
     [HideInInspector]
-    public float m_fKnockedBackTimer;
+    public float m_fKnockedBackTimer = 0.0f;
 
     private GamePadState m_gamePadState;
     private PlayerIndex m_playerIndex;
@@ -267,6 +267,8 @@ public class PlayerController : MonoBehaviour
                 m_cruiseControl.fTimer = m_fCruiseControlTime;
             }
         }
+
+        m_fKnockedBackTimer -= Time.deltaTime;
     }
 
     // moves normally based on input
