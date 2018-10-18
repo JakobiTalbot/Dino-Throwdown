@@ -4561,6 +4561,7 @@ MonoBehaviour:
   m_bHasItem: 0
   m_bItemDrop: 0
   m_item: {fileID: 0}
+  m_v3PrevPos: {x: 0, y: 0, z: 0}
 --- !u!65 &596633258
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4955,6 +4956,7 @@ MonoBehaviour:
   m_bHasItem: 0
   m_bItemDrop: 0
   m_item: {fileID: 0}
+  m_v3PrevPos: {x: 0, y: 0, z: 0}
 --- !u!65 &807689492
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6140,6 +6142,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 9f6604da905c6d54d980d7c9d951e380, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9f6604da905c6d54d980d7c9d951e380, type: 3}
   m_IsPrefabParent: 0
@@ -6290,7 +6296,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7bf70e77beae6f542af405a87ad00d86, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.95
+      value: 0.682
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7bf70e77beae6f542af405a87ad00d86, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6755,6 +6761,10 @@ Prefab:
     - target: {fileID: 100000, guid: 9f6604da905c6d54d980d7c9d951e380, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 9f6604da905c6d54d980d7c9d951e380, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9f6604da905c6d54d980d7c9d951e380, type: 3}
