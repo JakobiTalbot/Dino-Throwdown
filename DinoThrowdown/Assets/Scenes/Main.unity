@@ -2903,6 +2903,22 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  m_p1RoundImages:
+  - {fileID: 111323766}
+  - {fileID: 1827864206}
+  - {fileID: 851727301}
+  m_p2RoundImages:
+  - {fileID: 2019707653}
+  - {fileID: 1282560832}
+  - {fileID: 322889921}
+  m_p3RoundImages:
+  - {fileID: 1779156478}
+  - {fileID: 1900403420}
+  - {fileID: 2057426499}
+  m_p4RoundImages:
+  - {fileID: 49489118}
+  - {fileID: 2043561015}
+  - {fileID: 45135631}
   m_winText: {fileID: 0}
 --- !u!1001 &1771258885
 Prefab:
@@ -3281,7 +3297,7 @@ GameObject:
   - component: {fileID: 1947069050}
   m_Layer: 0
   m_Name: RoundsController
-  m_TagString: Untagged
+  m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
