@@ -72,6 +72,7 @@ public class OutOfBounds : MonoBehaviour
                     playerController.m_claw = m_claw[i];
 
                     other.GetComponent<Rigidbody>().velocity = new Vector3(0.0f, 0.0f, 0.0f);
+                    other.GetComponent<Rigidbody>().isKinematic = true;
 
                     return;
                 }
