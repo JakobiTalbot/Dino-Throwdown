@@ -41,12 +41,36 @@ public class PlayerController : MonoBehaviour
     public GameObject m_arm;
     // reference to the crane seats
     public Transform[] m_seats;
+    // time to remain in cruise control
     public float m_fCruiseControlTime = 5.0f;
+    // time to keep weapon size powerup
     public float m_fWeaponSizeTime = 3.0f;
+    // contains weapon
+    public GameObject m_weapon;
+    // square magnitude to set knocked back to false
+    public float m_fMinimumKnockedBackVelocity = 1.0f;
 
     // reference to the claw that will be used
     [HideInInspector]
     public Claw m_claw;
+    // handles when the player should cruise
+    [HideInInspector]
+    public PickupTimer m_cruiseControl;
+    // handles when the player should have a larger weapon
+    [HideInInspector]
+    public PickupTimer m_weaponSize;
+    // stores default weapon scale
+    [HideInInspector]
+    public Vector3 m_v3BaseWeaponScale;
+    // stores default weapon position
+    [HideInInspector]
+    public Vector3 m_v3BaseWeaponPosition;
+    // stores if the player has been knocked back recently
+    [HideInInspector]
+    public bool m_bKnockedBack = false;
+    // stores if the attack hit
+    [HideInInspector]
+    public bool m_bWeaponHit = false;
     // determines if the player is being picked up
     [HideInInspector]
     public bool m_bPickedUp = false;
@@ -56,37 +80,18 @@ public class PlayerController : MonoBehaviour
     // determines if the player is in the crane
     [HideInInspector]
     public bool m_bInCrane = false;
-    // handles when the player should cruise
-    [HideInInspector]
-    public PickupTimer m_cruiseControl;
-    // handles when the player should have a larger weapon
-    [HideInInspector]
-    public PickupTimer m_weaponSize;
 
     private GamePadState m_gamePadState;
     private PlayerIndex m_playerIndex;
-
     private Rigidbody m_rigidbody;
-    // contains weapon
-    public GameObject m_weapon;
     // determines if the player is attacking
-    private bool m_bIsAttacking = false;
-
     private Vector3 m_v3StartArmRotation;
     private Vector3 m_v3EndArmRotation;
+    private bool m_bRightTriggerDown = false;
+    private bool m_bIsAttacking = false;
 
-    [HideInInspector]
-    public Vector3 m_v3BaseWeaponScale;
-    [HideInInspector]
-    public Vector3 m_v3BaseWeaponPosition;
-
-    private bool m_bRightTriggerDown;
-
-    [HideInInspector]
-    public bool m_bWeaponHit = false;
-
-	// Use this for initialization
-	void Awake()
+    // Use this for initialization
+    void Awake()
     {
         m_rigidbody = GetComponent<Rigidbody>();
 
@@ -143,13 +148,20 @@ public class PlayerController : MonoBehaviour
         // checks if the player is on cruise control
         else if (m_cruiseControl.bFlag && !m_bIsOut && !m_bInCrane)
         {
-            Cruise(v2Movement.x, v2Movement.y);
+            if (m_bKnockedBack)
+                Cruise(v2Movement.x, v2Movement.y);
+            else
+                Move(v2Movement.x, v2Movement.y);
         }
         // checks if the player is in the game and not on cruise control
         else if (!m_bIsOut && !m_bInCrane)
         {
             Move(v2Movement.x, v2Movement.y);
         }
+        
+        // set knocked back to false if under specified velocity
+        if (m_rigidbody.velocity.sqrMagnitude < m_fMinimumKnockedBackVelocity)
+            m_bKnockedBack = false;
 
         // get gamepad right stick input
         float rightRotation = m_gamePadState.ThumbSticks.Right.X;

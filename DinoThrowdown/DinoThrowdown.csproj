@@ -259,24 +259,6 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
-    <Reference Include="ProBuilderCore-Unity5">
-      <HintPath>Assets/OutsideAssets/ProCore/ProBuilder/Classes/ProBuilderCore-Unity5.dll</HintPath>
-    </Reference>
-    <Reference Include="ProBuilderMeshOps-Unity5">
-      <HintPath>Assets/OutsideAssets/ProCore/ProBuilder/Classes/ProBuilderMeshOps-Unity5.dll</HintPath>
-    </Reference>
-    <Reference Include="KdTreeLib">
-      <HintPath>Assets/OutsideAssets/ProCore/ProBuilder/Classes/ClassesLib/KdTreeLib.dll</HintPath>
-    </Reference>
-    <Reference Include="pb_Stl">
-      <HintPath>Assets/OutsideAssets/ProCore/ProBuilder/Classes/ClassesLib/pb_Stl.dll</HintPath>
-    </Reference>
-    <Reference Include="Poly2Tri">
-      <HintPath>Assets/OutsideAssets/ProCore/ProBuilder/Classes/ClassesLib/Poly2Tri.dll</HintPath>
-    </Reference>
-    <Reference Include="ProBuilderEditor-Unity5">
-      <HintPath>Assets/OutsideAssets/ProCore/ProBuilder/Editor/ProBuilderEditor-Unity5.dll</HintPath>
-    </Reference>
     <Reference Include="XInputDotNetPure">
       <HintPath>Assets/XInput/Plugins/x86_64/XInputDotNetPure.dll</HintPath>
     </Reference>
@@ -303,19 +285,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\OutsideAssets\ProCore\ProBuilder\API Examples\Icosphere FFT\Scripts\CameraControls.cs" />
-    <Compile Include="Assets\OutsideAssets\ProCore\ProBuilder\API Examples\Icosphere FFT\Scripts\IcoBumpin.cs" />
-    <Compile Include="Assets\OutsideAssets\ProCore\ProBuilder\API Examples\Misc\HueCube.cs" />
-    <Compile Include="Assets\OutsideAssets\ProCore\ProBuilder\API Examples\Procedural Mesh\ExtrudeRandomEdges.cs" />
-    <Compile Include="Assets\OutsideAssets\ProCore\ProBuilder\API Examples\Runtime Editing\RuntimeEdit.cs" />
-    <Compile Include="Assets\OutsideAssets\ProCore\ProBuilder\API Examples\Vertex Colors\HighlightNearestFace.cs" />
-    <Compile Include="Assets\ProCore\ProGrids\Classes\pg_Constant.cs" />
-    <Compile Include="Assets\ProCore\ProGrids\Classes\pg_Enum.cs" />
-    <Compile Include="Assets\ProCore\ProGrids\Classes\pg_IconUtility.cs" />
-    <Compile Include="Assets\ProCore\ProGrids\Classes\pg_IgnoreSnapAttribute.cs" />
-    <Compile Include="Assets\ProCore\ProGrids\Classes\pg_SceneMeshRender.cs" />
-    <Compile Include="Assets\ProCore\ProGrids\Classes\pg_Util.cs" />
-    <Compile Include="Assets\ProCore\ProGrids\MonoBehaviour\pg_IgnoreSnap.cs" />
     <Compile Include="Assets\Scripts\AI.cs" />
     <Compile Include="Assets\Scripts\Claw.cs" />
     <Compile Include="Assets\Scripts\CraneManager.cs" />
@@ -348,31 +317,6 @@
     <Compile Include="Assets\XInput\XInputDotNet\Examples\XInputTestCS.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\OutsideAssets\ProCore\ProBuilder\API Examples\Icosphere FFT\README.txt" />
-    <None Include="Assets\OutsideAssets\ProCore\ProBuilder\About\Font\SIL Open Font License.txt" />
-    <None Include="Assets\OutsideAssets\ProCore\ProBuilder\About\ThirdPartyLicenses.txt" />
-    <None Include="Assets\OutsideAssets\ProCore\ProBuilder\About\changelog.txt" />
-    <None Include="Assets\OutsideAssets\ProCore\ProBuilder\About\pc_AboutEntry_ProBuilder.txt" />
-    <None Include="Assets\OutsideAssets\ProCore\ProBuilder\Shader\DiffuseTextureBlend.shader" />
-    <None Include="Assets\OutsideAssets\ProCore\ProBuilder\Shader\DiffuseVertexColor.shader" />
-    <None Include="Assets\OutsideAssets\ProCore\ProBuilder\Shader\pb_FaceHighlight.shader" />
-    <None Include="Assets\OutsideAssets\ProCore\ProBuilder\Shader\pb_FacePicker.shader" />
-    <None Include="Assets\OutsideAssets\ProCore\ProBuilder\Shader\pb_HideVertices.shader" />
-    <None Include="Assets\OutsideAssets\ProCore\ProBuilder\Shader\pb_NormalPreview.shader" />
-    <None Include="Assets\OutsideAssets\ProCore\ProBuilder\Shader\pb_ReferenceUnlit.shader" />
-    <None Include="Assets\OutsideAssets\ProCore\ProBuilder\Shader\pb_ScrollHighlight.shader" />
-    <None Include="Assets\OutsideAssets\ProCore\ProBuilder\Shader\pb_SelectionPicker.shader" />
-    <None Include="Assets\OutsideAssets\ProCore\ProBuilder\Shader\pb_SmoothingPreview.shader" />
-    <None Include="Assets\OutsideAssets\ProCore\ProBuilder\Shader\pb_StandardVertexColor.shader" />
-    <None Include="Assets\OutsideAssets\ProCore\ProBuilder\Shader\pb_TransparentOverlay.shader" />
-    <None Include="Assets\OutsideAssets\ProCore\ProBuilder\Shader\pb_UnlitSolidColor.shader" />
-    <None Include="Assets\OutsideAssets\ProCore\ProBuilder\Shader\pb_UnlitVertexColor.shader" />
-    <None Include="Assets\OutsideAssets\ProCore\ProBuilder\Shader\pb_VertexPicker.shader" />
-    <None Include="Assets\OutsideAssets\ProCore\ProBuilder\Shader\pb_VertexShader.shader" />
-    <None Include="Assets\OutsideAssets\ProCore\ProBuilder\readme.txt" />
-    <None Include="Assets\ProCore\ProGrids\About\changelog.txt" />
-    <None Include="Assets\ProCore\ProGrids\About\pc_AboutEntry_ProGrids.txt" />
-    <None Include="Assets\ProCore\ProGrids\Shader\pg_GridShader.shader" />
     <None Include="Assets\Textures\Delete.txt" />
     <None Include="Assets\XInput\XInputDotNet\MITLicense.txt" />
   </ItemGroup>
