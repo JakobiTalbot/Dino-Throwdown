@@ -4083,6 +4083,11 @@ Prefab:
       propertyPath: m_fDashForce
       value: 1000
       objectReference: {fileID: 0}
+    - target: {fileID: 114068037925105280, guid: d44514199fc1c544798a8c0e5049d02a,
+        type: 2}
+      propertyPath: m_fStopCruiseAfterHitTime
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d44514199fc1c544798a8c0e5049d02a, type: 2}
   m_IsPrefabParent: 0
@@ -4359,6 +4364,11 @@ Prefab:
       propertyPath: m_fDashForce
       value: 1000
       objectReference: {fileID: 0}
+    - target: {fileID: 114425542154673888, guid: 233ef30d6ae3ae546af22cc1d97724af,
+        type: 2}
+      propertyPath: m_fStopCruiseAfterHitTime
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 233ef30d6ae3ae546af22cc1d97724af, type: 2}
   m_IsPrefabParent: 0
@@ -4451,6 +4461,11 @@ Prefab:
       propertyPath: m_fDashForce
       value: 1000
       objectReference: {fileID: 0}
+    - target: {fileID: 114435316115007682, guid: caac8ffd014267b45a4594e09c28a2c2,
+        type: 2}
+      propertyPath: m_fStopCruiseAfterHitTime
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: caac8ffd014267b45a4594e09c28a2c2, type: 2}
   m_IsPrefabParent: 0
@@ -4511,6 +4526,78 @@ GameObject:
   m_PrefabParentObject: {fileID: 1124671081792584, guid: 9109eff9ccb516241bd0cf49cfff05c3,
     type: 2}
   m_PrefabInternal: {fileID: 312545599}
+--- !u!1 &580355563
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 580355567}
+  - component: {fileID: 580355566}
+  - component: {fileID: 580355565}
+  - component: {fileID: 580355564}
+  m_Layer: 0
+  m_Name: InnerRing
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!54 &580355564
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 580355563}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &580355565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 580355563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c44445c2125851f42970c2a27a77c33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_fIncreasedSpeed: 40
+--- !u!64 &580355566
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 580355563}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &580355567
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 580355563}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 45, y: 50, z: 45}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &596633254
 GameObject:
   m_ObjectHideFlags: 0
@@ -4555,13 +4642,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_fMoveSpeed: 25
+  m_fFallSpeed: 25
+  m_fMoveRadius: 30
   m_itemTypes:
   - {fileID: 1578206416247968, guid: 95911d88fc595f44cbd94e9a1ae6f2a1, type: 2}
   m_bDropped: 0
   m_bHasItem: 0
   m_bItemDrop: 0
   m_item: {fileID: 0}
-  m_v3PrevPos: {x: 0, y: 0, z: 0}
 --- !u!65 &596633258
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4950,13 +5038,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_fMoveSpeed: 25
+  m_fFallSpeed: 25
+  m_fMoveRadius: 30
   m_itemTypes:
   - {fileID: 1578206416247968, guid: 95911d88fc595f44cbd94e9a1ae6f2a1, type: 2}
   m_bDropped: 0
   m_bHasItem: 0
   m_bItemDrop: 0
   m_item: {fileID: 0}
-  m_v3PrevPos: {x: 0, y: 0, z: 0}
 --- !u!65 &807689492
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5610,6 +5699,63 @@ MonoBehaviour:
   - {fileID: 1292824039}
   - {fileID: 1276844854}
   - {fileID: 123641451}
+--- !u!1 &1225319799
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1225319802}
+  - component: {fileID: 1225319801}
+  - component: {fileID: 1225319800}
+  m_Layer: 0
+  m_Name: Floor
+  m_TagString: Ground
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!54 &1225319800
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1225319799}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!65 &1225319801
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1225319799}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 70, y: 1, z: 70}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1225319802
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1225319799}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -9.35, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1227313135 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4279259444957822, guid: 76f355384b366a144b6e1f44c7b200ca,
@@ -6949,6 +7095,11 @@ Prefab:
         type: 2}
       propertyPath: m_fDashForce
       value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114324380469644154, guid: e052215332d9f374398dae35bb823016,
+        type: 2}
+      propertyPath: m_fStopCruiseAfterHitTime
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e052215332d9f374398dae35bb823016, type: 2}
