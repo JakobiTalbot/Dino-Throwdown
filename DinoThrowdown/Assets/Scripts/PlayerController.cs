@@ -136,7 +136,7 @@ public class PlayerController : MonoBehaviour
         // checks if the player is in the crane
         else if (m_bInCrane && !m_bIsAttacking)
         {
-            MoveClaw(v2Movement.x, v2Movement.y);
+            m_claw.Move(v2Movement.x, v2Movement.y, m_fClawSpeed);
         }
         // checks if the player is on cruise control
         else if (m_cruiseControl.bFlag && !m_bIsOut && !m_bInCrane)
@@ -208,10 +208,20 @@ public class PlayerController : MonoBehaviour
             m_bRightTriggerDown = false;
         }
 
-        // checks if the player is grabbing another with the claw
+        // checks if the player is grabbing another with the claw or dropping an item
         if (m_bIsAttacking && m_bInCrane)
         {
-            m_bIsAttacking = m_claw.Grab();
+            // checks if there is an item to drop
+            if (m_claw.m_bHasItem && !m_claw.m_bDropped)
+            {
+                m_claw.DropItem();
+                m_bIsAttacking = false;
+            }
+            else
+            {
+                // grabs with the claw
+                m_bIsAttacking = m_claw.Grab();
+            }
         }
         else if (m_bIsAttacking)
         {
@@ -270,17 +280,6 @@ public class PlayerController : MonoBehaviour
             m_cruiseControl.bFlag = false;
             m_cruiseControl.fTimer = 5.0f;
         }
-    }
-
-    private void MoveClaw(float fHorizontal, float fVertical)
-    {
-        //direction based on input
-        Vector3 v3Direction = new Vector3(0.0f, 0.0f, 0.0f);
-        v3Direction.x = fHorizontal * m_fClawSpeed * Time.deltaTime;
-        v3Direction.z = fVertical * m_fClawSpeed * Time.deltaTime;
-
-        // moves the claw by the direction
-        m_claw.transform.Translate(v3Direction);
     }
 
     // swings the weapon

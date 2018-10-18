@@ -10,7 +10,7 @@ TagManager:
   - Canvas
   - Crane
   - Claw
-  - GameManager
+  - Deadzone
   layers:
   - Default
   - TransparentFX
@@ -20,7 +20,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Player
   - 
   - 
   - 

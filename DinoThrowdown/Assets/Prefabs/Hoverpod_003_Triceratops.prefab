@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 114924188071209448}
   - component: {fileID: 114416280622046642}
   - component: {fileID: 114068037925105280}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hoverpod_003_Triceratops
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -270,7 +270,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1985458462396902}
   serializedVersion: 2
-  m_Mass: 3
+  m_Mass: 1.5
   m_Drag: 0.75
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -357,10 +357,10 @@ MonoBehaviour:
   m_fHeightFromHoverMultiplier: 50
   m_fRotateSpeedKeyboard: 10
   m_fRotateSpeedController: 0.1
-  m_fCruiseSpeed: 15
-  m_fAttackSpeed: 0.3
+  m_fCruiseSpeed: 7
+  m_fAttackSpeed: 0.25
   m_fClawSpeed: 25
-  m_fPickupSpeed: 30
+  m_fPickupSpeed: 25
   m_arm: {fileID: 1880584305834530}
   m_seats:
   - {fileID: 0}
@@ -370,6 +370,8 @@ MonoBehaviour:
   m_bIsOut: 0
   m_bInCrane: 0
   m_weapon: {fileID: 1081126811455660}
+  m_v3BaseWeaponScale: {x: 0, y: 0, z: 0}
+  m_v3BaseWeaponPosition: {x: 0, y: 0, z: 0}
   m_bWeaponHit: 0
 --- !u!114 &114416280622046642
 MonoBehaviour:
@@ -401,5 +403,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03df447142469fb41931c95036fcb8ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_fDashForce: 750
-  m_fDashCooldown: 5
+  m_fDashForce: 1100
+  m_fDashCooldown: 3

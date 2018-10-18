@@ -345,11 +345,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 136618955}
     m_Modifications:
-    - target: {fileID: 114068037925105280, guid: d44514199fc1c544798a8c0e5049d02a,
-        type: 2}
-      propertyPath: m_seats.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4221408032488494, guid: d44514199fc1c544798a8c0e5049d02a, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -384,43 +379,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114068037925105280, guid: d44514199fc1c544798a8c0e5049d02a,
         type: 2}
-      propertyPath: m_crane
-      value: 
-      objectReference: {fileID: 941350427}
-    - target: {fileID: 114068037925105280, guid: d44514199fc1c544798a8c0e5049d02a,
-        type: 2}
-      propertyPath: m_fPickupSpeed
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 54827285120791870, guid: d44514199fc1c544798a8c0e5049d02a,
-        type: 2}
-      propertyPath: m_Mass
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114068037925105280, guid: d44514199fc1c544798a8c0e5049d02a,
-        type: 2}
-      propertyPath: m_fAttackSpeed
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4245531155439254, guid: d44514199fc1c544798a8c0e5049d02a, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4245531155439254, guid: d44514199fc1c544798a8c0e5049d02a, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 1.46
-      objectReference: {fileID: 0}
-    - target: {fileID: 4245531155439254, guid: d44514199fc1c544798a8c0e5049d02a, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114416280622046642, guid: d44514199fc1c544798a8c0e5049d02a,
-        type: 2}
-      propertyPath: m_fBaseWeaponKnockbackForce
-      value: 750
-      objectReference: {fileID: 0}
-    - target: {fileID: 114068037925105280, guid: d44514199fc1c544798a8c0e5049d02a,
-        type: 2}
       propertyPath: m_seats.Array.data[0]
       value: 
       objectReference: {fileID: 204867424}
@@ -429,6 +387,23 @@ Prefab:
       propertyPath: m_seats.Array.data[1]
       value: 
       objectReference: {fileID: 1582527711}
+    - target: {fileID: 1880584305834530, guid: d44514199fc1c544798a8c0e5049d02a, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1046098025165754, guid: d44514199fc1c544798a8c0e5049d02a, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1081126811455660, guid: d44514199fc1c544798a8c0e5049d02a, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114068037925105280, guid: d44514199fc1c544798a8c0e5049d02a,
+        type: 2}
+      propertyPath: m_fPickupSpeed
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d44514199fc1c544798a8c0e5049d02a, type: 2}
   m_IsPrefabParent: 0
@@ -5577,11 +5552,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 136618955}
     m_Modifications:
-    - target: {fileID: 114425542154673888, guid: 233ef30d6ae3ae546af22cc1d97724af,
-        type: 2}
-      propertyPath: m_seats.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4268429517351810, guid: 233ef30d6ae3ae546af22cc1d97724af, type: 2}
       propertyPath: m_LocalPosition.x
       value: -15
@@ -5616,28 +5586,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114425542154673888, guid: 233ef30d6ae3ae546af22cc1d97724af,
         type: 2}
-      propertyPath: m_fAttackSpeed
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4531765856121030, guid: 233ef30d6ae3ae546af22cc1d97724af, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4531765856121030, guid: 233ef30d6ae3ae546af22cc1d97724af, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 1.93
-      objectReference: {fileID: 0}
-    - target: {fileID: 4531765856121030, guid: 233ef30d6ae3ae546af22cc1d97724af, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114190588944442738, guid: 233ef30d6ae3ae546af22cc1d97724af,
-        type: 2}
-      propertyPath: m_fBaseWeaponKnockbackForce
-      value: 750
-      objectReference: {fileID: 0}
-    - target: {fileID: 114425542154673888, guid: 233ef30d6ae3ae546af22cc1d97724af,
-        type: 2}
       propertyPath: m_seats.Array.data[0]
       value: 
       objectReference: {fileID: 204867424}
@@ -5646,6 +5594,23 @@ Prefab:
       propertyPath: m_seats.Array.data[1]
       value: 
       objectReference: {fileID: 1582527711}
+    - target: {fileID: 1291766033297820, guid: 233ef30d6ae3ae546af22cc1d97724af, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736143221799452, guid: 233ef30d6ae3ae546af22cc1d97724af, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000575598159676, guid: 233ef30d6ae3ae546af22cc1d97724af, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114425542154673888, guid: 233ef30d6ae3ae546af22cc1d97724af,
+        type: 2}
+      propertyPath: m_fPickupSpeed
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 233ef30d6ae3ae546af22cc1d97724af, type: 2}
   m_IsPrefabParent: 0
@@ -5666,11 +5631,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 136618955}
     m_Modifications:
-    - target: {fileID: 114435316115007682, guid: caac8ffd014267b45a4594e09c28a2c2,
-        type: 2}
-      propertyPath: m_seats.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4376638378856238, guid: caac8ffd014267b45a4594e09c28a2c2, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5705,43 +5665,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114435316115007682, guid: caac8ffd014267b45a4594e09c28a2c2,
         type: 2}
-      propertyPath: m_crane
-      value: 
-      objectReference: {fileID: 941350427}
-    - target: {fileID: 114435316115007682, guid: caac8ffd014267b45a4594e09c28a2c2,
-        type: 2}
-      propertyPath: m_fPickupSpeed
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 54509249671839196, guid: caac8ffd014267b45a4594e09c28a2c2,
-        type: 2}
-      propertyPath: m_Mass
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114435316115007682, guid: caac8ffd014267b45a4594e09c28a2c2,
-        type: 2}
-      propertyPath: m_fAttackSpeed
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4065441409727548, guid: caac8ffd014267b45a4594e09c28a2c2, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4065441409727548, guid: caac8ffd014267b45a4594e09c28a2c2, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 1.39
-      objectReference: {fileID: 0}
-    - target: {fileID: 4065441409727548, guid: caac8ffd014267b45a4594e09c28a2c2, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114506779149361908, guid: caac8ffd014267b45a4594e09c28a2c2,
-        type: 2}
-      propertyPath: m_fBaseWeaponKnockbackForce
-      value: 750
-      objectReference: {fileID: 0}
-    - target: {fileID: 114435316115007682, guid: caac8ffd014267b45a4594e09c28a2c2,
-        type: 2}
       propertyPath: m_seats.Array.data[0]
       value: 
       objectReference: {fileID: 204867424}
@@ -5750,6 +5673,23 @@ Prefab:
       propertyPath: m_seats.Array.data[1]
       value: 
       objectReference: {fileID: 1582527711}
+    - target: {fileID: 1532377755639988, guid: caac8ffd014267b45a4594e09c28a2c2, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935560064609562, guid: caac8ffd014267b45a4594e09c28a2c2, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1268147710206090, guid: caac8ffd014267b45a4594e09c28a2c2, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114435316115007682, guid: caac8ffd014267b45a4594e09c28a2c2,
+        type: 2}
+      propertyPath: m_fPickupSpeed
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: caac8ffd014267b45a4594e09c28a2c2, type: 2}
   m_IsPrefabParent: 0
@@ -5849,7 +5789,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_fMoveSpeed: 20
+  m_itemTypes:
+  - {fileID: 1578206416247968, guid: 95911d88fc595f44cbd94e9a1ae6f2a1, type: 2}
   m_bDropped: 0
+  m_bHasItem: 0
+  m_bItemDrop: 0
 --- !u!65 &596633258
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5936,7 +5880,7 @@ GameObject:
   - component: {fileID: 609824573}
   m_Layer: 0
   m_Name: DeadzoneBottom
-  m_TagString: Untagged
+  m_TagString: Deadzone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6232,7 +6176,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_fMoveSpeed: 20
+  m_itemTypes:
+  - {fileID: 1578206416247968, guid: 95911d88fc595f44cbd94e9a1ae6f2a1, type: 2}
   m_bDropped: 0
+  m_bHasItem: 0
+  m_bItemDrop: 0
 --- !u!65 &807689492
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6382,7 +6330,7 @@ GameObject:
   - component: {fileID: 954722847}
   m_Layer: 0
   m_Name: DeadzoneBack
-  m_TagString: Untagged
+  m_TagString: Deadzone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6535,7 +6483,7 @@ GameObject:
   - component: {fileID: 999647041}
   m_Layer: 0
   m_Name: DeadzoneLeft
-  m_TagString: Untagged
+  m_TagString: Deadzone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6594,7 +6542,7 @@ GameObject:
   - component: {fileID: 1069654657}
   m_Layer: 0
   m_Name: DeadzoneFront
-  m_TagString: Untagged
+  m_TagString: Deadzone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7280,7 +7228,7 @@ GameObject:
   - component: {fileID: 1632306927}
   m_Layer: 0
   m_Name: DeadzoneRight
-  m_TagString: Untagged
+  m_TagString: Deadzone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7590,6 +7538,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  m_p1RoundImages: []
+  m_p2RoundImages: []
+  m_p3RoundImages: []
+  m_p4RoundImages: []
   m_winText: {fileID: 0}
 --- !u!1001 &1771258885
 Prefab:
@@ -7676,11 +7628,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 136618955}
     m_Modifications:
-    - target: {fileID: 114324380469644154, guid: e052215332d9f374398dae35bb823016,
-        type: 2}
-      propertyPath: m_seats.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4470720070625640, guid: e052215332d9f374398dae35bb823016, type: 2}
       propertyPath: m_LocalPosition.x
       value: 15
@@ -7715,51 +7662,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114324380469644154, guid: e052215332d9f374398dae35bb823016,
         type: 2}
-      propertyPath: m_crane
-      value: 
-      objectReference: {fileID: 941350427}
-    - target: {fileID: 4470720070625640, guid: e052215332d9f374398dae35bb823016, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4470720070625640, guid: e052215332d9f374398dae35bb823016, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114324380469644154, guid: e052215332d9f374398dae35bb823016,
-        type: 2}
-      propertyPath: m_fPickupSpeed
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 54455192504706170, guid: e052215332d9f374398dae35bb823016,
-        type: 2}
-      propertyPath: m_Mass
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114324380469644154, guid: e052215332d9f374398dae35bb823016,
-        type: 2}
-      propertyPath: m_fAttackSpeed
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4969998510758350, guid: e052215332d9f374398dae35bb823016, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4969998510758350, guid: e052215332d9f374398dae35bb823016, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 1.38
-      objectReference: {fileID: 0}
-    - target: {fileID: 4969998510758350, guid: e052215332d9f374398dae35bb823016, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114924402863239786, guid: e052215332d9f374398dae35bb823016,
-        type: 2}
-      propertyPath: m_fBaseWeaponKnockbackForce
-      value: 750
-      objectReference: {fileID: 0}
-    - target: {fileID: 114324380469644154, guid: e052215332d9f374398dae35bb823016,
-        type: 2}
       propertyPath: m_seats.Array.data[0]
       value: 
       objectReference: {fileID: 204867424}
@@ -7768,6 +7670,23 @@ Prefab:
       propertyPath: m_seats.Array.data[1]
       value: 
       objectReference: {fileID: 1582527711}
+    - target: {fileID: 1585784131446886, guid: e052215332d9f374398dae35bb823016, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1795285150917014, guid: e052215332d9f374398dae35bb823016, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1837874915799138, guid: e052215332d9f374398dae35bb823016, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114324380469644154, guid: e052215332d9f374398dae35bb823016,
+        type: 2}
+      propertyPath: m_fPickupSpeed
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e052215332d9f374398dae35bb823016, type: 2}
   m_IsPrefabParent: 0
@@ -7792,7 +7711,7 @@ GameObject:
   - component: {fileID: 1947069050}
   m_Layer: 0
   m_Name: RoundsController
-  m_TagString: Untagged
+  m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7814,6 +7733,7 @@ MonoBehaviour:
   - {fileID: 1816030664}
   - {fileID: 178169179}
   - {fileID: 470224648}
+  m_confetti: {fileID: 0}
 --- !u!4 &1947069051
 Transform:
   m_ObjectHideFlags: 0
