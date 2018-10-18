@@ -6,6 +6,8 @@ public class Claw : MonoBehaviour
 {
     // speed at which the claw drops
     public float m_fMoveSpeed = 10.0f;
+    // speed at which items fall
+    public float m_fFallSpeed = 15.0f;
     // types of items to pick up
     public GameObject[] m_itemTypes;
 
@@ -21,9 +23,6 @@ public class Claw : MonoBehaviour
     // reference to the item that is picked up
     [HideInInspector]
     public GameObject m_item = null;
-    // stores the previous position
-    [HideInInspector]
-    public Vector3 m_v3PrevPos = Vector3.zero;
 
     // reference to the crane
     private CraneManager m_crane;
@@ -95,8 +94,6 @@ public class Claw : MonoBehaviour
     // moves the claw and potentially the item being held
     public void Move(float fHorizontal, float fVertical, float fSpeed)
     {
-        m_v3PrevPos = transform.position;
-
         //direction based on input
         Vector3 v3Direction = new Vector3(0.0f, 0.0f, 0.0f);
         v3Direction.x = fHorizontal * Time.deltaTime;
@@ -112,9 +109,22 @@ public class Claw : MonoBehaviour
         // moves the claw by the direction
         transform.Translate(v3Direction * fSpeed);
 
+        // gets the claw's position in the x and z axis
+        Vector2 v2Origin = new Vector2(transform.position.x, transform.position.z);
+        // checks if the claw is too far
+        if (v2Origin.magnitude > 31.0f)
+        {
+            // sets the claw's position at the limit
+            v2Origin.Normalize();
+            v2Origin *= 31.0f;
+            transform.position = new Vector3(v2Origin.x, transform.position.y, v2Origin.y);
+        }
+
         if (m_bItemDrop)
         {
+            // ensures that the item falls straight down
             m_item.transform.position = new Vector3(v3PrevPos.x, m_item.transform.position.y, v3PrevPos.z);
+            m_item.transform.Translate(-m_item.transform.up * Time.deltaTime * m_fFallSpeed);
         }
     }
 

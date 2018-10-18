@@ -24,7 +24,6 @@ public class GameStateManager : MonoBehaviour
     private Vector3[] m_clawOriginalPositions;
     private Quaternion[] m_clawOriginalRotations;
     private UI m_UI;
-    private float m_fVictoryWaitTime = 5.0f;
     private int[] m_nRoundsWon;
     private int m_nRoundNumber = 0;
     private bool m_bPlayerWon = false;

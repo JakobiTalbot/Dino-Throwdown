@@ -296,7 +296,6 @@
     <Compile Include="Assets\Scripts\MainMenu\ActivateMenu.cs" />
     <Compile Include="Assets\Scripts\MainMenu\ReturnToMenu.cs" />
     <Compile Include="Assets\Scripts\MainMenu\SelectPlay.cs" />
-    <Compile Include="Assets\Scripts\OuterRing.cs" />
     <Compile Include="Assets\Scripts\OutOfBounds.cs" />
     <Compile Include="Assets\Scripts\Pickups\Bomb.cs" />
     <Compile Include="Assets\Scripts\Pickups\CruiseControl.cs" />

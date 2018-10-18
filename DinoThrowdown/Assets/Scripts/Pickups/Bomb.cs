@@ -22,7 +22,7 @@ public class Bomb : MonoBehaviour
     // find all the players in the area around the bomb and damage them
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Deadzone") || other.CompareTag("Claw"))
+        if (other.CompareTag("Deadzone") || other.CompareTag("Claw") || other.CompareTag("Untagged"))
         {
             return;
         }
