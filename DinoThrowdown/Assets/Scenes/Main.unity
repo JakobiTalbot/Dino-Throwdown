@@ -7021,8 +7021,8 @@ MonoBehaviour:
   - {fileID: 178169179}
   - {fileID: 470224648}
   m_confetti: {fileID: 578392544}
-  m_fStartDelay: 1
-  m_fEndDelay: 2
+  m_fStartDelay: 3
+  m_fEndDelay: 3
 --- !u!4 &1947069051
 Transform:
   m_ObjectHideFlags: 0
