@@ -13,6 +13,7 @@ public class UI : MonoBehaviour
     public GameObject[] m_p3RoundImages;
     public GameObject[] m_p4RoundImages;
     public GameObject m_winText;
+    public GameObject m_roundWinText;
     public GameObject m_roundText;
 
     // Use this for initialization
@@ -60,15 +61,32 @@ public class UI : MonoBehaviour
         {
             if (m_players[i] == player)
             {
-                GameObject[] playerRoundImages;
-                if (i == 0)
-                    playerRoundImages = m_p1RoundImages;
-                else if (i == 1)
-                    playerRoundImages = m_p2RoundImages;
-                else if (i == 2)
-                    playerRoundImages = m_p3RoundImages;
-                else
-                    playerRoundImages = m_p4RoundImages;
+                GameObject[] playerRoundImages = null;
+                m_roundWinText.SetActive(true);
+
+                switch (i)
+                {
+                    case 0:
+                        playerRoundImages = m_p1RoundImages;
+                        m_roundWinText.GetComponent<Text>().text = "ROUND WIN" + "\n" + "BLUE";
+                        m_roundWinText.GetComponent<Text>().color = Color.cyan;
+                        break;
+                    case 1:
+                        playerRoundImages = m_p2RoundImages;
+                        m_roundWinText.GetComponent<Text>().text = "ROUND WIN" + "\n" + "RED";
+                        m_roundWinText.GetComponent<Text>().color = Color.red;
+                        break;
+                    case 2:
+                        playerRoundImages = m_p3RoundImages;
+                        m_roundWinText.GetComponent<Text>().text = "ROUND WIN" + "\n" + "GREEN";
+                        m_roundWinText.GetComponent<Text>().color = Color.green;
+                        break;
+                    case 3:
+                        playerRoundImages = m_p4RoundImages;
+                        m_roundWinText.GetComponent<Text>().text = "ROUND WIN" + "\n" + "YELLOW";
+                        m_roundWinText.GetComponent<Text>().color = Color.yellow;
+                        break;
+                }
 
                 for (int j = 0; j < GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameStateManager>().m_nRoundsToWin; ++j)
                 {
@@ -119,6 +137,7 @@ public class UI : MonoBehaviour
     {
         m_roundText.SetActive(true);
         m_roundText.GetComponent<Text>().text = "ROUND " + cRoundNumber.ToString();
+        m_roundWinText.SetActive(false);
     }
     public void DisableText()
     {

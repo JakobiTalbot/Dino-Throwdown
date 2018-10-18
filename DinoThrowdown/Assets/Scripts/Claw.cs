@@ -18,11 +18,12 @@ public class Claw : MonoBehaviour
     // determines if the item is being dropped
     [HideInInspector]
     public bool m_bItemDrop = false;
+    // reference to the item that is picked up
+    [HideInInspector]
+    public GameObject m_item = null;
 
     // reference to the crane
     private CraneManager m_crane;
-    // reference to the item that is picked up
-    private GameObject m_item = null;
 
     private void Start()
     {

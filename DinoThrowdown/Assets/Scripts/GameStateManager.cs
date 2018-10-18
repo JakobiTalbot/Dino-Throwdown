@@ -232,6 +232,7 @@ public class GameStateManager : MonoBehaviour
             m_claws[i].GetComponent<Claw>().m_bDropped = false;
             m_claws[i].GetComponent<Claw>().m_bHasItem = false;
             m_claws[i].GetComponent<Claw>().m_bItemDrop = false;
+            Destroy(m_claws[i].GetComponent<Claw>().m_item);
             m_claws[i].GetComponentInChildren<Light>().color = new Color(0, 0, 0, 0);
         }
     }
