@@ -73,7 +73,7 @@ public class UI : MonoBehaviour
                 {
                     if (!playerRoundImages[j].activeSelf)
                     {
-                        playerRoundImages[i].SetActive(true);
+                        playerRoundImages[j].SetActive(true);
                         return;
                     }
                 }
