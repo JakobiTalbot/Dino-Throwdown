@@ -19,6 +19,7 @@ public class Knockback : MonoBehaviour
 
     public float m_fVelocityFactor = 100.0f;
     public float m_fVibrateTime = 0.5f;
+    public float m_fKnockbackShieldTime = 5.0f;
 
     public GameObject m_hitParticles;
 
@@ -57,7 +58,7 @@ public class Knockback : MonoBehaviour
             {
                 // resets the shield
                 m_shield.bFlag = false;
-                m_shield.fTimer = 5.0f;
+                m_shield.fTimer = m_fKnockbackShieldTime;
             }
         }
 
@@ -97,14 +98,6 @@ public class Knockback : MonoBehaviour
             {
                 // halves the force
                 fExplosionForce /= 2.0f;
-
-                m_shield.fTimer -= Time.deltaTime;
-                if (m_shield.fTimer <= 0.0f)
-                {
-                    // resets the shield
-                    m_shield.bFlag = false;
-                    m_shield.fTimer = 5.0f;
-                }
             }
 
             // do knockback
