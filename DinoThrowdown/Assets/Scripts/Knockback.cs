@@ -76,7 +76,7 @@ public class Knockback : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Weapon") && !CompareTag("Weapon")
+        if (other.gameObject.CompareTag("Weapon") && GetComponent<MeshCollider>()
             && other.gameObject.GetComponentInParent<Component>().GetComponentInParent<Component>().GetComponentInParent<PlayerController>().GetAttacking() 
             && !other.gameObject.GetComponentInParent<Component>().GetComponentInParent<Component>().GetComponentInParent<PlayerController>().m_bWeaponHit)
         {
