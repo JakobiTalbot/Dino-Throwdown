@@ -4,6 +4,32 @@ using UnityEngine;
 
 public class WeaponSize : Pickup
 {
+    public float m_fRotateSpeed = 10.0f;
+    public float m_fBobSpeed = 1.0f;
+    public float m_fBobAmount = 0.2f;
+
+    private float m_fOriginalY;
+    private float m_fSineCounter = 0.0f;
+
+    private void Awake()
+    {
+        m_fOriginalY = transform.localPosition.y;
+    }
+
+    void Update()
+    {
+        // rotate transform
+        transform.Rotate(new Vector3(0.0f, m_fRotateSpeed, 0.0f) * Time.deltaTime);
+
+        // increment sine counter
+        m_fSineCounter += Time.deltaTime * m_fBobSpeed;
+
+        // bobbing
+        Vector3 v3Pos = transform.localPosition;
+        v3Pos.y = m_fOriginalY + (Mathf.Sin(m_fSineCounter) * m_fBobAmount);
+        transform.localPosition = v3Pos;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         // checks if the colliding object is a player and they don't already have a pickup
