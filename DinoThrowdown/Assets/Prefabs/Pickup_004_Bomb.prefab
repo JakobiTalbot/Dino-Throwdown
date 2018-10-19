@@ -116,6 +116,8 @@ MonoBehaviour:
     m_Bits: 256
   m_fExplosionForce: 2500
   m_fExplosionRadius: 20
+  m_explosionParticle: {fileID: 1479954545993554, guid: 7ab8d50f7aa39104a8f7c08393d40ea6,
+    type: 2}
 --- !u!135 &135149084857665204
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -10,6 +10,8 @@ public class Bomb : MonoBehaviour
     public float m_fExplosionForce = 1000.0f;
     // effect radius of the explosion
     public float m_fExplosionRadius = 5.0f;
+    // reference to the explosion particle
+    public GameObject m_explosionParticle;
 
     // reference to the claw that drops the bomb
     private Claw m_claw;
@@ -53,6 +55,8 @@ public class Bomb : MonoBehaviour
         // destroys the bomb
         m_claw.m_bHasItem = false;
         m_claw.m_bItemDrop = false;
+        GameObject explosion = Instantiate(m_explosionParticle, transform.position, Quaternion.Euler(0.0f, 0.0f, 0.0f));
+        explosion.transform.localScale *= 4.0f;
         Destroy(gameObject);
     }
 
