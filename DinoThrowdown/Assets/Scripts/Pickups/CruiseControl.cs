@@ -49,7 +49,8 @@ public class CruiseControl : Pickup
             m_spawnPoint.m_bHasPickup = false;
 
             // create pickup particles
-            Instantiate(m_pickupParticles, transform.position, Quaternion.Euler(0, 0, 0));
+            GameObject newParticles = Instantiate(m_pickupParticles, other.transform.position, Quaternion.Euler(0, 0, 0));
+            newParticles.transform.parent = other.transform;            
         }
     }
 }
