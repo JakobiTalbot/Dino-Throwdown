@@ -19,10 +19,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4175473253603726}
-  - component: {fileID: 33640574300557662}
-  - component: {fileID: 136146968119370762}
   - component: {fileID: 23336447626347496}
   - component: {fileID: 114935409353097044}
+  - component: {fileID: 33667873701562604}
+  - component: {fileID: 65506633494818728}
   m_Layer: 0
   m_Name: Pickup_003_KnockbackShield
   m_TagString: Untagged
@@ -36,13 +36,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1445116149922076}
-  m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.25387675, y: 2.01, z: -0.36198616}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23336447626347496
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -77,13 +77,25 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33640574300557662
+--- !u!33 &33667873701562604
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1445116149922076}
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300000, guid: 76cf3717dadfdb6408949727f5f2dcc5, type: 3}
+--- !u!65 &65506633494818728
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1445116149922076}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5117099, y: 1.507665, z: 0.21308649}
+  m_Center: {x: 0.000000059604645, y: 0, z: 0}
 --- !u!114 &114935409353097044
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -101,16 +113,3 @@ MonoBehaviour:
   m_fRotateSpeed: 60
   m_fBobSpeed: 2.5
   m_fBobAmount: 0.4
---- !u!136 &136146968119370762
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1445116149922076}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
