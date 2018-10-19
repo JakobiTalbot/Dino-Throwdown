@@ -19,10 +19,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4640511509444302}
-  - component: {fileID: 33278126920242186}
-  - component: {fileID: 135231439391065820}
   - component: {fileID: 23421873972451650}
   - component: {fileID: 114233394991069436}
+  - component: {fileID: 33634013097060174}
+  - component: {fileID: 65501264350114694}
   m_Layer: 0
   m_Name: Pickup_002_CruiseControl
   m_TagString: Untagged
@@ -77,13 +77,25 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33278126920242186
+--- !u!33 &33634013097060174
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1376881934740160}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300000, guid: 36bbfc8772f3aeb449e761041eb6fdd4, type: 3}
+--- !u!65 &65501264350114694
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1376881934740160}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.477988, y: 1.4779876, z: 0.17518196}
+  m_Center: {x: -0.00000008940697, y: -0.00000023841858, z: 0.0000000037252903}
 --- !u!114 &114233394991069436
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -96,15 +108,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_spawnPoint: {fileID: 0}
---- !u!135 &135231439391065820
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1376881934740160}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
