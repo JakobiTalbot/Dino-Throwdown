@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CruiseControl : Pickup
 {
+    public GameObject m_pickupParticles;
     public float m_fRotateSpeed = 10.0f;
     public float m_fBobSpeed = 1.0f;
     public float m_fBobAmount = 0.2f;
@@ -46,6 +47,9 @@ public class CruiseControl : Pickup
             gameObject.SetActive(false);
             // empties the spawn point
             m_spawnPoint.m_bHasPickup = false;
+
+            // create pickup particles
+            Instantiate(m_pickupParticles, transform.position, Quaternion.Euler(0, 0, 0));
         }
     }
 }
