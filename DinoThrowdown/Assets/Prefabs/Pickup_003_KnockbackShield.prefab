@@ -96,6 +96,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_spawnPoint: {fileID: 0}
+  m_pickupParticles: {fileID: 1406926815989992, guid: c02fc91f8d3963946ae5b9ae535ecefa,
+    type: 2}
   m_fRotateSpeed: 60
   m_fBobSpeed: 2.5
   m_fBobAmount: 0.4
