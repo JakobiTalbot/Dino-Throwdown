@@ -49,6 +49,8 @@ public class PlayerController : MonoBehaviour
     public GameObject m_weapon;
     // stores the amount of time to not be able to cruise after being hit
     public float m_fStopCruiseAfterHitTime = 2.0f;
+    // reference to pause screen
+    public PauseGame m_pauseGameCanvas;
 
     // reference to the claw that will be used
     [HideInInspector]
@@ -88,6 +90,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 m_v3StartArmRotation;
     private Vector3 m_v3EndArmRotation;
     private bool m_bIsAttacking = false;
+    private bool m_bPauseButtonDown = false;
 
     // Use this for initialization
     void Awake()
@@ -158,6 +161,27 @@ public class PlayerController : MonoBehaviour
             Move(v2Movement.x, v2Movement.y);
         }
         
+        // pause game
+        if (m_gamePadState.Buttons.Start == ButtonState.Pressed && !m_bPauseButtonDown)
+        {
+            if (Time.timeScale > 0.0f)
+            {
+                Time.timeScale = 0.0f;
+                m_pauseGameCanvas.gameObject.SetActive(true);
+            }
+            else
+            {
+                Time.timeScale = 1.0f;
+                m_pauseGameCanvas.ResetAlpha();
+                m_pauseGameCanvas.gameObject.SetActive(false);
+            }
+
+            m_bPauseButtonDown = true;
+        }
+        else if (m_gamePadState.Buttons.Start == ButtonState.Released)
+        {
+            m_bPauseButtonDown = false;
+        }
 
         // get gamepad right stick input
         float rightRotation = m_gamePadState.ThumbSticks.Right.X;
