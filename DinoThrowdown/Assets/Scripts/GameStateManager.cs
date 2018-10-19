@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameStateManager : MonoBehaviour
 {
@@ -12,6 +11,8 @@ public class GameStateManager : MonoBehaviour
     public float m_fStartDelay = 3.0f;
     // delay before round ends
     public float m_fEndDelay = 3.0f;
+    // game over canvas
+    public RestartGame m_gameOverCanvas;
 
     private GameObject[] m_cranes;
     private GameObject[] m_claws;
@@ -95,8 +96,9 @@ public class GameStateManager : MonoBehaviour
         // checks if there is a game winner
         if (m_bPlayerWon)
         {
-            // reloads the scene
-            SceneManager.LoadScene("Main");
+            // sets the game up for the end
+            DisableControls();
+            m_gameOverCanvas.gameObject.SetActive(true);
         }
         else
         {
