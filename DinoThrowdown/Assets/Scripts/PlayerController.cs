@@ -136,12 +136,12 @@ public class PlayerController : MonoBehaviour
         v2Movement.Normalize();
 
         // checks if the player is being picked up
-        if (m_bPickedUp)
+        if (m_bPickedUp && !m_bIsOut)
         {
             Pickup();
         }
         // checks if the player is in the crane
-        else if (m_bInCrane && !m_bIsAttacking)
+        else if (m_bInCrane && !m_bIsAttacking && !m_bIsOut)
         {
             m_claw.Move(v2Movement.x, v2Movement.y, m_fClawSpeed);
         }
@@ -220,7 +220,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // checks if the player is grabbing another with the claw or dropping an item
-        if (m_bIsAttacking && m_bInCrane)
+        if (m_bIsAttacking && m_bInCrane && !m_bIsOut)
         {
             // checks if there is an item to drop
             if (m_claw.m_bHasItem && !m_claw.m_bDropped)
@@ -234,7 +234,7 @@ public class PlayerController : MonoBehaviour
                 m_bIsAttacking = m_claw.Grab();
             }
         }
-        else if (m_bIsAttacking)
+        else if (m_bIsAttacking && !m_bIsOut)
         {
             // swings the weapon
             Attack();

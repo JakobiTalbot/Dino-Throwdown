@@ -98,6 +98,10 @@ public class GameStateManager : MonoBehaviour
         {
             // sets the game up for the end
             DisableControls();
+            foreach (var player in m_players)
+            {
+                player.GetComponent<PlayerController>().m_bIsOut = true;
+            }
             m_gameOverCanvas.gameObject.SetActive(true);
         }
         else
