@@ -367,24 +367,6 @@ public class PlayerController : MonoBehaviour
             
             // resets the claw
             m_claw.transform.position = new Vector3(0.0f, 16.0f, 0.0f);
-            Light light = m_claw.GetComponentInChildren<Light>();
-
-            // sets the colour of the light to the colour of the player
-            switch (m_cPlayerNumber)
-            {
-                case 1:
-                    light.color = Color.cyan;
-                    break;
-                case 2:
-                    light.color = Color.red;
-                    break;
-                case 3:
-                    light.color = Color.green;
-                    break;
-                case 4:
-                    light.color = Color.yellow;
-                    break;
-            }
 
             // sets this player as the one in the crane
             m_claw.GetCrane().m_player = gameObject;

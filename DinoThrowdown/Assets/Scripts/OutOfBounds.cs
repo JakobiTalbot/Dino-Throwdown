@@ -40,27 +40,6 @@ public class OutOfBounds : MonoBehaviour
                     m_crane[i].m_bOccupied = true;
                     m_crane[i].m_player = playerController.gameObject;
 
-                    // gets the claw's light
-                    Light light = m_claw[i].GetComponentInChildren<Light>();
-                    light.intensity = 500.0f;
-
-                    // sets the colour of the light to the colour of the player
-                    switch (playerController.m_cPlayerNumber)
-                    {
-                        case 1:
-                            light.color = Color.cyan;
-                            break;
-                        case 2:
-                            light.color = Color.red;
-                            break;
-                        case 3:
-                            light.color = Color.green;
-                            break;
-                        case 4:
-                            light.color = Color.yellow;
-                            break;
-                    }
-
                     // sends the player to the crane
                     playerController.transform.position = m_seats[i].transform.position;
 

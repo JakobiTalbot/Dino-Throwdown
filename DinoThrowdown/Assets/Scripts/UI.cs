@@ -69,7 +69,7 @@ public class UI : MonoBehaviour
                     case 0:
                         playerRoundImages = m_p1RoundImages;
                         m_roundWinText.GetComponent<Text>().text = "ROUND WIN" + "\n" + "BLUE";
-                        m_roundWinText.GetComponent<Text>().color = Color.cyan;
+                        m_roundWinText.GetComponent<Text>().color = new Color(0.0f, 0.5f, 1.0f);
                         break;
                     case 1:
                         playerRoundImages = m_p2RoundImages;
@@ -112,7 +112,7 @@ public class UI : MonoBehaviour
                 {
                     case 0:
                         m_winText.GetComponent<Text>().text = "BLUE WINS!";
-                        m_winText.GetComponent<Text>().color = Color.cyan;
+                        m_winText.GetComponent<Text>().color = new Color(0.0f, 0.5f, 1.0f);
                         break;
                     case 1:
                         m_winText.GetComponent<Text>().text = "RED WINS!";

@@ -12,6 +12,8 @@ public class Claw : MonoBehaviour
     public float m_fMoveRadius = 30.0f;
     // types of items to pick up
     public GameObject[] m_itemTypes;
+    // the length of the line
+    public float m_fLineLength = 13.5f;
 
     // determines if the claw has dropped
     [HideInInspector]
@@ -32,6 +34,38 @@ public class Claw : MonoBehaviour
     private void Start()
     {
         m_crane = GetComponentInParent<CraneManager>();
+    }
+
+    private void Update()
+    {
+        // checks if there is someone in the crane
+        if (m_crane.m_bOccupied)
+        {
+            LineRenderer line = GetComponentInChildren<LineRenderer>();
+            line.SetPosition(1, new Vector3(0.0f, 0.0f, m_fLineLength));
+
+            // sets the colour of the line to the colour of the player
+            switch (m_crane.m_player.GetComponent<PlayerController>().m_cPlayerNumber)
+            {
+                case 1:
+                    line.endColor = new Color(0.0f, 0.5f, 1.0f);
+                    break;
+                case 2:
+                    line.endColor = Color.red;
+                    break;
+                case 3:
+                    line.endColor = Color.green;
+                    break;
+                case 4:
+                    line.endColor = Color.yellow;
+                    break;
+            }
+        }
+        else
+        {
+            // sets the line length to zero
+            GetComponentInChildren<LineRenderer>().SetPosition(1, Vector3.zero);
+        }
     }
 
     // returns the crane
