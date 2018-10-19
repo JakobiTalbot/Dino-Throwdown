@@ -56,7 +56,7 @@ public class Bomb : MonoBehaviour
         m_claw.m_bHasItem = false;
         m_claw.m_bItemDrop = false;
         GameObject explosion = Instantiate(m_explosionParticle, transform.position, Quaternion.Euler(0.0f, 0.0f, 0.0f));
-        explosion.transform.localScale *= 4.0f;
+        explosion.transform.localScale *= 1.3f;
         Destroy(gameObject);
     }
 

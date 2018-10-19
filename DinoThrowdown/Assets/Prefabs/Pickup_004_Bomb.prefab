@@ -115,8 +115,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   m_fExplosionForce: 2500
-  m_fExplosionRadius: 20
-  m_explosionParticle: {fileID: 1479954545993554, guid: 7ab8d50f7aa39104a8f7c08393d40ea6,
+  m_fExplosionRadius: 10
+  m_explosionParticle: {fileID: 1194246083353860, guid: 81cbbf114f0eabc4fab8ef2756da02df,
     type: 2}
 --- !u!135 &135149084857665204
 SphereCollider:
