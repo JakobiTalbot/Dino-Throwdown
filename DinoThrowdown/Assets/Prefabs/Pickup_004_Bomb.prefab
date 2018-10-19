@@ -114,8 +114,8 @@ MonoBehaviour:
   m_playerMask:
     serializedVersion: 2
     m_Bits: 256
-  m_fExplosionForce: 2000
-  m_fExplosionRadius: 10
+  m_fExplosionForce: 2500
+  m_fExplosionRadius: 20
 --- !u!135 &135149084857665204
 SphereCollider:
   m_ObjectHideFlags: 1

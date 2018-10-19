@@ -108,3 +108,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_spawnPoint: {fileID: 0}
+  m_fRotateSpeed: 60
+  m_fBobSpeed: 2.5
+  m_fBobAmount: 0.4

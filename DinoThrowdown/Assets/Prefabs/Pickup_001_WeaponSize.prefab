@@ -19,10 +19,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4106680853855732}
-  - component: {fileID: 33563320579609754}
-  - component: {fileID: 136444557532986734}
   - component: {fileID: 23021854274881372}
   - component: {fileID: 114566066147954834}
+  - component: {fileID: 33242729750465632}
+  - component: {fileID: 65324120398145750}
   m_Layer: 0
   m_Name: Pickup_001_WeaponSize
   m_TagString: Untagged
@@ -77,13 +77,25 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33563320579609754
+--- !u!33 &33242729750465632
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1177029968323070}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300000, guid: 5401e9eb570bdc84a846243ff77965e6, type: 3}
+--- !u!65 &65324120398145750
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1177029968323070}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.43767273, y: 1.308291, z: 1.4343544}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114566066147954834
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -96,16 +108,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_spawnPoint: {fileID: 0}
---- !u!136 &136444557532986734
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1177029968323070}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_fRotateSpeed: 60
+  m_fBobSpeed: 2.5
+  m_fBobAmount: 0.4
