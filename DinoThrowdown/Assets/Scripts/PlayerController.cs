@@ -87,7 +87,6 @@ public class PlayerController : MonoBehaviour
     // determines if the player is attacking
     private Vector3 m_v3StartArmRotation;
     private Vector3 m_v3EndArmRotation;
-    private bool m_bRightTriggerDown = false;
     private bool m_bIsAttacking = false;
 
     // Use this for initialization
@@ -204,19 +203,22 @@ public class PlayerController : MonoBehaviour
         //Correct X and Z rotation of object
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0.0f, transform.rotation.eulerAngles.y, 0.0f), m_fCorrectionSpeed);
 
-        // checks if the fire button was pressed (keyboard || controller)
-        if ((Input.GetAxis("Fire" + m_cPlayerNumber.ToString()) > 0.0f 
-            || m_gamePadState.Triggers.Right > 0.0f) 
-            && !m_bIsOut && !m_bRightTriggerDown)
+        // checks if the player is in the crane and a button is pressed
+        if (m_bInCrane && !m_bIsOut &&
+            (m_gamePadState.Triggers.Right > 0.0f || m_gamePadState.Triggers.Left > 0.0f ||
+             m_gamePadState.Buttons.RightShoulder == 0 || m_gamePadState.Buttons.LeftShoulder == 0 ||
+             m_gamePadState.Buttons.A == 0 || m_gamePadState.Buttons.B == 0 ||
+             m_gamePadState.Buttons.X == 0 || m_gamePadState.Buttons.Y == 0 ||
+             Input.GetAxis("Fire" + m_cPlayerNumber.ToString()) > 0.0f))
         {
             // sets the player to attacking
             m_bIsAttacking = true;
-            m_bRightTriggerDown = true;
         }
-
-        if (m_gamePadState.Triggers.Right == 0.0f)
+        // checks if the fire button was pressed (keyboard || controller)
+        else if (!m_bIsOut && (m_gamePadState.Triggers.Right > 0.0f || Input.GetAxis("Fire" + m_cPlayerNumber.ToString()) > 0.0f))
         {
-            m_bRightTriggerDown = false;
+            // sets the player to attacking
+            m_bIsAttacking = true;
         }
 
         // checks if the player is grabbing another with the claw or dropping an item
