@@ -35,10 +35,16 @@ public class Knockback : MonoBehaviour
     private Vector3 m_v3Larger;
     private float m_fVibrateTimer;
     private bool m_bIsVibrating;
+    private bool m_bVibrationToggle;
 
     // Use this for initialization
     void Awake()
     {
+        if (OptionsManager.InstanceExists)
+        {
+            m_bVibrationToggle = OptionsManager.Instance.m_bVibration;
+        }
+
         m_fVibrateTimer = m_fVibrateTime;
         m_rigidbody = GetComponent<Rigidbody>();
 
@@ -62,7 +68,7 @@ public class Knockback : MonoBehaviour
             }
         }
 
-        if (m_bIsVibrating)
+        if (m_bIsVibrating && m_bVibrationToggle)
         {
             // decrement vibration timer
             m_fVibrateTimer -= Time.deltaTime;
@@ -113,7 +119,7 @@ public class Knockback : MonoBehaviour
             }
 
             // vibrate player's controller
-            if (!m_bIsVibrating)
+            if (!m_bIsVibrating && m_bVibrationToggle)
             {
                 GamePad.SetVibration((PlayerIndex)GetComponent<PlayerController>().m_cPlayerNumber - 1, 1.0f, 1.0f);
                 m_fVibrateTimer = m_fVibrateTime;

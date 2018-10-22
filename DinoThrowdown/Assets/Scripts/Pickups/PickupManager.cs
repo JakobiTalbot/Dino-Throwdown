@@ -13,8 +13,14 @@ public class PickupManager : MonoBehaviour
 
     private void Start()
     {
-        // repeatedly calls the Spawn function
-        InvokeRepeating("Spawn", m_fSpawnTime, m_fSpawnTime);
+        if (OptionsManager.InstanceExists)
+        {
+            if (OptionsManager.Instance.m_bPickups)
+            {
+                // repeatedly calls the Spawn function
+                InvokeRepeating("Spawn", m_fSpawnTime, m_fSpawnTime);
+            }
+        }
     }
 
     // spawns a pickup at a random location
