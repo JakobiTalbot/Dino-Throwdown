@@ -95,7 +95,7 @@ public class Bomb : MonoBehaviour
         // gets the sfx volume from the options
         if (OptionsManager.InstanceExists)
         {
-            m_explosionAudio.volume = OptionsManager.Instance.m_fSFXVolume;
+            m_explosionAudio.volume = OptionsManager.Instance.m_fSFXVolume * OptionsManager.Instance.m_fMasterVolume;
         }
         // plays the explosion audio
         m_explosionAudio.Play();

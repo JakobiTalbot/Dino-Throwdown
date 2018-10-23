@@ -299,6 +299,7 @@
     <Compile Include="Assets\Scripts\InnerRing.cs" />
     <Compile Include="Assets\Scripts\Knockback.cs" />
     <Compile Include="Assets\Scripts\MainMenu\ActivateMenu.cs" />
+    <Compile Include="Assets\Scripts\MainMenu\CharacterSelection.cs" />
     <Compile Include="Assets\Scripts\MainMenu\OptionsManager.cs" />
     <Compile Include="Assets\Scripts\MainMenu\PersistantSingleton.cs" />
     <Compile Include="Assets\Scripts\MainMenu\ReturnToMenu.cs" />
