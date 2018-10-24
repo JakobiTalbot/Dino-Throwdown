@@ -8,6 +8,16 @@ public class PauseGame : MonoBehaviour
 {
     // the speed at which the canvas fades in
     public float m_fFadeSpeed = 2.0f;
+    // reference to options UI aspects
+    public GameObject m_options;
+    // reference to the master volume slider
+    public Slider m_masterSlider;
+    // reference to the music volume slider
+    public Slider m_musicSlider;
+    // reference to the sfx volume slider
+    public Slider m_sfxSlider;
+    // reference to the vibration toggle
+    public Toggle m_vibrationToggle;
 
     // reference to the screen fade image
     private Image m_screenFader;
@@ -20,7 +30,7 @@ public class PauseGame : MonoBehaviour
     private float m_fAlpha = 0.0f;
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
         // gets the components from the children
         m_screenFader = GetComponentInChildren<Image>();
@@ -59,6 +69,11 @@ public class PauseGame : MonoBehaviour
         Time.timeScale = 1.0f;
         ResetAlpha();
         gameObject.SetActive(false);
+    }
+
+    public void ShowOptions()
+    {
+        m_options.SetActive(true);
     }
 
     public void Quit()
