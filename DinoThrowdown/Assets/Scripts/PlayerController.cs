@@ -162,7 +162,7 @@ public class PlayerController : MonoBehaviour
         }
         
         // pause game
-        if (m_gamePadState.Buttons.Start == ButtonState.Pressed && !m_bPauseButtonDown)
+        if (Input.GetButtonDown("Pause") || (m_gamePadState.Buttons.Start == ButtonState.Pressed && !m_bPauseButtonDown))
         {
             if (Time.timeScale > 0.0f)
             {
