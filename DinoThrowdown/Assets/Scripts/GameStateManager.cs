@@ -32,6 +32,8 @@ public class GameStateManager : MonoBehaviour
     private WaitForSeconds m_startWait;
     // used to wait before the round ends
     private WaitForSeconds m_endWait;
+    // reference to background music
+    private AudioSource m_backgroundMusic;
 
 	// Use this for initialization
 	void Awake()
@@ -47,6 +49,12 @@ public class GameStateManager : MonoBehaviour
         m_playersRemaining = new List<GameObject>();
         m_nRoundsWon = new int[m_players.Length];
         m_canvas = GameObject.FindGameObjectWithTag("Canvas");
+
+        m_backgroundMusic = GetComponent<AudioSource>();
+        if (OptionsManager.InstanceExists)
+        {
+            m_backgroundMusic.volume *= OptionsManager.Instance.m_fMusicVolume * OptionsManager.Instance.m_fMasterVolume;
+        }
 
         for (int i = 0; i < m_players.Length; ++i)
         {

@@ -30,6 +30,14 @@ public class OutOfBounds : MonoBehaviour
         {
             PlayerController playerController = other.GetComponent<PlayerController>();
 
+            if (OptionsManager.InstanceExists)
+            {
+                other.GetComponent<AudioSource>().volume = OptionsManager.Instance.m_fSFXVolume * OptionsManager.Instance.m_fMasterVolume;
+            }
+
+            // plays the audio
+            other.GetComponent<AudioSource>().Play();
+
             // iterates through each crane
             for (int i = 0; i < m_crane.Length; i++)
             {

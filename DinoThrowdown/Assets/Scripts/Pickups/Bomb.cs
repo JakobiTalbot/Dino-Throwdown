@@ -21,10 +21,18 @@ public class Bomb : MonoBehaviour
 
     // reference to the claw that drops the bomb
     private Claw m_claw;
+    // determines if vibration is on
+    private bool m_bVibrationToggle = true;
 
     private void Start()
     {
         m_claw = GetComponentInParent<Claw>();
+
+        // gets whether vibration is on
+        if (OptionsManager.InstanceExists)
+        {
+            m_bVibrationToggle = OptionsManager.Instance.m_bVibration;
+        }
     }
 
     // find all the players in the area around the bomb and damage them
@@ -99,5 +107,22 @@ public class Bomb : MonoBehaviour
         }
         // plays the explosion audio
         m_explosionAudio.Play();
+
+        // vibrates the controllers of all the hit players
+        if (m_bVibrationToggle)
+        {
+            bool[] bPlayerNumbers = new bool[4];
+
+            for (int i = 0; i < bPlayerNumbers.Length; i++)
+            {
+                bPlayerNumbers[i] = false;
+            }
+            for (int i = 0; i < colliders.Length; i++)
+            {
+                bPlayerNumbers[colliders[i].GetComponent<PlayerController>().m_cPlayerNumber - 1] = true;
+            }
+            // turns on the vibration
+            m_explosionParticle.GetComponent<Explosion>().SetVibration(bPlayerNumbers);
+        }
     }
 }

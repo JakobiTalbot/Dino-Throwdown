@@ -177,6 +177,14 @@ public class Claw : MonoBehaviour
             playerController.m_bPickedUp = true;
             // gives the player control over the claw
             playerController.m_claw = gameObject.GetComponent<Claw>();
+
+            if (OptionsManager.InstanceExists)
+            {
+                other.GetComponent<AudioSource>().volume = OptionsManager.Instance.m_fSFXVolume * OptionsManager.Instance.m_fMasterVolume;
+            }
+
+            // plays the audio
+            other.GetComponent<AudioSource>().Play();
         }
         // checks if the claw collided with the platform
         else if (other.CompareTag("Ground"))

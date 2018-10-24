@@ -1,38 +1,69 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using XInputDotNetPure;
 
 public class Explosion : MonoBehaviour
 {
-    // speed that the light increases and decreases
-    public float m_fExplosionSpeed = 1.0f;
-    // the range of the explosion
-    public float m_fExplosionRange = 2.0f;
+    // the vibration time
+    public float m_fVibrateTime = 0.5f;
 
-    // reference to the light source
-    private Light m_light;
     // used to increase the light intensity
     private float m_timer = 0.0f;
+    // determines if the vibrating should start
+    private bool m_bStartVibrating = false;
+    // used to time the vibration
+    private float m_fVibrateTimer;
+    // determines if the players are vibrating
+    private bool m_bIsVibrating = false;
+    // contains the player numbers of the players affected by the explosion
+    private bool[] m_bPlayerNumbers;
 
     private void Awake()
     {
-        m_light = GetComponent<Light>();
+        m_fVibrateTimer = m_fVibrateTime;
+        m_bPlayerNumbers = new bool[4];
     }
 
     private void Update()
     {
-        // increments the time pased
-        m_timer += Time.deltaTime * m_fExplosionSpeed;
-        // ensures that the timer is relevant
-        Mathf.Clamp(m_timer, 0.0f, m_fExplosionRange);
-        // sets the intensity of the light to the timer
-        m_light.intensity = m_timer;
-
-        // checks if the intensity is above the range and that the speed has not yet been inverted
-        if (m_light.intensity >= m_fExplosionRange && m_fExplosionSpeed >= 0.0f)
+        if (m_bIsVibrating)
         {
-            // inverts the speed so that the light decreases
-            m_fExplosionSpeed *= -1.0f;
+            // decrement vibration timer
+            m_fVibrateTimer -= Time.deltaTime;
+            // turns off the vibration if the timer is less than zero
+            if (m_fVibrateTimer <= 0.0f)
+            {
+                m_bIsVibrating = false;
+                for (int i = 0; i < m_bPlayerNumbers.Length; i++)
+                {
+                    if (m_bPlayerNumbers[i])
+                    {
+                        GamePad.SetVibration((PlayerIndex)i, 0.0f, 0.0f);
+                        m_fVibrateTimer = m_fVibrateTime;
+                        m_bIsVibrating = true;
+                    }
+                }
+            }
+        }
+    }
+
+    public void SetVibration(bool[] bPlayerNumbers)
+    {
+        m_bPlayerNumbers = bPlayerNumbers;
+
+        // turns on the vibration for the specific players
+        if (!m_bIsVibrating)
+        {
+            for (int i = 0; i < m_bPlayerNumbers.Length; i++)
+            {
+                if (m_bPlayerNumbers[i])
+                {
+                    GamePad.SetVibration((PlayerIndex)i, 1.0f, 1.0f);
+                    m_fVibrateTimer = m_fVibrateTime;
+                    m_bIsVibrating = true;
+                }
+            }
         }
     }
 }

@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 114421806135641628}
   - component: {fileID: 114506779149361908}
   - component: {fileID: 114435316115007682}
+  - component: {fileID: 82993628492996812}
   m_Layer: 8
   m_Name: Hoverpod_004_Raptor
   m_TagString: Player
@@ -304,6 +305,86 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 3, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!82 &82993628492996812
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1313030149833832}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: ea3e8832b83e2ed4fadf2d59ef318c22, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95418523259434122
 Animator:
   serializedVersion: 3
@@ -378,14 +459,19 @@ MonoBehaviour:
   m_seats:
   - {fileID: 0}
   - {fileID: 0}
-  m_claw: {fileID: 0}
-  m_bPickedUp: 0
-  m_bIsOut: 0
-  m_bInCrane: 0
+  m_fCruiseControlTime: 5
+  m_fWeaponSizeTime: 3
   m_weapon: {fileID: 1935560064609562}
+  m_fStopCruiseAfterHitTime: 2
+  m_pauseGameCanvas: {fileID: 0}
+  m_claw: {fileID: 0}
   m_v3BaseWeaponScale: {x: 0, y: 0, z: 0}
   m_v3BaseWeaponPosition: {x: 0, y: 0, z: 0}
   m_bWeaponHit: 0
+  m_bPickedUp: 0
+  m_bIsOut: 0
+  m_bInCrane: 0
+  m_fKnockedBackTimer: 0
 --- !u!114 &114506779149361908
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -402,6 +488,7 @@ MonoBehaviour:
   m_fForceToKnockbackMeter: 0.01
   m_fVelocityFactor: 100
   m_fVibrateTime: 0.2
+  m_fKnockbackShieldTime: 5
   m_hitParticles: {fileID: 1479954545993554, guid: 7ab8d50f7aa39104a8f7c08393d40ea6,
     type: 2}
   m_fKnockbackMeter: 0

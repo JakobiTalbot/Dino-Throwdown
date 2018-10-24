@@ -35,7 +35,9 @@ public class Knockback : MonoBehaviour
     private Vector3 m_v3Larger;
     private float m_fVibrateTimer;
     private bool m_bIsVibrating;
-    private bool m_bVibrationToggle;
+    private bool m_bVibrationToggle = true;
+    // reference to the hit music
+    private AudioSource m_hitSound;
 
     // Use this for initialization
     void Awake()
@@ -52,6 +54,12 @@ public class Knockback : MonoBehaviour
         m_shield.fTimer = 5.0f;
 
         m_v3Larger = new Vector3(4.0f, 0.4f, 0.4f);
+
+        m_hitSound = m_hitParticles.GetComponent<AudioSource>();
+        if (OptionsManager.InstanceExists)
+        {
+            m_hitSound.volume = OptionsManager.Instance.m_fSFXVolume * OptionsManager.Instance.m_fMasterVolume;
+        }
 	}
 
     private void Update()
