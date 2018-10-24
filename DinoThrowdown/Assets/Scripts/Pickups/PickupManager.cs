@@ -21,6 +21,11 @@ public class PickupManager : MonoBehaviour
                 InvokeRepeating("Spawn", m_fSpawnTime, m_fSpawnTime);
             }
         }
+        else
+        {
+            // repeatedly calls the Spawn function
+            InvokeRepeating("Spawn", m_fSpawnTime, m_fSpawnTime);
+        }
     }
 
     // spawns a pickup at a random location
