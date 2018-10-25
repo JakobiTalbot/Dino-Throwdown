@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class SelectPlay : MonoBehaviour
@@ -13,20 +14,23 @@ public class SelectPlay : MonoBehaviour
         SelectButton();
     }
 
+    // selects the play button
     public void SelectButton()
     {
-        // selects the play button
         m_playButton.Select();
     }
 
-    // loads the game
-    public void PlayGame()
-    {
-        SceneManager.LoadScene(1);
-    }
     // quits the game
     public void ExitGame()
     {
         Application.Quit();
+    }
+
+    private void Update()
+    {
+        if (Input.GetAxis("Fire3") != 0.0f)
+        {
+            ExecuteEvents.Execute<ISelectHandler>(m_playButton.gameObject, new BaseEventData(EventSystem.current), ExecuteEvents.selectHandler);
+        }
     }
 }

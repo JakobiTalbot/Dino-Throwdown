@@ -21,4 +21,10 @@ public class ActivateMenu : MonoBehaviour
         // changes the volume based on the options
         m_backgroundMusic.volume = OptionsManager.Instance.m_fMusicVolume * OptionsManager.Instance.m_fMasterVolume;
     }
+
+    public void MenuButtons()
+    {
+        m_menuButtons.SetActive(true);
+        m_menuButtons.GetComponent<SelectPlay>().SelectButton();
+    }
 }

@@ -8,10 +8,6 @@ public class Explosion : MonoBehaviour
     // the vibration time
     public float m_fVibrateTime = 0.5f;
 
-    // used to increase the light intensity
-    private float m_timer = 0.0f;
-    // determines if the vibrating should start
-    private bool m_bStartVibrating = false;
     // used to time the vibration
     private float m_fVibrateTimer;
     // determines if the players are vibrating

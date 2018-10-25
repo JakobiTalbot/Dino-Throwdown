@@ -56,6 +56,15 @@ public class GameStateManager : MonoBehaviour
             m_backgroundMusic.volume *= OptionsManager.Instance.m_fMusicVolume * OptionsManager.Instance.m_fMasterVolume;
         }
 
+        if (CharacterManager.InstanceExists)
+        {
+            for (int i = 0; i < m_players.Length; i++)
+            {
+                m_players[i].GetComponent<MeshFilter>().mesh = CharacterManager.Instance.m_dinoTypes[i];
+                m_players[i].GetComponent<MeshRenderer>().material = CharacterManager.Instance.m_colours[i];
+            }
+        }
+
         for (int i = 0; i < m_players.Length; ++i)
         {
             // set each player's rounds won to 0
