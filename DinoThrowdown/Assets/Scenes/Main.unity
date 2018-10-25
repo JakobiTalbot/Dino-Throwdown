@@ -6464,7 +6464,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4196397618593476, guid: dc0eb74f010970c4580577f9d1bded36, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -5.77
+      value: -17.76
       objectReference: {fileID: 0}
     - target: {fileID: 4196397618593476, guid: dc0eb74f010970c4580577f9d1bded36, type: 2}
       propertyPath: m_LocalPosition.z
@@ -9094,6 +9094,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_fFadeSpeed: 2
+  m_options: {fileID: 0}
+  m_masterSlider: {fileID: 0}
+  m_musicSlider: {fileID: 0}
+  m_sfxSlider: {fileID: 0}
+  m_vibrationToggle: {fileID: 0}
   m_buttons: []
 --- !u!114 &1963148032
 MonoBehaviour:
