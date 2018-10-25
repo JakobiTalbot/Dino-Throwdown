@@ -25,12 +25,4 @@ public class SelectPlay : MonoBehaviour
     {
         Application.Quit();
     }
-
-    private void Update()
-    {
-        if (Input.GetAxis("Fire3") != 0.0f)
-        {
-            ExecuteEvents.Execute<ISelectHandler>(m_playButton.gameObject, new BaseEventData(EventSystem.current), ExecuteEvents.selectHandler);
-        }
-    }
 }
