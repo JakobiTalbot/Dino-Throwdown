@@ -10,6 +10,8 @@ public class PauseGame : MonoBehaviour
     public float m_fFadeSpeed = 2.0f;
     // reference to options UI aspects
     public GameObject m_options;
+    // reference to controls UI aspects
+    public GameObject m_controls;
     // reference to the master volume slider
     public Slider m_masterSlider;
     // reference to the music volume slider
@@ -18,6 +20,11 @@ public class PauseGame : MonoBehaviour
     public Slider m_sfxSlider;
     // reference to the vibration toggle
     public Toggle m_vibrationToggle;
+    // reference to controls button
+    public Button m_controlsButton;
+    // reference to return button
+    public Button m_optionsReturnButton;
+    public Button m_controlsReturnButton;
 
     // reference to the screen fade image
     private Image m_screenFader;
@@ -28,6 +35,11 @@ public class PauseGame : MonoBehaviour
     public Button[] m_buttons;
     // used to increment the alpha of the objects
     private float m_fAlpha = 0.0f;
+    // reference to OptionsManager instance
+    private OptionsManager m_optionsInstance = OptionsManager.Instance;
+    // used to know if the options values have been imported from singleton
+    private bool m_bValuesSet = false;
+
 
     // Use this for initialization
     void Awake()
@@ -62,6 +74,25 @@ public class PauseGame : MonoBehaviour
                 button.GetComponentInChildren<Text>().color = new Color(0.2f, 0.2f, 0.2f, m_fAlpha);
             }
         }
+        if (m_options.activeSelf)
+        {
+            // check if values have been imported from singleton
+            if (!m_bValuesSet)
+            {
+                // import values from singleton
+                m_masterSlider.value = m_optionsInstance.m_fMasterVolume;
+                m_musicSlider.value = m_optionsInstance.m_fMusicVolume;
+                m_sfxSlider.value = m_optionsInstance.m_fSFXVolume;
+                m_vibrationToggle.isOn = m_optionsInstance.m_bVibration;
+                m_bValuesSet = true;
+            }
+
+            // export values to singleton
+            m_optionsInstance.m_fMasterVolume = m_masterSlider.value;
+            m_optionsInstance.m_fMusicVolume = m_musicSlider.value;
+            m_optionsInstance.m_fSFXVolume = m_sfxSlider.value;
+            m_optionsInstance.m_bVibration = m_vibrationToggle.isOn;
+        }
     }
 
     public void Resume()
@@ -71,9 +102,38 @@ public class PauseGame : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void ShowOptions()
+    public void ToggleShowOptions()
     {
-        m_options.SetActive(true);
+        m_options.SetActive(!m_options.activeSelf);
+        m_pausedText.gameObject.SetActive(!m_pausedText.isActiveAndEnabled);
+        foreach (var button in m_buttons)
+        {
+            button.gameObject.SetActive(!button.isActiveAndEnabled);
+        }
+
+        if (m_options.activeSelf)
+        {
+            m_masterSlider.Select();
+        }
+        else
+        {
+            m_buttons[0].Select();
+        }
+    }
+
+    public void ToggleShowControls()
+    {
+        m_controls.SetActive(!m_controls.activeSelf);
+        m_options.SetActive(!m_options.activeSelf);
+
+        if (m_controls.activeSelf)
+        {
+            m_controlsReturnButton.Select();
+        }
+        else
+        {
+            m_masterSlider.Select();
+        }
     }
 
     public void Quit()
