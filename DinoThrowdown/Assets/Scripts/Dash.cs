@@ -5,6 +5,7 @@ using XInputDotNetPure;
 
 public class Dash : MonoBehaviour
 {
+    public GameObject[] m_thrusters;
     public float m_fDashForce = 1000.0f;
     public float m_fDashCooldown = 5.0f;
 
@@ -35,6 +36,18 @@ public class Dash : MonoBehaviour
             if (m_fTimer <= 0.0f)
             {
                 ResetTimer();
+            }
+
+            foreach (var thruster in m_thrusters)
+            {
+                thruster.GetComponent<ParticleSystem>().Stop();
+            }
+        }
+        else
+        {
+            foreach (var thruster in m_thrusters)
+            {
+                thruster.GetComponent<ParticleSystem>().Play();
             }
         }
 	}
