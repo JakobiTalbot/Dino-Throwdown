@@ -239,10 +239,11 @@ public class PlayerController : MonoBehaviour
             m_bIsAttacking = true;
         }
         // checks if the fire button was pressed (keyboard || controller)
-        else if (!m_bIsOut && (m_gamePadState.Triggers.Right > 0.0f || Input.GetAxis("Fire" + m_cPlayerNumber.ToString()) > 0.0f))
+        else if (!m_bIsOut && (m_gamePadState.Triggers.Right > 0.0f || Input.GetAxis("Fire" + m_cPlayerNumber.ToString()) > 0.0f) && !m_bIsAttacking)
         {
             // sets the player to attacking
             m_bIsAttacking = true;
+            GetComponents<AudioSource>()[1].Play();
         }
 
         // checks if the player is grabbing another with the claw or dropping an item
