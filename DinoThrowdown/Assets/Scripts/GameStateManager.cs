@@ -50,6 +50,7 @@ public class GameStateManager : MonoBehaviour
         m_nRoundsWon = new int[m_players.Length];
         m_canvas = GameObject.FindGameObjectWithTag("Canvas");
 
+
         m_backgroundMusic = GetComponent<AudioSource>();
         if (OptionsManager.InstanceExists)
         {
