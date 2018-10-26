@@ -7419,6 +7419,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 115467e17dd9c024181fea98ad07de47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_colours:
+  - {fileID: 2100000, guid: d199e3b9f9aec794898cc2cd39a947bf, type: 2}
+  - {fileID: 2100000, guid: 7636d9e0a6c869b408dc4878f420e783, type: 2}
+  - {fileID: 2100000, guid: 51364424c1b440d46ad837c547fa1d68, type: 2}
+  - {fileID: 2100000, guid: b0616bf821ed49042b2b7bdc8633c71e, type: 2}
   m_knockbackTexts:
   - {fileID: 1984775721}
   - {fileID: 1654262952}

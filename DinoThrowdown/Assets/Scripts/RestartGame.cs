@@ -28,6 +28,9 @@ public class RestartGame : MonoBehaviour
         m_buttons = GetComponentsInChildren<Button>();
         // selects the first button
         m_buttons[0].Select();
+        // sets the text and colour of the game over text to the win text
+        m_gameOverText.text = m_winText.text;
+        m_gameOverText.color = m_winText.color;
     }
 
     private void Update()
@@ -42,7 +45,7 @@ public class RestartGame : MonoBehaviour
 
             // sets the components colour based on the new alpha
             m_screenFader.color = new Color(1.0f, 1.0f, 1.0f, m_fAlpha / 2.0f);
-            m_gameOverText.color = new Color(0.2f, 0.2f, 0.2f, m_fAlpha);
+            m_gameOverText.color = new Color(m_gameOverText.color.r, m_gameOverText.color.g, m_gameOverText.color.b, m_fAlpha);
 
             // iterates through each button
             foreach (Button button in m_buttons)

@@ -45,23 +45,8 @@ public class Claw : MonoBehaviour
         {
             LineRenderer line = GetComponentInChildren<LineRenderer>();
             line.SetPosition(1, new Vector3(0.0f, 0.0f, m_fLineLength));
-
             // sets the colour of the line to the colour of the player
-            switch (m_crane.m_player.GetComponent<PlayerController>().m_cPlayerNumber)
-            {
-                case 1:
-                    line.endColor = new Color(0.0f, 0.5f, 1.0f);
-                    break;
-                case 2:
-                    line.endColor = Color.red;
-                    break;
-                case 3:
-                    line.endColor = Color.green;
-                    break;
-                case 4:
-                    line.endColor = Color.yellow;
-                    break;
-            }
+            line.endColor = m_crane.m_player.GetComponent<MeshRenderer>().material.color;
         }
         else
         {

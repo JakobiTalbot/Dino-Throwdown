@@ -37,9 +37,40 @@ public class UI : MonoBehaviour
         {
             if (m_players[i])
             {
+                // sets the colour of the text based on the colour of the player
+                m_knockbackTexts[i].GetComponent<Text>().color = m_players[i].GetComponent<MeshRenderer>().material.color;
                 // Get percentage knockback (without decimal places)
                 int value = (int)m_players[i].GetComponent<Knockback>().GetKnockback();
                 m_knockbackTexts[i].GetComponent<Text>().text = value.ToString() + "%";
+
+                // sets the colour of the image based on the colour of the player
+                switch (i)
+                {
+                    case 0:
+                        foreach (GameObject image in m_p1RoundImages)
+                        {
+                            image.GetComponent<Image>().color = m_players[i].GetComponent<MeshRenderer>().material.color;
+                        }
+                        break;
+                    case 1:
+                        foreach (GameObject image in m_p2RoundImages)
+                        {
+                            image.GetComponent<Image>().color = m_players[i].GetComponent<MeshRenderer>().material.color;
+                        }
+                        break;
+                    case 2:
+                        foreach (GameObject image in m_p3RoundImages)
+                        {
+                            image.GetComponent<Image>().color = m_players[i].GetComponent<MeshRenderer>().material.color;
+                        }
+                        break;
+                    case 3:
+                        foreach (GameObject image in m_p4RoundImages)
+                        {
+                            image.GetComponent<Image>().color = m_players[i].GetComponent<MeshRenderer>().material.color;
+                        }
+                        break;
+                }
 
                 // Set bar size
                 //m_knockbackBars[i].GetComponent<RectTransform>().sizeDelta = new Vector2(value,
@@ -55,6 +86,7 @@ public class UI : MonoBehaviour
         }
     }
 
+    // sets the round image and text based on the player
     public void EnableRoundImage(GameObject player)
     {
         for (int i = 0; i < m_players.Length; ++i)
@@ -64,27 +96,41 @@ public class UI : MonoBehaviour
                 GameObject[] playerRoundImages = null;
                 m_roundWinText.SetActive(true);
 
+                // sets the text based on the player
+                if (m_players[i].GetComponent<MeshRenderer>().material.name == "DeleteTest 3 (Instance)")
+                {
+                    m_roundWinText.GetComponent<Text>().text = "ROUND WIN" + "\n" + "BLUE";
+                    m_roundWinText.GetComponent<Text>().color = new Color(0.0f, 0.5f, 1.0f);
+                }
+                else if (m_players[i].GetComponent<MeshRenderer>().material.name == "DeleteTest 1 (Instance)")
+                {
+                    m_roundWinText.GetComponent<Text>().text = "ROUND WIN" + "\n" + "RED";
+                    m_roundWinText.GetComponent<Text>().color = Color.red;
+                }
+                else if (m_players[i].GetComponent<MeshRenderer>().material.name == "DeleteTest 2 (Instance)")
+                {
+                    m_roundWinText.GetComponent<Text>().text = "ROUND WIN" + "\n" + "GREEN";
+                    m_roundWinText.GetComponent<Text>().color = Color.green;
+                }
+                else if (m_players[i].GetComponent<MeshRenderer>().material.name == "DeleteTest 4 (Instance)")
+                {
+                    m_roundWinText.GetComponent<Text>().text = "ROUND WIN" + "\n" + "YELLOW";
+                    m_roundWinText.GetComponent<Text>().color = Color.yellow;
+                }
+
                 switch (i)
                 {
                     case 0:
                         playerRoundImages = m_p1RoundImages;
-                        m_roundWinText.GetComponent<Text>().text = "ROUND WIN" + "\n" + "BLUE";
-                        m_roundWinText.GetComponent<Text>().color = new Color(0.0f, 0.5f, 1.0f);
                         break;
                     case 1:
                         playerRoundImages = m_p2RoundImages;
-                        m_roundWinText.GetComponent<Text>().text = "ROUND WIN" + "\n" + "RED";
-                        m_roundWinText.GetComponent<Text>().color = Color.red;
                         break;
                     case 2:
                         playerRoundImages = m_p3RoundImages;
-                        m_roundWinText.GetComponent<Text>().text = "ROUND WIN" + "\n" + "GREEN";
-                        m_roundWinText.GetComponent<Text>().color = Color.green;
                         break;
                     case 3:
                         playerRoundImages = m_p4RoundImages;
-                        m_roundWinText.GetComponent<Text>().text = "ROUND WIN" + "\n" + "YELLOW";
-                        m_roundWinText.GetComponent<Text>().color = Color.yellow;
                         break;
                 }
 
@@ -100,6 +146,7 @@ public class UI : MonoBehaviour
         }
     }
 
+    // sets the win text based on the player
     public void EnablePlayerWon(GameObject player)
     {
         for (int i = 0; i < m_players.Length; ++i)
@@ -108,24 +155,26 @@ public class UI : MonoBehaviour
             {
                 m_winText.SetActive(true);
 
-                switch (i)
+                // sets the text based on the player colour
+                if (m_players[i].GetComponent<MeshRenderer>().material.name == "DeleteTest 3 (Instance)")
                 {
-                    case 0:
-                        m_winText.GetComponent<Text>().text = "BLUE WINS!";
-                        m_winText.GetComponent<Text>().color = new Color(0.0f, 0.5f, 1.0f);
-                        break;
-                    case 1:
-                        m_winText.GetComponent<Text>().text = "RED WINS!";
-                        m_winText.GetComponent<Text>().color = Color.red;
-                        break;
-                    case 2:
-                        m_winText.GetComponent<Text>().text = "GREEN WINS!";
-                        m_winText.GetComponent<Text>().color = Color.green;
-                        break;
-                    case 3:
-                        m_winText.GetComponent<Text>().text = "YELLOW WINS!";
-                        m_winText.GetComponent<Text>().color = Color.yellow;
-                        break;
+                    m_winText.GetComponent<Text>().text = "BLUE WINS!";
+                    m_winText.GetComponent<Text>().color = new Color(0.0f, 0.5f, 1.0f);
+                }
+                else if (m_players[i].GetComponent<MeshRenderer>().material.name == "DeleteTest 1 (Instance)")
+                {
+                    m_winText.GetComponent<Text>().text = "RED WINS!";
+                    m_winText.GetComponent<Text>().color = Color.red;
+                }
+                else if (m_players[i].GetComponent<MeshRenderer>().material.name == "DeleteTest 2 (Instance)")
+                {
+                    m_winText.GetComponent<Text>().text = "GREEN WINS!";
+                    m_winText.GetComponent<Text>().color = Color.green;
+                }
+                else if (m_players[i].GetComponent<MeshRenderer>().material.name == "DeleteTest 4 (Instance)")
+                {
+                    m_winText.GetComponent<Text>().text = "YELLOW WINS!";
+                    m_winText.GetComponent<Text>().color = Color.yellow;
                 }
 
                 return;
@@ -133,12 +182,14 @@ public class UI : MonoBehaviour
         }
     }
 
+    // sets the round text based on the round number
     public void RoundText(int cRoundNumber)
     {
         m_roundText.SetActive(true);
         m_roundText.GetComponent<Text>().text = "ROUND " + cRoundNumber.ToString();
         m_roundWinText.SetActive(false);
     }
+    // turns off the round text
     public void DisableText()
     {
         m_roundText.SetActive(false);
