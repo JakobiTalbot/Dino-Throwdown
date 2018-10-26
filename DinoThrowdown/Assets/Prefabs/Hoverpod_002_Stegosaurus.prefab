@@ -672,9 +672,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_cPlayerNumber: 2
   m_fVelocity: 20
-  m_fCorrectionSpeed: 0
+  m_fCorrectionSpeed: 0.5
   m_fHoverHeight: 2
-  m_fHoverForce: 5000
+  m_fHoverForce: 750
   m_fHeightFromHoverMultiplier: 50
   m_fRotateSpeedKeyboard: 10
   m_fRotateSpeedController: 0.15
