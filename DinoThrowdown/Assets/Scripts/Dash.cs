@@ -66,6 +66,7 @@ public class Dash : MonoBehaviour
             v3ExplosionPos.z -= (Input.GetAxis("Vertical" + m_cPlayerNumber) + m_gamePadState.ThumbSticks.Left.Y) * 3.0f;
 
             m_rigidbody.AddExplosionForce(m_fDashForce, v3ExplosionPos, 20.0f);
+            GetComponents<AudioSource>()[2].Play();
             m_bCanDash = false;
         }
     }
