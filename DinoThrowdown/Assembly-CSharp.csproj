@@ -51,42 +51,47 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\OutsideAssets\ProCore\ProBuilder\API Examples\Icosphere FFT\Scripts\CameraControls.cs" />
-     <Compile Include="Assets\OutsideAssets\ProCore\ProBuilder\API Examples\Icosphere FFT\Scripts\IcoBumpin.cs" />
-     <Compile Include="Assets\OutsideAssets\ProCore\ProBuilder\API Examples\Misc\HueCube.cs" />
-     <Compile Include="Assets\OutsideAssets\ProCore\ProBuilder\API Examples\Procedural Mesh\ExtrudeRandomEdges.cs" />
-     <Compile Include="Assets\OutsideAssets\ProCore\ProBuilder\API Examples\Runtime Editing\RuntimeEdit.cs" />
-     <Compile Include="Assets\OutsideAssets\ProCore\ProBuilder\API Examples\Vertex Colors\HighlightNearestFace.cs" />
      <Compile Include="Assets\Scripts\AI.cs" />
-     <Compile Include="Assets\Scripts\DestroyOnFall.cs" />
+     <Compile Include="Assets\Scripts\Claw.cs" />
+     <Compile Include="Assets\Scripts\CraneManager.cs" />
+     <Compile Include="Assets\Scripts\Dash.cs" />
      <Compile Include="Assets\Scripts\DestroySelf.cs" />
+     <Compile Include="Assets\Scripts\Explosion.cs" />
+     <Compile Include="Assets\Scripts\GameStateManager.cs" />
+     <Compile Include="Assets\Scripts\InnerRing.cs" />
      <Compile Include="Assets\Scripts\Knockback.cs" />
+     <Compile Include="Assets\Scripts\MainMenu\ActivateMenu.cs" />
+     <Compile Include="Assets\Scripts\MainMenu\CharacterManager.cs" />
+     <Compile Include="Assets\Scripts\MainMenu\CharacterSelection.cs" />
+     <Compile Include="Assets\Scripts\MainMenu\ColourPicker.cs" />
+     <Compile Include="Assets\Scripts\MainMenu\OptionsManager.cs" />
+     <Compile Include="Assets\Scripts\MainMenu\PersistantSingleton.cs" />
+     <Compile Include="Assets\Scripts\MainMenu\PlayGame.cs" />
+     <Compile Include="Assets\Scripts\MainMenu\Rotator.cs" />
+     <Compile Include="Assets\Scripts\MainMenu\SelectPlay.cs" />
+     <Compile Include="Assets\Scripts\MainMenu\Singleton.cs" />
+     <Compile Include="Assets\Scripts\OutOfBounds.cs" />
+     <Compile Include="Assets\Scripts\PauseGame.cs" />
+     <Compile Include="Assets\Scripts\Pickups\Bomb.cs" />
+     <Compile Include="Assets\Scripts\Pickups\CruiseControl.cs" />
+     <Compile Include="Assets\Scripts\Pickups\KnockbackShield.cs" />
+     <Compile Include="Assets\Scripts\Pickups\Pickup.cs" />
+     <Compile Include="Assets\Scripts\Pickups\PickupManager.cs" />
+     <Compile Include="Assets\Scripts\Pickups\SpawnPoint.cs" />
+     <Compile Include="Assets\Scripts\Pickups\WeaponSize.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\RestartGame.cs" />
+     <Compile Include="Assets\Scripts\ToryTest.cs" />
      <Compile Include="Assets\Scripts\UI.cs" />
-     <None Include="Assets\OutsideAssets\ProCore\ProBuilder\Shader\pb_TransparentOverlay.shader" />
-     <None Include="Assets\OutsideAssets\ProCore\ProBuilder\API Examples\Icosphere FFT\README.txt" />
-     <None Include="Assets\OutsideAssets\ProCore\ProBuilder\Shader\pb_SelectionPicker.shader" />
-     <None Include="Assets\OutsideAssets\ProCore\ProBuilder\About\changelog.txt" />
-     <None Include="Assets\OutsideAssets\ProCore\ProBuilder\Shader\DiffuseVertexColor.shader" />
-     <None Include="Assets\OutsideAssets\ProCore\ProBuilder\Shader\pb_FaceHighlight.shader" />
-     <None Include="Assets\OutsideAssets\ProCore\ProBuilder\Shader\pb_UnlitSolidColor.shader" />
-     <None Include="Assets\OutsideAssets\ProCore\ProBuilder\Shader\pb_ReferenceUnlit.shader" />
-     <None Include="Assets\OutsideAssets\ProCore\ProBuilder\Shader\DiffuseTextureBlend.shader" />
-     <None Include="Assets\OutsideAssets\ProCore\ProBuilder\Shader\pb_StandardVertexColor.shader" />
-     <None Include="Assets\OutsideAssets\ProCore\ProBuilder\Shader\pb_VertexPicker.shader" />
-     <None Include="Assets\OutsideAssets\ProCore\ProBuilder\Shader\pb_HideVertices.shader" />
+     <Compile Include="Assets\XInput\Plugins\XboxCtrlrInput.cs" />
+     <Compile Include="Assets\XInput\Plugins\XboxCtrlrInput_Helpers\XciAxisDeadzoneData.cs" />
+     <Compile Include="Assets\XInput\Plugins\XboxCtrlrInput_Helpers\XciInputManagerClone.cs" />
+     <Compile Include="Assets\XInput\Plugins\XboxCtrlrInput_Helpers\XciInputManagerReader.cs" />
+     <Compile Include="Assets\XInput\XboxCtrlrInputExample\MoveLaser.cs" />
+     <Compile Include="Assets\XInput\XboxCtrlrInputExample\MovePlayer.cs" />
+     <Compile Include="Assets\XInput\XInputDotNet\Examples\XInputTestCS.cs" />
+     <None Include="Assets\XInput\XInputDotNet\MITLicense.txt" />
      <None Include="Assets\Textures\Delete.txt" />
-     <None Include="Assets\OutsideAssets\ProCore\ProBuilder\About\ThirdPartyLicenses.txt" />
-     <None Include="Assets\OutsideAssets\ProCore\ProBuilder\Shader\pb_UnlitVertexColor.shader" />
-     <None Include="Assets\OutsideAssets\ProCore\ProBuilder\Shader\pb_FacePicker.shader" />
-     <None Include="Assets\OutsideAssets\ProCore\ProBuilder\About\Font\SIL Open Font License.txt" />
-     <None Include="Assets\OutsideAssets\ProCore\ProBuilder\About\pc_AboutEntry_ProBuilder.txt" />
-     <None Include="Assets\Scripts\Delete.txt" />
-     <None Include="Assets\OutsideAssets\ProCore\ProBuilder\Shader\pb_VertexShader.shader" />
-     <None Include="Assets\OutsideAssets\ProCore\ProBuilder\Shader\pb_NormalPreview.shader" />
-     <None Include="Assets\OutsideAssets\ProCore\ProBuilder\Shader\pb_ScrollHighlight.shader" />
-     <None Include="Assets\OutsideAssets\ProCore\ProBuilder\readme.txt" />
-     <None Include="Assets\OutsideAssets\ProCore\ProBuilder\Shader\pb_SmoothingPreview.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -150,44 +155,29 @@
  <Reference Include="UnityEditor.WindowsStandalone.Extensions">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
  </Reference>
- <Reference Include="ProBuilderCore-Unity5">
- <HintPath>C:/Users/s181299/Desktop/Dino-Throwdown.git/DinoThrowdown/Assets/OutsideAssets/ProCore/ProBuilder/Classes/ProBuilderCore-Unity5.dll</HintPath>
- </Reference>
- <Reference Include="ProBuilderMeshOps-Unity5">
- <HintPath>C:/Users/s181299/Desktop/Dino-Throwdown.git/DinoThrowdown/Assets/OutsideAssets/ProCore/ProBuilder/Classes/ProBuilderMeshOps-Unity5.dll</HintPath>
- </Reference>
- <Reference Include="KdTreeLib">
- <HintPath>C:/Users/s181299/Desktop/Dino-Throwdown.git/DinoThrowdown/Assets/OutsideAssets/ProCore/ProBuilder/Classes/ClassesLib/KdTreeLib.dll</HintPath>
- </Reference>
- <Reference Include="pb_Stl">
- <HintPath>C:/Users/s181299/Desktop/Dino-Throwdown.git/DinoThrowdown/Assets/OutsideAssets/ProCore/ProBuilder/Classes/ClassesLib/pb_Stl.dll</HintPath>
- </Reference>
- <Reference Include="Poly2Tri">
- <HintPath>C:/Users/s181299/Desktop/Dino-Throwdown.git/DinoThrowdown/Assets/OutsideAssets/ProCore/ProBuilder/Classes/ClassesLib/Poly2Tri.dll</HintPath>
- </Reference>
- <Reference Include="ProBuilderEditor-Unity5">
- <HintPath>C:/Users/s181299/Desktop/Dino-Throwdown.git/DinoThrowdown/Assets/OutsideAssets/ProCore/ProBuilder/Editor/ProBuilderEditor-Unity5.dll</HintPath>
+ <Reference Include="XInputDotNetPure">
+ <HintPath>C:/Users/s181309/Desktop/Dino-Throwdown.git/trunk/DinoThrowdown/Assets/XInput/Plugins/x86_64/XInputDotNetPure.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Advertisements">
- <HintPath>C:/Users/s181299/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/UnityEngine.Advertisements.dll</HintPath>
+ <HintPath>C:/Users/s181309/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/UnityEngine.Advertisements.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Advertisements">
- <HintPath>C:/Users/s181299/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/Editor/UnityEditor.Advertisements.dll</HintPath>
+ <HintPath>C:/Users/s181309/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Analytics">
- <HintPath>C:/Users/s181299/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.13/UnityEngine.Analytics.dll</HintPath>
+ <HintPath>C:/Users/s181309/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.13/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Analytics">
- <HintPath>C:/Users/s181299/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.13/Editor/UnityEditor.Analytics.dll</HintPath>
+ <HintPath>C:/Users/s181309/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.13/Editor/UnityEditor.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Purchasing">
- <HintPath>C:/Users/s181299/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@0.0.19/UnityEngine.Purchasing.dll</HintPath>
+ <HintPath>C:/Users/s181309/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@0.0.19/UnityEngine.Purchasing.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Purchasing">
- <HintPath>C:/Users/s181299/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@0.0.19/Editor/UnityEditor.Purchasing.dll</HintPath>
+ <HintPath>C:/Users/s181309/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@0.0.19/Editor/UnityEditor.Purchasing.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.StandardEvents">
- <HintPath>C:/Users/s181299/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
+ <HintPath>C:/Users/s181309/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
