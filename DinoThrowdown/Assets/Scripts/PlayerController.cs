@@ -70,9 +70,6 @@ public class PlayerController : MonoBehaviour
     // stores if the attack hit
     [HideInInspector]
     public bool m_bWeaponHit = false;
-    // determines if the player is being picked up
-    [HideInInspector]
-    public bool m_bPickedUp = false;
     // determines if the player is out of bounds
     [HideInInspector]
     public bool m_bIsOut = false;
@@ -82,6 +79,9 @@ public class PlayerController : MonoBehaviour
     // stores timer for being knocked back
     [HideInInspector]
     public float m_fKnockedBackTimer = 0.0f;
+    // a count of the amount of attacks the player has done while being picked up
+    [HideInInspector]
+    public int m_cAttackAmount = 0;
 
     private GamePadState m_gamePadState;
     private PlayerIndex m_playerIndex;
@@ -145,13 +145,8 @@ public class PlayerController : MonoBehaviour
 
         v2Movement.Normalize();
 
-        // checks if the player is being picked up
-        if (m_bPickedUp && !m_bIsOut)
-        {
-            Pickup();
-        }
         // checks if the player is in the crane
-        else if (m_bInCrane && !m_bIsAttacking && !m_bIsOut)
+        if (m_bInCrane && !m_bIsAttacking && !m_bIsOut)
         {
             m_claw.Move(v2Movement.x, v2Movement.y, m_fClawSpeed);
         }
@@ -214,7 +209,7 @@ public class PlayerController : MonoBehaviour
             GetComponent<Dash>().DoDash();
         }
 
-        if (!m_bPickedUp && !m_bIsOut && !m_bInCrane)
+        if (!m_rigidbody.isKinematic && !m_bIsOut && !m_bInCrane)
         {
             RaycastHit ray = new RaycastHit();
 
@@ -258,7 +253,12 @@ public class PlayerController : MonoBehaviour
         if (m_bIsAttacking && m_bInCrane && !m_bIsOut)
         {
             // checks if there is an item to drop
-            if (m_claw.m_bHasItem && !m_claw.m_bDropped)
+            if (m_claw.m_bHasPlayer)
+            {
+                m_bIsAttacking = m_claw.DropPlayer();
+            }
+            // checks if there is an item to drop
+            else if (m_claw.m_bHasItem && !m_claw.m_bDropped)
             {
                 m_claw.DropItem();
                 m_bIsAttacking = false;
@@ -365,51 +365,6 @@ public class PlayerController : MonoBehaviour
         return m_bIsAttacking;
     }
 
-    // picks up the player and sends them to the crane
-    public void Pickup()
-    {
-        // checks if the player is below the desired height
-        if (transform.position.y < 14.0f)
-        {
-            // moves the player up
-            transform.Translate(transform.up * Time.deltaTime * m_fPickupSpeed);
-            // sets the object to kinematic
-            m_rigidbody.isKinematic = true;
-        }
-        else
-        {
-            // creates a position underneath this object
-            Vector3 v3Pos = new Vector3(transform.position.x, 3.1f, transform.position.z);
-            // swaps the players
-            m_claw.GetCrane().m_player.transform.position = v3Pos;
-            m_claw.GetCrane().m_player.GetComponent<PlayerController>().m_bInCrane = false;
-            m_claw.GetCrane().m_player.GetComponent<Rigidbody>().isKinematic = false;
-            
-            // resets the claw
-            m_claw.transform.position = new Vector3(0.0f, 16.0f, 0.0f);
-
-            // sets this player as the one in the crane
-            m_claw.GetCrane().m_player = gameObject;
-
-            // sends the player to the crane
-            if (m_claw.GetCrane().name == "Crane1")
-            {
-                transform.position = m_seats[0].transform.position;
-                transform.localRotation = Quaternion.Euler(0.0f, m_seats[0].transform.rotation.eulerAngles.y, 0.0f);
-            }
-            else
-            {
-                transform.position = m_seats[1].transform.position;
-                transform.localRotation = Quaternion.Euler(0.0f, m_seats[1].transform.rotation.eulerAngles.y, 0.0f);
-            }
-
-            // sets the status as not out or picked up and in the crane
-            m_bIsOut = false;
-            m_bInCrane = true;
-            m_bPickedUp = false;
-        }
-    }
-
     public void StopAttack()
     {
         // sets the transform back to the original
@@ -418,6 +373,11 @@ public class PlayerController : MonoBehaviour
         // sets the player to not attacking
         m_bIsAttacking = false;
         m_bWeaponHit = false;
+
+        if (m_rigidbody.isKinematic)
+        {
+            m_cAttackAmount++;
+        }
     }
 
     public void SetVibration(float fVibrationTime, float fVibrationStrength)

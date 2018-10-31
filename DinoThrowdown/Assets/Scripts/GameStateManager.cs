@@ -247,7 +247,6 @@ public class GameStateManager : MonoBehaviour
             // reset player status
             m_players[i].GetComponent<PlayerController>().m_bInCrane = false;
             m_players[i].GetComponent<PlayerController>().m_bIsOut = false;
-            m_players[i].GetComponent<PlayerController>().m_bPickedUp = false;
             m_players[i].GetComponent<PlayerController>().m_bWeaponHit = false;
             // set claw to null
             m_players[i].GetComponent<PlayerController>().m_claw = null;

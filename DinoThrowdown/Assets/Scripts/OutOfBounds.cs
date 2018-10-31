@@ -23,11 +23,16 @@ public class OutOfBounds : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         // checks if the collider is a player
         if (other.CompareTag("Player"))
         {
+            if (other.GetComponent<Rigidbody>().isKinematic)
+            {
+                return;
+            }
+
             PlayerController playerController = other.GetComponent<PlayerController>();
 
             if (OptionsManager.InstanceExists)

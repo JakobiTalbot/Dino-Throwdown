@@ -14,6 +14,8 @@ public class Claw : MonoBehaviour
     public GameObject[] m_itemTypes;
     // the length of the line
     public float m_fLineLength = 13.5f;
+    // the amount of attacks required to drop a player
+    public int m_cClawHealth = 5;
 
     // determines if the claw has dropped
     [HideInInspector]
@@ -27,11 +29,16 @@ public class Claw : MonoBehaviour
     // reference to the item that is picked up
     [HideInInspector]
     public GameObject m_item = null;
+    // determines if the claw has a player
+    [HideInInspector]
+    public bool m_bHasPlayer = false;
 
     // reference to the crane
     private CraneManager m_crane;
     private bool m_bClawDownSoundPlayed = false;
     private bool m_bClawUpSoundPlayed = false;
+    // reference to the player being picked up
+    private PlayerController m_pickedUpPlayer = null;
 
     private void Start()
     {
@@ -47,6 +54,17 @@ public class Claw : MonoBehaviour
             line.SetPosition(1, new Vector3(0.0f, 0.0f, m_fLineLength));
             // sets the colour of the line to the colour of the player
             line.endColor = m_crane.m_player.GetComponent<MeshRenderer>().material.color;
+
+            if (m_bHasPlayer)
+            {
+                if (m_pickedUpPlayer.m_cAttackAmount == m_cClawHealth)
+                {
+                    m_pickedUpPlayer.m_cAttackAmount = 0;
+                    m_pickedUpPlayer.GetComponent<Rigidbody>().isKinematic = false;
+                    m_bHasPlayer = false;
+                    transform.position = new Vector3(transform.position.x, 16.0f, transform.position.z);
+                }
+            }
         }
         else
         {
@@ -86,14 +104,25 @@ public class Claw : MonoBehaviour
     // raises the claw
     private bool Raise()
     {
-        // check is the claw is below the target height
-        if (transform.localPosition.y < 10.0f)
+        // checks if the claw is below the target height
+        if (transform.localPosition.y < 10.0f && !m_bHasPlayer)
         {
             // moves the claw up
             transform.Translate(transform.up * Time.deltaTime * m_fMoveSpeed);
             if (!m_bClawUpSoundPlayed)
                 GetComponents<AudioSource>()[1].Play();
             m_bClawUpSoundPlayed = true;
+            return true;
+        }
+        // checks if the claw has a player
+        else if (transform.localPosition.y < 3.0f && m_bHasPlayer)
+        {
+            // moves the claw up
+            transform.Translate(transform.up * Time.deltaTime * m_fMoveSpeed);
+            m_pickedUpPlayer.transform.Translate(transform.up * Time.deltaTime * m_fMoveSpeed);
+            m_pickedUpPlayer.transform.position = Vector3.Lerp(m_pickedUpPlayer.transform.position,
+                new Vector3(transform.position.x, m_pickedUpPlayer.transform.position.y, transform.position.z),
+                m_fMoveSpeed * Time.deltaTime);
             return true;
         }
         else
@@ -138,6 +167,10 @@ public class Claw : MonoBehaviour
 
         // moves the claw by the direction
         transform.Translate(v3Direction * fSpeed);
+        if (m_bHasPlayer)
+        {
+            m_pickedUpPlayer.transform.position = new Vector3(transform.position.x, m_pickedUpPlayer.transform.position.y, transform.position.z);
+        }
 
         // gets the claw's position in the x and z axis
         Vector2 v2Origin = new Vector2(transform.position.x, transform.position.z);
@@ -163,14 +196,11 @@ public class Claw : MonoBehaviour
         // checks if the claw collides with a player
         if (other.CompareTag("Player") && !other.GetComponent<PlayerController>().m_bInCrane)
         {
+            m_bHasPlayer = true;
             // sets the claw to have dropped
             m_bDropped = true;
-            // gets the player controller from the player
-            PlayerController playerController = other.GetComponent<PlayerController>();
-            // sets the player to picked up
-            playerController.m_bPickedUp = true;
-            // gives the player control over the claw
-            playerController.m_claw = gameObject.GetComponent<Claw>();
+            m_pickedUpPlayer = other.GetComponent<PlayerController>();
+            m_pickedUpPlayer.GetComponent<Rigidbody>().isKinematic = true;
 
             if (OptionsManager.InstanceExists)
             {
@@ -195,6 +225,66 @@ public class Claw : MonoBehaviour
         {
             m_item.GetComponent<Rigidbody>().isKinematic = false;
             m_bItemDrop = true;
+        }
+    }
+
+    // attempts to drop the player outside the arena
+    public bool DropPlayer()
+    {
+        // checks if the claw has already dropped
+        if (!m_bDropped)
+        {
+            LowerPlayer();
+        }
+        else
+        {
+            return Raise();
+        }
+
+        return true;
+    }
+    public void LowerPlayer()
+    {
+        // checks if the claw is above the target height
+        if (transform.localPosition.y > -10.0f)
+        {
+            // moves the claw down
+            transform.Translate(-transform.up * Time.deltaTime * m_fMoveSpeed);
+            m_pickedUpPlayer.transform.Translate(-transform.up * Time.deltaTime * m_fMoveSpeed);
+        }
+        else
+        {
+            // sets the dropped status to true
+            m_bDropped = true;
+
+            m_crane.m_player.transform.position = new Vector3(0.0f, 5.0f, 0.0f);
+            m_crane.m_player.GetComponent<PlayerController>().m_bInCrane = false;
+            m_crane.m_player.GetComponent<PlayerController>().m_claw = null;
+            m_crane.m_player.GetComponent<Rigidbody>().isKinematic = false;
+
+            transform.position = new Vector3(0.0f, 16.0f, 0.0f);
+            m_bHasPlayer = false;
+
+            // sets this player as the one in the crane
+            m_crane.m_player = m_pickedUpPlayer.gameObject;
+
+            // sends the player to the crane
+            if (m_crane.name == "Crane1")
+            {
+                m_pickedUpPlayer.transform.position = m_pickedUpPlayer.m_seats[0].transform.position;
+                m_pickedUpPlayer.transform.localRotation = Quaternion.Euler(0.0f, m_pickedUpPlayer.m_seats[0].transform.rotation.eulerAngles.y, 0.0f);
+            }
+            else
+            {
+                m_pickedUpPlayer.transform.position = m_pickedUpPlayer.m_seats[1].transform.position;
+                m_pickedUpPlayer.transform.localRotation = Quaternion.Euler(0.0f, m_pickedUpPlayer.m_seats[1].transform.rotation.eulerAngles.y, 0.0f);
+            }
+
+            // sets the status as not out or picked up and in the crane
+            m_pickedUpPlayer.m_bIsOut = false;
+            m_pickedUpPlayer.m_bInCrane = true;
+            m_pickedUpPlayer.m_claw = this;
+            m_pickedUpPlayer.m_cAttackAmount = 0;
         }
     }
 }
