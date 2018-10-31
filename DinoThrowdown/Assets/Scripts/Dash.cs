@@ -73,7 +73,7 @@ public class Dash : MonoBehaviour
             GetComponent<PlayerController>().SetVibration(m_fDashVibrationTime, m_fDashVibrationStrength);
 
             // create dash particles
-            GameObject newParticles = Instantiate(m_dashEffect, transform.position + m_v3DashEffectPositionOffset, Quaternion.Euler(transform.rotation.x, 180.0f, transform.rotation.z));
+            GameObject newParticles = Instantiate(m_dashEffect, transform.position + m_v3DashEffectPositionOffset, Quaternion.Euler(transform.rotation.x, transform.rotation.y + 180.0f, transform.rotation.z));
             newParticles.transform.parent = transform;
             // add dash force
             m_rigidbody.AddExplosionForce(m_fDashForce, v3ExplosionPos, 20.0f);
