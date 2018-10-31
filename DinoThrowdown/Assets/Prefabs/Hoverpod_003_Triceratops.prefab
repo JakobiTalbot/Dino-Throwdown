@@ -11,6 +11,24 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1985458462396902}
   m_IsPrefabParent: 1
+--- !u!1 &1035170291879508
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4169988617916288}
+  - component: {fileID: 33305532681661442}
+  - component: {fileID: 23303902212464472}
+  - component: {fileID: 95968780798309448}
+  m_Layer: 0
+  m_Name: Dino_001_Trex
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1046098025165754
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,6 +200,19 @@ Transform:
   m_Father: {fileID: 4441809475206934}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!4 &4169988617916288
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1035170291879508}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.1, y: 1.24, z: -0.15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4221408032488494}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4221408032488494
 Transform:
   m_ObjectHideFlags: 1
@@ -195,6 +226,7 @@ Transform:
   - {fileID: 4792236251450104}
   - {fileID: 4792618521920548}
   - {fileID: 4441809475206934}
+  - {fileID: 4169988617916288}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -335,6 +367,40 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!23 &23303902212464472
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1035170291879508}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100002, guid: 0057ed0675e9fb14590a45ba6a222d0c, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!23 &23911105903550504
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -369,6 +435,13 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!33 &33305532681661442
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1035170291879508}
+  m_Mesh: {fileID: 4300000, guid: 0057ed0675e9fb14590a45ba6a222d0c, type: 3}
 --- !u!33 &33400327851218914
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -705,6 +778,23 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!95 &95968780798309448
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1035170291879508}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 0057ed0675e9fb14590a45ba6a222d0c, type: 3}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114068037925105280
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -760,7 +850,10 @@ MonoBehaviour:
   m_fBaseWeaponKnockbackForce: 750
   m_fForceToKnockbackMeter: 0.01
   m_fVelocityFactor: 100
-  m_fVibrateTime: 0.2
+  m_fVibrateTimeWhenHit: 0.3
+  m_fVibrateStrengthWhenHit: 0.5
+  m_fVibrateTimeWhenHitting: 0.2
+  m_fVibrateStrengthWhenHitting: 0.4
   m_fKnockbackShieldTime: 5
   m_hitParticles: {fileID: 1479954545993554, guid: 7ab8d50f7aa39104a8f7c08393d40ea6,
     type: 2}
@@ -777,10 +870,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_thrusters:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1546571398932286}
+  - {fileID: 1593120130128420}
   m_fDashForce: 1000
-  m_fDashCooldown: 3
+  m_fDashCooldown: 4
 --- !u!198 &198398241953920198
 ParticleSystem:
   m_ObjectHideFlags: 1
