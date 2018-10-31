@@ -75,7 +75,7 @@ public class Dash : MonoBehaviour
 
             // create dash particles
             GameObject newParticles = Instantiate(m_dashEffect, transform);
-            newParticles.transform.localPosition = transform.localPosition + m_v3DashEffectPositionOffset;
+            newParticles.transform.localPosition = m_v3DashEffectPositionOffset;
             newParticles.transform.localRotation = Quaternion.Euler(0.0f, transform.localRotation.y + 180.0f, 0.0f);
 
             // add dash force
