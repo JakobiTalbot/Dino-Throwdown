@@ -268,6 +268,8 @@ public class GameStateManager : MonoBehaviour
             m_claws[i].GetComponent<Claw>().m_bDropped = false;
             m_claws[i].GetComponent<Claw>().m_bHasItem = false;
             m_claws[i].GetComponent<Claw>().m_bItemDrop = false;
+            m_claws[i].GetComponent<Claw>().m_bHasPlayer = false;
+            m_claws[i].GetComponent<Claw>().m_pickedUpPlayer = null;
             Destroy(m_claws[i].GetComponent<Claw>().m_item);
             m_claws[i].GetComponentInChildren<LineRenderer>().SetPosition(1, Vector3.zero);
         }

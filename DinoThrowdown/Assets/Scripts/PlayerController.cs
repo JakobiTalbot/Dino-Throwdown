@@ -6,7 +6,7 @@ using XInputDotNetPure;
 
 public class PlayerController : MonoBehaviour
 {
-    // used to change movement for a limited time
+    // used to check for pick ups and time them
     public struct PickupTimer
     {
         public bool bFlag;

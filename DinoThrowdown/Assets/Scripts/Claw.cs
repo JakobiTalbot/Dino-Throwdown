@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Claw : MonoBehaviour
 {
+    // used to check for pick ups and time them
+    public struct PickupTimer
+    {
+        public bool bFlag;
+        public float fTimer;
+    }
+
     // speed at which the claw drops
     public float m_fMoveSpeed = 10.0f;
     // speed at which items fall
@@ -16,6 +23,12 @@ public class Claw : MonoBehaviour
     public float m_fLineLength = 13.5f;
     // the amount of attacks required to drop a player
     public int m_cClawHealth = 5;
+    // time to remain in cruise control
+    public float m_fCruiseControlTime = 5.0f;
+    // time to keep weapon size powerup
+    public float m_fWeaponSizeTime = 3.0f;
+    // time to keep knockback shield pick up
+    public float m_fKnockbackShieldTime = 5.0f;
 
     // determines if the claw has dropped
     [HideInInspector]
@@ -32,17 +45,34 @@ public class Claw : MonoBehaviour
     // determines if the claw has a player
     [HideInInspector]
     public bool m_bHasPlayer = false;
+    // handles when the claw should cruise
+    [HideInInspector]
+    public PickupTimer m_cruiseControl;
+    // handles when the claw should be larger
+    [HideInInspector]
+    public PickupTimer m_weaponSize;
+    // handles when the claw should have a knockback shield
+    [HideInInspector]
+    public PickupTimer m_knockbackShield;
+    // reference to the player being picked up
+    [HideInInspector]
+    public PlayerController m_pickedUpPlayer = null;
 
     // reference to the crane
     private CraneManager m_crane;
     private bool m_bClawDownSoundPlayed = false;
     private bool m_bClawUpSoundPlayed = false;
-    // reference to the player being picked up
-    private PlayerController m_pickedUpPlayer = null;
 
     private void Start()
     {
         m_crane = GetComponentInParent<CraneManager>();
+
+        m_cruiseControl.bFlag = false;
+        m_cruiseControl.fTimer = m_fCruiseControlTime;
+        m_weaponSize.bFlag = false;
+        m_weaponSize.fTimer = m_fWeaponSizeTime;
+        m_knockbackShield.bFlag = false;
+        m_knockbackShield.fTimer = m_fKnockbackShieldTime;
     }
 
     private void Update()
@@ -71,6 +101,34 @@ public class Claw : MonoBehaviour
             // sets the line length to zero
             GetComponentInChildren<LineRenderer>().SetPosition(1, Vector3.zero);
         }
+
+        //if (m_weaponSize.bFlag)
+        //{
+        //    // decrements the timer
+        //    m_weaponSize.fTimer -= Time.deltaTime;
+        //    // checks if the timer has run out
+        //    if (m_weaponSize.fTimer <= 0.0f)
+        //    {
+        //        // resets the weapon size
+        //        m_weaponSize.bFlag = false;
+        //        m_weaponSize.fTimer = m_fWeaponSizeTime;
+        //        m_weapon.transform.localScale = m_v3BaseWeaponScale;
+        //        m_weapon.transform.localPosition = m_v3BaseWeaponPosition;
+        //    }
+        //}
+
+        //if (m_cruiseControl.bFlag)
+        //{
+        //    // decrements the timer
+        //    m_cruiseControl.fTimer -= Time.deltaTime;
+        //    // checks if the timer has run out
+        //    if (m_cruiseControl.fTimer <= 0.0f)
+        //    {
+        //        // resets the cruise control
+        //        m_cruiseControl.bFlag = false;
+        //        m_cruiseControl.fTimer = m_fCruiseControlTime;
+        //    }
+        //}
     }
 
     // returns the crane
@@ -194,7 +252,7 @@ public class Claw : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // checks if the claw collides with a player
-        if (other.CompareTag("Player") && !other.GetComponent<PlayerController>().m_bInCrane)
+        if (other.CompareTag("Player") && !other.GetComponent<PlayerController>().m_bInCrane && !other.GetComponent<Rigidbody>().isKinematic)
         {
             m_bHasPlayer = true;
             // sets the claw to have dropped
