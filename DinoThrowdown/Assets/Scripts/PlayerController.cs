@@ -89,12 +89,20 @@ public class PlayerController : MonoBehaviour
     // determines if the player is attacking
     private Vector3 m_v3StartArmRotation;
     private Vector3 m_v3EndArmRotation;
+    private float m_fVibrationTimer;
     private bool m_bIsAttacking = false;
     private bool m_bPauseButtonDown = false;
+    private bool m_bVibrating = false;
+    private bool m_bVibrationToggle = true;
 
     // Use this for initialization
     void Awake()
     {
+        if (OptionsManager.InstanceExists)
+        {
+            m_bVibrationToggle = OptionsManager.Instance.m_bVibration;
+        }
+
         m_rigidbody = GetComponent<Rigidbody>();
 
         // Get playerindex (-1 because XInput starts index at 0)
@@ -295,6 +303,17 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        if (m_bVibrating)
+        {
+            m_fVibrationTimer -= Time.deltaTime;
+
+            if (m_fVibrationTimer <= 0.0f)
+            {
+                GamePad.SetVibration((PlayerIndex)m_cPlayerNumber - 1, 0.0f, 0.0f);
+                m_bVibrating = false;
+            }
+        }
+
         m_fKnockedBackTimer -= Time.deltaTime;
     }
 
@@ -399,5 +418,15 @@ public class PlayerController : MonoBehaviour
         // sets the player to not attacking
         m_bIsAttacking = false;
         m_bWeaponHit = false;
+    }
+
+    public void SetVibration(float fVibrationTime, float fVibrationStrength)
+    {
+        if (m_bVibrationToggle)
+        {
+            GamePad.SetVibration((PlayerIndex)m_cPlayerNumber - 1, fVibrationStrength, fVibrationStrength);
+            m_fVibrationTimer = fVibrationTime;
+            m_bVibrating = true;
+        }
     }
 }

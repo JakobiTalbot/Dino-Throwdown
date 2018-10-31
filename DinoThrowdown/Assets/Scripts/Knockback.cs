@@ -18,7 +18,10 @@ public class Knockback : MonoBehaviour
     public float m_fForceToKnockbackMeter = 0.01f;
 
     public float m_fVelocityFactor = 100.0f;
-    public float m_fVibrateTime = 0.5f;
+    public float m_fVibrateTimeWhenHit = 0.5f;
+    public float m_fVibrateStrengthWhenHit = 1.0f;
+    public float m_fVibrateTimeWhenHitting = 0.2f;
+    public float m_fVibrateStrengthWhenHitting = 1.0f;
     public float m_fKnockbackShieldTime = 5.0f;
 
     public GameObject m_hitParticles;
@@ -33,21 +36,12 @@ public class Knockback : MonoBehaviour
     private Rigidbody m_rigidbody;
     // used to check if being hit by a larger weapon
     private Vector3 m_v3Larger;
-    private float m_fVibrateTimer;
-    private bool m_bIsVibrating;
-    private bool m_bVibrationToggle = true;
     // reference to the hit music
     private AudioSource m_hitSound;
 
     // Use this for initialization
     void Awake()
     {
-        if (OptionsManager.InstanceExists)
-        {
-            m_bVibrationToggle = OptionsManager.Instance.m_bVibration;
-        }
-
-        m_fVibrateTimer = m_fVibrateTime;
         m_rigidbody = GetComponent<Rigidbody>();
 
         m_shield.bFlag = false;
@@ -73,17 +67,6 @@ public class Knockback : MonoBehaviour
                 // resets the shield
                 m_shield.bFlag = false;
                 m_shield.fTimer = m_fKnockbackShieldTime;
-            }
-        }
-
-        if (m_bIsVibrating && m_bVibrationToggle)
-        {
-            // decrement vibration timer
-            m_fVibrateTimer -= Time.deltaTime;
-            if (m_fVibrateTimer <= 0.0f)
-            {
-                m_bIsVibrating = false;
-                GamePad.SetVibration((PlayerIndex)GetComponent<PlayerController>().m_cPlayerNumber - 1, 0.0f, 0.0f);
             }
         }
     }
@@ -127,12 +110,9 @@ public class Knockback : MonoBehaviour
             }
 
             // vibrate player's controller
-            if (!m_bIsVibrating && m_bVibrationToggle)
-            {
-                GamePad.SetVibration((PlayerIndex)GetComponent<PlayerController>().m_cPlayerNumber - 1, 1.0f, 1.0f);
-                m_fVibrateTimer = m_fVibrateTime;
-                m_bIsVibrating = true;
-            }
+            GetComponent<PlayerController>().SetVibration(m_fVibrateTimeWhenHit, m_fVibrateTimeWhenHit);
+            // vibrate other player's controller
+            other.gameObject.GetComponentInParent<PlayerController>().SetVibration(m_fVibrateTimeWhenHitting, m_fVibrateTimeWhenHitting);
 
             other.gameObject.GetComponentInParent<Component>().GetComponentInParent<Component>().GetComponentInParent<PlayerController>().m_bWeaponHit = true;
             GetComponent<PlayerController>().m_fKnockedBackTimer = GetComponent<PlayerController>().m_fStopCruiseAfterHitTime;
