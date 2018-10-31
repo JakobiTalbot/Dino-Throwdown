@@ -4,49 +4,54 @@ using UnityEngine;
 
 public class WreckingBall : MonoBehaviour
 {
+    // time to wait before swinging again after finishing last swing
     public float m_fSwingTimeToWait = 10.0f;
-    public float m_fSwingSpeed = 0.1f;
+    // speed to swing
+    public float m_fSwingSpeed = 100.0f;
 
-    private Quaternion m_SwingDir = new Quaternion();
+    private Quaternion m_swingEnd;
+    private Vector3 m_v3SwingDir;
+    private bool m_bSwinging = false;
     private float m_fSwingTimer;
-    private bool m_bSwinging;
 
 	// Use this for initialization
 	void Awake()
     {
+        // set swing timer
         m_fSwingTimer = m_fSwingTimeToWait;
-	}
+    }
 	
 	// Update is called once per frame
 	void Update()
     {
+        // decrement swing timer
         m_fSwingTimer -= Time.deltaTime;
-        Debug.Log(m_fSwingTimer);
 
         if (m_fSwingTimer <= 0.0f && !m_bSwinging)
         {
-            Vector3 v3RandDir = new Vector3()
-            {
-                x = Random.Range(-90.0f, 90.0f),
-                z = Random.Range(-90.0f, 90.0f)
-            };
-            m_SwingDir.eulerAngles = v3RandDir;
+            // get random y rotation
+            float fRandY = Random.Range(0.0f, 360.0f);
 
-            Quaternion swingOrigin = m_SwingDir;
-            swingOrigin.eulerAngles *= -1.0f;
-            transform.rotation = swingOrigin;
+            // set end rotation
+            m_swingEnd = Quaternion.Euler(0.0f, fRandY, 90.0f);
+            // set start rotation
+            transform.rotation = Quaternion.Euler(0.0f, fRandY, -90.0f);
 
+            // find swing direction
+            m_v3SwingDir = (transform.rotation.eulerAngles - m_swingEnd.eulerAngles).normalized;
             m_bSwinging = true;
         }
 
         if (m_bSwinging)
         {
-            transform.rotation = Quaternion.Lerp(transform.rotation, m_SwingDir, m_fSwingSpeed);
+            // rotate wrecking ball (swing)
+            transform.Rotate(m_v3SwingDir * m_fSwingSpeed * Time.deltaTime);
 
-            if ((transform.rotation.eulerAngles - m_SwingDir.eulerAngles).magnitude < 5.0f)
+            // end swing if close to end rotation
+            if ((m_swingEnd.eulerAngles - transform.rotation.eulerAngles).sqrMagnitude < 50.0f)
             {
-                m_fSwingTimer = m_fSwingTimeToWait;
                 m_bSwinging = false;
+                m_fSwingTimer = m_fSwingTimeToWait;
             }
         }
 	}
