@@ -75,7 +75,8 @@ public class Knockback : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Weapon") && GetComponent<MeshCollider>()
             && other.gameObject.GetComponentInParent<Component>().GetComponentInParent<Component>().GetComponentInParent<PlayerController>().GetAttacking() 
-            && !other.gameObject.GetComponentInParent<Component>().GetComponentInParent<Component>().GetComponentInParent<PlayerController>().m_bWeaponHit)
+            && !other.gameObject.GetComponentInParent<Component>().GetComponentInParent<Component>().GetComponentInParent<PlayerController>().m_bWeaponHit
+            && !GetComponent<Rigidbody>().isKinematic)
         {
             // Find average position of two objects colliding
             Vector3 v3ExplosionPos = (other.gameObject.transform.position + transform.position) * 0.5f;
