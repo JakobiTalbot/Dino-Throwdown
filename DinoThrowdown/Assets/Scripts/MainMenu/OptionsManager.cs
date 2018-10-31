@@ -15,6 +15,10 @@ public class OptionsManager : PersistantSingleton<OptionsManager>
     public Toggle m_vibrationToggle;
     // reference to the pickups toggle
     public Toggle m_pickupsToggle;
+    // reference to the indicator toggle
+    public Toggle m_indicatorToggle;
+    // reference to the round amount dropdown
+    public Dropdown m_roundDropdown;
 
     // the value of the master volume
     [HideInInspector]
@@ -31,6 +35,12 @@ public class OptionsManager : PersistantSingleton<OptionsManager>
     // determines if the pickups will spawn
     [HideInInspector]
     public bool m_bPickups = true;
+    // determines if the indicator will be shown
+    [HideInInspector]
+    public bool m_bIndicator = true;
+    // the value of the dropdown
+    [HideInInspector]
+    public int m_iRound = 1;
 
     private void Update()
     {
@@ -41,5 +51,8 @@ public class OptionsManager : PersistantSingleton<OptionsManager>
         // gets the toggle status
         m_bVibration = m_vibrationToggle.isOn;
         m_bPickups = m_pickupsToggle.isOn;
+        m_bIndicator = m_indicatorToggle.isOn;
+        // gets the value from the dropdown
+        m_iRound = m_roundDropdown.value;
     }
 }

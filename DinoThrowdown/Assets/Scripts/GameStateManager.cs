@@ -50,11 +50,22 @@ public class GameStateManager : MonoBehaviour
         m_nRoundsWon = new int[m_players.Length];
         m_canvas = GameObject.FindGameObjectWithTag("Canvas");
 
-
         m_backgroundMusic = GetComponent<AudioSource>();
         if (OptionsManager.InstanceExists)
         {
-            m_backgroundMusic.volume *= OptionsManager.Instance.m_fMusicVolume * OptionsManager.Instance.m_fMasterVolume;
+            m_backgroundMusic.volume = OptionsManager.Instance.m_fMusicVolume * OptionsManager.Instance.m_fMasterVolume;
+            switch (OptionsManager.Instance.m_iRound)
+            {
+                case 0:
+                    m_nRoundsToWin = 1;
+                    break;
+                case 1:
+                    m_nRoundsToWin = 3;
+                    break;
+                case 2:
+                    m_nRoundsToWin = 5;
+                    break;
+            }
         }
 
         if (CharacterManager.InstanceExists)
