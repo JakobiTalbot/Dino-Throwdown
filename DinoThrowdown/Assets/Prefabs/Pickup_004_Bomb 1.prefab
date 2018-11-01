@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 33332920730506934}
   - component: {fileID: 135497980680154130}
   m_Layer: 0
-  m_Name: Pickup_004_BlockArenaBomb
+  m_Name: Pickup_004_Bomb 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -249,6 +249,7 @@ MonoBehaviour:
     type: 2}
   m_fVibrationStrength: 1
   m_fVibrationTime: 0.5
+  m_nMaxBlocksToDestroy: 3
 --- !u!135 &135149084857665204
 SphereCollider:
   m_ObjectHideFlags: 1
