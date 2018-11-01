@@ -66,7 +66,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1243394425017142}
   m_LocalRotation: {x: -0, y: 0.0000029504295, z: -0, w: 1}
-  m_LocalPosition: {x: 7.718296, y: 3.579, z: -7.3997574}
+  m_LocalPosition: {x: -8.746403, y: 5.405, z: -0.5372838}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4256605885688440}
@@ -92,7 +92,7 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1243394425017142}
   serializedVersion: 5
-  lengthInSec: 2.6
+  lengthInSec: 0.75
   simulationSpeed: 1
   stopAction: 0
   looping: 0
@@ -193,7 +193,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5.43
+      scalar: 10.99
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -235,7 +235,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0, g: 0.2965517, b: 1, a: 0.547}
+      maxColor: {r: 0, g: 0.122, b: 1, a: 0.547}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -297,7 +297,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3
+      scalar: 2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -541,7 +541,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 1097
+    maxNumParticles: 3416
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -589,7 +589,7 @@ ParticleSystem:
     serializedVersion: 5
     enabled: 1
     type: 4
-    angle: 13.03
+    angle: 16.09
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
@@ -610,7 +610,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.15
+      value: 0.07
       mode: 0
       spread: 0
       speed:
@@ -705,7 +705,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 34.4
+      scalar: 446.69
       minScalar: 10
       maxCurve:
         serializedVersion: 2

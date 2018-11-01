@@ -809,8 +809,14 @@ MonoBehaviour:
   m_thrusters:
   - {fileID: 1204843870553588}
   - {fileID: 1791979849783216}
+  m_dashEffect: {fileID: 1243394425017142, guid: 0d404d1fa7fed7c49acdf3596385a298,
+    type: 2}
+  m_v3DashEffectPositionOffset: {x: 0, y: 1, z: -2.5}
+  m_fYRotation: 0
   m_fDashForce: 1000
   m_fDashCooldown: 4
+  m_fDashVibrationTime: 0.5
+  m_fDashVibrationStrength: 1
 --- !u!114 &114435316115007682
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -847,10 +853,10 @@ MonoBehaviour:
   m_v3BaseWeaponScale: {x: 0, y: 0, z: 0}
   m_v3BaseWeaponPosition: {x: 0, y: 0, z: 0}
   m_bWeaponHit: 0
-  m_bPickedUp: 0
   m_bIsOut: 0
   m_bInCrane: 0
   m_fKnockedBackTimer: 0
+  m_cAttackAmount: 0
 --- !u!114 &114506779149361908
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -885,7 +891,7 @@ ParticleSystem:
   simulationSpeed: 1
   stopAction: 0
   looping: 1
-  prewarm: 1
+  prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
@@ -931,17 +937,17 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1814981517
+  randomSeed: -391701555
   InitialModule:
     serializedVersion: 3
     enabled: 1
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 0.3
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -1494,7 +1500,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 121
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -7611,7 +7617,7 @@ ParticleSystem:
   simulationSpeed: 1
   stopAction: 0
   looping: 1
-  prewarm: 1
+  prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
@@ -7657,17 +7663,17 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 191494031
+  randomSeed: 269710807
   InitialModule:
     serializedVersion: 3
     enabled: 1
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 0.3
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -8220,7 +8226,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 121
       minScalar: 10
       maxCurve:
         serializedVersion: 2
