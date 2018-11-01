@@ -81,7 +81,7 @@ public class Dash : MonoBehaviour
             // add dash force
             m_rigidbody.AddExplosionForce(m_fDashForce, v3ExplosionPos, 20.0f);
             // play dash sound
-            GetComponents<AudioSource>()[2].Play();
+            GetComponents<AudioSource>()[1].Play();
             m_bCanDash = false;
         }
     }
