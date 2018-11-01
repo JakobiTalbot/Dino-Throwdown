@@ -5964,6 +5964,7 @@ GameObject:
   - component: {fileID: 596633257}
   - component: {fileID: 596633256}
   - component: {fileID: 596633259}
+  - component: {fileID: 596633260}
   m_Layer: 0
   m_Name: Claw1
   m_TagString: Claw
@@ -6190,6 +6191,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!54 &596633260
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 596633254}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
 --- !u!1 &601031574
 GameObject:
   m_ObjectHideFlags: 0
@@ -7270,6 +7286,7 @@ GameObject:
   - component: {fileID: 807689491}
   - component: {fileID: 807689490}
   - component: {fileID: 807689493}
+  - component: {fileID: 807689494}
   m_Layer: 0
   m_Name: Claw2
   m_TagString: Claw
@@ -7496,6 +7513,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!54 &807689494
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 807689488}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
 --- !u!1 &833866230
 GameObject:
   m_ObjectHideFlags: 0
@@ -7982,6 +8014,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 136618955}
     m_Modifications:
+    - target: {fileID: 114875372704046928, guid: 1ba9c3b14c9431c41957ac1db387e157,
+        type: 2}
+      propertyPath: m_seats.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4489072972240412, guid: 1ba9c3b14c9431c41957ac1db387e157, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -8019,6 +8056,16 @@ Prefab:
       propertyPath: m_pauseGameCanvas
       value: 
       objectReference: {fileID: 1963148031}
+    - target: {fileID: 114875372704046928, guid: 1ba9c3b14c9431c41957ac1db387e157,
+        type: 2}
+      propertyPath: m_seats.Array.data[0]
+      value: 
+      objectReference: {fileID: 204867424}
+    - target: {fileID: 114875372704046928, guid: 1ba9c3b14c9431c41957ac1db387e157,
+        type: 2}
+      propertyPath: m_seats.Array.data[1]
+      value: 
+      objectReference: {fileID: 1582527711}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ba9c3b14c9431c41957ac1db387e157, type: 2}
   m_IsPrefabParent: 0

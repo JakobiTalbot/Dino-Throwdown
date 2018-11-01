@@ -20,8 +20,6 @@ public class GameStateManager : MonoBehaviour
     private List<GameObject> m_playersRemaining;
     private Vector3[] m_playerOriginalPositions;
     private Quaternion[] m_playerOriginalRotations;
-    private Vector3[] m_craneOriginalPositions;
-    private Quaternion[] m_craneOriginalRotations;
     private Vector3[] m_clawOriginalPositions;
     private Quaternion[] m_clawOriginalRotations;
     private UI m_UI;
@@ -42,8 +40,6 @@ public class GameStateManager : MonoBehaviour
         m_claws = GameObject.FindGameObjectsWithTag("Claw");
         m_playerOriginalPositions = new Vector3[m_players.Length];
         m_playerOriginalRotations = new Quaternion[m_players.Length];
-        m_craneOriginalPositions = new Vector3[m_cranes.Length];
-        m_craneOriginalRotations = new Quaternion[m_cranes.Length];
         m_clawOriginalPositions = new Vector3[m_claws.Length];
         m_clawOriginalRotations = new Quaternion[m_claws.Length];
         m_playersRemaining = new List<GameObject>();
@@ -92,10 +88,6 @@ public class GameStateManager : MonoBehaviour
 
         for (int i = 0; i < m_cranes.Length; ++i)
         {
-            // get original crane position/rotation
-            m_craneOriginalPositions[i] = m_cranes[i].transform.localPosition;
-            m_craneOriginalRotations[i] = m_cranes[i].transform.localRotation;
-
             // get original claw position/rotation
             m_clawOriginalPositions[i] = m_claws[i].transform.localPosition;
             m_clawOriginalRotations[i] = m_claws[i].transform.localRotation;
@@ -234,6 +226,8 @@ public class GameStateManager : MonoBehaviour
             m_players[i].GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
             // reset player knockback meter
             m_players[i].GetComponent<Knockback>().m_fKnockbackMeter = 0.0f;
+            // set kinematic to false
+            m_players[i].GetComponent<Rigidbody>().isKinematic = false;
             // reset powerups
             m_players[i].GetComponent<PlayerController>().m_cruiseControl.bFlag = false;
             m_players[i].GetComponent<PlayerController>().m_cruiseControl.fTimer = 0.0f;
@@ -243,23 +237,20 @@ public class GameStateManager : MonoBehaviour
             m_players[i].GetComponent<PlayerController>().m_weaponSize.fTimer = 0.0f;
             m_players[i].GetComponent<PlayerController>().m_weapon.transform.localScale = m_players[i].GetComponent<PlayerController>().m_v3BaseWeaponScale;
             m_players[i].GetComponent<PlayerController>().m_weapon.transform.localPosition = m_players[i].GetComponent<PlayerController>().m_v3BaseWeaponPosition;
-            m_players[i].GetComponent<PlayerController>().StopAttack();
             // reset player status
             m_players[i].GetComponent<PlayerController>().m_bInCrane = false;
             m_players[i].GetComponent<PlayerController>().m_bIsOut = false;
             m_players[i].GetComponent<PlayerController>().m_bWeaponHit = false;
+            m_players[i].GetComponent<PlayerController>().StopAttack();
+            m_players[i].GetComponent<PlayerController>().m_cAttackAmount = 0;
             // set claw to null
             m_players[i].GetComponent<PlayerController>().m_claw = null;
-            // set kinematic to false
-            m_players[i].GetComponent<Rigidbody>().isKinematic = false;
             // reset dash timer
             m_players[i].GetComponent<Dash>().ResetTimer();
         }
 
         for (int i = 0; i < m_cranes.Length; ++i)
         {
-            m_cranes[i].transform.localPosition = m_craneOriginalPositions[i];
-            m_cranes[i].transform.localRotation = m_craneOriginalRotations[i];
             m_cranes[i].GetComponent<CraneManager>().m_bOccupied = false;
             m_cranes[i].GetComponent<CraneManager>().m_player = null;
 
@@ -268,8 +259,8 @@ public class GameStateManager : MonoBehaviour
             m_claws[i].GetComponent<Claw>().m_bDropped = false;
             m_claws[i].GetComponent<Claw>().m_bHasItem = false;
             m_claws[i].GetComponent<Claw>().m_bItemDrop = false;
+            m_claws[i].GetComponent<Claw>().m_item = null;
             m_claws[i].GetComponent<Claw>().m_bHasPlayer = false;
-            m_claws[i].GetComponent<Claw>().m_bFirstFrame = true;
             m_claws[i].GetComponent<Claw>().m_pickedUpPlayer = null;
             Destroy(m_claws[i].GetComponent<Claw>().m_item);
             m_claws[i].GetComponentInChildren<LineRenderer>().SetPosition(1, Vector3.zero);
