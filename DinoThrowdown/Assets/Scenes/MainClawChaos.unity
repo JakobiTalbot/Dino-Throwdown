@@ -4656,88 +4656,7 @@ Prefab:
       propertyPath: m_pauseGameCanvas
       value: 
       objectReference: {fileID: 1963148031}
-    - target: {fileID: 82790819139407702, guid: d44514199fc1c544798a8c0e5049d02a,
-        type: 2}
-      propertyPath: spreadCustomCurve.m_RotationOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 82790819139407702, guid: d44514199fc1c544798a8c0e5049d02a,
-        type: 2}
-      propertyPath: m_Volume
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198778819193976826, guid: d44514199fc1c544798a8c0e5049d02a,
-        type: 2}
-      propertyPath: moveWithTransform
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198834311211970896, guid: d44514199fc1c544798a8c0e5049d02a,
-        type: 2}
-      propertyPath: moveWithTransform
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198778819193976826, guid: d44514199fc1c544798a8c0e5049d02a,
-        type: 2}
-      propertyPath: lengthInSec
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 198834311211970896, guid: d44514199fc1c544798a8c0e5049d02a,
-        type: 2}
-      propertyPath: lengthInSec
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 198778819193976826, guid: d44514199fc1c544798a8c0e5049d02a,
-        type: 2}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 198834311211970896, guid: d44514199fc1c544798a8c0e5049d02a,
-        type: 2}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114068037925105280, guid: d44514199fc1c544798a8c0e5049d02a,
-        type: 2}
-      propertyPath: m_fClawSpeed
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 114068037925105280, guid: d44514199fc1c544798a8c0e5049d02a,
-        type: 2}
-      propertyPath: m_fPickupSpeed
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 54827285120791870, guid: d44514199fc1c544798a8c0e5049d02a,
-        type: 2}
-      propertyPath: m_Mass
-      value: 1.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 54827285120791870, guid: d44514199fc1c544798a8c0e5049d02a,
-        type: 2}
-      propertyPath: m_Drag
-      value: 1.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 114068037925105280, guid: d44514199fc1c544798a8c0e5049d02a,
-        type: 2}
-      propertyPath: m_fCorrectionSpeed
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114068037925105280, guid: d44514199fc1c544798a8c0e5049d02a,
-        type: 2}
-      propertyPath: m_fVelocity
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 114924188071209448, guid: d44514199fc1c544798a8c0e5049d02a,
-        type: 2}
-      propertyPath: m_fDashForce
-      value: 1600
-      objectReference: {fileID: 0}
-    - target: {fileID: 114068037925105280, guid: d44514199fc1c544798a8c0e5049d02a,
-        type: 2}
-      propertyPath: m_fCruiseSpeed
-      value: 0.2
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 82790819139407702, guid: d44514199fc1c544798a8c0e5049d02a, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d44514199fc1c544798a8c0e5049d02a, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &178169178 stripped
@@ -5546,100 +5465,7 @@ Prefab:
       propertyPath: m_pauseGameCanvas
       value: 
       objectReference: {fileID: 1963148031}
-    - target: {fileID: 4007746815654916, guid: 233ef30d6ae3ae546af22cc1d97724af, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 1.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4007746815654916, guid: 233ef30d6ae3ae546af22cc1d97724af, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4007746815654916, guid: 233ef30d6ae3ae546af22cc1d97724af, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 82102022199180114, guid: 233ef30d6ae3ae546af22cc1d97724af,
-        type: 2}
-      propertyPath: spreadCustomCurve.m_RotationOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 82102022199180114, guid: 233ef30d6ae3ae546af22cc1d97724af,
-        type: 2}
-      propertyPath: m_Volume
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198127702893958072, guid: 233ef30d6ae3ae546af22cc1d97724af,
-        type: 2}
-      propertyPath: moveWithTransform
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198350943830429718, guid: 233ef30d6ae3ae546af22cc1d97724af,
-        type: 2}
-      propertyPath: moveWithTransform
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198127702893958072, guid: 233ef30d6ae3ae546af22cc1d97724af,
-        type: 2}
-      propertyPath: lengthInSec
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 198350943830429718, guid: 233ef30d6ae3ae546af22cc1d97724af,
-        type: 2}
-      propertyPath: lengthInSec
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 198127702893958072, guid: 233ef30d6ae3ae546af22cc1d97724af,
-        type: 2}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 198350943830429718, guid: 233ef30d6ae3ae546af22cc1d97724af,
-        type: 2}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114425542154673888, guid: 233ef30d6ae3ae546af22cc1d97724af,
-        type: 2}
-      propertyPath: m_fClawSpeed
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 114425542154673888, guid: 233ef30d6ae3ae546af22cc1d97724af,
-        type: 2}
-      propertyPath: m_fPickupSpeed
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 54952487217749096, guid: 233ef30d6ae3ae546af22cc1d97724af,
-        type: 2}
-      propertyPath: m_Mass
-      value: 1.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 54952487217749096, guid: 233ef30d6ae3ae546af22cc1d97724af,
-        type: 2}
-      propertyPath: m_Drag
-      value: 1.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 114425542154673888, guid: 233ef30d6ae3ae546af22cc1d97724af,
-        type: 2}
-      propertyPath: m_fCorrectionSpeed
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114425542154673888, guid: 233ef30d6ae3ae546af22cc1d97724af,
-        type: 2}
-      propertyPath: m_fVelocity
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 114213850701857672, guid: 233ef30d6ae3ae546af22cc1d97724af,
-        type: 2}
-      propertyPath: m_fDashForce
-      value: 1600
-      objectReference: {fileID: 0}
-    - target: {fileID: 114425542154673888, guid: 233ef30d6ae3ae546af22cc1d97724af,
-        type: 2}
-      propertyPath: m_fCruiseSpeed
-      value: 0.2
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 82102022199180114, guid: 233ef30d6ae3ae546af22cc1d97724af, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 233ef30d6ae3ae546af22cc1d97724af, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &452498514 stripped
@@ -8181,11 +8007,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 136618955}
     m_Modifications:
-    - target: {fileID: 114875372704046928, guid: 1ba9c3b14c9431c41957ac1db387e157,
-        type: 2}
-      propertyPath: m_seats.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4489072972240412, guid: 1ba9c3b14c9431c41957ac1db387e157, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -8220,11 +8041,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114875372704046928, guid: 1ba9c3b14c9431c41957ac1db387e157,
         type: 2}
-      propertyPath: m_pauseGameCanvas
-      value: 
-      objectReference: {fileID: 1963148031}
-    - target: {fileID: 114875372704046928, guid: 1ba9c3b14c9431c41957ac1db387e157,
-        type: 2}
       propertyPath: m_seats.Array.data[0]
       value: 
       objectReference: {fileID: 204867424}
@@ -8233,88 +8049,12 @@ Prefab:
       propertyPath: m_seats.Array.data[1]
       value: 
       objectReference: {fileID: 1582527711}
-    - target: {fileID: 82044576867358998, guid: 1ba9c3b14c9431c41957ac1db387e157,
-        type: 2}
-      propertyPath: spreadCustomCurve.m_RotationOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 82044576867358998, guid: 1ba9c3b14c9431c41957ac1db387e157,
-        type: 2}
-      propertyPath: m_Volume
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198836682208359854, guid: 1ba9c3b14c9431c41957ac1db387e157,
-        type: 2}
-      propertyPath: moveWithTransform
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198168503027808958, guid: 1ba9c3b14c9431c41957ac1db387e157,
-        type: 2}
-      propertyPath: moveWithTransform
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198836682208359854, guid: 1ba9c3b14c9431c41957ac1db387e157,
-        type: 2}
-      propertyPath: lengthInSec
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 198168503027808958, guid: 1ba9c3b14c9431c41957ac1db387e157,
-        type: 2}
-      propertyPath: lengthInSec
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 198836682208359854, guid: 1ba9c3b14c9431c41957ac1db387e157,
-        type: 2}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 198168503027808958, guid: 1ba9c3b14c9431c41957ac1db387e157,
-        type: 2}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 114875372704046928, guid: 1ba9c3b14c9431c41957ac1db387e157,
         type: 2}
-      propertyPath: m_fClawSpeed
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 114875372704046928, guid: 1ba9c3b14c9431c41957ac1db387e157,
-        type: 2}
-      propertyPath: m_fPickupSpeed
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 54420083637689030, guid: 1ba9c3b14c9431c41957ac1db387e157,
-        type: 2}
-      propertyPath: m_Mass
-      value: 1.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 54420083637689030, guid: 1ba9c3b14c9431c41957ac1db387e157,
-        type: 2}
-      propertyPath: m_Drag
-      value: 1.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 114875372704046928, guid: 1ba9c3b14c9431c41957ac1db387e157,
-        type: 2}
-      propertyPath: m_fCorrectionSpeed
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114875372704046928, guid: 1ba9c3b14c9431c41957ac1db387e157,
-        type: 2}
-      propertyPath: m_fVelocity
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 114737123950521160, guid: 1ba9c3b14c9431c41957ac1db387e157,
-        type: 2}
-      propertyPath: m_fDashForce
-      value: 1600
-      objectReference: {fileID: 0}
-    - target: {fileID: 114875372704046928, guid: 1ba9c3b14c9431c41957ac1db387e157,
-        type: 2}
-      propertyPath: m_fCruiseSpeed
-      value: 0.2
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 82044576867358998, guid: 1ba9c3b14c9431c41957ac1db387e157, type: 2}
+      propertyPath: m_pauseGameCanvas
+      value: 
+      objectReference: {fileID: 1963148031}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ba9c3b14c9431c41957ac1db387e157, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &895615553 stripped
@@ -11503,88 +11243,7 @@ Prefab:
       propertyPath: m_pauseGameCanvas
       value: 
       objectReference: {fileID: 1963148031}
-    - target: {fileID: 82386330117110800, guid: e052215332d9f374398dae35bb823016,
-        type: 2}
-      propertyPath: spreadCustomCurve.m_RotationOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 82386330117110800, guid: e052215332d9f374398dae35bb823016,
-        type: 2}
-      propertyPath: m_Volume
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198391917122394822, guid: e052215332d9f374398dae35bb823016,
-        type: 2}
-      propertyPath: moveWithTransform
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198658927349023058, guid: e052215332d9f374398dae35bb823016,
-        type: 2}
-      propertyPath: moveWithTransform
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198391917122394822, guid: e052215332d9f374398dae35bb823016,
-        type: 2}
-      propertyPath: lengthInSec
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 198658927349023058, guid: e052215332d9f374398dae35bb823016,
-        type: 2}
-      propertyPath: lengthInSec
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 198391917122394822, guid: e052215332d9f374398dae35bb823016,
-        type: 2}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 198658927349023058, guid: e052215332d9f374398dae35bb823016,
-        type: 2}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114324380469644154, guid: e052215332d9f374398dae35bb823016,
-        type: 2}
-      propertyPath: m_fClawSpeed
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 114324380469644154, guid: e052215332d9f374398dae35bb823016,
-        type: 2}
-      propertyPath: m_fPickupSpeed
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 54455192504706170, guid: e052215332d9f374398dae35bb823016,
-        type: 2}
-      propertyPath: m_Mass
-      value: 1.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 54455192504706170, guid: e052215332d9f374398dae35bb823016,
-        type: 2}
-      propertyPath: m_Drag
-      value: 1.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 114324380469644154, guid: e052215332d9f374398dae35bb823016,
-        type: 2}
-      propertyPath: m_fCorrectionSpeed
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114324380469644154, guid: e052215332d9f374398dae35bb823016,
-        type: 2}
-      propertyPath: m_fVelocity
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 114068198277403476, guid: e052215332d9f374398dae35bb823016,
-        type: 2}
-      propertyPath: m_fDashForce
-      value: 1600
-      objectReference: {fileID: 0}
-    - target: {fileID: 114324380469644154, guid: e052215332d9f374398dae35bb823016,
-        type: 2}
-      propertyPath: m_fCruiseSpeed
-      value: 0.2
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 82386330117110800, guid: e052215332d9f374398dae35bb823016, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e052215332d9f374398dae35bb823016, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1816030663 stripped
