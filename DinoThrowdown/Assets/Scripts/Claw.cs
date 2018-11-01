@@ -74,8 +74,8 @@ public class Claw : MonoBehaviour
 
     // reference to the crane
     private CraneManager m_crane;
-    //private bool m_bClawDownSoundPlayed = false;
-    //private bool m_bClawUpSoundPlayed = false;
+    private bool m_bClawDownSoundPlayed = false;
+    private bool m_bClawUpSoundPlayed = false;
 
     private void Start()
     {
@@ -207,9 +207,9 @@ public class Claw : MonoBehaviour
         {
             // moves the claw down
             transform.Translate(-transform.up * Time.deltaTime * m_fMoveSpeed);
-            //if (!m_bClawDownSoundPlayed)
-            //    GetComponents<AudioSource>()[0].Play();
-            //m_bClawDownSoundPlayed = true;
+            if (!m_bClawDownSoundPlayed)
+                GetComponents<AudioSource>()[0].Play();
+            m_bClawDownSoundPlayed = true;
         }
         else
         {
@@ -229,9 +229,9 @@ public class Claw : MonoBehaviour
         {
             // moves the claw up
             transform.Translate(transform.up * Time.deltaTime * m_fMoveSpeed);
-            //if (!m_bClawUpSoundPlayed)
-            //    GetComponents<AudioSource>()[1].Play();
-            //m_bClawUpSoundPlayed = true;
+            if (!m_bClawUpSoundPlayed)
+                GetComponents<AudioSource>()[1].Play();
+            m_bClawUpSoundPlayed = true;
             return true;
         }
         // checks if the claw has a player
@@ -249,8 +249,8 @@ public class Claw : MonoBehaviour
         {
             // the claw has risen back to the top
             m_bDropped = false;
-            //m_bClawDownSoundPlayed = false;
-            //m_bClawUpSoundPlayed = false;
+            m_bClawDownSoundPlayed = false;
+            m_bClawUpSoundPlayed = false;
             return false;
         }
     }
