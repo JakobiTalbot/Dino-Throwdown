@@ -10,10 +10,12 @@ public class WreckingBall : MonoBehaviour
     public float m_fSwingSpeed = 100.0f;
     public LineRenderer m_warningLine;
 
+    [HideInInspector]
+    public float m_fSwingTimer;
+
     private Quaternion m_swingEnd;
     private Vector3 m_v3SwingDir;
     private bool m_bSwinging = false;
-    private float m_fSwingTimer;
 
 	// Use this for initialization
 	void Awake()
