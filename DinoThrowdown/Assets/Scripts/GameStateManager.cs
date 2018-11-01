@@ -22,7 +22,6 @@ public class GameStateManager : MonoBehaviour
     private Quaternion[] m_playerOriginalRotations;
     private Vector3[] m_clawOriginalPositions;
     private Quaternion[] m_clawOriginalRotations;
-    private UI m_UI;
     private int[] m_nRoundsWon;
     private int m_nRoundNumber = 0;
     private bool m_bPlayerWon = false;

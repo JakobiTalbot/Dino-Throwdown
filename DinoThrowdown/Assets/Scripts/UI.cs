@@ -15,6 +15,7 @@ public class UI : MonoBehaviour
     public GameObject m_winText;
     public GameObject m_roundWinText;
     public GameObject m_roundText;
+    public GameObject m_startText;
 
     // Use this for initialization
     void Awake()
@@ -139,6 +140,43 @@ public class UI : MonoBehaviour
                     if (!playerRoundImages[j].activeSelf)
                     {
                         playerRoundImages[j].SetActive(true);
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
+    // removes the round image and text based on the player
+    public void DisableRoundImage(GameObject player)
+    {
+        for (int i = 0; i < m_players.Length; ++i)
+        {
+            if (m_players[i] == player)
+            {
+                GameObject[] playerRoundImages = null;
+
+                switch (i)
+                {
+                    case 0:
+                        playerRoundImages = m_p1RoundImages;
+                        break;
+                    case 1:
+                        playerRoundImages = m_p2RoundImages;
+                        break;
+                    case 2:
+                        playerRoundImages = m_p3RoundImages;
+                        break;
+                    case 3:
+                        playerRoundImages = m_p4RoundImages;
+                        break;
+                }
+
+                for (int j = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameStateManagerWB>().m_nLives - 1;  j >= 0; --j)
+                {
+                    if (playerRoundImages[j].activeSelf)
+                    {
+                        playerRoundImages[j].SetActive(false);
                         return;
                     }
                 }
