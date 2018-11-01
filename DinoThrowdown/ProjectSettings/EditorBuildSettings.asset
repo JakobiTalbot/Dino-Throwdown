@@ -8,15 +8,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: b77e4a08536201a469c03d420e1327e7
-  - enabled: 1
-    path: Assets/Scenes/Main.unity
-    guid: 05581572de8963247ad8cef2d6198977
-  - enabled: 1
-    path: Assets/Scenes/MainWreckingBowl.unity
-    guid: 1337484c760e8cc4b87a64ee5d18ee4e
-  - enabled: 0
-    path: Assets/Scenes/MainMenubroke.unity
-    guid: d7046101851304e46a0c86906f87dda8
   - enabled: 0
     path: Assets/Scenes/Tyson/Tyson.unity
     guid: 78bba63490d9318478cd641f0b1fc462
+  - enabled: 0
+    path: Assets/Scenes/MainMenuClawChaos.unity
+    guid: 5e1e95116ef137c4ca7a7d36f0a8f3d6
+  - enabled: 0
+    path: Assets/Scenes/MainMenuWreckingBowl.unity
+    guid: ac4fa682a47869f49857e8fca68e99c9
+  - enabled: 1
+    path: Assets/Scenes/MainClawChaos.unity
+    guid: bb857ad5813a4c244961b8fbe1c39fea
+  - enabled: 1
+    path: Assets/Scenes/MainWreckingBowl.unity
+    guid: bce4cf11c9457b4428eb51f148479cc9

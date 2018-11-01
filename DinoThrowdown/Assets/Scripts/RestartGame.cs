@@ -62,7 +62,7 @@ public class RestartGame : MonoBehaviour
     // loads the main scene
     public void PlayAgain()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     // loads the main menu scene
     public void MainMenu()
