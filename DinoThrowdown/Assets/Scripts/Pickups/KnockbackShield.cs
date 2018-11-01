@@ -51,5 +51,24 @@ public class KnockbackShield : Pickup
             GameObject newParticles = Instantiate(m_pickupParticles, other.transform.position, Quaternion.Euler(0, 0, 0));
             newParticles.transform.parent = other.transform;
         }
+        // checks if the object is a claw without a pickup
+        else if (other.CompareTag("Claw") &&
+                 other.GetComponent<Claw>().m_weaponSize.bFlag != true &&
+                 other.GetComponent<Claw>().m_cruiseControl.bFlag != true &&
+                 other.GetComponent<Claw>().m_knockbackShield.bFlag != true)
+        {
+            // turns on the claw's knockback shield
+            other.GetComponent<Claw>().m_knockbackShield.bFlag = true;
+            other.GetComponent<Claw>().m_knockbackShield.fTimer = other.GetComponent<Claw>().m_fKnockbackShieldTime;
+
+            // sets this object to inactive
+            gameObject.SetActive(false);
+            // empties the spawn point
+            m_spawnPoint.m_bHasPickup = false;
+
+            // create pickup particles
+            GameObject newParticles = Instantiate(m_pickupParticles, other.transform.position, Quaternion.Euler(0, 0, 0));
+            newParticles.transform.parent = other.transform;
+        }
     }
 }

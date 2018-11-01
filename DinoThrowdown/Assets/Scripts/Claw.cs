@@ -22,13 +22,21 @@ public class Claw : MonoBehaviour
     // the length of the line
     public float m_fLineLength = 13.5f;
     // the amount of attacks required to drop a player
-    public int m_cClawHealth = 5;
+    public int m_cClawHealth = 3;
     // time to remain in cruise control
     public float m_fCruiseControlTime = 5.0f;
     // time to keep weapon size powerup
     public float m_fWeaponSizeTime = 3.0f;
     // time to keep knockback shield pick up
     public float m_fKnockbackShieldTime = 5.0f;
+    // delay time after a player breaks free
+    public float m_fDelayTime = 1.0f;
+    // the speed of the claw when cruising
+    public float m_fCruiseSpeed = 25.0f;
+    // the size multiplier when the claw is bigger
+    public float m_fWeaponSizeMultiplier = 2.0f;
+    // the health of the claw with the shield
+    public int m_cShieldHealth = 6;
 
     // determines if the claw has dropped
     [HideInInspector]
@@ -54,9 +62,15 @@ public class Claw : MonoBehaviour
     // handles when the claw should have a knockback shield
     [HideInInspector]
     public PickupTimer m_knockbackShield;
+    // delays the claw after having a picked up player break free
+    [HideInInspector]
+    public PickupTimer m_delay;
     // reference to the player being picked up
     [HideInInspector]
     public PlayerController m_pickedUpPlayer = null;
+    // used to stop the claw from activating the inner ring script on the first frame
+    [HideInInspector]
+    public bool m_bFirstFrame = true;
 
     // reference to the crane
     private CraneManager m_crane;
@@ -67,12 +81,15 @@ public class Claw : MonoBehaviour
     {
         m_crane = GetComponentInParent<CraneManager>();
 
+        // sets the claw to have no pick ups
         m_cruiseControl.bFlag = false;
         m_cruiseControl.fTimer = m_fCruiseControlTime;
         m_weaponSize.bFlag = false;
         m_weaponSize.fTimer = m_fWeaponSizeTime;
         m_knockbackShield.bFlag = false;
         m_knockbackShield.fTimer = m_fKnockbackShieldTime;
+        m_delay.bFlag = false;
+        m_delay.fTimer = m_fDelayTime;
     }
 
     private void Update()
@@ -85,14 +102,32 @@ public class Claw : MonoBehaviour
             // sets the colour of the line to the colour of the player
             line.endColor = m_crane.m_player.GetComponent<MeshRenderer>().material.color;
 
-            if (m_bHasPlayer)
+            // checks if the claw has a player and a shield
+            if (m_bHasPlayer && m_knockbackShield.bFlag)
             {
-                if (m_pickedUpPlayer.m_cAttackAmount == m_cClawHealth)
+                // checks if the amount of time the player has hit is equal to the health
+                if (m_pickedUpPlayer.m_cAttackAmount == m_cShieldHealth)
                 {
+                    // lets go of the player
                     m_pickedUpPlayer.m_cAttackAmount = 0;
                     m_pickedUpPlayer.GetComponent<Rigidbody>().isKinematic = false;
                     m_bHasPlayer = false;
                     transform.position = new Vector3(transform.position.x, 16.0f, transform.position.z);
+                    m_delay.bFlag = true;
+                }
+            }
+            // checks if the claw has a player
+            else if (m_bHasPlayer)
+            {
+                // checks if the amount of time the player has hit is equal to the health
+                if (m_pickedUpPlayer.m_cAttackAmount == m_cClawHealth)
+                {
+                    // lets go of the player
+                    m_pickedUpPlayer.m_cAttackAmount = 0;
+                    m_pickedUpPlayer.GetComponent<Rigidbody>().isKinematic = false;
+                    m_bHasPlayer = false;
+                    transform.position = new Vector3(transform.position.x, 16.0f, transform.position.z);
+                    m_delay.bFlag = true;
                 }
             }
         }
@@ -102,33 +137,60 @@ public class Claw : MonoBehaviour
             GetComponentInChildren<LineRenderer>().SetPosition(1, Vector3.zero);
         }
 
-        //if (m_weaponSize.bFlag)
-        //{
-        //    // decrements the timer
-        //    m_weaponSize.fTimer -= Time.deltaTime;
-        //    // checks if the timer has run out
-        //    if (m_weaponSize.fTimer <= 0.0f)
-        //    {
-        //        // resets the weapon size
-        //        m_weaponSize.bFlag = false;
-        //        m_weaponSize.fTimer = m_fWeaponSizeTime;
-        //        m_weapon.transform.localScale = m_v3BaseWeaponScale;
-        //        m_weapon.transform.localPosition = m_v3BaseWeaponPosition;
-        //    }
-        //}
+        if (m_delay.bFlag)
+        {
+            // decrements the timer
+            m_delay.fTimer -= Time.deltaTime;
+            // checks if the timer has run out
+            if (m_delay.fTimer <= 0.0f)
+            {
+                // resets the delay
+                m_delay.bFlag = false;
+                m_delay.fTimer = m_fDelayTime;
+            }
+        }
 
-        //if (m_cruiseControl.bFlag)
-        //{
-        //    // decrements the timer
-        //    m_cruiseControl.fTimer -= Time.deltaTime;
-        //    // checks if the timer has run out
-        //    if (m_cruiseControl.fTimer <= 0.0f)
-        //    {
-        //        // resets the cruise control
-        //        m_cruiseControl.bFlag = false;
-        //        m_cruiseControl.fTimer = m_fCruiseControlTime;
-        //    }
-        //}
+        if (m_cruiseControl.bFlag)
+        {
+            // decrements the timer
+            m_cruiseControl.fTimer -= Time.deltaTime;
+            // checks if the timer has run out
+            if (m_cruiseControl.fTimer <= 0.0f)
+            {
+                // resets the cruise control
+                m_cruiseControl.bFlag = false;
+                m_cruiseControl.fTimer = m_fCruiseControlTime;
+            }
+        }
+        else if (m_weaponSize.bFlag)
+        {
+            // decrements the timer
+            m_weaponSize.fTimer -= Time.deltaTime;
+            // checks if the timer has run out
+            if (m_weaponSize.fTimer <= 0.0f)
+            {
+                // resets the weapon size
+                m_weaponSize.bFlag = false;
+                m_weaponSize.fTimer = m_fWeaponSizeTime;
+                transform.localScale /= m_fWeaponSizeMultiplier;
+                // resets the line size
+                GetComponentInChildren<LineRenderer>().widthMultiplier /= m_fWeaponSizeMultiplier;
+                m_fLineLength *= m_fWeaponSizeMultiplier;
+            }
+        }
+        else if (m_knockbackShield.bFlag)
+        {
+            // decrements the timer
+            m_knockbackShield.fTimer -= Time.deltaTime;
+            // checks if the timer has run out
+            if (m_knockbackShield.fTimer <= 0.0f)
+            {
+                // resets the knockback shield
+                m_knockbackShield.bFlag = false;
+                m_knockbackShield.fTimer = m_fKnockbackShieldTime;
+            }
+        }
+
     }
 
     // returns the crane
@@ -223,8 +285,19 @@ public class Claw : MonoBehaviour
             v3PrevPos = m_item.transform.position;
         }
 
-        // moves the claw by the direction
-        transform.Translate(v3Direction * fSpeed);
+        // changes the moving speed based on the pick up
+        if (m_cruiseControl.bFlag)
+        {
+            // moves the claw by the direction
+            transform.Translate(v3Direction * m_fCruiseSpeed);
+        }
+        else
+        {
+            // moves the claw by the direction
+            transform.Translate(v3Direction * fSpeed);
+        }
+        
+        // moves the picked up player to the claw position
         if (m_bHasPlayer)
         {
             m_pickedUpPlayer.transform.position = new Vector3(transform.position.x, m_pickedUpPlayer.transform.position.y, transform.position.z);
@@ -254,11 +327,12 @@ public class Claw : MonoBehaviour
         // checks if the claw collides with a player
         if (other.CompareTag("Player") && !other.GetComponent<PlayerController>().m_bInCrane && !other.GetComponent<Rigidbody>().isKinematic && !m_bHasPlayer)
         {
+            // sets the claw to have a player
             m_bHasPlayer = true;
-            // sets the claw to have dropped
-            m_bDropped = true;
             m_pickedUpPlayer = other.GetComponent<PlayerController>();
             m_pickedUpPlayer.GetComponent<Rigidbody>().isKinematic = true;
+            // sets the claw to have dropped
+            m_bDropped = true;
 
             if (OptionsManager.InstanceExists)
             {
@@ -301,6 +375,7 @@ public class Claw : MonoBehaviour
 
         return true;
     }
+    // moves the player down and swaps the players
     public void LowerPlayer()
     {
         // checks if the claw is above the target height
@@ -315,15 +390,17 @@ public class Claw : MonoBehaviour
             // sets the dropped status to true
             m_bDropped = true;
 
+            // moves the player from the crane back into the arena
             m_crane.m_player.transform.position = new Vector3(0.0f, 5.0f, 0.0f);
             m_crane.m_player.GetComponent<PlayerController>().m_bInCrane = false;
             m_crane.m_player.GetComponent<PlayerController>().m_claw = null;
             m_crane.m_player.GetComponent<Rigidbody>().isKinematic = false;
 
+            // resets the claw
             transform.position = new Vector3(0.0f, 16.0f, 0.0f);
             m_bHasPlayer = false;
 
-            // sets this player as the one in the crane
+            // sets the picked up player as the one in the crane
             m_crane.m_player = m_pickedUpPlayer.gameObject;
 
             // sends the player to the crane
@@ -338,7 +415,7 @@ public class Claw : MonoBehaviour
                 m_pickedUpPlayer.transform.localRotation = Quaternion.Euler(0.0f, m_pickedUpPlayer.m_seats[1].transform.rotation.eulerAngles.y, 0.0f);
             }
 
-            // sets the status as not out or picked up and in the crane
+            // sets the status as in the crane
             m_pickedUpPlayer.m_bIsOut = false;
             m_pickedUpPlayer.m_bInCrane = true;
             m_pickedUpPlayer.m_claw = this;

@@ -250,11 +250,12 @@ public class PlayerController : MonoBehaviour
         }
 
         // checks if the player is grabbing another with the claw or dropping an item
-        if (m_bIsAttacking && m_bInCrane && !m_bIsOut)
+        if (m_bIsAttacking && m_bInCrane && !m_bIsOut && !m_claw.m_delay.bFlag)
         {
-            // checks if there is an item to drop
+            // checks if the claw has a player
             if (m_claw.m_bHasPlayer)
             {
+                // attempts to drop the player
                 m_bIsAttacking = m_claw.DropPlayer();
             }
             // checks if there is an item to drop
@@ -374,6 +375,7 @@ public class PlayerController : MonoBehaviour
         m_bIsAttacking = false;
         m_bWeaponHit = false;
 
+        // increments the amount of attacks dealt if the player is picked up
         if (m_rigidbody.isKinematic)
         {
             m_cAttackAmount++;

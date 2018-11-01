@@ -58,5 +58,28 @@ public class WeaponSize : Pickup
             GameObject newParticles = Instantiate(m_pickupParticles, other.transform.position, Quaternion.Euler(0, 0, 0));
             newParticles.transform.parent = other.transform;
         }
+        // checks if the object is a claw without a pickup
+        else if (other.CompareTag("Claw") &&
+                 other.GetComponent<Claw>().m_weaponSize.bFlag != true &&
+                 other.GetComponent<Claw>().m_cruiseControl.bFlag != true &&
+                 other.GetComponent<Claw>().m_knockbackShield.bFlag != true)
+        {
+            // increases the claw's size
+            other.GetComponent<Claw>().m_weaponSize.bFlag = true;
+            other.GetComponent<Claw>().m_weaponSize.fTimer = other.GetComponent<Claw>().m_fWeaponSizeTime;
+            other.transform.localScale *= other.GetComponent<Claw>().m_fWeaponSizeMultiplier;
+            // increases the line's size
+            other.GetComponent<Claw>().m_fLineLength /= other.GetComponent<Claw>().m_fWeaponSizeMultiplier;
+            other.GetComponentInChildren<LineRenderer>().widthMultiplier *= other.GetComponent<Claw>().m_fWeaponSizeMultiplier;
+
+            // sets this object to inactive
+            gameObject.SetActive(false);
+            // empties the spawn point
+            m_spawnPoint.m_bHasPickup = false;
+
+            // create pickup particles
+            GameObject newParticles = Instantiate(m_pickupParticles, other.transform.position, Quaternion.Euler(0, 0, 0));
+            newParticles.transform.parent = other.transform;
+        }
     }
 }

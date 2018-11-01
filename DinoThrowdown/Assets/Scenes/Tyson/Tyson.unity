@@ -4878,8 +4878,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c44445c2125851f42970c2a27a77c33a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_fIncreasedSpeed: 60
-  m_fIncreasedLength: 30
+  m_fSpeedMultiplier: 4
+  m_fLengthMultiplier: 3
 --- !u!64 &580355566
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4917,6 +4917,7 @@ GameObject:
   - component: {fileID: 596633255}
   - component: {fileID: 596633258}
   - component: {fileID: 596633257}
+  - component: {fileID: 596633259}
   m_Layer: 0
   m_Name: Claw1
   m_TagString: Claw
@@ -4956,12 +4957,21 @@ MonoBehaviour:
   m_itemTypes:
   - {fileID: 1578206416247968, guid: 95911d88fc595f44cbd94e9a1ae6f2a1, type: 2}
   m_fLineLength: 13.5
-  m_cClawHealth: 5
+  m_cClawHealth: 3
+  m_fCruiseControlTime: 5
+  m_fWeaponSizeTime: 3
+  m_fKnockbackShieldTime: 5
+  m_fDelayTime: 1
+  m_fCruiseSpeed: 35
+  m_fWeaponSizeMultiplier: 2
+  m_cShieldHealth: 6
   m_bDropped: 0
   m_bHasItem: 0
   m_bItemDrop: 0
   m_item: {fileID: 0}
   m_bHasPlayer: 0
+  m_pickedUpPlayer: {fileID: 0}
+  m_bFirstFrame: 1
 --- !u!65 &596633258
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4974,6 +4984,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 1, z: 2}
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!54 &596633259
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 596633254}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
 --- !u!1 &601031574
 GameObject:
   m_ObjectHideFlags: 0
@@ -5652,6 +5677,7 @@ GameObject:
   - component: {fileID: 807689489}
   - component: {fileID: 807689492}
   - component: {fileID: 807689491}
+  - component: {fileID: 807689490}
   m_Layer: 0
   m_Name: Claw2
   m_TagString: Claw
@@ -5674,6 +5700,21 @@ Transform:
   m_Father: {fileID: 1978454822}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &807689490
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 807689488}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
 --- !u!114 &807689491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5691,12 +5732,21 @@ MonoBehaviour:
   m_itemTypes:
   - {fileID: 1578206416247968, guid: 95911d88fc595f44cbd94e9a1ae6f2a1, type: 2}
   m_fLineLength: 13.5
-  m_cClawHealth: 5
+  m_cClawHealth: 3
+  m_fCruiseControlTime: 5
+  m_fWeaponSizeTime: 3
+  m_fKnockbackShieldTime: 5
+  m_fDelayTime: 1
+  m_fCruiseSpeed: 35
+  m_fWeaponSizeMultiplier: 2
+  m_cShieldHealth: 6
   m_bDropped: 0
   m_bHasItem: 0
   m_bItemDrop: 0
   m_item: {fileID: 0}
   m_bHasPlayer: 0
+  m_pickedUpPlayer: {fileID: 0}
+  m_bFirstFrame: 1
 --- !u!65 &807689492
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8706,7 +8756,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4252309278942034, guid: 815461311cb8dfa4ebe16872796f9ae5, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 815461311cb8dfa4ebe16872796f9ae5, type: 2}

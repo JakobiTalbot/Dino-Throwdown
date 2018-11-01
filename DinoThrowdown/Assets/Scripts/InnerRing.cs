@@ -4,30 +4,25 @@ using UnityEngine;
 
 public class InnerRing : MonoBehaviour
 {
-    // new speed of the claw
-    public float m_fIncreasedSpeed = 40.0f;
-    // new length of the line
-    public float m_fIncreasedLength = 30.0f;
-
-    // original speed of the claw
-    private float m_fOriginalSpeed = 0.0f;
-    // original length of the line
-    private float m_fOriginalLength = 0.0f;
-
-    private void Start()
-    {
-        // gets the original values
-        m_fOriginalSpeed = GameObject.FindGameObjectWithTag("Claw").GetComponent<Claw>().m_fMoveSpeed;
-        m_fOriginalLength = GameObject.FindGameObjectWithTag("Claw").GetComponent<Claw>().m_fLineLength;
-    }
+    // claw speed multiplier
+    public float m_fSpeedMultiplier = 4.0f;
+    // claw line length multiplier
+    public float m_fLengthMultiplier = 3.0f;
 
     // sets the speed and length of the claw values back to normal
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Claw"))
         {
-            other.GetComponent<Claw>().m_fMoveSpeed = m_fOriginalSpeed;
-            other.GetComponent<Claw>().m_fLineLength = m_fOriginalLength;
+            if (other.GetComponent<Claw>().m_bFirstFrame)
+            {
+                other.GetComponent<Claw>().m_bFirstFrame = false;
+            }
+            else
+            {
+                other.GetComponent<Claw>().m_fMoveSpeed /= m_fSpeedMultiplier;
+                other.GetComponent<Claw>().m_fLineLength /= m_fLengthMultiplier;
+            }
         }
     }
     // increases the speed and length of the claw values
@@ -35,8 +30,8 @@ public class InnerRing : MonoBehaviour
     {
         if (other.CompareTag("Claw"))
         {
-            other.GetComponent<Claw>().m_fMoveSpeed = m_fIncreasedSpeed;
-            other.GetComponent<Claw>().m_fLineLength = m_fIncreasedLength;
+            other.GetComponent<Claw>().m_fMoveSpeed *= m_fSpeedMultiplier;
+            other.GetComponent<Claw>().m_fLineLength *= m_fLengthMultiplier;
         }
     }
 }
