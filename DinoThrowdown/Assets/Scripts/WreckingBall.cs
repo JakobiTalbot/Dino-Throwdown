@@ -8,6 +8,7 @@ public class WreckingBall : MonoBehaviour
     public float m_fSwingTimeToWait = 10.0f;
     // speed to swing
     public float m_fSwingSpeed = 100.0f;
+    public LineRenderer m_warningLine;
 
     private Quaternion m_swingEnd;
     private Vector3 m_v3SwingDir;
@@ -20,9 +21,9 @@ public class WreckingBall : MonoBehaviour
         // set swing timer
         m_fSwingTimer = m_fSwingTimeToWait;
     }
-	
-	// Update is called once per frame
-	void Update()
+
+    // Update is called once per frame
+    void Update()
     {
         // decrement swing timer
         m_fSwingTimer -= Time.deltaTime;
@@ -40,6 +41,10 @@ public class WreckingBall : MonoBehaviour
             // find swing direction
             m_v3SwingDir = (transform.rotation.eulerAngles - m_swingEnd.eulerAngles).normalized;
             m_bSwinging = true;
+
+            m_warningLine.GetComponent<LineRenderer>().enabled = true;
+            // set line rotation
+            m_warningLine.transform.rotation = Quaternion.Euler(0.0f, fRandY, 0.0f);
         }
 
         if (m_bSwinging)
@@ -52,6 +57,7 @@ public class WreckingBall : MonoBehaviour
             {
                 m_bSwinging = false;
                 m_fSwingTimer = m_fSwingTimeToWait;
+                m_warningLine.GetComponent<LineRenderer>().enabled = false;
             }
         }
 	}
