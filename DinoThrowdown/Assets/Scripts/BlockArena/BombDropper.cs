@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BombDropper : MonoBehaviour
 {
+    public GameObject m_blocksParent;
     public GameObject m_bomb;
     public float m_fDropInterval = 5.0f;
     public float m_fDropHeight = 30.0f;
@@ -11,10 +12,17 @@ public class BombDropper : MonoBehaviour
 
     [HideInInspector]
     public float m_fDropTimer;
+    [HideInInspector]
+    public List<GameObject> m_blocks;
 	// Use this for initialization
 	void Awake()
     {
-        m_fDropTimer = m_fDropInterval;	
+        // add blocks to array
+        for (int i = 0; i < m_blocksParent.GetComponentsInChildren<GameObject>().Length; ++i)
+        {
+            m_blocks.Add(m_blocksParent.GetComponentsInChildren<GameObject>()[i]);
+        }
+        m_fDropTimer = m_fDropInterval;
 	}
 	
 	// Update is called once per frame
@@ -25,13 +33,7 @@ public class BombDropper : MonoBehaviour
 
         if (m_fDropTimer <= 0.0f)
         {
-            // get random position
-            Vector3 v3RandPos = new Vector3()
-            {
-                x = Random.Range(-42.0f, 42.0f),
-                y = m_fDropHeight,
-                z = Random.Range(-42.0f, 42.0f)
-            };
+
 
             // create bomb at random position
             GameObject bomb = Instantiate(m_bomb, v3RandPos, Quaternion.Euler(Vector3.zero));
