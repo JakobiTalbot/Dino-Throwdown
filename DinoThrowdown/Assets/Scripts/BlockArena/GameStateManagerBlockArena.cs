@@ -45,6 +45,7 @@ public class GameStateManagerBlockArena : MonoBehaviour
         m_playerOriginalRotations = new Quaternion[m_players.Length];
         m_clawOriginalPositions = new Vector3[m_claws.Length];
         m_clawOriginalRotations = new Quaternion[m_claws.Length];
+        m_blockOriginalPositions = new Vector3[m_blocks.Length];
         m_playersRemaining = new List<GameObject>();
         m_nRoundsWon = new int[m_players.Length];
         m_canvas = GameObject.FindGameObjectWithTag("Canvas");
@@ -147,7 +148,7 @@ public class GameStateManagerBlockArena : MonoBehaviour
         NewRound();
         // increment round number
         ++m_nRoundNumber;
-        m_canvas.GetComponent<UI>().RoundText(m_nRoundNumber);
+        m_canvas.GetComponent<BlockArenaUI>().RoundText(m_nRoundNumber);
         DisableControls();
 
         // waits for the start delay
@@ -159,7 +160,7 @@ public class GameStateManagerBlockArena : MonoBehaviour
     {
         // enables the controls
         EnableControls();
-        m_canvas.GetComponent<UI>().DisableText();
+        m_canvas.GetComponent<BlockArenaUI>().DisableText();
 
         // loops while there is not one player left
         while (m_playersRemaining.Count != 1)
@@ -200,7 +201,7 @@ public class GameStateManagerBlockArena : MonoBehaviour
             {
                 // increment rounds won
                 ++m_nRoundsWon[i];
-                m_canvas.GetComponent<UI>().EnableRoundImage(m_players[i]);
+                m_canvas.GetComponent<BlockArenaUI>().EnableRoundImage(m_players[i]);
 
                 // check if they won the amount of rounds needed to win game
                 if (m_nRoundsWon[i] == m_nRoundsToWin)

@@ -11,6 +11,8 @@ TagManager:
   - Crane
   - Claw
   - Deadzone
+  - GameManager
+  - Block
   layers:
   - Default
   - TransparentFX

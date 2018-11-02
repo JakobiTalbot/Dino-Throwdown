@@ -286,7 +286,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\AI.cs" />
+    <Compile Include="Assets\Scripts\BlockArena\BlockArenaUI.cs" />
     <Compile Include="Assets\Scripts\BlockArena\BlockBomb.cs" />
+    <Compile Include="Assets\Scripts\BlockArena\BlockCollision.cs" />
     <Compile Include="Assets\Scripts\BlockArena\GameStateManagerBlockArena.cs" />
     <Compile Include="Assets\Scripts\Claw.cs" />
     <Compile Include="Assets\Scripts\CraneManager.cs" />

@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 33332920730506934}
   - component: {fileID: 135497980680154130}
   m_Layer: 0
-  m_Name: Pickup_004_Bomb 1
+  m_Name: Pickup_005_BlockBomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
