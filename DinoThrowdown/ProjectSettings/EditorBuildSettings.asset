@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainClawChaos.unity
     guid: bb857ad5813a4c244961b8fbe1c39fea
+  - enabled: 0
+    path: Assets/Scenes/Tyson/TysonClaw.unity
+    guid: d74b0cd1cdeddc845bfd6844af3e7dc8
   - enabled: 1
     path: Assets/Scenes/MainWreckingBowl.unity
     guid: e28df8ce3eb188f418b0c65ffc6616d5
