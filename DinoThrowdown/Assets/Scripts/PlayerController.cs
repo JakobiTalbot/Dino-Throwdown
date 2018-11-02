@@ -292,6 +292,7 @@ public class PlayerController : MonoBehaviour
                 // resets the cruise control
                 m_cruiseControl.bFlag = false;
                 m_cruiseControl.fTimer = m_fCruiseControlTime;
+                m_rigidbody.velocity = new Vector3(v2Movement.x * m_fVelocity, m_rigidbody.velocity.y, v2Movement.y * m_fVelocity);
             }
         }
 
@@ -331,7 +332,6 @@ public class PlayerController : MonoBehaviour
         Vector3 v3Direction = new Vector3(0.0f, 0.0f, 0.0f);
         v3Direction.x = fHorizontal * m_fCruiseSpeed * Time.deltaTime;
         v3Direction.z = fVertical * m_fCruiseSpeed * Time.deltaTime;
-        m_rigidbody.velocity = new Vector3(fHorizontal * m_fVelocity, m_rigidbody.velocity.y, fVertical * m_fVelocity);
 
         // moves the rigidbody by the direction
         transform.position += v3Direction;
