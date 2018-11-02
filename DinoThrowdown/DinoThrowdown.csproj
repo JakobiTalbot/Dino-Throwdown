@@ -285,6 +285,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\ProCore\ProGrids\Classes\pg_Constant.cs" />
+    <Compile Include="Assets\ProCore\ProGrids\Classes\pg_Enum.cs" />
+    <Compile Include="Assets\ProCore\ProGrids\Classes\pg_IconUtility.cs" />
+    <Compile Include="Assets\ProCore\ProGrids\Classes\pg_IgnoreSnapAttribute.cs" />
+    <Compile Include="Assets\ProCore\ProGrids\Classes\pg_SceneMeshRender.cs" />
+    <Compile Include="Assets\ProCore\ProGrids\Classes\pg_Util.cs" />
+    <Compile Include="Assets\ProCore\ProGrids\MonoBehaviour\pg_IgnoreSnap.cs" />
     <Compile Include="Assets\Scripts\AI.cs" />
     <Compile Include="Assets\Scripts\BlockArena\BlockArenaUI.cs" />
     <Compile Include="Assets\Scripts\BlockArena\BlockBomb.cs" />
@@ -334,6 +341,9 @@
     <Compile Include="Assets\XInput\XInputDotNet\Examples\XInputTestCS.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\ProCore\ProGrids\About\changelog.txt" />
+    <None Include="Assets\ProCore\ProGrids\About\pc_AboutEntry_ProGrids.txt" />
+    <None Include="Assets\ProCore\ProGrids\Shader\pg_GridShader.shader" />
     <None Include="Assets\Textures\Delete.txt" />
     <None Include="Assets\XInput\XInputDotNet\MITLicense.txt" />
   </ItemGroup>
