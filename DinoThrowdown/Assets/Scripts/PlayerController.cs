@@ -159,7 +159,8 @@ public class PlayerController : MonoBehaviour
                 Move(v2Movement.x, v2Movement.y);
 
             // look to movement
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(new Vector3(v2Movement.x, 0.0f, v2Movement.y)), m_fRotateSpeedController);
+            if (v2Movement.sqrMagnitude != 0.0f)
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(new Vector3(v2Movement.x, 0.0f, v2Movement.y)), m_fRotateSpeedController);
         }
         // checks if the player is in the game and not on cruise control
         else if (!m_bIsOut && !m_bInCrane)
@@ -167,7 +168,8 @@ public class PlayerController : MonoBehaviour
             Move(v2Movement.x, v2Movement.y);
 
             // look to movement
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(new Vector3(v2Movement.x, 0.0f, v2Movement.y)), m_fRotateSpeedController);
+            if (v2Movement.sqrMagnitude != 0.0f)
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(new Vector3(v2Movement.x, 0.0f, v2Movement.y)), m_fRotateSpeedController);
         }
 
         // pause game
@@ -190,23 +192,6 @@ public class PlayerController : MonoBehaviour
         else if (m_gamePadState.Buttons.Start == ButtonState.Released)
         {
             m_bPauseButtonDown = false;
-        }
-
-        // get gamepad right stick input
-        float rightRotation = m_gamePadState.ThumbSticks.Right.X;
-        float forwardRotation = m_gamePadState.ThumbSticks.Right.Y;
-
-        // rotate (controller)
-        Vector3 v3LookDirection = new Vector3(rightRotation, 0.0f, forwardRotation);
-        if (v3LookDirection.magnitude > 0.0f && !m_bIsOut && !m_bInCrane)
-        {
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(v3LookDirection), m_fRotateSpeedController);
-        }
-        // rotate (keyboard)
-        if (Input.GetButton("Rotate" + m_cPlayerNumber.ToString()) && !m_bIsOut && !m_bInCrane)
-        {
-            float fRotate = Input.GetAxis("Rotate" + m_cPlayerNumber.ToString());
-            transform.Rotate(new Vector3(0.0f, fRotate * m_fRotateSpeedKeyboard, 0.0f));
         }
 
         // Activate dash (keyboard || controller)
