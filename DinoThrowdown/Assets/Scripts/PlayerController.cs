@@ -94,6 +94,7 @@ public class PlayerController : MonoBehaviour
     private bool m_bPauseButtonDown = false;
     private bool m_bVibrating = false;
     private bool m_bVibrationToggle = true;
+    private bool m_bAttackButtonDown = false;
 
     // Use this for initialization
     void Awake()
@@ -222,7 +223,7 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0.0f, transform.rotation.eulerAngles.y, 0.0f), m_fCorrectionSpeed);
 
         // checks if the player is in the crane and a button is pressed
-        if (m_bInCrane && !m_bIsOut &&
+        if (m_bInCrane && !m_bIsOut && !m_bAttackButtonDown &&
             (m_gamePadState.Triggers.Right > 0.0f || m_gamePadState.Triggers.Left > 0.0f ||
              m_gamePadState.Buttons.RightShoulder == 0 || m_gamePadState.Buttons.LeftShoulder == 0 ||
              m_gamePadState.Buttons.A == 0 || m_gamePadState.Buttons.B == 0 ||
@@ -232,12 +233,21 @@ public class PlayerController : MonoBehaviour
             // sets the player to attacking
             m_bIsAttacking = true;
         }
-        // checks if the fire button was pressed (keyboard || controller)
-        else if (!m_bIsOut && (m_gamePadState.Triggers.Right > 0.0f || Input.GetAxis("Fire" + m_cPlayerNumber.ToString()) > 0.0f) && !m_bIsAttacking)
+        // checks if the fire button was pressed
+        else if (!m_bIsOut && !m_bAttackButtonDown && (m_gamePadState.Triggers.Right > 0.0f || Input.GetAxis("Fire" + m_cPlayerNumber.ToString()) > 0.0f) && !m_bIsAttacking)
         {
             // sets the player to attacking
             m_bIsAttacking = true;
             GetComponents<AudioSource>()[1].Play();
+        }
+
+        if (m_gamePadState.Triggers.Right > 0.0f)
+        {
+            m_bAttackButtonDown = true;
+        }
+        else
+        {
+            m_bAttackButtonDown = false;
         }
 
         // checks if the player is grabbing another with the claw or dropping an item
