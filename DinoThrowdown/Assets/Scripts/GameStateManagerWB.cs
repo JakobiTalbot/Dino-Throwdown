@@ -177,10 +177,10 @@ public class GameStateManagerWB : MonoBehaviour
                     {
                         m_players[i].transform.position = m_playerOriginalPositions[i];
                         m_players[i].transform.rotation = m_playerOriginalRotations[i];
+                        m_respawnDelays[i].bFlag = true;
                     }
 
                     m_players[i].GetComponent<Rigidbody>().isKinematic = true;
-                    m_respawnDelays[i].bFlag = true;
                     // reset player velocities
                     m_players[i].GetComponent<Rigidbody>().velocity = Vector3.zero;
                     m_players[i].GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
