@@ -5420,7 +5420,7 @@ Prefab:
         type: 2}
       propertyPath: m_seats.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1102302752}
     - target: {fileID: 114068037925105280, guid: d44514199fc1c544798a8c0e5049d02a,
         type: 2}
       propertyPath: m_seats.Array.data[1]
@@ -5440,6 +5440,16 @@ Prefab:
         type: 2}
       propertyPath: m_Constraints
       value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 82547347818552946, guid: d44514199fc1c544798a8c0e5049d02a,
+        type: 2}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82364799992203070, guid: d44514199fc1c544798a8c0e5049d02a,
+        type: 2}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d44514199fc1c544798a8c0e5049d02a, type: 2}
@@ -7048,7 +7058,7 @@ Prefab:
         type: 2}
       propertyPath: m_seats.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1102302752}
     - target: {fileID: 114425542154673888, guid: 233ef30d6ae3ae546af22cc1d97724af,
         type: 2}
       propertyPath: m_seats.Array.data[1]
@@ -7068,6 +7078,16 @@ Prefab:
         type: 2}
       propertyPath: m_Constraints
       value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 82857163420274894, guid: 233ef30d6ae3ae546af22cc1d97724af,
+        type: 2}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82739055558503088, guid: 233ef30d6ae3ae546af22cc1d97724af,
+        type: 2}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 233ef30d6ae3ae546af22cc1d97724af, type: 2}
@@ -8416,7 +8436,7 @@ MonoBehaviour:
   - {fileID: 941350427}
   - {fileID: 1978454823}
   m_seats:
-  - {fileID: 0}
+  - {fileID: 1102302752}
   - {fileID: 1582527711}
 --- !u!65 &609824574
 BoxCollider:
@@ -11340,7 +11360,7 @@ Prefab:
         type: 2}
       propertyPath: m_seats.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1102302752}
     - target: {fileID: 114875372704046928, guid: 1ba9c3b14c9431c41957ac1db387e157,
         type: 2}
       propertyPath: m_seats.Array.data[1]
@@ -11360,6 +11380,32 @@ Prefab:
         type: 2}
       propertyPath: m_Constraints
       value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 82915866329292752, guid: 1ba9c3b14c9431c41957ac1db387e157,
+        type: 2}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82733264823949752, guid: 1ba9c3b14c9431c41957ac1db387e157,
+        type: 2}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687374076288118, guid: 1ba9c3b14c9431c41957ac1db387e157, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.026
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687374076288118, guid: 1ba9c3b14c9431c41957ac1db387e157, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687374076288118, guid: 1ba9c3b14c9431c41957ac1db387e157, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687374076288118, guid: 1ba9c3b14c9431c41957ac1db387e157, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ba9c3b14c9431c41957ac1db387e157, type: 2}
@@ -12637,6 +12683,34 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1102302751
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1102302752}
+  m_Layer: 0
+  m_Name: Seat1
+  m_TagString: Untagged
+  m_Icon: {fileID: 1654036009018553494, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1102302752
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1102302751}
+  m_LocalRotation: {x: -0, y: -0.90080893, z: -0, w: -0.43421587}
+  m_LocalPosition: {x: -27.695, y: 7.1, z: 20.43}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1354572510}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: -231.471, z: 0}
 --- !u!1001 &1104204301
 Prefab:
   m_ObjectHideFlags: 0
@@ -14682,6 +14756,7 @@ Transform:
   m_Children:
   - {fileID: 941350426}
   - {fileID: 1978454822}
+  - {fileID: 1102302752}
   - {fileID: 1582527711}
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -16283,7 +16358,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1354572510}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: -126.47101, z: 0}
 --- !u!1 &1592510222 stripped
 GameObject:
@@ -17815,7 +17890,7 @@ Prefab:
         type: 2}
       propertyPath: m_seats.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1102302752}
     - target: {fileID: 114324380469644154, guid: e052215332d9f374398dae35bb823016,
         type: 2}
       propertyPath: m_seats.Array.data[1]
@@ -17835,6 +17910,16 @@ Prefab:
         type: 2}
       propertyPath: m_Constraints
       value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 82380841012657444, guid: e052215332d9f374398dae35bb823016,
+        type: 2}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82999895251229760, guid: e052215332d9f374398dae35bb823016,
+        type: 2}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e052215332d9f374398dae35bb823016, type: 2}
