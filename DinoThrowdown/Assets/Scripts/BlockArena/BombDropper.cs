@@ -36,10 +36,10 @@ public class BombDropper : MonoBehaviour
 
 
             // create bomb at random position
-            GameObject bomb = Instantiate(m_bomb, v3RandPos, Quaternion.Euler(Vector3.zero));
-            bomb.GetComponent<BlockBomb>().m_nMaxBlocksToDestroy = m_nMaxBlocksToDestroy;
-            bomb.GetComponent<Rigidbody>().isKinematic = false;
-            bomb.GetComponent<SphereCollider>().material = null;
+            //GameObject bomb = Instantiate(m_bomb, v3RandPos, Quaternion.Euler(Vector3.zero));
+            //bomb.GetComponent<BlockBomb>().m_nMaxBlocksToDestroy = m_nMaxBlocksToDestroy;
+            //bomb.GetComponent<Rigidbody>().isKinematic = false;
+            //bomb.GetComponent<SphereCollider>().material = null;
 
             // reset timer
             m_fDropTimer = m_fDropInterval;
