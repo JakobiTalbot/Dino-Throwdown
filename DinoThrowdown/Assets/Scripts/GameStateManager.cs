@@ -32,7 +32,7 @@ public class GameStateManager : MonoBehaviour
     // reference to background music
     private AudioSource m_backgroundMusic;
     // reference to the wrecking ball
-    private WreckingBall m_wreckingBall;
+    //private WreckingBall m_wreckingBall;
 
 	// Use this for initialization
 	void Awake()
@@ -46,7 +46,7 @@ public class GameStateManager : MonoBehaviour
         m_playersRemaining = new List<GameObject>();
         m_nRoundsWon = new int[m_players.Length];
         m_canvas = GameObject.FindGameObjectWithTag("Canvas");
-        m_wreckingBall = GameObject.FindGameObjectWithTag("WreckingBall").GetComponent<WreckingBall>();
+        //m_wreckingBall = GameObject.FindGameObjectWithTag("WreckingBall").GetComponent<WreckingBall>();
 
         m_backgroundMusic = GetComponent<AudioSource>();
         if (OptionsManager.InstanceExists)
@@ -268,14 +268,14 @@ public class GameStateManager : MonoBehaviour
             m_claws[i].GetComponentInChildren<LineRenderer>().SetPosition(1, Vector3.zero);
         }
 
-        if (m_wreckingBall != null)
-        {
-            if (m_wreckingBall.m_bSwinging)
-            {
-                // resets the wrecking ball
-                m_wreckingBall.ResetBall();
-            }
-        }
+        //if (m_wreckingBall != null)
+        //{
+        //    if (m_wreckingBall.m_bSwinging)
+         //   {
+        //        // resets the wrecking ball
+        //        m_wreckingBall.ResetBall();
+        //    }
+        //}
     }
 
     // sets all players to kinematic

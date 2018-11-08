@@ -253,15 +253,6 @@
     <Reference Include="UnityEditor.Graphs">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEditor.Android.Extensions">
-      <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions">
-      <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.WebGL.Extensions">
-      <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.WindowsStandalone.Extensions">
       <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
     </Reference>
@@ -295,12 +286,6 @@
     <Reference Include="ShaderForge">
       <HintPath>Assets/ShaderForge/Editor/ShaderForge.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
-      <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Common">
-      <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Common.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="DinoThrowdown.csproj">
@@ -309,10 +294,19 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\ProCore\ProGrids\About\Editor\pg_AboutWindow.cs" />
+    <Compile Include="Assets\ProCore\ProGrids\Editor\pg_Editor.cs" />
+    <Compile Include="Assets\ProCore\ProGrids\Editor\pg_GridRenderer.cs" />
+    <Compile Include="Assets\ProCore\ProGrids\Editor\pg_ParameterWindow.cs" />
+    <Compile Include="Assets\ProCore\ProGrids\Editor\pg_Preferences.cs" />
+    <Compile Include="Assets\ProCore\ProGrids\Editor\pg_ToggleContent.cs" />
     <Compile Include="Assets\ShaderForge\Editor\InternalResources\Inspectors\ShaderForgeInspector.cs" />
     <Compile Include="Assets\ShaderForge\Editor\InternalResources\Inspectors\ShaderForgeMaterialInspector.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\ProCore\ProGrids\About\changelog.txt" />
+    <None Include="Assets\ProCore\ProGrids\About\pc_AboutEntry_ProGrids.txt" />
+    <None Include="Assets\ProCore\ProGrids\Shader\pg_GridShader.shader" />
     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\Common\ExtractChannel.shader" />
     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\Common\FillColor.shader" />
     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\Common\ReadPackedData.shader" />
@@ -507,6 +501,7 @@
     <None Include="Assets\ShaderForge\Example Assets\Shaders\VertexAnimation.shader" />
     <None Include="Assets\ShaderForge\Example Assets\Shaders\VertexColorRounding.shader" />
     <None Include="Assets\ShaderForge\Readme.txt" />
+    <None Include="Assets\Shaders\PowerupCapsule.shader" />
     <None Include="Assets\Textures\Delete.txt" />
     <None Include="Assets\XInput\XInputDotNet\MITLicense.txt" />
   </ItemGroup>
