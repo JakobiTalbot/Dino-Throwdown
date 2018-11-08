@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: b77e4a08536201a469c03d420e1327e7
   - enabled: 0
@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/MainMenuClawChaos.unity
     guid: 5e1e95116ef137c4ca7a7d36f0a8f3d6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainMenuWreckingBowl.unity
     guid: ac4fa682a47869f49857e8fca68e99c9
   - enabled: 1

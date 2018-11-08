@@ -13,6 +13,7 @@ TagManager:
   - Deadzone
   - GameManager
   - Block
+  - WreckingBall
   layers:
   - Default
   - TransparentFX
