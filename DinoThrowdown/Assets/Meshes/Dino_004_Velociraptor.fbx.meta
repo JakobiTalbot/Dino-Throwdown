@@ -6,13 +6,69 @@ ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Dino_004_Velociraptor_LowerTeeth
+    100004: Dino_004_Velociraptor_Mesh
+    100006: Dino_004_Velociraptor_UpperTeeth
+    100008: Velociraptor_Eye_L
+    100010: Velociraptor_Eye_R
+    100012: Dino_004_Velociraptor_Mesh 1
+    100014: Grp_JointScale
+    100016: Grp_MeshScale
+    100018: transform1
+    100020: transform2
+    100022: transform3
+    100024: transform4
+    100026: transform5
+    100028: Velociraptor_Head
+    100030: Velociraptor_MiddleTorso
+    100032: Velociraptor_Neck
+    100034: Velociraptor_UpperTorso
+    100036: Velociraptor_Waist
+    100038: Velocirapyor_Eye_L
+    100040: Velocirapyor_Eye_R
     400000: //RootNode
+    400002: Dino_004_Velociraptor_LowerTeeth
+    400004: Dino_004_Velociraptor_Mesh
+    400006: Dino_004_Velociraptor_UpperTeeth
+    400008: Velociraptor_Eye_L
+    400010: Velociraptor_Eye_R
+    400012: Dino_004_Velociraptor_Mesh 1
+    400014: Grp_JointScale
+    400016: Grp_MeshScale
+    400018: transform1
+    400020: transform2
+    400022: transform3
+    400024: transform4
+    400026: transform5
+    400028: Velociraptor_Head
+    400030: Velociraptor_MiddleTorso
+    400032: Velociraptor_Neck
+    400034: Velociraptor_UpperTorso
+    400036: Velociraptor_Waist
+    400038: Velocirapyor_Eye_L
+    400040: Velocirapyor_Eye_R
     2100000: lambert1
     2100002: lambert5
     2300000: //RootNode
+    2300002: Dino_004_Velociraptor_LowerTeeth
+    2300004: Dino_004_Velociraptor_Mesh
+    2300006: Dino_004_Velociraptor_UpperTeeth
+    2300008: Velociraptor_Eye_L
+    2300010: Velociraptor_Eye_R
     3300000: //RootNode
+    3300002: Dino_004_Velociraptor_LowerTeeth
+    3300004: Dino_004_Velociraptor_Mesh
+    3300006: Dino_004_Velociraptor_UpperTeeth
+    3300008: Velociraptor_Eye_L
+    3300010: Velociraptor_Eye_R
     4300000: Dino_004_Mecha
     4300002: Dino_004_Velociraptor
+    4300004: Dino_004_Velociraptor_Mesh
+    4300006: Dino_004_Velociraptor_LowerTeeth
+    4300008: Dino_004_Velociraptor_UpperTeeth
+    4300010: Velociraptor_Eye_R
+    4300012: Velociraptor_Eye_L
+    7400000: Take 001
     9500000: //RootNode
   externalObjects: {}
   materials:

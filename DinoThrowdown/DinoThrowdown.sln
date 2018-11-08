@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2017
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DinoThrowdown", "DinoThrowdown.csproj", "{49691E17-7F5D-E2A9-891B-56BC135FA544}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DinoThrowdown.Editor", "DinoThrowdown.Editor.csproj", "{BF25FBE3-18F4-4AE6-224E-5A0BF2EA5F53}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{49691E17-7F5D-E2A9-891B-56BC135FA544}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49691E17-7F5D-E2A9-891B-56BC135FA544}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49691E17-7F5D-E2A9-891B-56BC135FA544}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF25FBE3-18F4-4AE6-224E-5A0BF2EA5F53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF25FBE3-18F4-4AE6-224E-5A0BF2EA5F53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF25FBE3-18F4-4AE6-224E-5A0BF2EA5F53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF25FBE3-18F4-4AE6-224E-5A0BF2EA5F53}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

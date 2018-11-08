@@ -55,6 +55,25 @@ ModelImporter:
     100094: Trex_UpperTorso
     100096: Trex_Wrist_L
     100098: Trex_Wrist_R
+    100100: Grp_JointScale
+    100102: Grp_MeshScale
+    100104: Trex_Eye_L
+    100106: Trex_Eye_L 1
+    100108: Trex_Eye_R
+    100110: Trex_Eye_R 1
+    100112: Grp_MeshScale_Trex_Eye_L
+    100114: Grp_MeshScale_Trex_Eye_R
+    100116: transform1
+    100118: transform10
+    100120: transform11
+    100122: transform2
+    100124: transform3
+    100126: transform4
+    100128: transform5
+    100130: transform6
+    100132: transform7
+    100134: transform8
+    100136: transform9
     400000: //RootNode
     400002: Dino_001_Trex_BackHorn001
     400004: Dino_001_Trex_BackHorn02
@@ -105,8 +124,28 @@ ModelImporter:
     400094: Trex_UpperTorso
     400096: Trex_Wrist_L
     400098: Trex_Wrist_R
+    400100: Grp_JointScale
+    400102: Grp_MeshScale
+    400104: Trex_Eye_L
+    400106: Trex_Eye_L 1
+    400108: Trex_Eye_R
+    400110: Trex_Eye_R 1
+    400112: Grp_MeshScale_Trex_Eye_L
+    400114: Grp_MeshScale_Trex_Eye_R
+    400116: transform1
+    400118: transform10
+    400120: transform11
+    400122: transform2
+    400124: transform3
+    400126: transform4
+    400128: transform5
+    400130: transform6
+    400132: transform7
+    400134: transform8
+    400136: transform9
     2100000: lambert1
     2100002: lambertDinoTrex1
+    2100004: lambert_TrexAlbedo
     2300000: //RootNode
     2300002: Dino_001_Trex_BackHorn001
     2300004: Dino_001_Trex_BackHorn02
@@ -135,9 +174,15 @@ ModelImporter:
     4300014: Dino_001_Trex_TailHorn002
     4300016: Dino_001_Trex_TailHorn003
     4300018: Dino_001_Trex_Eyes
+    4300020: Trex_Eye_L
+    4300022: Trex_Eye_R
     7400000: Take 001
     9500000: //RootNode
     13700000: Dino_001_Trex_BodyMesh
+    13700002: Dino_001_Trex_TailHorn001
+    13700004: Dino_001_Trex_TailHorn002
+    13700006: Trex_Eye_L
+    13700008: Trex_Eye_R
   externalObjects: {}
   materials:
     importMaterials: 1
