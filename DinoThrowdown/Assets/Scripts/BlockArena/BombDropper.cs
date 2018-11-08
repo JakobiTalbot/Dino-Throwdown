@@ -13,15 +13,22 @@ public class BombDropper : MonoBehaviour
     [HideInInspector]
     public float m_fDropTimer;
     [HideInInspector]
-    public List<GameObject> m_blocks;
-	// Use this for initialization
-	void Awake()
+    public List<Transform> m_blocks;
+
+    private Vector3[] m_v3OriginalBlockPositions;
+
+    // Use this for initialization
+    void Awake()
     {
-        // add blocks to array
-        for (int i = 0; i < m_blocksParent.GetComponentsInChildren<GameObject>().Length; ++i)
+        AddBlocks();
+        m_v3OriginalBlockPositions = new Vector3[m_blocks.Count];
+
+        // get block positions
+        for (int i = 0; i < m_blocks.Count; ++i)
         {
-            m_blocks.Add(m_blocksParent.GetComponentsInChildren<GameObject>()[i]);
+            m_v3OriginalBlockPositions[i] = m_blocks[i].transform.position;
         }
+
         m_fDropTimer = m_fDropInterval;
 	}
 	
@@ -33,17 +40,41 @@ public class BombDropper : MonoBehaviour
 
         if (m_fDropTimer <= 0.0f)
         {
+            // get random block index
+            int nBlockIndex = Random.Range(0, m_blocks.Count);
 
+            // get bomb position above random block
+            Vector3 v3BombPos = m_blocks[nBlockIndex].transform.position;
+            v3BombPos.y = 20;
 
-            // create bomb at random position
-            //GameObject bomb = Instantiate(m_bomb, v3RandPos, Quaternion.Euler(Vector3.zero));
-            //bomb.GetComponent<BlockBomb>().m_nMaxBlocksToDestroy = m_nMaxBlocksToDestroy;
-            //bomb.GetComponent<Rigidbody>().isKinematic = false;
-            //bomb.GetComponent<SphereCollider>().material = null;
+            // create bomb above random block
+            GameObject bomb = Instantiate(m_bomb, v3BombPos, Quaternion.Euler(Vector3.zero));
+            bomb.GetComponent<BlockBomb>().m_nMaxBlocksToDestroy = m_nMaxBlocksToDestroy;
+            bomb.GetComponent<Rigidbody>().isKinematic = false;
+            bomb.GetComponent<SphereCollider>().material = null;
 
             // reset timer
             m_fDropTimer = m_fDropInterval;
         }
-
 	}
+
+    // adds blocks to array of blocks
+    public void AddBlocks()
+    {
+        for (int i = 1; i < m_blocksParent.GetComponentsInChildren<Transform>().Length; ++i)
+        {
+            m_blocks.Add(m_blocksParent.GetComponentsInChildren<Transform>()[i]);
+        }
+    }
+
+    // resets block position/rotation/kinematic, call after AddBlocks()
+    public void ResetBlocks()
+    {
+        for (int i = 0; i < m_blocks.Count; ++i)
+        {
+            m_blocks[i].position = m_v3OriginalBlockPositions[i];
+            m_blocks[i].rotation = Quaternion.Euler(Vector3.zero);
+            m_blocks[i].gameObject.GetComponent<Rigidbody>().isKinematic = true;
+        }
+    }
 }

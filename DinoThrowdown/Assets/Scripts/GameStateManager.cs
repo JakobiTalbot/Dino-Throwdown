@@ -13,6 +13,8 @@ public class GameStateManager : MonoBehaviour
     public float m_fEndDelay = 3.0f;
     // game over canvas
     public RestartGame m_gameOverCanvas;
+    // reference to bombdropper object
+    public GameObject m_bombDropper;
 
     private GameObject[] m_cranes;
     private GameObject[] m_claws;
@@ -276,6 +278,12 @@ public class GameStateManager : MonoBehaviour
         //        m_wreckingBall.ResetBall();
         //    }
         //}
+
+        BombDropper dropperScript = m_bombDropper.GetComponent<BombDropper>();
+        // reset bombdropper
+        dropperScript.m_blocks.Clear();
+        dropperScript.AddBlocks();
+        dropperScript.ResetBlocks();
     }
 
     // sets all players to kinematic
