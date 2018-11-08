@@ -111,9 +111,9 @@ public class Knockback : MonoBehaviour
             }
 
             // vibrate player's controller
-            GetComponent<PlayerController>().SetVibration(m_fVibrateTimeWhenHit, m_fVibrateTimeWhenHit);
+            GetComponent<PlayerController>().SetVibration(m_fVibrateTimeWhenHit, m_fVibrateStrengthWhenHit);
             // vibrate other player's controller
-            other.gameObject.GetComponentInParent<PlayerController>().SetVibration(m_fVibrateTimeWhenHitting, m_fVibrateTimeWhenHitting);
+            other.gameObject.GetComponentInParent<PlayerController>().SetVibration(m_fVibrateTimeWhenHitting, m_fVibrateStrengthWhenHitting);
 
             other.gameObject.GetComponentInParent<Component>().GetComponentInParent<Component>().GetComponentInParent<PlayerController>().m_bWeaponHit = true;
             GetComponent<PlayerController>().m_fKnockedBackTimer = GetComponent<PlayerController>().m_fStopCruiseAfterHitTime;

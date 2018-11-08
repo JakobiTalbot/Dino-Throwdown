@@ -218,7 +218,7 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: enter
+    positiveButton: return
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
@@ -342,22 +342,6 @@ InputManager:
     axis: 1
     joyNum: 0
   - serializedVersion: 3
-    m_Name: Jump1
-    descriptiveName: 
-    descriptiveNegativeName: 
-    negativeButton: 
-    positiveButton: space
-    altNegativeButton: 
-    altPositiveButton: 
-    gravity: 1000
-    dead: 0.001
-    sensitivity: 1000
-    snap: 0
-    invert: 0
-    type: 0
-    axis: 0
-    joyNum: 0
-  - serializedVersion: 3
     m_Name: Submit
     descriptiveName: 
     descriptiveNegativeName: 
@@ -406,59 +390,11 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: Rotate3
+    m_Name: Pause1
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: q
-    positiveButton: e
-    altNegativeButton: 
-    altPositiveButton: 
-    gravity: 1000
-    dead: 0.001
-    sensitivity: 1000
-    snap: 0
-    invert: 0
-    type: 0
-    axis: 2
-    joyNum: 1
-  - serializedVersion: 3
-    m_Name: Rotate4
-    descriptiveName: 
-    descriptiveNegativeName: 
-    negativeButton: right shift
-    positiveButton: end
-    altNegativeButton: 
-    altPositiveButton: 
-    gravity: 1000
-    dead: 0.001
-    sensitivity: 1000
-    snap: 0
-    invert: 0
-    type: 0
-    axis: 2
-    joyNum: 2
-  - serializedVersion: 3
-    m_Name: Rotate1
-    descriptiveName: 
-    descriptiveNegativeName: 
-    negativeButton: r
-    positiveButton: y
-    altNegativeButton: 
-    altPositiveButton: 
-    gravity: 1000
-    dead: 0.001
-    sensitivity: 1000
-    snap: 0
-    invert: 0
-    type: 0
-    axis: 2
-    joyNum: 3
-  - serializedVersion: 3
-    m_Name: Rotate2
-    descriptiveName: 
-    descriptiveNegativeName: 
-    negativeButton: u
-    positiveButton: o
+    negativeButton: 
+    positiveButton: r
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
@@ -470,11 +406,43 @@ InputManager:
     axis: 2
     joyNum: 4
   - serializedVersion: 3
-    m_Name: Pause
+    m_Name: Pause2
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: escape
+    positiveButton: u
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: 0.001
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 2
+    joyNum: 4
+  - serializedVersion: 3
+    m_Name: Pause3
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: q
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: 0.001
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 2
+    joyNum: 4
+  - serializedVersion: 3
+    m_Name: Pause4
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: right shift
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000

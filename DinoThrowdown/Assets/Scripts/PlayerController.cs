@@ -51,6 +51,8 @@ public class PlayerController : MonoBehaviour
     public float m_fStopCruiseAfterHitTime = 2.0f;
     // reference to pause screen
     public PauseGame m_pauseGameCanvas;
+    // reference to the game over screen
+    public RestartGame m_gameOverCanvas;
 
     // reference to the claw that will be used
     [HideInInspector]
@@ -174,7 +176,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // pause game
-        if (Input.GetButtonDown("Pause") || (m_gamePadState.Buttons.Start == ButtonState.Pressed && !m_bPauseButtonDown))
+        if ((Input.GetButtonDown("Pause" + m_cPlayerNumber.ToString()) || (m_gamePadState.Buttons.Start == ButtonState.Pressed && !m_bPauseButtonDown)) && !m_gameOverCanvas.gameObject.activeSelf)
         {
             if (Time.timeScale > 0.0f)
             {

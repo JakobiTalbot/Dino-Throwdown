@@ -39,6 +39,12 @@ public class BallKnockback : MonoBehaviour
             player = other.GetComponent<Knockback>();
         }
 
+        // does not apply knock back if the player is being picked up
+        if (player.GetComponent<Rigidbody>().isKinematic)
+        {
+            return;
+        }
+
         // Find average position of two objects colliding
         Vector3 v3ExplosionPos = (player.transform.position + transform.position) * 0.5f;
         // moves the explosion position by the offset
