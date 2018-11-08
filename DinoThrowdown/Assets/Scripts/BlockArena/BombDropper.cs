@@ -7,7 +7,7 @@ public class BombDropper : MonoBehaviour
     public GameObject m_blocksParent;
     public GameObject m_bomb;
     public float m_fDropInterval = 5.0f;
-    public float m_fDropHeight = 30.0f;
+    public int m_nDropHeight = 20;
     public int m_nMaxBlocksToDestroy = 3;
 
     [HideInInspector]
@@ -45,7 +45,7 @@ public class BombDropper : MonoBehaviour
 
             // get bomb position above random block
             Vector3 v3BombPos = m_blocks[nBlockIndex].transform.position;
-            v3BombPos.y = 20;
+            v3BombPos.y = m_nDropHeight;
 
             // create bomb above random block
             GameObject bomb = Instantiate(m_bomb, v3BombPos, Quaternion.Euler(Vector3.zero));

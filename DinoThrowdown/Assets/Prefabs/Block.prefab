@@ -120,7 +120,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1905725628616418}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6706f75daeb7ad746bddf5ea5184f174, type: 3}
+  m_Script: {fileID: 11500000, guid: a83375a2b13f0824790d2d7360cefb01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_bombDropper: {fileID: 0}
   m_fFallAccelSpeed: 10

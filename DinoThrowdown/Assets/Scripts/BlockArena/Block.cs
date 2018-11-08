@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
+    public GameObject m_bombDropper;
     // speed at which the block accelerates down
     public float m_fFallAccelSpeed = 10.0f;
 
     private GameObject m_dropper;
-
-    private void Awake()
-    {
-        m_dropper = GameObject.FindGameObjectWithTag("BombDropper");
-    }
 
     private void Update()
     {
@@ -21,9 +17,9 @@ public class Block : MonoBehaviour
 
         // remove transform from blocks array if not kinematic
         if (!GetComponent<Rigidbody>().isKinematic 
-            && m_dropper.GetComponent<BombDropper>().m_blocks.Contains(transform))
+            && m_bombDropper.GetComponent<BombDropper>().m_blocks.Contains(transform))
         {
-            m_dropper.GetComponent<BombDropper>().m_blocks.Remove(transform);
+            m_bombDropper.GetComponent<BombDropper>().m_blocks.Remove(transform);
         }
     }
 
