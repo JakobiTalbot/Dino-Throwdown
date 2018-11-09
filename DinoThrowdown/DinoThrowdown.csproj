@@ -337,7 +337,7 @@
     <Compile Include="Assets\XInput\XInputDotNet\Examples\XInputTestCS.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Textures\Delete.txt" />
+    <None Include="Assets\Textures\Other\Delete.txt" />
     <None Include="Assets\XInput\XInputDotNet\MITLicense.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

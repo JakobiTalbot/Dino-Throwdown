@@ -6,11 +6,32 @@ ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Dino_002_Stegosaurus_Body
+    100004: Dino_002_Stegosaurus_Eye
+    100006: Dino_002_Stegosaurus_Spines
+    100008: Dino_002_Stegosaurus_Teeth
     400000: //RootNode
+    400002: Dino_002_Stegosaurus_Body
+    400004: Dino_002_Stegosaurus_Eye
+    400006: Dino_002_Stegosaurus_Spines
+    400008: Dino_002_Stegosaurus_Teeth
     2100000: lambert1
+    2100002: lambert2
     2300000: //RootNode
+    2300002: Dino_002_Stegosaurus_Body
+    2300004: Dino_002_Stegosaurus_Eye
+    2300006: Dino_002_Stegosaurus_Spines
+    2300008: Dino_002_Stegosaurus_Teeth
     3300000: //RootNode
+    3300002: Dino_002_Stegosaurus_Body
+    3300004: Dino_002_Stegosaurus_Eye
+    3300006: Dino_002_Stegosaurus_Spines
+    3300008: Dino_002_Stegosaurus_Teeth
     4300000: Dino_002_Stegosaurus
+    4300002: Dino_002_Stegosaurus_Body
+    4300004: Dino_002_Stegosaurus_Teeth
+    4300006: Dino_002_Stegosaurus_Eye
+    4300008: Dino_002_Stegosaurus_Spines
     9500000: //RootNode
   externalObjects: {}
   materials:

@@ -502,7 +502,7 @@
     <None Include="Assets\ShaderForge\Example Assets\Shaders\VertexColorRounding.shader" />
     <None Include="Assets\ShaderForge\Readme.txt" />
     <None Include="Assets\Shaders\PowerupCapsule.shader" />
-    <None Include="Assets\Textures\Delete.txt" />
+    <None Include="Assets\Textures\Other\Delete.txt" />
     <None Include="Assets\XInput\XInputDotNet\MITLicense.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
