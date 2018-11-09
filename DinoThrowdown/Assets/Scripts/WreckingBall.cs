@@ -8,6 +8,8 @@ public class WreckingBall : MonoBehaviour
     public float m_fSwingWaitTime = 10.0f;
     // time to wait before swinging starts
     public float m_fStartWaitTime = 20.0f;
+    // artificial velocity added when ball starts swing
+    public float m_fAddedStartVelocity = 100.0f;
 
     // determines if the wrecking ball is swinging
     [HideInInspector]
@@ -84,7 +86,7 @@ public class WreckingBall : MonoBehaviour
                 // moves the ball to the initial transform and velocity
                 m_ball.transform.localPosition = new Vector3(0.0f, 0.0f, 41.5f);
                 m_ball.transform.localRotation = Quaternion.Euler(-90.0f, 0.0f, 0.0f);
-                m_ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                m_ball.GetComponent<Rigidbody>().velocity = Vector3.down * m_fAddedStartVelocity;
                 m_ball.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
             }
             else

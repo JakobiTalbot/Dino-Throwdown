@@ -52,7 +52,6 @@ public class BombDropper : MonoBehaviour
             bomb.GetComponent<BlockBomb>().m_nMaxBlocksToDestroy = m_nMaxBlocksToDestroy;
             bomb.GetComponent<Rigidbody>().isKinematic = false;
             bomb.GetComponent<SphereCollider>().material = null;
-
             // reset timer
             m_fDropTimer = m_fDropInterval;
         }
