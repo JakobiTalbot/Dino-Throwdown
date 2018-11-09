@@ -30,7 +30,7 @@ public class CharacterSelection : MonoBehaviour
     // collection of references to the different materials
     public Material[] m_colours;
     // reference to the confirm game object
-    public GameObject m_confirm;
+    public GameObject m_confirmCanvas;
 
     // reference to the game pad
     private GamePadState m_gamePadState;
@@ -476,7 +476,7 @@ public class CharacterSelection : MonoBehaviour
             // confirms the player
             m_bConfirmed = true;
             // shows the confirm screen
-            m_confirm.SetActive(true);
+            m_confirmCanvas.SetActive(true);
             // stores the player preferences in the character manager
             CharacterManager.Instance.m_dinoTypes[m_cPlayerNumber - 1] = m_dinoTypes[m_iDinoType];
             CharacterManager.Instance.m_colours[m_cPlayerNumber - 1] = m_colours[m_iColour];
@@ -486,28 +486,47 @@ public class CharacterSelection : MonoBehaviour
             m_fInputTimer = m_fInputDelay;
         }
         // checks if the player wants to leave the confirm screen, the input timer is finished and the player has confirmed their character
-        if ((m_gamePadState.Buttons.B == ButtonState.Pressed || Input.GetAxis("Cancel") != 0.0f) && m_bConfirmed && m_fInputTimer < 0.0f)
+        if ((m_gamePadState.Buttons.B == ButtonState.Pressed || Input.GetAxis("Pause" + m_cPlayerNumber.ToString()) != 0.0f) && m_bConfirmed && m_fInputTimer < 0.0f)
         {
             // sets the colour to available
             m_colourPicker.SetOtherAvailability(true, m_iColour);
             // unconfirms the player
             m_bConfirmed = false;
             // hides the confirm screen
-            m_confirm.SetActive(false);
+            m_confirmCanvas.SetActive(false);
             // decrements the amount of ready players
             GetComponentInParent<PlayGame>().m_cReadyPlayers--;
             // resets the timer
             m_fInputTimer = m_fInputDelay;
         }
         // checks if the player wants to leave the character selection screen, the input timer is finished
-        else if ((m_gamePadState.Buttons.B == ButtonState.Pressed || Input.GetAxis("Cancel") != 0.0f) && m_fInputTimer < 0.0f)
+        else if ((m_gamePadState.Buttons.B == ButtonState.Pressed || Input.GetAxis("Pause" + m_cPlayerNumber.ToString()) != 0.0f) && m_fInputTimer < 0.0f)
         {
-            // activates the menu buttons
-            transform.parent.GetComponentInParent<ActivateMenu>().MenuButtons();
+            // activates the game setup canvas
+            transform.parent.GetComponentInParent<ActivateMenu>().GameSetup();
             // deactivates the character selection screen
             transform.parent.gameObject.SetActive(false);
             // resets the timer
             m_fInputTimer = m_fInputDelay;
+        }
+
+        // moves the colour to the next available one
+        while (!m_colourPicker.IsAvailable(m_iColour))
+        {
+            // moves the current selected index
+            m_iCurrentSelectable++;
+            if (m_iCurrentSelectable == 10)
+            {
+                m_iCurrentSelectable = 6;
+            }
+            m_colourIndicators[m_iColour].SetActive(false);
+            // moves the current colour
+            m_iColour++;
+            if (m_iColour == 4)
+            {
+                m_iColour = 0;
+            }
+            m_colourIndicators[m_iColour].SetActive(true);
         }
 
         // sets the text of the dino type button based on the current selected dino type
@@ -524,7 +543,7 @@ public class CharacterSelection : MonoBehaviour
     public void Reset()
     {
         m_bConfirmed = false;
-        m_confirm.SetActive(false);
+        m_confirmCanvas.SetActive(false);
         m_iCurrentSelectable = 0;
         m_indicators[0].SetActive(true);
         m_indicators[1].SetActive(false);

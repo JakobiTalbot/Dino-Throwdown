@@ -27,6 +27,8 @@ public class WreckingBall : MonoBehaviour
     private LineRenderer m_warningLine;
     // reference to the animator for controlling the warning line
     private Animator m_anim;
+    // determines if the warning line should show
+    private bool m_bIndicator = true;
 
 	private void Awake()
     {
@@ -38,15 +40,33 @@ public class WreckingBall : MonoBehaviour
         m_anim = GetComponent<Animator>();
 
         ResetBall();
+
+        // does not show the indicator if the toggle is turned off
+        if (OptionsManager.InstanceExists)
+        {
+            if (!OptionsManager.Instance.m_bIndicator)
+            {
+                m_bIndicator = false;
+            }
+        }
     }
 
     private void Update()
     {
+        // does not swing the wrecking ball if the toggle is turned off
+        if (OptionsManager.InstanceExists)
+        {
+            if (!OptionsManager.Instance.m_bWreckingBall)
+            {
+                return;
+            }
+        }
+
         // decrements the timer
         m_fSwingTimer -= Time.deltaTime;
 
         // resets the animation
-        if (!m_anim.GetBool("bIsSwinging") && m_bSwinging)
+        if (!m_anim.GetBool("bIsSwinging") && m_bSwinging && m_bIndicator)
         {
             m_anim.SetBool("bIsSwinging", true);
         }
@@ -93,7 +113,10 @@ public class WreckingBall : MonoBehaviour
             {
                 // sets the wrecking ball up to start swinging
                 m_bSwinging = true;
-                m_anim.SetBool("bIsSwinging", true);
+                if (m_bIndicator)
+                {
+                    m_anim.SetBool("bIsSwinging", true);
+                }
 
                 // sets all the wrecking ball components to not kinematic
                 foreach (var chain in m_chain)

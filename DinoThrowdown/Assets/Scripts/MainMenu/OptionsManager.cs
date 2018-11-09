@@ -13,12 +13,16 @@ public class OptionsManager : PersistantSingleton<OptionsManager>
     public Slider m_sfxSlider;
     // reference to the vibration toggle
     public Toggle m_vibrationToggle;
+    // reference to the round amount dropdown
+    public Dropdown m_roundDropdown;
+    // reference to the wrecking ball toggle
+    public Toggle m_wreckingBallToggle;
+    // reference to the bombs toggle
+    public Toggle m_bombsToggle;
     // reference to the pickups toggle
     public Toggle m_pickupsToggle;
     // reference to the indicator toggle
     public Toggle m_indicatorToggle;
-    // reference to the round amount dropdown
-    public Dropdown m_roundDropdown;
 
     // the value of the master volume
     [HideInInspector]
@@ -32,6 +36,12 @@ public class OptionsManager : PersistantSingleton<OptionsManager>
     // determines if the vibration is on
     [HideInInspector]
     public bool m_bVibration = true;
+    // determines if the wrecking ball will swing
+    [HideInInspector]
+    public bool m_bWreckingBall = true;
+    // determines if the bombs will be dropped in
+    [HideInInspector]
+    public bool m_bBombs = true;
     // determines if the pickups will spawn
     [HideInInspector]
     public bool m_bPickups = true;
@@ -50,6 +60,8 @@ public class OptionsManager : PersistantSingleton<OptionsManager>
         m_fSFXVolume = m_sfxSlider.value;
         // gets the toggle status
         m_bVibration = m_vibrationToggle.isOn;
+        m_bWreckingBall = m_wreckingBallToggle.isOn;
+        m_bBombs = m_bombsToggle.isOn;
         m_bPickups = m_pickupsToggle.isOn;
         m_bIndicator = m_indicatorToggle.isOn;
         // gets the value from the dropdown
