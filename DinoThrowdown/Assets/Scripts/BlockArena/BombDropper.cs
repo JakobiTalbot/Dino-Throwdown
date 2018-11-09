@@ -38,7 +38,7 @@ public class BombDropper : MonoBehaviour
         // decrement timer
         m_fDropTimer -= Time.deltaTime;
 
-        if (m_fDropTimer <= 0.0f)
+        if (m_fDropTimer <= 0.0f && m_blocks.Count > 0)
         {
             // get random block index
             int nBlockIndex = Random.Range(0, m_blocks.Count);
