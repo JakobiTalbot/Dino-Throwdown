@@ -1,18 +1,16 @@
 fileFormatVersion: 2
-guid: 9f6604da905c6d54d980d7c9d951e380
-timeCreated: 1539145751
+guid: 31d439fbe2d6c3249b37490c7b88cc43
+timeCreated: 1541736148
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: lambert7
-    2100002: lambert1
-    2100004: crane
+    2100000: lambert1
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Arena_006_Crane
+    4300000: Arena_008_WallPillars
     9500000: //RootNode
   externalObjects: {}
   materials:
