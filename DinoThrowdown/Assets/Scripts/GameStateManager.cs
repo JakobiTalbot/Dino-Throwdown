@@ -120,8 +120,6 @@ public class GameStateManager : MonoBehaviour
         {
             m_bombDropper.SetActive(true);
         }
-
-        Debug.Log(m_fBombDropTimer);
     }
 
     // loops through the game
