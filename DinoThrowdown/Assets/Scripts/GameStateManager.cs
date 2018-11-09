@@ -313,7 +313,7 @@ public class GameStateManager : MonoBehaviour
         {
             spawnPoint.GetComponent<SpawnPoint>().m_bHasPickup = false;
         }
-- 
+
         // destroy all pickups in scene
         foreach (var pickup in m_pickupManager.GetComponent<PickupManager>().m_spawnedPickups)
         {
