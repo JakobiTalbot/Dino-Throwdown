@@ -229,8 +229,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1224762412957598}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -20, y: 4, z: 0}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -15, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4007746815654916}
@@ -497,7 +497,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -577,7 +577,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -688,17 +688,20 @@ MonoBehaviour:
   m_fHeightFromHoverMultiplier: 50
   m_fRotateSpeedKeyboard: 10
   m_fRotateSpeedController: 0.15
-  m_fCruiseSpeed: 0.2
+  m_fCruiseSpeed: 25
   m_fAttackSpeed: 0.25
   m_fClawSpeed: 25
   m_fPickupSpeed: 25
   m_arm: {fileID: 1000575598159676}
-  m_seats: []
+  m_seats:
+  - {fileID: 0}
+  - {fileID: 0}
   m_fCruiseControlTime: 5
   m_fWeaponSizeTime: 3
   m_weapon: {fileID: 1736143221799452}
   m_fStopCruiseAfterHitTime: 0.5
   m_pauseGameCanvas: {fileID: 0}
+  m_gameOverCanvas: {fileID: 0}
   m_claw: {fileID: 0}
   m_v3BaseWeaponScale: {x: 0, y: 0, z: 0}
   m_v3BaseWeaponPosition: {x: 0, y: 0, z: 0}

@@ -175,8 +175,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1671827575453842}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 4, z: 20}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: 2, z: 15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4043927690880044}
@@ -260,8 +260,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1253389561498132}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.311, z: 0.127}
-  m_LocalScale: {x: 4.0376925, y: 4.0376906, z: 4.0376906}
+  m_LocalPosition: {x: -0.036, y: 1.354, z: 0.141}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4489072972240412}
   m_RootOrder: 3
@@ -314,7 +314,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100002, guid: cead4d99e4fdc0c4cb1b51c49222b420, type: 3}
+  - {fileID: 2100000, guid: d78b75d6401ed1c40a3c5e74ee496eba, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -402,7 +402,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 32
   m_CollisionDetection: 2
 --- !u!64 &64561361953786510
 MeshCollider:
@@ -497,7 +497,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -577,7 +577,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -686,7 +686,7 @@ MonoBehaviour:
   m_fHeightFromHoverMultiplier: 50
   m_fRotateSpeedKeyboard: 10
   m_fRotateSpeedController: 0.15
-  m_fCruiseSpeed: 0.2
+  m_fCruiseSpeed: 25
   m_fAttackSpeed: 0.25
   m_fClawSpeed: 25
   m_fPickupSpeed: 25
@@ -699,6 +699,7 @@ MonoBehaviour:
   m_weapon: {fileID: 1660849387622490}
   m_fStopCruiseAfterHitTime: 0.5
   m_pauseGameCanvas: {fileID: 0}
+  m_gameOverCanvas: {fileID: 0}
   m_claw: {fileID: 0}
   m_v3BaseWeaponScale: {x: 0, y: 0, z: 0}
   m_v3BaseWeaponPosition: {x: 0, y: 0, z: 0}
