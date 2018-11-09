@@ -17,6 +17,9 @@ public class GameStateManager : MonoBehaviour
     public GameObject m_bombDropper;
     // time to activate bombdropper
     public float m_fSecondsUntilBombsDrop = 30.0f;
+    // stores reference to all powerup spawnpoints
+    public GameObject[] m_powerupSpawnPoints;
+    public GameObject m_pickupManager;
 
     private GameObject[] m_cranes;
     private GameObject[] m_claws;
@@ -304,6 +307,21 @@ public class GameStateManager : MonoBehaviour
 
         m_bombDropper.SetActive(false);
         m_fBombDropTimer = m_fSecondsUntilBombsDrop;
+
+        // reset all pickup spawnpoints
+        foreach (var spawnPoint in m_powerupSpawnPoints)
+        {
+            spawnPoint.GetComponent<SpawnPoint>().m_bHasPickup = false;
+        }
+- 
+        // destroy all pickups in scene
+        foreach (var pickup in m_pickupManager.GetComponent<PickupManager>().m_spawnedPickups)
+        {
+            Destroy(pickup);
+        }
+
+        // clear list of pickups
+        m_pickupManager.GetComponent<PickupManager>().m_spawnedPickups.Clear();
     }
 
     // sets all players to kinematic

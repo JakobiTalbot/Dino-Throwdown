@@ -11,6 +11,10 @@ public class PickupManager : MonoBehaviour
     // collection of spawn locations
     public Transform[] m_spawnPoints;
 
+    // list of all powerups spawned this round
+    [HideInInspector]
+    public List<GameObject> m_spawnedPickups;
+
     private void Start()
     {
         if (OptionsManager.InstanceExists)
@@ -72,6 +76,7 @@ public class PickupManager : MonoBehaviour
         {
             // creates the random pickup at the random location
             GameObject obj = Instantiate(m_pickupTypes[iPickupTypeIndex], m_spawnPoints[iSpawnPointIndex].position, m_spawnPoints[iSpawnPointIndex].rotation);
+            m_spawnedPickups.Add(obj);
             // gets the pickup component from the instantiated object
             Pickup pickup = obj.GetComponent<Pickup>();
             // sets the pickup's spawn point
