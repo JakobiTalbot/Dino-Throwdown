@@ -14805,6 +14805,7 @@ MonoBehaviour:
   - {fileID: 1292824039}
   - {fileID: 1276844854}
   - {fileID: 123641451}
+  m_spawnedPickups: []
 --- !u!1 &1225319799
 GameObject:
   m_ObjectHideFlags: 0
@@ -20285,6 +20286,13 @@ MonoBehaviour:
   m_gameOverCanvas: {fileID: 769260525}
   m_bombDropper: {fileID: 1326367753}
   m_fSecondsUntilBombsDrop: 10
+  m_powerupSpawnPoints:
+  - {fileID: 634515708}
+  - {fileID: 1136295069}
+  - {fileID: 1292824038}
+  - {fileID: 1276844853}
+  - {fileID: 123641450}
+  m_pickupManager: {fileID: 1225126175}
 --- !u!4 &1947069051
 Transform:
   m_ObjectHideFlags: 0
