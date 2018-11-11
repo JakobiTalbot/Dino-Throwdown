@@ -26,11 +26,21 @@ public class CharacterSelection : MonoBehaviour
     // reference to the player viewer where the player will be displayed
     public GameObject m_playerViewer;
     // reference to the different meshes
-    public Mesh[] m_dinoTypes;
-    // collection of references to the different materials
-    public Material[] m_colours;
+    public Mesh[] m_hoverpodTypes;
+    // collections of references to the different materials
+    public ArrayLayout m_hoverpodColours;
     // reference to the confirm game object
     public GameObject m_confirmCanvas;
+
+    // the current dino type
+    [HideInInspector]
+    public int m_iHoverpodType;
+    // the current colour
+    [HideInInspector]
+    public int m_iHoverpodColour;
+    // determines if the player has confirmed their player
+    [HideInInspector]
+    public bool m_bConfirmed = false;
 
     // reference to the game pad
     private GamePadState m_gamePadState;
@@ -42,16 +52,10 @@ public class CharacterSelection : MonoBehaviour
     private float m_fInputTimer;
     // used to time how long a horizontal delay lasts for
     private float m_fHorizontalTimer;
-    // the current dino type
-    private int m_iDinoType;
     // the current weapon type
     private int m_iWeaponType;
-    // the current colour
-    private int m_iColour;
     // reference to the colour picker
     private ColourPicker m_colourPicker;
-    // determines if the player has confirmed their player
-    private bool m_bConfirmed = false;
 
     private void Awake()
     {
@@ -63,9 +67,9 @@ public class CharacterSelection : MonoBehaviour
         m_fHorizontalTimer = 0.0f;
 
         // sets the initial dino type, weapon type and colour based on the player number
-        m_iDinoType = m_cPlayerNumber - 1;
+        m_iHoverpodType = m_cPlayerNumber - 1;
         m_iWeaponType = m_cPlayerNumber - 1;
-        m_iColour = m_cPlayerNumber - 1;
+        m_iHoverpodColour = m_cPlayerNumber - 1;
 
         m_colourPicker = GetComponentInChildren<ColourPicker>();
     }
@@ -96,14 +100,14 @@ public class CharacterSelection : MonoBehaviour
                 // highlights the selectable
                 m_selectables[m_iCurrentSelectable].image.color = Color.cyan;
                 // checks if the dino type needs to wrap around
-                if (m_iDinoType == 0)
+                if (m_iHoverpodType == 0)
                 {
-                    m_iDinoType = 3;
+                    m_iHoverpodType = 3;
                 }
                 else
                 {
                     // decrements the dino type
-                    m_iDinoType--;
+                    m_iHoverpodType--;
                 }
                 // resets the timers
                 m_fHorizontalTimer = m_fHorizontalDelay;
@@ -117,14 +121,14 @@ public class CharacterSelection : MonoBehaviour
                 // highlights the selectable
                 m_selectables[m_iCurrentSelectable].image.color = Color.cyan;
                 // checks if the dino type needs to wrap around
-                if (m_iDinoType == 3)
+                if (m_iHoverpodType == 3)
                 {
-                    m_iDinoType = 0;
+                    m_iHoverpodType = 0;
                 }
                 else
                 {
                     // increments the dino type
-                    m_iDinoType++;
+                    m_iHoverpodType++;
                 }
                 // resets the timers
                 m_fHorizontalTimer = m_fHorizontalDelay;
@@ -145,7 +149,7 @@ public class CharacterSelection : MonoBehaviour
             else if (m_gamePadState.ThumbSticks.Left.Y > m_fInputPrerequisite || m_gamePadState.DPad.Up == ButtonState.Pressed || Input.GetAxis("Vertical" + m_cPlayerNumber) > 0.0f)
             {
                 // sets the selected object based on the current colour
-                switch (m_iColour)
+                switch (m_iHoverpodColour)
                 {
                     case 0:
                         m_iCurrentSelectable = 6;
@@ -225,7 +229,7 @@ public class CharacterSelection : MonoBehaviour
             else if (m_gamePadState.ThumbSticks.Left.Y < -m_fInputPrerequisite || m_gamePadState.DPad.Down == ButtonState.Pressed || Input.GetAxis("Vertical" + m_cPlayerNumber) < 0.0f)
             {
                 // sets the selected object based on the current colour
-                switch (m_iColour)
+                switch (m_iHoverpodColour)
                 {
                     case 0:
                         m_iCurrentSelectable = 6;
@@ -276,9 +280,9 @@ public class CharacterSelection : MonoBehaviour
                 // sets the selected colour to yellow
                 m_iCurrentSelectable = 9;
                 // moves the colour indicator to yellow
-                m_colourIndicators[m_iColour].SetActive(false);
-                m_iColour = 3;
-                m_colourIndicators[m_iColour].SetActive(true);
+                m_colourIndicators[m_iHoverpodColour].SetActive(false);
+                m_iHoverpodColour = 3;
+                m_colourIndicators[m_iHoverpodColour].SetActive(true);
                 // resets the timer
                 m_fInputTimer = m_fInputDelay;
             }
@@ -288,9 +292,9 @@ public class CharacterSelection : MonoBehaviour
                 // sets the selected colour to red
                 m_iCurrentSelectable = 7;
                 // moves the colour indicator to red
-                m_colourIndicators[m_iColour].SetActive(false);
-                m_iColour = 1;
-                m_colourIndicators[m_iColour].SetActive(true);
+                m_colourIndicators[m_iHoverpodColour].SetActive(false);
+                m_iHoverpodColour = 1;
+                m_colourIndicators[m_iHoverpodColour].SetActive(true);
                 // resets the timer
                 m_fInputTimer = m_fInputDelay;
             }
@@ -326,9 +330,9 @@ public class CharacterSelection : MonoBehaviour
                 // sets the selected colour to blue
                 m_iCurrentSelectable = 6;
                 // moves the colour indicator to blue
-                m_colourIndicators[m_iColour].SetActive(false);
-                m_iColour = 0;
-                m_colourIndicators[m_iColour].SetActive(true);
+                m_colourIndicators[m_iHoverpodColour].SetActive(false);
+                m_iHoverpodColour = 0;
+                m_colourIndicators[m_iHoverpodColour].SetActive(true);
                 // resets the timer
                 m_fInputTimer = m_fInputDelay;
             }
@@ -338,9 +342,9 @@ public class CharacterSelection : MonoBehaviour
                 // sets the selected colour to green
                 m_iCurrentSelectable = 8;
                 // moves the colour indicator to green
-                m_colourIndicators[m_iColour].SetActive(false);
-                m_iColour = 2;
-                m_colourIndicators[m_iColour].SetActive(true);
+                m_colourIndicators[m_iHoverpodColour].SetActive(false);
+                m_iHoverpodColour = 2;
+                m_colourIndicators[m_iHoverpodColour].SetActive(true);
                 // resets the timer
                 m_fInputTimer = m_fInputDelay;
             }
@@ -376,9 +380,9 @@ public class CharacterSelection : MonoBehaviour
                 // sets the selected colour to red
                 m_iCurrentSelectable = 7;
                 // moves the colour indicator to red
-                m_colourIndicators[m_iColour].SetActive(false);
-                m_iColour = 1;
-                m_colourIndicators[m_iColour].SetActive(true);
+                m_colourIndicators[m_iHoverpodColour].SetActive(false);
+                m_iHoverpodColour = 1;
+                m_colourIndicators[m_iHoverpodColour].SetActive(true);
                 // resets the timer
                 m_fInputTimer = m_fInputDelay;
             }
@@ -388,9 +392,9 @@ public class CharacterSelection : MonoBehaviour
                 // sets the selected colour to yellow
                 m_iCurrentSelectable = 9;
                 // moves the colour indicator to yellow
-                m_colourIndicators[m_iColour].SetActive(false);
-                m_iColour = 3;
-                m_colourIndicators[m_iColour].SetActive(true);
+                m_colourIndicators[m_iHoverpodColour].SetActive(false);
+                m_iHoverpodColour = 3;
+                m_colourIndicators[m_iHoverpodColour].SetActive(true);
                 // resets the timer
                 m_fInputTimer = m_fInputDelay;
             }
@@ -426,9 +430,9 @@ public class CharacterSelection : MonoBehaviour
                 // sets the selected colour to green
                 m_iCurrentSelectable = 8;
                 // moves the colour indicator to green
-                m_colourIndicators[m_iColour].SetActive(false);
-                m_iColour = 2;
-                m_colourIndicators[m_iColour].SetActive(true);
+                m_colourIndicators[m_iHoverpodColour].SetActive(false);
+                m_iHoverpodColour = 2;
+                m_colourIndicators[m_iHoverpodColour].SetActive(true);
                 // resets the timer
                 m_fInputTimer = m_fInputDelay;
             }
@@ -438,9 +442,9 @@ public class CharacterSelection : MonoBehaviour
                 // sets the selected colour to blue
                 m_iCurrentSelectable = 6;
                 // moves the colour indicator to blue
-                m_colourIndicators[m_iColour].SetActive(false);
-                m_iColour = 0;
-                m_colourIndicators[m_iColour].SetActive(true);
+                m_colourIndicators[m_iHoverpodColour].SetActive(false);
+                m_iHoverpodColour = 0;
+                m_colourIndicators[m_iHoverpodColour].SetActive(true);
                 // resets the timer
                 m_fInputTimer = m_fInputDelay;
             }
@@ -469,17 +473,17 @@ public class CharacterSelection : MonoBehaviour
         }
 
         // checks if the player wants to confirm their player, the colour they want is available, the input timer is finished and the player has not yet confirmed their character
-        if ((m_gamePadState.Buttons.A == ButtonState.Pressed || Input.GetAxis("Fire" + m_cPlayerNumber) != 0.0f) && m_colourPicker.IsAvailable(m_iColour) && !m_bConfirmed && m_fInputTimer < 0.0f)
+        if ((m_gamePadState.Buttons.A == ButtonState.Pressed || Input.GetAxis("Fire" + m_cPlayerNumber) != 0.0f) && m_colourPicker.IsAvailable(m_iHoverpodColour) && !m_bConfirmed && m_fInputTimer < 0.0f)
         {
             // sets the colour to unavailable
-            m_colourPicker.SetOtherAvailability(false, m_iColour);
+            m_colourPicker.SetOtherAvailability(false, m_iHoverpodColour);
             // confirms the player
             m_bConfirmed = true;
             // shows the confirm screen
             m_confirmCanvas.SetActive(true);
             // stores the player preferences in the character manager
-            CharacterManager.Instance.m_dinoTypes[m_cPlayerNumber - 1] = m_dinoTypes[m_iDinoType];
-            CharacterManager.Instance.m_colours[m_cPlayerNumber - 1] = m_colours[m_iColour];
+            CharacterManager.Instance.m_hoverpodTypes[m_cPlayerNumber - 1] = m_hoverpodTypes[m_iHoverpodType];
+            CharacterManager.Instance.m_hoverpodColours[m_cPlayerNumber - 1] = m_hoverpodColours.rows[m_iHoverpodColour].row[m_iHoverpodType];
             // increments the amount of ready players
             GetComponentInParent<PlayGame>().m_cReadyPlayers++;
             // resets the timer
@@ -489,7 +493,7 @@ public class CharacterSelection : MonoBehaviour
         if ((m_gamePadState.Buttons.B == ButtonState.Pressed || Input.GetAxis("Pause" + m_cPlayerNumber.ToString()) != 0.0f) && m_bConfirmed && m_fInputTimer < 0.0f)
         {
             // sets the colour to available
-            m_colourPicker.SetOtherAvailability(true, m_iColour);
+            m_colourPicker.SetOtherAvailability(true, m_iHoverpodColour);
             // unconfirms the player
             m_bConfirmed = false;
             // hides the confirm screen
@@ -511,7 +515,7 @@ public class CharacterSelection : MonoBehaviour
         }
 
         // moves the colour to the next available one
-        while (!m_colourPicker.IsAvailable(m_iColour))
+        while (!m_colourPicker.IsAvailable(m_iHoverpodColour))
         {
             // moves the current selected index
             m_iCurrentSelectable++;
@@ -519,24 +523,24 @@ public class CharacterSelection : MonoBehaviour
             {
                 m_iCurrentSelectable = 6;
             }
-            m_colourIndicators[m_iColour].SetActive(false);
+            m_colourIndicators[m_iHoverpodColour].SetActive(false);
             // moves the current colour
-            m_iColour++;
-            if (m_iColour == 4)
+            m_iHoverpodColour++;
+            if (m_iHoverpodColour == 4)
             {
-                m_iColour = 0;
+                m_iHoverpodColour = 0;
             }
-            m_colourIndicators[m_iColour].SetActive(true);
+            m_colourIndicators[m_iHoverpodColour].SetActive(true);
         }
 
         // sets the text of the dino type button based on the current selected dino type
-        m_selectables[0].GetComponentInChildren<Text>().text = m_sDinoTypes[m_iDinoType];
+        m_selectables[0].GetComponentInChildren<Text>().text = m_sDinoTypes[m_iHoverpodType];
         // sets the text of the weapon type button based on the current selected weapon type
         m_selectables[3].GetComponentInChildren<Text>().text = m_sWeaponTypes[m_iWeaponType];
 
         // updates the display of the character based on the current selected dino type and colour
-        m_playerViewer.GetComponent<MeshFilter>().mesh = m_dinoTypes[m_iDinoType];
-        m_playerViewer.GetComponent<MeshRenderer>().material = m_colours[m_iColour];
+        m_playerViewer.GetComponent<MeshFilter>().mesh = m_hoverpodTypes[m_iHoverpodType];
+        m_playerViewer.GetComponent<MeshRenderer>().material = m_hoverpodColours.rows[m_iHoverpodColour].row[m_iHoverpodType];
     }
 
     // resets the character selection screen
@@ -548,13 +552,13 @@ public class CharacterSelection : MonoBehaviour
         m_indicators[0].SetActive(true);
         m_indicators[1].SetActive(false);
         m_indicators[2].SetActive(false);
-        m_colourIndicators[m_iColour].SetActive(false);
+        m_colourIndicators[m_iHoverpodColour].SetActive(false);
 
-        m_iDinoType = m_cPlayerNumber - 1;
+        m_iHoverpodType = m_cPlayerNumber - 1;
         m_iWeaponType = m_cPlayerNumber - 1;
-        m_iColour = m_cPlayerNumber - 1;
-        m_colourIndicators[m_iColour].SetActive(true);
-        m_colourPicker.SetOtherAvailability(true, m_iColour);
+        m_iHoverpodColour = m_cPlayerNumber - 1;
+        m_colourIndicators[m_iHoverpodColour].SetActive(true);
+        m_colourPicker.SetOtherAvailability(true, m_iHoverpodColour);
 
         m_fInputTimer = m_fInputDelay;
         m_fHorizontalTimer = 0.0f;

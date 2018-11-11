@@ -15,6 +15,7 @@ TagManager:
   - Block
   - WreckingBall
   - BombDropper
+  - Dino
   layers:
   - Default
   - TransparentFX

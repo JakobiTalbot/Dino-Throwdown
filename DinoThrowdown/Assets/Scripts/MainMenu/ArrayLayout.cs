@@ -1,0 +1,17 @@
+﻿using System.Collections;
+using UnityEngine;
+
+// 4x4 array of objects
+[System.Serializable]
+public class ArrayLayout
+{
+    // contains the data in the row
+    [System.Serializable]
+    public struct RowData
+    {
+        public Material[] row;
+    }
+
+    // contains the rows
+    public RowData[] rows = new RowData[4];
+}

@@ -4,8 +4,16 @@ using UnityEngine;
 
 public class CharacterManager : PersistantSingleton<CharacterManager>
 {
-    // reference to the different meshes
-    public Mesh[] m_dinoTypes;
-    // collection of references to the different materials
-    public Material[] m_colours;
+    // collection of references to the hoverpod meshs
+    [HideInInspector]
+    public Mesh[] m_hoverpodTypes = new Mesh[4];
+    // collection of references to the hoverpod materials
+    [HideInInspector]
+    public Material[] m_hoverpodColours = new Material[4];
+    // collection of references to the dino meshs
+    [HideInInspector]
+    public Mesh[] m_dinoTypes = new Mesh[4];
+    // collection of references to the dino materials
+    [HideInInspector]
+    public Material[] m_dinoColours = new Material[4];
 }

@@ -72,8 +72,8 @@ public class GameStateManagerBlockArena : MonoBehaviour
         {
             for (int i = 0; i < m_players.Length; i++)
             {
-                m_players[i].GetComponent<MeshFilter>().mesh = CharacterManager.Instance.m_dinoTypes[i];
-                m_players[i].GetComponent<MeshRenderer>().material = CharacterManager.Instance.m_colours[i];
+                m_players[i].GetComponent<MeshFilter>().mesh = CharacterManager.Instance.m_hoverpodTypes[i];
+                m_players[i].GetComponent<MeshRenderer>().material = CharacterManager.Instance.m_hoverpodColours[i];
             }
         }
 
