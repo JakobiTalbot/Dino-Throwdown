@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 
 // used to display the 4x4 array as a grid in the inspector
 [CustomPropertyDrawer(typeof(ArrayLayout))]
