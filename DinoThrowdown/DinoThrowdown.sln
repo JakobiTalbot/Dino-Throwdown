@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
+# Visual Studio 2017
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DinoThrowdown", "DinoThrowdown.csproj", "{49691E17-7F5D-E2A9-891B-56BC135FA544}"
 EndProject
 Global

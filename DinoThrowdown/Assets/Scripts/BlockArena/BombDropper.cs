@@ -50,6 +50,7 @@ public class BombDropper : MonoBehaviour
             // create bomb above random block
             GameObject bomb = Instantiate(m_bomb, v3BombPos, Quaternion.Euler(Vector3.zero));
             bomb.GetComponent<BlockBomb>().m_nMaxBlocksToDestroy = m_nMaxBlocksToDestroy;
+            bomb.GetComponent<BlockBomb>().m_bombDropper = gameObject;
             bomb.GetComponent<Rigidbody>().isKinematic = false;
             bomb.GetComponent<SphereCollider>().material = null;
             // reset timer

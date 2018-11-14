@@ -21,6 +21,9 @@ public class GameStateManager : MonoBehaviour
     public GameObject[] m_powerupSpawnPoints;
     public GameObject m_pickupManager;
 
+    [HideInInspector]
+    public int m_nRoundNumber = 0;
+
     private GameObject[] m_cranes;
     private GameObject[] m_claws;
     private GameObject m_canvas;
@@ -31,7 +34,6 @@ public class GameStateManager : MonoBehaviour
     private Quaternion[] m_clawOriginalRotations;
     private float m_fBombDropTimer;
     private int[] m_nRoundsWon;
-    private int m_nRoundNumber = 0;
     private bool m_bPlayerWon = false;
     // used to wait before the round starts
     private WaitForSeconds m_startWait;
@@ -322,6 +324,12 @@ public class GameStateManager : MonoBehaviour
 
         // clear list of pickups
         m_pickupManager.GetComponent<PickupManager>().m_spawnedPickups.Clear();
+
+        // disable all bombs in scene
+        foreach (var bomb in GameObject.FindGameObjectsWithTag("Bomb"))
+        {
+            Destroy(bomb);
+        }
     }
 
     // sets all players to kinematic

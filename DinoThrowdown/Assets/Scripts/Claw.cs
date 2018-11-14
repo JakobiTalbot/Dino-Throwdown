@@ -11,6 +11,9 @@ public class Claw : MonoBehaviour
         public float fTimer;
     }
 
+
+    // reference to bombdropper
+    public GameObject m_bombDropper;
     // speed at which the claw drops
     public float m_fMoveSpeed = 10.0f;
     // speed at which items fall
@@ -391,7 +394,13 @@ public class Claw : MonoBehaviour
             m_bDropped = true;
 
             // moves the player from the crane back into the arena
-            m_crane.m_player.transform.position = new Vector3(0.0f, 5.0f, 0.0f);
+            // get random block index
+            int nBlockIndex = Random.Range(0, m_bombDropper.GetComponent<BombDropper>().m_blocks.Count);
+
+            // get bomb position above random block
+            Vector3 v3PlayerPos = m_bombDropper.GetComponent<BombDropper>().m_blocks[nBlockIndex].transform.position;
+            v3PlayerPos.y = 5.0f;
+            m_crane.m_player.transform.position = v3PlayerPos;
             m_crane.m_player.GetComponent<PlayerController>().m_bInCrane = false;
             m_crane.m_player.GetComponent<PlayerController>().m_claw = null;
             m_crane.m_player.GetComponent<Rigidbody>().isKinematic = false;

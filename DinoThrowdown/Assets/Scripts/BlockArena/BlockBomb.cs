@@ -25,12 +25,18 @@ public class BlockBomb : MonoBehaviour
     // maximum amount of blocks that can be destroyed by one explosion
     public int m_nMaxBlocksToDestroy = 3;
 
+    [HideInInspector]
+    public GameObject m_bombDropper;
+
+    private GameStateManager m_gameManager;
     // reference to the claw that drops the bomb
     private Claw m_claw;
     // determines if vibration is on
     private bool m_bVibrationToggle = true;
     // stores current number of ground blocks destroyed
     private int m_nBlocksDestroyed = 0;
+    // stores the round the current bomb was spawned
+    private int m_nRoundSpawned;
 
     private void Start()
     {
@@ -40,6 +46,9 @@ public class BlockBomb : MonoBehaviour
         {
             m_bVibrationToggle = OptionsManager.Instance.m_bVibration;
         }
+
+        m_gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameStateManager>();
+        m_nRoundSpawned = m_gameManager.m_nRoundNumber;
     }
 
     // find all the players in the area around the bomb and damage them
@@ -82,58 +91,61 @@ public class BlockBomb : MonoBehaviour
 
     private void OnDestroy()
     {
-        // adds all colliders that collide with a sphere of radius m_fExplosionRadius to an array
-        Collider[] colliders = Physics.OverlapSphere(transform.position, m_fExplosionRadius);
-        // adds all players that collide with a sphere of radius m_fExplosionRadius to an array
-        Collider[] playerColliders = Physics.OverlapSphere(transform.position, m_fExplosionRadius, m_playerMask);
-
-        // iterates through all colliders
-        for (int i = 0; i < colliders.Length; i++)
+        if (m_nRoundSpawned == m_gameManager.m_nRoundNumber)
         {
-            // tries to get the rigidbody from the target
-            Rigidbody targetRigidbody = colliders[i].GetComponent<Rigidbody>();
-            // checks if a rigidbody was not found
-            if (!targetRigidbody)
+            // adds all colliders that collide with a sphere of radius m_fExplosionRadius to an array
+            Collider[] colliders = Physics.OverlapSphere(transform.position, m_fExplosionRadius);
+            // adds all players that collide with a sphere of radius m_fExplosionRadius to an array
+            Collider[] playerColliders = Physics.OverlapSphere(transform.position, m_fExplosionRadius, m_playerMask);
+
+            // iterates through all colliders
+            for (int i = 0; i < colliders.Length; i++)
             {
-                continue;
+                // tries to get the rigidbody from the target
+                Rigidbody targetRigidbody = colliders[i].GetComponent<Rigidbody>();
+                // checks if a rigidbody was not found
+                if (!targetRigidbody)
+                {
+                    continue;
+                }
+
+                // on collision with ground block
+                if (colliders[i].CompareTag("Ground") && m_nBlocksDestroyed < m_nMaxBlocksToDestroy)
+                {
+                    targetRigidbody.isKinematic = false;
+                    m_nBlocksDestroyed++;
+                }
+                else if (colliders[i].CompareTag("Player"))
+                {
+                    // adds an explosion force to the target from the bomb
+                    targetRigidbody.AddExplosionForce(m_fExplosionForce + m_fExplosionForce * (colliders[i].GetComponent<Knockback>().m_fKnockbackMeter / 100.0f),
+                                                      transform.position, m_fExplosionRadius);
+                    // calculates the damage to be dealt to the target
+                    float fDamage = CalculateDamage(targetRigidbody.position);
+                    colliders[i].GetComponent<Knockback>().m_fKnockbackMeter += fDamage * 20.0f;
+                }
             }
 
-            // on collision with ground block
-            if (colliders[i].CompareTag("Ground") && m_nBlocksDestroyed < m_nMaxBlocksToDestroy)
+            // creates an explosion of the specified size
+            m_explosionParticle.gameObject.transform.parent = null;
+            m_explosionParticle.transform.localScale *= m_fParticleSize;
+            m_explosionParticle.Play();
+
+            // gets the sfx volume from the options
+            if (OptionsManager.InstanceExists)
             {
-                targetRigidbody.isKinematic = false;
-                m_nBlocksDestroyed++;
+                m_explosionAudio.volume = OptionsManager.Instance.m_fSFXVolume * OptionsManager.Instance.m_fMasterVolume;
             }
-            else if (colliders[i].CompareTag("Player"))
+            // plays the explosion audio
+            m_explosionAudio.Play();
+
+            // vibrates the controllers of all the hit players
+            if (m_bVibrationToggle)
             {
-                // adds an explosion force to the target from the bomb
-                targetRigidbody.AddExplosionForce(m_fExplosionForce + m_fExplosionForce * (colliders[i].GetComponent<Knockback>().m_fKnockbackMeter / 100.0f),
-                                                  transform.position, m_fExplosionRadius);
-                // calculates the damage to be dealt to the target
-                float fDamage = CalculateDamage(targetRigidbody.position);
-                colliders[i].GetComponent<Knockback>().m_fKnockbackMeter += fDamage * 20.0f;
-            }
-        }
-
-        // creates an explosion of the specified size
-        m_explosionParticle.gameObject.transform.parent = null;
-        m_explosionParticle.transform.localScale *= m_fParticleSize;
-        m_explosionParticle.Play();
-
-        // gets the sfx volume from the options
-        if (OptionsManager.InstanceExists)
-        {
-            m_explosionAudio.volume = OptionsManager.Instance.m_fSFXVolume * OptionsManager.Instance.m_fMasterVolume;
-        }
-        // plays the explosion audio
-        m_explosionAudio.Play();
-
-        // vibrates the controllers of all the hit players
-        if (m_bVibrationToggle)
-        {
-            for (int i = 0; i < playerColliders.Length; i++)
-            {
-                playerColliders[i].GetComponent<PlayerController>().SetVibration(m_fVibrationTime, m_fVibrationStrength);
+                for (int i = 0; i < playerColliders.Length; i++)
+                {
+                    playerColliders[i].GetComponent<PlayerController>().SetVibration(m_fVibrationTime, m_fVibrationStrength);
+                }
             }
         }
     }
