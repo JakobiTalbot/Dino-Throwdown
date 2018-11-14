@@ -299,7 +299,6 @@
     <Compile Include="Assets\Scripts\DestroySelf.cs" />
     <Compile Include="Assets\Scripts\Explosion.cs" />
     <Compile Include="Assets\Scripts\GameStateManager.cs" />
-    <Compile Include="Assets\Scripts\GameStateManagerWB.cs" />
     <Compile Include="Assets\Scripts\InnerRing.cs" />
     <Compile Include="Assets\Scripts\Knockback.cs" />
     <Compile Include="Assets\Scripts\MainMenu\ActivateMenu.cs" />
@@ -317,7 +316,6 @@
     <Compile Include="Assets\Scripts\MainMenu\SelectPlay.cs" />
     <Compile Include="Assets\Scripts\MainMenu\Singleton.cs" />
     <Compile Include="Assets\Scripts\OutOfBounds.cs" />
-    <Compile Include="Assets\Scripts\OutOfBoundsWreckingBowl.cs" />
     <Compile Include="Assets\Scripts\PauseGame.cs" />
     <Compile Include="Assets\Scripts\Pickups\Bomb.cs" />
     <Compile Include="Assets\Scripts\Pickups\CruiseControl.cs" />

@@ -587,7 +587,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_dinoTypes:
-  - {fileID: 4300000, guid: 0057ed0675e9fb14590a45ba6a222d0c, type: 3}
+  - {fileID: 0}
   - {fileID: 4300002, guid: 072290b42e1763b4f979c2a073437eb3, type: 3}
   - {fileID: 4300000, guid: 37b77f53bb23be8499db7f101b70523a, type: 3}
   - {fileID: 4300002, guid: cead4d99e4fdc0c4cb1b51c49222b420, type: 3}
@@ -4075,10 +4075,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76158092e1b329d4183e309469de8e84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_hoverpodType: {fileID: 0}
-  m_hoverpodColour: {fileID: 0}
-  m_dinoType: {fileID: 0}
-  m_dinoColour: {fileID: 0}
+  m_hoverpodTypes:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_hoverpodColours:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_dinoTypes:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_dinoColours:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!224 &478398409
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4575,7 +4591,7 @@ MonoBehaviour:
   m_playerViewer: {fileID: 838597861}
   m_hoverpodTypes:
   - {fileID: 4300000, guid: 4306f2652fc619c4a820a309fcf19e7a, type: 3}
-  - {fileID: 4300000, guid: 4e95f3d9bb1267e448deca3451f6e066, type: 3}
+  - {fileID: 0}
   - {fileID: 4300000, guid: 19c8ca76c85e3f74b8171fecba73860a, type: 3}
   - {fileID: 4300000, guid: 3ce09dff2b83a7547b6518a0b90b2357, type: 3}
   m_hoverpodColours:
@@ -5507,7 +5523,7 @@ MonoBehaviour:
   m_playerViewer: {fileID: 1854045787}
   m_hoverpodTypes:
   - {fileID: 4300000, guid: 4306f2652fc619c4a820a309fcf19e7a, type: 3}
-  - {fileID: 4300000, guid: 4e95f3d9bb1267e448deca3451f6e066, type: 3}
+  - {fileID: 0}
   - {fileID: 4300000, guid: 19c8ca76c85e3f74b8171fecba73860a, type: 3}
   - {fileID: 4300000, guid: 3ce09dff2b83a7547b6518a0b90b2357, type: 3}
   m_hoverpodColours:
@@ -8433,7 +8449,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_dinoTypes:
-  - {fileID: 4300000, guid: 0057ed0675e9fb14590a45ba6a222d0c, type: 3}
+  - {fileID: 0}
   - {fileID: 4300002, guid: 072290b42e1763b4f979c2a073437eb3, type: 3}
   - {fileID: 4300000, guid: 37b77f53bb23be8499db7f101b70523a, type: 3}
   - {fileID: 4300002, guid: cead4d99e4fdc0c4cb1b51c49222b420, type: 3}
@@ -10920,7 +10936,7 @@ MonoBehaviour:
   m_playerViewer: {fileID: 1485969414}
   m_hoverpodTypes:
   - {fileID: 4300000, guid: 4306f2652fc619c4a820a309fcf19e7a, type: 3}
-  - {fileID: 4300000, guid: 4e95f3d9bb1267e448deca3451f6e066, type: 3}
+  - {fileID: 0}
   - {fileID: 4300000, guid: 19c8ca76c85e3f74b8171fecba73860a, type: 3}
   - {fileID: 4300000, guid: 3ce09dff2b83a7547b6518a0b90b2357, type: 3}
   m_hoverpodColours:
@@ -11028,7 +11044,7 @@ MonoBehaviour:
   m_playerViewer: {fileID: 306241561}
   m_hoverpodTypes:
   - {fileID: 4300000, guid: 4306f2652fc619c4a820a309fcf19e7a, type: 3}
-  - {fileID: 4300000, guid: 4e95f3d9bb1267e448deca3451f6e066, type: 3}
+  - {fileID: 0}
   - {fileID: 4300000, guid: 19c8ca76c85e3f74b8171fecba73860a, type: 3}
   - {fileID: 4300000, guid: 3ce09dff2b83a7547b6518a0b90b2357, type: 3}
   m_hoverpodColours:
@@ -14782,7 +14798,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_dinoTypes:
-  - {fileID: 4300000, guid: 0057ed0675e9fb14590a45ba6a222d0c, type: 3}
+  - {fileID: 0}
   - {fileID: 4300002, guid: 072290b42e1763b4f979c2a073437eb3, type: 3}
   - {fileID: 4300000, guid: 37b77f53bb23be8499db7f101b70523a, type: 3}
   - {fileID: 4300002, guid: cead4d99e4fdc0c4cb1b51c49222b420, type: 3}
@@ -15995,7 +16011,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_dinoTypes:
-  - {fileID: 4300000, guid: 0057ed0675e9fb14590a45ba6a222d0c, type: 3}
+  - {fileID: 0}
   - {fileID: 4300002, guid: 072290b42e1763b4f979c2a073437eb3, type: 3}
   - {fileID: 4300000, guid: 37b77f53bb23be8499db7f101b70523a, type: 3}
   - {fileID: 4300002, guid: cead4d99e4fdc0c4cb1b51c49222b420, type: 3}
