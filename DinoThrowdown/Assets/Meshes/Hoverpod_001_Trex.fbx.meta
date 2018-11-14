@@ -6,12 +6,48 @@ ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Hoverpod_Body_001_Trex
+    100004: Hoverpod_Thruster_Left_001_Trex
+    100006: Hoverpod_Thruster_Right_001_Trex
+    100008: Jnt_Trex_Base
+    100010: Hoverpod_001_Trex
+    100012: Jnt_Trex_Thruster_L
+    100014: Jnt_Trex_Thruster_R
+    100016: transform1
+    100018: transform2
+    100020: transform3
+    100022: Ctrl_Trex_Base
+    100024: Ctrl_Trex_Thruster_L
+    100026: Ctrl_Trex_Thruster_R
     400000: //RootNode
+    400002: Hoverpod_Body_001_Trex
+    400004: Hoverpod_Thruster_Left_001_Trex
+    400006: Hoverpod_Thruster_Right_001_Trex
+    400008: Jnt_Trex_Base
+    400010: Hoverpod_001_Trex
+    400012: Jnt_Trex_Thruster_L
+    400014: Jnt_Trex_Thruster_R
+    400016: transform1
+    400018: transform2
+    400020: transform3
+    400022: Ctrl_Trex_Base
+    400024: Ctrl_Trex_Thruster_L
+    400026: Ctrl_Trex_Thruster_R
     2100000: lambert1
+    2100002: lambert3
     2300000: //RootNode
+    2300002: Hoverpod_Thruster_Left_001_Trex
+    2300004: Hoverpod_Thruster_Right_001_Trex
     3300000: //RootNode
+    3300002: Hoverpod_Thruster_Left_001_Trex
+    3300004: Hoverpod_Thruster_Right_001_Trex
     4300000: Hoverpod_001_Trex
+    4300002: Hoverpod_Body_001_Trex
+    4300004: Hoverpod_Thruster_Right_001_Trex
+    4300006: Hoverpod_Thruster_Left_001_Trex
     9500000: //RootNode
+    13700000: Hoverpod_Body_001_Trex
+    13700002: Hoverpod_001_Trex
   externalObjects: {}
   materials:
     importMaterials: 1

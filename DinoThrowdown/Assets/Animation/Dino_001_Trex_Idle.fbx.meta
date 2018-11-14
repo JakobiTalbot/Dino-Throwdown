@@ -1,0 +1,222 @@
+fileFormatVersion: 2
+guid: a87fcbbd032f9f8448aec14c6818f4b2
+timeCreated: 1542169947
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Dino_001_Trex_BackHorn001
+    100002: Dino_001_Trex_BackHorn02
+    100004: Dino_001_Trex_BodyMesh
+    100006: //RootNode
+    100008: Dino_001_Trex_LowerTeeth
+    100010: Dino_001_Trex_TailHorn001
+    100012: Dino_001_Trex_TailHorn002
+    100014: Dino_001_Trex_TailHorn003
+    100016: Dino_001_Trex_UpperTeeth
+    100018: Grp_JointScale
+    100020: Grp_MeshScale
+    100022: Trex_Elbow_L
+    100024: Trex_Elbow_R
+    100026: Trex_Eye_L
+    100028: Trex_Eye_L 1
+    100030: Trex_Eye_R
+    100032: Trex_Eye_R 1
+    100034: Trex_Foot_L
+    100036: Trex_Foot_R
+    100038: Trex_Head
+    100040: Trex_Hips
+    100042: Trex_Jaw
+    100044: Trex_JawEnd
+    100046: Trex_Knee_L
+    100048: Trex_Knee_R
+    100050: Trex_MiddleTorso
+    100052: Trex_MidFinger1_L
+    100054: Trex_MidFinger1_R
+    100056: Trex_MidFinger2_L
+    100058: Trex_MidFinger2_R
+    100060: Trex_Neck
+    100062: Trex_PinkyFinger1_L
+    100064: Trex_PinkyFinger1_R
+    100066: Trex_PinkyFinger2_L
+    100068: Trex_PinkyFinger2_R
+    100070: Trex_Shoulder_L
+    100072: Trex_Shoulder_R
+    100074: Trex_TailConnector
+    100076: Trex_TailEnd
+    100078: Trex_TailJoint01
+    100080: Trex_TailJoint02
+    100082: Trex_TailJoint03
+    100084: Trex_Thigh_L
+    100086: Trex_Thigh_R
+    100088: Trex_Thumb1_L
+    100090: Trex_Thumb1_R
+    100092: Trex_Thumb2_L
+    100094: Trex_Thumb2_R
+    100096: Trex_Toe_L
+    100098: Trex_Toe_R
+    100100: Trex_ToeEnd_L
+    100102: Trex_ToeEnd_R
+    100104: Trex_UpperTorso
+    100106: Trex_Wrist_L
+    100108: Trex_Wrist_R
+    400000: Dino_001_Trex_BackHorn001
+    400002: Dino_001_Trex_BackHorn02
+    400004: Dino_001_Trex_BodyMesh
+    400006: //RootNode
+    400008: Dino_001_Trex_LowerTeeth
+    400010: Dino_001_Trex_TailHorn001
+    400012: Dino_001_Trex_TailHorn002
+    400014: Dino_001_Trex_TailHorn003
+    400016: Dino_001_Trex_UpperTeeth
+    400018: Grp_JointScale
+    400020: Grp_MeshScale
+    400022: Trex_Elbow_L
+    400024: Trex_Elbow_R
+    400026: Trex_Eye_L
+    400028: Trex_Eye_L 1
+    400030: Trex_Eye_R
+    400032: Trex_Eye_R 1
+    400034: Trex_Foot_L
+    400036: Trex_Foot_R
+    400038: Trex_Head
+    400040: Trex_Hips
+    400042: Trex_Jaw
+    400044: Trex_JawEnd
+    400046: Trex_Knee_L
+    400048: Trex_Knee_R
+    400050: Trex_MiddleTorso
+    400052: Trex_MidFinger1_L
+    400054: Trex_MidFinger1_R
+    400056: Trex_MidFinger2_L
+    400058: Trex_MidFinger2_R
+    400060: Trex_Neck
+    400062: Trex_PinkyFinger1_L
+    400064: Trex_PinkyFinger1_R
+    400066: Trex_PinkyFinger2_L
+    400068: Trex_PinkyFinger2_R
+    400070: Trex_Shoulder_L
+    400072: Trex_Shoulder_R
+    400074: Trex_TailConnector
+    400076: Trex_TailEnd
+    400078: Trex_TailJoint01
+    400080: Trex_TailJoint02
+    400082: Trex_TailJoint03
+    400084: Trex_Thigh_L
+    400086: Trex_Thigh_R
+    400088: Trex_Thumb1_L
+    400090: Trex_Thumb1_R
+    400092: Trex_Thumb2_L
+    400094: Trex_Thumb2_R
+    400096: Trex_Toe_L
+    400098: Trex_Toe_R
+    400100: Trex_ToeEnd_L
+    400102: Trex_ToeEnd_R
+    400104: Trex_UpperTorso
+    400106: Trex_Wrist_L
+    400108: Trex_Wrist_R
+    2100000: lambert_Trex_RedAlbedo
+    2300000: Dino_001_Trex_BackHorn001
+    2300002: Dino_001_Trex_BackHorn02
+    3300000: Dino_001_Trex_BackHorn001
+    3300002: Dino_001_Trex_BackHorn02
+    4300000: Dino_001_Trex_TailHorn003
+    4300002: Dino_001_Trex_TailHorn002
+    4300004: Dino_001_Trex_TailHorn001
+    4300006: Dino_001_Trex_UpperTeeth
+    4300008: Dino_001_Trex_LowerTeeth
+    4300010: Dino_001_Trex_BodyMesh
+    4300012: Trex_Eye_L
+    4300014: Trex_Eye_R
+    4300016: Dino_001_Trex_BackHorn001
+    4300018: Dino_001_Trex_BackHorn02
+    7400000: Idle
+    9500000: //RootNode
+    13700000: Dino_001_Trex_BodyMesh
+    13700002: Dino_001_Trex_LowerTeeth
+    13700004: Dino_001_Trex_TailHorn001
+    13700006: Dino_001_Trex_TailHorn002
+    13700008: Dino_001_Trex_TailHorn003
+    13700010: Dino_001_Trex_UpperTeeth
+    13700012: Trex_Eye_L
+    13700014: Trex_Eye_R
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

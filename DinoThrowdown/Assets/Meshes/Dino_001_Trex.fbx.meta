@@ -74,6 +74,7 @@ ModelImporter:
     100132: transform7
     100134: transform8
     100136: transform9
+    100138: Dino_001_Trex_TailHorn004
     400000: //RootNode
     400002: Dino_001_Trex_BackHorn001
     400004: Dino_001_Trex_BackHorn02
@@ -143,9 +144,11 @@ ModelImporter:
     400132: transform7
     400134: transform8
     400136: transform9
+    400138: Dino_001_Trex_TailHorn004
     2100000: lambert1
     2100002: lambertDinoTrex1
     2100004: lambert_TrexAlbedo
+    2100006: lambert_Trex_RedAlbedo
     2300000: //RootNode
     2300002: Dino_001_Trex_BackHorn001
     2300004: Dino_001_Trex_BackHorn02
@@ -183,6 +186,9 @@ ModelImporter:
     13700004: Dino_001_Trex_TailHorn002
     13700006: Trex_Eye_L
     13700008: Trex_Eye_R
+    13700010: Dino_001_Trex_LowerTeeth
+    13700012: Dino_001_Trex_TailHorn003
+    13700014: Dino_001_Trex_UpperTeeth
   externalObjects: {}
   materials:
     importMaterials: 1

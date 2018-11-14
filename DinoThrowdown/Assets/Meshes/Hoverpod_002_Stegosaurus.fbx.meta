@@ -6,7 +6,27 @@ ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Hoverpod_002_stegosaurus
+    100004: Hoverpod_Body_002_stegosaurus
+    100006: Hoverpod_Thruster_Left_002_stegosaurus
+    100008: Hoverpod_Thruster_Right_002_stegosaurus
+    100010: Jnt_stegosaurus_Base
+    100012: Jnt_stegosaurus_Thurster_L
+    100014: Jnt_stegosaurus_Thurster_R
+    100016: transform7
+    100018: transform8
+    100020: transform9
     400000: //RootNode
+    400002: Hoverpod_002_stegosaurus
+    400004: Hoverpod_Body_002_stegosaurus
+    400006: Hoverpod_Thruster_Left_002_stegosaurus
+    400008: Hoverpod_Thruster_Right_002_stegosaurus
+    400010: Jnt_stegosaurus_Base
+    400012: Jnt_stegosaurus_Thurster_L
+    400014: Jnt_stegosaurus_Thurster_R
+    400016: transform7
+    400018: transform8
+    400020: transform9
     2100000: lambert1
     2300000: //RootNode
     3300000: //RootNode
