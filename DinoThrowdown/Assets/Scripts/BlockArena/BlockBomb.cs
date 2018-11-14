@@ -40,6 +40,7 @@ public class BlockBomb : MonoBehaviour
 
     private void Start()
     {
+        GetComponent<Collider>().material.bounceCombine = PhysicMaterialCombine.Minimum;
         m_claw = GetComponentInParent<Claw>();
         // gets whether vibration is on
         if (OptionsManager.InstanceExists)

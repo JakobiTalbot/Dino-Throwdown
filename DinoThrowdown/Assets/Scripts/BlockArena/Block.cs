@@ -10,6 +10,10 @@ public class Block : MonoBehaviour
 
     private GameObject m_dropper;
 
+    private void Awake()
+    {
+        GetComponent<Collider>().material.bounceCombine = PhysicMaterialCombine.Minimum;
+    }
     private void Update()
     {
         // accelerate down
