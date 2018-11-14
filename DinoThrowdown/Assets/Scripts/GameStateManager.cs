@@ -279,14 +279,8 @@ public class GameStateManager : MonoBehaviour
             m_claws[i].GetComponentInChildren<LineRenderer>().SetPosition(1, Vector3.zero);
         }
 
-        if (m_wreckingBall != null)
-        {
-            if (m_wreckingBall.m_bSwinging)
-            {
-                // resets the wrecking ball
-                m_wreckingBall.ResetBall();
-            }
-        }
+        // resets the wrecking ball
+        m_wreckingBall.ResetBall();
 
         if (m_bombDropper.activeInHierarchy)
         {

@@ -48,6 +48,7 @@ public class Bomb : MonoBehaviour
         m_claw.m_bItemDrop = false;
         gameObject.transform.parent = null;
         // destroys the bomb after the delay
+        GetComponent<Animator>().SetTrigger("startFlashing");
         Destroy(gameObject, m_fExplosionDelay);
     }
 

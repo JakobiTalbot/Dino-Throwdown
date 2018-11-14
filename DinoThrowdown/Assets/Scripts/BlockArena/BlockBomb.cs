@@ -66,6 +66,7 @@ public class BlockBomb : MonoBehaviour
         }
         gameObject.transform.parent = null;
         // destroys the bomb after the delay
+        GetComponent<Animator>().SetTrigger("startFlashing");
         Destroy(gameObject, m_fExplosionDelay);
     }
 
