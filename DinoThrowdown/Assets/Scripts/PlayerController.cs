@@ -29,6 +29,8 @@ public class PlayerController : MonoBehaviour
     public float m_fRotateSpeedKeyboard = 10.0f;
     // the speed in which the body rotates for controller input
     public float m_fRotateSpeedController = 0.1f;
+    // the speed in which the body rotates when cruise control is enabled
+    public float m_fCruiseRotateSpeed = 0.4f;
     // the movement speed during cruise control
     public float m_fCruiseSpeed = 8.0f;
     // the speed at which the weapon swings
@@ -163,7 +165,7 @@ public class PlayerController : MonoBehaviour
 
             // look to movement
             if (v2Movement.sqrMagnitude != 0.0f)
-                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(new Vector3(v2Movement.x, 0.0f, v2Movement.y)), m_fRotateSpeedController);
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(new Vector3(v2Movement.x, 0.0f, v2Movement.y)), m_fCruiseRotateSpeed);
         }
         // checks if the player is in the game and not on cruise control
         else if (!m_bIsOut && !m_bInCrane)
