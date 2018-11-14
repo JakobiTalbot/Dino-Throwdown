@@ -16,6 +16,9 @@ ModelImporter:
     100016: transform7
     100018: transform8
     100020: transform9
+    100022: Ctrl_stegosaurus_Base
+    100024: Ctrl_stegosaurus_Thurster_L
+    100026: Ctrl_stegosaurus_Thurster_R
     400000: //RootNode
     400002: Hoverpod_002_stegosaurus
     400004: Hoverpod_Body_002_stegosaurus
@@ -27,11 +30,17 @@ ModelImporter:
     400016: transform7
     400018: transform8
     400020: transform9
+    400022: Ctrl_stegosaurus_Base
+    400024: Ctrl_stegosaurus_Thurster_L
+    400026: Ctrl_stegosaurus_Thurster_R
     2100000: lambert1
+    2100002: lambert5
     2300000: //RootNode
     3300000: //RootNode
     4300000: Hoverpod_002_Stegosaurus
+    4300002: Hoverpod_002_stegosaurus
     9500000: //RootNode
+    13700000: Hoverpod_002_stegosaurus
   externalObjects: {}
   materials:
     importMaterials: 1

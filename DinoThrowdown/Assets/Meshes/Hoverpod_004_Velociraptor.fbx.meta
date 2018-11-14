@@ -6,12 +6,29 @@ ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Ctrl_Velociraptoraptor_Base
+    100004: Ctrl_Velociraptoraptor_Thruster_L
+    100006: Ctrl_Velociraptoraptor_Thruster_R
+    100008: Hoverpod_004_Velociraptor
+    100010: Jnt_Velociraptoraptor_Base
+    100012: Jnt_Velociraptoraptor_Thruster_L
+    100014: Jnt_Velociraptoraptor_Thruster_R
     400000: //RootNode
+    400002: Ctrl_Velociraptoraptor_Base
+    400004: Ctrl_Velociraptoraptor_Thruster_L
+    400006: Ctrl_Velociraptoraptor_Thruster_R
+    400008: Hoverpod_004_Velociraptor
+    400010: Jnt_Velociraptoraptor_Base
+    400012: Jnt_Velociraptoraptor_Thruster_L
+    400014: Jnt_Velociraptoraptor_Thruster_R
     2100000: lambert1
+    2100002: lambert6
     2300000: //RootNode
     3300000: //RootNode
     4300000: Hoverpod_004_Raptor
+    4300002: Hoverpod_004_Velociraptor
     9500000: //RootNode
+    13700000: Hoverpod_004_Velociraptor
   externalObjects: {}
   materials:
     importMaterials: 1

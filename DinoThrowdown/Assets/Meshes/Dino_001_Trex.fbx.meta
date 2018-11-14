@@ -75,6 +75,72 @@ ModelImporter:
     100134: transform8
     100136: transform9
     100138: Dino_001_Trex_TailHorn004
+    100140: Ctrl_Elbow_L
+    100142: Ctrl_Elbow_R
+    100144: Ctrl_Eye_L
+    100146: Ctrl_Eye_R
+    100148: Ctrl_Foot_L
+    100150: Ctrl_Foot_R
+    100152: Ctrl_Jaw
+    100154: Ctrl_Knee_L
+    100156: Ctrl_Knee_R
+    100158: Ctrl_Master
+    100160: Ctrl_MiddleTorso
+    100162: Ctrl_MidFinger_L
+    100164: Ctrl_MidFinger_R
+    100166: Ctrl_Neck
+    100168: Ctrl_PinkyFinger_L
+    100170: Ctrl_PinkyFinger_R
+    100172: Ctrl_Shoulder_L
+    100174: Ctrl_Shoulder_R
+    100176: Ctrl_TailConnector
+    100178: Ctrl_TailEnd
+    100180: Ctrl_TailMid
+    100182: Ctrl_TailStart
+    100184: Ctrl_Thigh_L
+    100186: Ctrl_Thigh_R
+    100188: Ctrl_Thumb_L
+    100190: Ctrl_Thumb_R
+    100192: Ctrl_Toe_L
+    100194: Ctrl_Toe_R
+    100196: Ctrl_UpperTorso
+    100198: Ctrl_Waist
+    100200: Ctrl_Wrist_L
+    100202: Ctrl_Wrist_R
+    100204: Dino_001_Trex
+    100206: Grp_ControllerScale
+    100208: Grp_Elbow_L
+    100210: Grp_Elbow_R
+    100212: Grp_Eye_L
+    100214: Grp_Eye_R
+    100216: Grp_Foot_L
+    100218: Grp_Foot_R
+    100220: Grp_Jaw
+    100222: Grp_Knee_L
+    100224: Grp_Knee_R
+    100226: Grp_Master
+    100228: Grp_MiddleTorso
+    100230: Grp_MidFinger_L
+    100232: Grp_MidFinger_R
+    100234: Grp_Neck
+    100236: Grp_PinkyFinger_L
+    100238: Grp_PinkyFinger_R
+    100240: Grp_Shoulder_L
+    100242: Grp_Shoulder_R
+    100244: Grp_TailConnector
+    100246: Grp_TailEnd
+    100248: Grp_TailMid
+    100250: Grp_TailStart
+    100252: Grp_Thigh_L
+    100254: Grp_Thigh_R
+    100256: Grp_Thumb_L
+    100258: Grp_Thumb_R
+    100260: Grp_Toe_L
+    100262: Grp_Toe_R
+    100264: Grp_UpperTorso
+    100266: Grp_Waist
+    100268: Grp_Wrist_L
+    100270: Grp_Wrist_R
     400000: //RootNode
     400002: Dino_001_Trex_BackHorn001
     400004: Dino_001_Trex_BackHorn02
@@ -145,6 +211,72 @@ ModelImporter:
     400134: transform8
     400136: transform9
     400138: Dino_001_Trex_TailHorn004
+    400140: Ctrl_Elbow_L
+    400142: Ctrl_Elbow_R
+    400144: Ctrl_Eye_L
+    400146: Ctrl_Eye_R
+    400148: Ctrl_Foot_L
+    400150: Ctrl_Foot_R
+    400152: Ctrl_Jaw
+    400154: Ctrl_Knee_L
+    400156: Ctrl_Knee_R
+    400158: Ctrl_Master
+    400160: Ctrl_MiddleTorso
+    400162: Ctrl_MidFinger_L
+    400164: Ctrl_MidFinger_R
+    400166: Ctrl_Neck
+    400168: Ctrl_PinkyFinger_L
+    400170: Ctrl_PinkyFinger_R
+    400172: Ctrl_Shoulder_L
+    400174: Ctrl_Shoulder_R
+    400176: Ctrl_TailConnector
+    400178: Ctrl_TailEnd
+    400180: Ctrl_TailMid
+    400182: Ctrl_TailStart
+    400184: Ctrl_Thigh_L
+    400186: Ctrl_Thigh_R
+    400188: Ctrl_Thumb_L
+    400190: Ctrl_Thumb_R
+    400192: Ctrl_Toe_L
+    400194: Ctrl_Toe_R
+    400196: Ctrl_UpperTorso
+    400198: Ctrl_Waist
+    400200: Ctrl_Wrist_L
+    400202: Ctrl_Wrist_R
+    400204: Dino_001_Trex
+    400206: Grp_ControllerScale
+    400208: Grp_Elbow_L
+    400210: Grp_Elbow_R
+    400212: Grp_Eye_L
+    400214: Grp_Eye_R
+    400216: Grp_Foot_L
+    400218: Grp_Foot_R
+    400220: Grp_Jaw
+    400222: Grp_Knee_L
+    400224: Grp_Knee_R
+    400226: Grp_Master
+    400228: Grp_MiddleTorso
+    400230: Grp_MidFinger_L
+    400232: Grp_MidFinger_R
+    400234: Grp_Neck
+    400236: Grp_PinkyFinger_L
+    400238: Grp_PinkyFinger_R
+    400240: Grp_Shoulder_L
+    400242: Grp_Shoulder_R
+    400244: Grp_TailConnector
+    400246: Grp_TailEnd
+    400248: Grp_TailMid
+    400250: Grp_TailStart
+    400252: Grp_Thigh_L
+    400254: Grp_Thigh_R
+    400256: Grp_Thumb_L
+    400258: Grp_Thumb_R
+    400260: Grp_Toe_L
+    400262: Grp_Toe_R
+    400264: Grp_UpperTorso
+    400266: Grp_Waist
+    400268: Grp_Wrist_L
+    400270: Grp_Wrist_R
     2100000: lambert1
     2100002: lambertDinoTrex1
     2100004: lambert_TrexAlbedo
@@ -180,6 +312,7 @@ ModelImporter:
     4300020: Trex_Eye_L
     4300022: Trex_Eye_R
     7400000: Take 001
+    7400002: Idle
     9500000: //RootNode
     13700000: Dino_001_Trex_BodyMesh
     13700002: Dino_001_Trex_TailHorn001
@@ -189,6 +322,7 @@ ModelImporter:
     13700010: Dino_001_Trex_LowerTeeth
     13700012: Dino_001_Trex_TailHorn003
     13700014: Dino_001_Trex_UpperTeeth
+    13700016: Dino_001_Trex
   externalObjects: {}
   materials:
     importMaterials: 1

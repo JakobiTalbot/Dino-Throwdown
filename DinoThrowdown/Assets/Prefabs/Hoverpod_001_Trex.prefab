@@ -162,8 +162,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1291766033297820}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 1.446, z: 0.084}
-  m_LocalScale: {x: 0.81, y: 0.81, z: 0.81}
+  m_LocalPosition: {x: -0, y: 0.358, z: 0.335}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4515662245231780}
   m_Father: {fileID: 4268429517351810}
@@ -246,8 +246,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000575598159676}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1, y: -1.0629629, z: 0.5876539}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.8100005, y: 0.22700003, z: 0.22499964}
+  m_LocalScale: {x: 0.81000096, y: 0.81, z: 0.81000096}
   m_Children:
   - {fileID: 4531765856121030}
   m_Father: {fileID: 4007746815654916}
@@ -688,6 +688,7 @@ MonoBehaviour:
   m_fHeightFromHoverMultiplier: 50
   m_fRotateSpeedKeyboard: 10
   m_fRotateSpeedController: 0.15
+  m_fCruiseRotateSpeed: 0.4
   m_fCruiseSpeed: 25
   m_fAttackSpeed: 0.25
   m_fClawSpeed: 25

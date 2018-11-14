@@ -1,17 +1,32 @@
 fileFormatVersion: 2
 guid: 19c8ca76c85e3f74b8171fecba73860a
-timeCreated: 1539142556
+timeCreated: 1542236982
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Hoverpod_003_triceratops
+    100004: Jnt_triceratops_Base
+    100006: Jnt_triceratops_Thruster_L
+    100008: Jnt_triceratops_Thruster_R
+    100010: Ctrl_triceratops_Base
+    100012: Ctrl_triceratops_Thruster_L
+    100014: Ctrl_triceratops_Thruster_R
     400000: //RootNode
-    2100000: lambert1
+    400002: Hoverpod_003_triceratops
+    400004: Jnt_triceratops_Base
+    400006: Jnt_triceratops_Thruster_L
+    400008: Jnt_triceratops_Thruster_R
+    400010: Ctrl_triceratops_Base
+    400012: Ctrl_triceratops_Thruster_L
+    400014: Ctrl_triceratops_Thruster_R
+    2100000: lambert4
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Hoverpod_003_Triceratops
+    4300000: Hoverpod_003_triceratops
     9500000: //RootNode
+    13700000: Hoverpod_003_triceratops
   externalObjects: {}
   materials:
     importMaterials: 1
