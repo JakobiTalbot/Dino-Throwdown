@@ -12,12 +12,10 @@ public class BlockBomb : MonoBehaviour
     public float m_fExplosionRadius = 5.0f;
     // delay before the bomb explodes
     public float m_fExplosionDelay = 1.5f;
-    // reference to the explosion particle
-    public ParticleSystem m_explosionParticle;
+    // reference to the explosion
+    public GameObject m_explosion;
     // size of the particle
     public float m_fParticleSize = 1.3f;
-    // reference to the explosion audio
-    public AudioSource m_explosionAudio;
     // strength for the controller to vibrate when hit by explosion
     public float m_fVibrationStrength = 1.0f;
     // time for the controller to vibrate when hit by explosion
@@ -127,18 +125,15 @@ public class BlockBomb : MonoBehaviour
                 }
             }
 
-            // creates an explosion of the specified size
-            m_explosionParticle.gameObject.transform.parent = null;
-            m_explosionParticle.transform.localScale *= m_fParticleSize;
-            m_explosionParticle.Play();
+            // create explosion at bomb position
+            GameObject explosion = Instantiate(m_explosion, transform.position, transform.rotation);
+            explosion.transform.localScale *= m_fParticleSize;
 
             // gets the sfx volume from the options
             if (OptionsManager.InstanceExists)
             {
-                m_explosionAudio.volume = OptionsManager.Instance.m_fSFXVolume * OptionsManager.Instance.m_fMasterVolume;
+                explosion.GetComponent<AudioSource>().volume = OptionsManager.Instance.m_fSFXVolume * OptionsManager.Instance.m_fMasterVolume;
             }
-            // plays the explosion audio
-            m_explosionAudio.Play();
 
             // vibrates the controllers of all the hit players
             if (m_bVibrationToggle)

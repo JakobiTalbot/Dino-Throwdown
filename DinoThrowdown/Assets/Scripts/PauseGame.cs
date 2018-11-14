@@ -74,7 +74,7 @@ public class PauseGame : MonoBehaviour
                 button.GetComponentInChildren<Text>().color = new Color(0.2f, 0.2f, 0.2f, m_fAlpha);
             }
         }
-        if (m_options.activeSelf)
+        if (m_options.activeSelf && OptionsManager.InstanceExists)
         {
             // check if values have been imported from singleton
             if (!m_bValuesSet)
