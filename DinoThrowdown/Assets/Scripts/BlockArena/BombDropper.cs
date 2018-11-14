@@ -7,6 +7,7 @@ public class BombDropper : MonoBehaviour
     public GameObject m_blocksParent;
     public GameObject m_bomb;
     public float m_fDropInterval = 5.0f;
+    public float m_fSecondsUntilBombsStartDropping = 10.0f;
     public int m_nDropHeight = 20;
     public int m_nMaxBlocksToDestroy = 3;
 
@@ -14,12 +15,15 @@ public class BombDropper : MonoBehaviour
     public float m_fDropTimer;
     [HideInInspector]
     public List<Transform> m_blocks;
+    [HideInInspector]
+    public float m_fTimeUntilBombsDrop;
 
     private Vector3[] m_v3OriginalBlockPositions;
 
     // Use this for initialization
     void Awake()
     {
+        m_fTimeUntilBombsDrop = m_fSecondsUntilBombsStartDropping;
         AddBlocks();
         m_v3OriginalBlockPositions = new Vector3[m_blocks.Count];
 
@@ -36,7 +40,10 @@ public class BombDropper : MonoBehaviour
 	void Update()
     {
         // decrement timer
-        m_fDropTimer -= Time.deltaTime;
+        if (m_fTimeUntilBombsDrop > 0.0f)
+            m_fTimeUntilBombsDrop -= Time.deltaTime;
+        else
+            m_fDropTimer -= Time.deltaTime;
 
         if (m_fDropTimer <= 0.0f && m_blocks.Count > 0)
         {

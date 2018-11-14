@@ -8909,6 +8909,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb9c635ced4e90f48ac7379352b134ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_bombDropper: {fileID: 1326367753}
   m_fMoveSpeed: 40
   m_fFallSpeed: 20
   m_fMoveRadius: 30
@@ -10852,6 +10853,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb9c635ced4e90f48ac7379352b134ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_bombDropper: {fileID: 1326367753}
   m_fMoveSpeed: 40
   m_fFallSpeed: 20
   m_fMoveRadius: 30
@@ -20293,6 +20295,7 @@ MonoBehaviour:
   - {fileID: 1276844853}
   - {fileID: 123641450}
   m_pickupManager: {fileID: 1225126175}
+  m_nRoundNumber: 0
 --- !u!4 &1947069051
 Transform:
   m_ObjectHideFlags: 0

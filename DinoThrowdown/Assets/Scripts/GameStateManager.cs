@@ -15,8 +15,6 @@ public class GameStateManager : MonoBehaviour
     public RestartGame m_gameOverCanvas;
     // reference to bombdropper object
     public GameObject m_bombDropper;
-    // time to activate bombdropper
-    public float m_fSecondsUntilBombsDrop = 30.0f;
     // stores reference to all powerup spawnpoints
     public GameObject[] m_powerupSpawnPoints;
     public GameObject m_pickupManager;
@@ -32,7 +30,6 @@ public class GameStateManager : MonoBehaviour
     private Quaternion[] m_playerOriginalRotations;
     private Vector3[] m_clawOriginalPositions;
     private Quaternion[] m_clawOriginalRotations;
-    private float m_fBombDropTimer;
     private int[] m_nRoundsWon;
     private bool m_bPlayerWon = false;
     // used to wait before the round starts
@@ -56,7 +53,6 @@ public class GameStateManager : MonoBehaviour
         m_playersRemaining = new List<GameObject>();
         m_nRoundsWon = new int[m_players.Length];
         m_canvas = GameObject.FindGameObjectWithTag("Canvas");
-        m_fBombDropTimer = m_fSecondsUntilBombsDrop;
         m_wreckingBall = GameObject.FindGameObjectWithTag("WreckingBall").GetComponent<WreckingBall>();
 
         m_backgroundMusic = GetComponent<AudioSource>();
@@ -115,16 +111,6 @@ public class GameStateManager : MonoBehaviour
 
         // starts the game loop routine
         StartCoroutine(GameLoop());
-    }
-
-    private void Update()
-    {
-        m_fBombDropTimer -= Time.deltaTime;
-
-        if (m_fBombDropTimer <= 0.0f)
-        {
-            m_bombDropper.SetActive(true);
-        }
     }
 
     // loops through the game
@@ -307,8 +293,8 @@ public class GameStateManager : MonoBehaviour
             dropperScript.ResetBlocks();
         }
 
-        m_bombDropper.SetActive(false);
-        m_fBombDropTimer = m_fSecondsUntilBombsDrop;
+        m_bombDropper.GetComponent<BombDropper>().m_fTimeUntilBombsDrop = m_bombDropper.GetComponent<BombDropper>().m_fSecondsUntilBombsStartDropping;
+        m_bombDropper.GetComponent<BombDropper>().m_fDropTimer = m_bombDropper.GetComponent<BombDropper>().m_fDropInterval;
 
         // reset all pickup spawnpoints
         foreach (var spawnPoint in m_powerupSpawnPoints)
