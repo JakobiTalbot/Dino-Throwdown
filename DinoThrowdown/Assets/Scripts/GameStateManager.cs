@@ -132,7 +132,10 @@ public class GameStateManager : MonoBehaviour
             {
                 player.GetComponent<PlayerController>().m_bIsOut = true;
             }
-            m_gameOverCanvas.gameObject.SetActive(true);
+            m_canvas.GetComponent<UI>().FadeText();
+            m_gameOverCanvas.PlayAnimation();
+            m_gameOverCanvas.m_winText.text = m_canvas.GetComponent<UI>().m_winText.text;
+            m_gameOverCanvas.m_winText.color = new Color(m_canvas.GetComponent<UI>().m_winText.color.r, m_canvas.GetComponent<UI>().m_winText.color.g, m_canvas.GetComponent<UI>().m_winText.color.b, 0.0f);
         }
         else
         {
@@ -208,6 +211,7 @@ public class GameStateManager : MonoBehaviour
                 {
                     m_confetti.SetActive(true);
                     m_bPlayerWon = true;
+                    m_players[i].GetComponent<PlayerController>().m_bWinner = true;
                     m_canvas.GetComponent<UI>().EnablePlayerWon(m_players[i]);
                     m_canvas.GetComponent<UI>().DisableText();
                 }

@@ -86,6 +86,9 @@ public class PlayerController : MonoBehaviour
     // a count of the amount of attacks the player has done while being picked up
     [HideInInspector]
     public int m_cAttackAmount = 0;
+    // determines if the player won
+    [HideInInspector]
+    public bool m_bWinner = false;
 
     private GamePadState m_gamePadState;
     private PlayerIndex m_playerIndex;

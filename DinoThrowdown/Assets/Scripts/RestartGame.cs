@@ -6,57 +6,62 @@ using UnityEngine.SceneManagement;
 
 public class RestartGame : MonoBehaviour
 {
-    // the speed at which the canvas fades in
-    public float m_fFadeSpeed = 2.0f;
-    // reference to the text to be faded out
+    // reference to the win text
     public Text m_winText;
+    // references to the players
+    public PlayerController[] m_players;
+    // references to the player viewers
+    public GameObject[] m_playerViewers;
 
-    // reference to the screen fade image
-    private Image m_screenFader;
-    // reference to the game over text
-    private Text m_gameOverText;
-    // reference to the buttons
-    private Button[] m_buttons;
-    // used to increment the alpha of the objects
-    private float m_fAlpha = 0.0f;
+    // reference to the game over animator
+    private Animator m_gameOverAnimation;
 
-    private void Start()
+    private void Awake()
     {
-        // gets the components from the children
-        m_screenFader = GetComponentInChildren<Image>();
-        m_gameOverText = GetComponentInChildren<Text>();
-        m_buttons = GetComponentsInChildren<Button>();
-        // selects the first button
-        m_buttons[0].Select();
-        // sets the text and colour of the game over text to the win text
-        m_gameOverText.text = m_winText.text;
-        m_gameOverText.color = m_winText.color;
+        m_gameOverAnimation = GetComponent<Animator>();
     }
 
     private void Update()
     {
-        // checks if the image is half visible
-        if (m_screenFader.color.a < 0.49f)
+        // checks if all the player viewers are active
+        if (m_playerViewers[0].activeSelf && m_playerViewers[1].activeSelf && m_playerViewers[2].activeSelf && m_playerViewers[3].activeSelf)
         {
-            // increments the alpha
-            m_fAlpha += Time.deltaTime * m_fFadeSpeed;
-            // ensures that the alpha is between 0 and 0.5
-            Mathf.Clamp(m_fAlpha, 0.0f, 1.0f);
+            // stores the index of the winning player
+            bool[] bAdded = new bool[4];
 
-            // sets the components colour based on the new alpha
-            m_screenFader.color = new Color(1.0f, 1.0f, 1.0f, m_fAlpha / 2.0f);
-            m_gameOverText.color = new Color(m_gameOverText.color.r, m_gameOverText.color.g, m_gameOverText.color.b, m_fAlpha);
-
-            // iterates through each button
-            foreach (Button button in m_buttons)
+            // finds and stores the winning player
+            for (int i = 0; i < m_players.Length; i++)
             {
-                button.image.color = new Color(1.0f, 1.0f, 1.0f, m_fAlpha);
-                button.GetComponentInChildren<Text>().color = new Color(0.2f, 0.2f, 0.2f, m_fAlpha);
+                if (m_players[i].m_bWinner)
+                {
+                    m_playerViewers[0].GetComponent<MeshFilter>().mesh = m_players[i].GetComponentsInChildren<MeshFilter>()[1].mesh;
+                    m_playerViewers[0].GetComponent<MeshRenderer>().material = m_players[i].GetComponentsInChildren<MeshRenderer>()[1].material;
+                    bAdded[i] = true;
+                    break;
+                }
             }
 
-            // fades out the win text
-            m_winText.color = new Color(m_winText.color.r, m_winText.color.g, m_winText.color.b, 1.0f - m_fAlpha);
+            // adds the other players to the player viewers
+            for (int i = 1; i < m_playerViewers.Length; i++)
+            {
+                for (int j = 0; j < m_players.Length; j++)
+                {
+                    if (!bAdded[j])
+                    {
+                        m_playerViewers[i].GetComponent<MeshFilter>().mesh = m_players[j].GetComponentsInChildren<MeshFilter>()[1].mesh;
+                        m_playerViewers[i].GetComponent<MeshRenderer>().material = m_players[j].GetComponentsInChildren<MeshRenderer>()[1].material;
+                        bAdded[j] = true;
+                        break;
+                    }
+                }
+            }
         }
+    }
+
+    // plays the game over animation
+    public void PlayAnimation()
+    {
+        m_gameOverAnimation.SetTrigger("bGameOver");
     }
 
     // loads the main scene
