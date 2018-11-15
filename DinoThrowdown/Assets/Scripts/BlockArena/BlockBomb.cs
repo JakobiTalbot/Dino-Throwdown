@@ -29,6 +29,8 @@ public class BlockBomb : MonoBehaviour
     private GameStateManager m_gameManager;
     // reference to the claw that drops the bomb
     private Claw m_claw;
+    // stores whether the application is quitting or not
+    private bool m_bAppQuitting = false;
     // determines if vibration is on
     private bool m_bVibrationToggle = true;
     // stores current number of ground blocks destroyed
@@ -97,7 +99,6 @@ public class BlockBomb : MonoBehaviour
             Collider[] colliders = Physics.OverlapSphere(transform.position, m_fExplosionRadius);
             // adds all players that collide with a sphere of radius m_fExplosionRadius to an array
             Collider[] playerColliders = Physics.OverlapSphere(transform.position, m_fExplosionRadius, m_playerMask);
-
             // iterates through all colliders
             for (int i = 0; i < colliders.Length; i++)
             {
@@ -126,14 +127,17 @@ public class BlockBomb : MonoBehaviour
                 }
             }
 
-            // create explosion at bomb position
-            GameObject explosion = Instantiate(m_explosion, transform.position, transform.rotation);
-            explosion.transform.localScale *= m_fParticleSize;
-
-            // gets the sfx volume from the options
-            if (OptionsManager.InstanceExists)
+            // create explosion at bomb position if application is not quitting
+            if (!m_bAppQuitting)
             {
-                explosion.GetComponent<AudioSource>().volume = OptionsManager.Instance.m_fSFXVolume * OptionsManager.Instance.m_fMasterVolume;
+                GameObject explosion = Instantiate(m_explosion, transform.position, transform.rotation);
+                explosion.transform.localScale *= m_fParticleSize;
+
+                // gets the sfx volume from the options
+                if (OptionsManager.InstanceExists)
+                {
+                    explosion.GetComponent<AudioSource>().volume = OptionsManager.Instance.m_fSFXVolume * OptionsManager.Instance.m_fMasterVolume;
+                }
             }
 
             // vibrates the controllers of all the hit players
@@ -145,5 +149,10 @@ public class BlockBomb : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void OnApplicationQuit()
+    {
+        m_bAppQuitting = true;
     }
 }
