@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 23170689043471476}
   - component: {fileID: 95884372837274992}
   - component: {fileID: 54455192504706170}
-  - component: {fileID: 64429160980839438}
+  - component: {fileID: 64323411326358880}
   - component: {fileID: 114068198277403476}
   - component: {fileID: 114924402863239786}
   - component: {fileID: 114324380469644154}
@@ -280,7 +280,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 7636d9e0a6c869b408dc4878f420e783, type: 2}
+  - {fileID: 2100000, guid: 445f9cb3651c1244a9b980e0b6f01497, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -404,7 +404,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 32
   m_CollisionDetection: 2
---- !u!64 &64429160980839438
+--- !u!64 &64323411326358880
 MeshCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -417,7 +417,7 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 4e95f3d9bb1267e448deca3451f6e066, type: 3}
+  m_Mesh: {fileID: 4300002, guid: 4e95f3d9bb1267e448deca3451f6e066, type: 3}
 --- !u!65 &65408463224549830
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -642,7 +642,7 @@ MonoBehaviour:
     type: 2}
   m_v3DashEffectPositionOffset: {x: 0, y: 1, z: -2.5}
   m_fYRotation: 90
-  m_fDashForce: 1000
+  m_fDashForce: 1500
   m_fDashCooldown: 4
   m_fDashVibrationTime: 0.5
   m_fDashVibrationStrength: 1
@@ -665,6 +665,7 @@ MonoBehaviour:
   m_fHeightFromHoverMultiplier: 50
   m_fRotateSpeedKeyboard: 10
   m_fRotateSpeedController: 0.15
+  m_fCruiseRotateSpeed: 0.4
   m_fCruiseSpeed: 25
   m_fAttackSpeed: 0.25
   m_fClawSpeed: 25
@@ -687,6 +688,7 @@ MonoBehaviour:
   m_bInCrane: 0
   m_fKnockedBackTimer: 0
   m_cAttackAmount: 0
+  m_bWinner: 0
 --- !u!114 &114924402863239786
 MonoBehaviour:
   m_ObjectHideFlags: 1

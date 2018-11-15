@@ -81,7 +81,7 @@ GameObject:
   - component: {fileID: 95738656593871630}
   m_Layer: 0
   m_Name: Dino_001_Trex
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -711,6 +711,7 @@ MonoBehaviour:
   m_bInCrane: 0
   m_fKnockedBackTimer: 0
   m_cAttackAmount: 0
+  m_bWinner: 0
 --- !u!198 &198127702893958072
 ParticleSystem:
   m_ObjectHideFlags: 1
