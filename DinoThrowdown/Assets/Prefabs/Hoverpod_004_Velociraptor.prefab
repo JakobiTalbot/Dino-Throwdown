@@ -237,7 +237,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1947267494667278}
   m_LocalRotation: {x: -0, y: -0.0000029504295, z: -0, w: -1}
-  m_LocalPosition: {x: 1.036, y: -0.854, z: 0.85899997}
+  m_LocalPosition: {x: 1.036, y: 0.34399998, z: 0.601}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4530193707500064}
@@ -291,7 +291,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1253389561498132}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.036, y: 1.354, z: 0.141}
+  m_LocalPosition: {x: -0.036, y: 0.156, z: 0.399}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4595785105441864}
@@ -346,7 +346,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: d78b75d6401ed1c40a3c5e74ee496eba, type: 2}
+  - {fileID: 2100000, guid: 0056689d6d03b0f469eb3694da861d2f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -447,7 +447,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1253389561498132}
-  m_Mesh: {fileID: 4300002, guid: cead4d99e4fdc0c4cb1b51c49222b420, type: 3}
+  m_Mesh: {fileID: 4300014, guid: cead4d99e4fdc0c4cb1b51c49222b420, type: 3}
 --- !u!33 &33826747071751820
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -720,9 +720,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 349a247b76377884dbe7111260b2a1c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_fWeaponKnockbackForce: 400
-  m_fBaseWeaponKnockbackForce: 750
-  m_fForceToKnockbackMeter: 0.01
+  m_fWeaponKnockbackForce: 700
+  m_fBaseWeaponKnockbackForce: 1600
+  m_fForceToKnockbackMeter: 0.005
   m_fVelocityFactor: 100
   m_fVibrateTimeWhenHit: 0.3
   m_fVibrateStrengthWhenHit: 0.5
