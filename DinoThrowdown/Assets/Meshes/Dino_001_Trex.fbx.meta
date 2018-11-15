@@ -313,6 +313,9 @@ ModelImporter:
     4300022: Trex_Eye_R
     7400000: Take 001
     7400002: Idle
+    7400004: Winning
+    7400006: Losing
+    7400008: Attacking
     9500000: //RootNode
     13700000: Dino_001_Trex_BodyMesh
     13700002: Dino_001_Trex_TailHorn001
