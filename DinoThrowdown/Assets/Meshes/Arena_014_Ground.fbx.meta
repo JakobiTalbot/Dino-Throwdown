@@ -1,17 +1,16 @@
 fileFormatVersion: 2
-guid: e9235e763c3ae6c459bf2bcdc3fac920
-timeCreated: 1541736512
+guid: bd7648a1d1e56cc4d89297c528e1ea81
+timeCreated: 1542260661
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: lambert1
-    2100002: lambert2
+    2100000: StingrayPBS7
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Arena_011_MainStand
+    4300000: Arena_014_Ground
     9500000: //RootNode
   externalObjects: {}
   materials:
