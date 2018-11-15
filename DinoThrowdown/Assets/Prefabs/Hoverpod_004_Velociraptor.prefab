@@ -447,7 +447,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1253389561498132}
-  m_Mesh: {fileID: 4300014, guid: cead4d99e4fdc0c4cb1b51c49222b420, type: 3}
+  m_Mesh: {fileID: 4300002, guid: cead4d99e4fdc0c4cb1b51c49222b420, type: 3}
 --- !u!33 &33826747071751820
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -743,12 +743,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03df447142469fb41931c95036fcb8ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_thrusters: []
+  m_thrusters:
+  - {fileID: 1110972739453900}
+  - {fileID: 1383383039237444}
   m_dashEffect: {fileID: 1243394425017142, guid: 0d404d1fa7fed7c49acdf3596385a298,
     type: 2}
   m_v3DashEffectPositionOffset: {x: 0, y: 1, z: -2.5}
   m_fYRotation: 0
-  m_fDashForce: 1500
+  m_fDashForce: 1250
   m_fDashCooldown: 4
   m_fDashVibrationTime: 0.5
   m_fDashVibrationStrength: 1
@@ -767,12 +769,12 @@ MonoBehaviour:
   m_fVelocity: 30
   m_fCorrectionSpeed: 0.5
   m_fHoverHeight: 2
-  m_fHoverForce: 750
+  m_fHoverForce: 1500
   m_fHeightFromHoverMultiplier: 50
   m_fRotateSpeedKeyboard: 10
   m_fRotateSpeedController: 0.15
   m_fCruiseRotateSpeed: 0.4
-  m_fCruiseSpeed: 25
+  m_fCruiseSpeed: 17
   m_fAttackSpeed: 0.25
   m_fClawSpeed: 25
   m_fPickupSpeed: 25
@@ -783,7 +785,7 @@ MonoBehaviour:
   m_fCruiseControlTime: 5
   m_fWeaponSizeTime: 3
   m_weapon: {fileID: 1660849387622490}
-  m_fStopCruiseAfterHitTime: 0.5
+  m_fStopCruiseAfterHitTime: 1
   m_pauseGameCanvas: {fileID: 0}
   m_gameOverCanvas: {fileID: 0}
   m_claw: {fileID: 0}

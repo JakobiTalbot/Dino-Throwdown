@@ -4911,7 +4911,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4640511509444302, guid: 654ced65e19a04341ae7d00170f3e92d, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1376881934740160, guid: 654ced65e19a04341ae7d00170f3e92d, type: 2}
       propertyPath: m_IsActive
@@ -5044,7 +5044,7 @@ Transform:
   m_Children:
   - {fileID: 578392547}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &129798957
 GameObject:
@@ -5379,7 +5379,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &166337516
 GameObject:
@@ -5519,7 +5519,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4106680853855732, guid: d723e3a13b282a041b69d58ad06d2074, type: 2}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1177029968323070, guid: d723e3a13b282a041b69d58ad06d2074, type: 2}
       propertyPath: m_IsActive
@@ -8735,7 +8735,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4175473253603726, guid: 3dd781b0dcc22c540bc32dec6230a568, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1445116149922076, guid: 3dd781b0dcc22c540bc32dec6230a568, type: 2}
       propertyPath: m_IsActive
@@ -8803,45 +8803,6 @@ Prefab:
       propertyPath: m_gameOverCanvas
       value: 
       objectReference: {fileID: 387361479}
-    - target: {fileID: 114190588944442738, guid: 233ef30d6ae3ae546af22cc1d97724af,
-        type: 2}
-      propertyPath: m_fWeaponKnockbackForce
-      value: 700
-      objectReference: {fileID: 0}
-    - target: {fileID: 114190588944442738, guid: 233ef30d6ae3ae546af22cc1d97724af,
-        type: 2}
-      propertyPath: m_fForceToKnockbackMeter
-      value: 0.005
-      objectReference: {fileID: 0}
-    - target: {fileID: 114190588944442738, guid: 233ef30d6ae3ae546af22cc1d97724af,
-        type: 2}
-      propertyPath: m_fBaseWeaponKnockbackForce
-      value: 1600
-      objectReference: {fileID: 0}
-    - target: {fileID: 1224762412957598, guid: 233ef30d6ae3ae546af22cc1d97724af, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114425542154673888, guid: 233ef30d6ae3ae546af22cc1d97724af,
-        type: 2}
-      propertyPath: m_fHoverForce
-      value: 1500
-      objectReference: {fileID: 0}
-    - target: {fileID: 114213850701857672, guid: 233ef30d6ae3ae546af22cc1d97724af,
-        type: 2}
-      propertyPath: m_fDashForce
-      value: 1250
-      objectReference: {fileID: 0}
-    - target: {fileID: 114425542154673888, guid: 233ef30d6ae3ae546af22cc1d97724af,
-        type: 2}
-      propertyPath: m_fCruiseSpeed
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 114425542154673888, guid: 233ef30d6ae3ae546af22cc1d97724af,
-        type: 2}
-      propertyPath: m_fStopCruiseAfterHitTime
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 233ef30d6ae3ae546af22cc1d97724af, type: 2}
   m_IsPrefabParent: 0
@@ -9377,7 +9338,7 @@ Transform:
   - {fileID: 123641451}
   - {fileID: 1225126176}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &604500346
 GameObject:
@@ -10535,7 +10496,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &767372912
 GameObject:
@@ -13032,8 +12993,9 @@ Transform:
   - {fileID: 560355813}
   - {fileID: 1817499092}
   - {fileID: 29232263}
+  - {fileID: 1963785619}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &996739319 stripped
 Transform:
@@ -13236,7 +13198,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 987354487}
     m_Modifications:
     - target: {fileID: 400000, guid: bd7648a1d1e56cc4d89297c528e1ea81, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13252,7 +13214,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: bd7648a1d1e56cc4d89297c528e1ea81, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: bd7648a1d1e56cc4d89297c528e1ea81, type: 3}
       propertyPath: m_LocalRotation.y
@@ -13268,7 +13230,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: bd7648a1d1e56cc4d89297c528e1ea81, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bd7648a1d1e56cc4d89297c528e1ea81, type: 3}
@@ -15251,30 +15213,6 @@ Prefab:
       propertyPath: m_gameOverCanvas
       value: 
       objectReference: {fileID: 387361479}
-    - target: {fileID: 1862514045751648, guid: e052215332d9f374398dae35bb823016, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114324380469644154, guid: e052215332d9f374398dae35bb823016,
-        type: 2}
-      propertyPath: m_fHoverForce
-      value: 1500
-      objectReference: {fileID: 0}
-    - target: {fileID: 114068198277403476, guid: e052215332d9f374398dae35bb823016,
-        type: 2}
-      propertyPath: m_fDashForce
-      value: 1250
-      objectReference: {fileID: 0}
-    - target: {fileID: 114324380469644154, guid: e052215332d9f374398dae35bb823016,
-        type: 2}
-      propertyPath: m_fCruiseSpeed
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 114324380469644154, guid: e052215332d9f374398dae35bb823016,
-        type: 2}
-      propertyPath: m_fStopCruiseAfterHitTime
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e052215332d9f374398dae35bb823016, type: 2}
   m_IsPrefabParent: 0
@@ -16174,7 +16112,7 @@ Transform:
   - {fileID: 1102302752}
   - {fileID: 1582527711}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1355002214
 Prefab:
@@ -16720,35 +16658,6 @@ Prefab:
       propertyPath: m_gameOverCanvas
       value: 
       objectReference: {fileID: 387361479}
-    - target: {fileID: 33762382493612636, guid: 1ba9c3b14c9431c41957ac1db387e157,
-        type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300002, guid: cead4d99e4fdc0c4cb1b51c49222b420, type: 3}
-    - target: {fileID: 1671827575453842, guid: 1ba9c3b14c9431c41957ac1db387e157, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114875372704046928, guid: 1ba9c3b14c9431c41957ac1db387e157,
-        type: 2}
-      propertyPath: m_fHoverForce
-      value: 1500
-      objectReference: {fileID: 0}
-    - target: {fileID: 114737123950521160, guid: 1ba9c3b14c9431c41957ac1db387e157,
-        type: 2}
-      propertyPath: m_fDashForce
-      value: 1250
-      objectReference: {fileID: 0}
-    - target: {fileID: 114875372704046928, guid: 1ba9c3b14c9431c41957ac1db387e157,
-        type: 2}
-      propertyPath: m_fCruiseSpeed
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 114875372704046928, guid: 1ba9c3b14c9431c41957ac1db387e157,
-        type: 2}
-      propertyPath: m_fStopCruiseAfterHitTime
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ba9c3b14c9431c41957ac1db387e157, type: 2}
   m_IsPrefabParent: 0
@@ -21000,6 +20909,10 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!4 &1963785619 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400000, guid: bd7648a1d1e56cc4d89297c528e1ea81, type: 3}
+  m_PrefabInternal: {fileID: 1056268856}
 --- !u!1001 &1973582383
 Prefab:
   m_ObjectHideFlags: 0
@@ -22735,7 +22648,7 @@ Transform:
   - {fileID: 1963148030}
   - {fileID: 1714463291}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2114191001
 Prefab:
@@ -22893,35 +22806,6 @@ Prefab:
       propertyPath: m_gameOverCanvas
       value: 
       objectReference: {fileID: 387361479}
-    - target: {fileID: 23250090906469464, guid: d44514199fc1c544798a8c0e5049d02a,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: b844ddde5f211b14d8c8593e71c8d24b, type: 2}
-    - target: {fileID: 1985458462396902, guid: d44514199fc1c544798a8c0e5049d02a, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114068037925105280, guid: d44514199fc1c544798a8c0e5049d02a,
-        type: 2}
-      propertyPath: m_fHoverForce
-      value: 1500
-      objectReference: {fileID: 0}
-    - target: {fileID: 114924188071209448, guid: d44514199fc1c544798a8c0e5049d02a,
-        type: 2}
-      propertyPath: m_fDashForce
-      value: 1250
-      objectReference: {fileID: 0}
-    - target: {fileID: 114068037925105280, guid: d44514199fc1c544798a8c0e5049d02a,
-        type: 2}
-      propertyPath: m_fCruiseSpeed
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 114068037925105280, guid: d44514199fc1c544798a8c0e5049d02a,
-        type: 2}
-      propertyPath: m_fStopCruiseAfterHitTime
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d44514199fc1c544798a8c0e5049d02a, type: 2}
   m_IsPrefabParent: 0

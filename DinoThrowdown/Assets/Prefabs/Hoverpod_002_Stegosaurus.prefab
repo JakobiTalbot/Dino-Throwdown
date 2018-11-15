@@ -642,7 +642,7 @@ MonoBehaviour:
     type: 2}
   m_v3DashEffectPositionOffset: {x: 0, y: 1, z: -2.5}
   m_fYRotation: 90
-  m_fDashForce: 1500
+  m_fDashForce: 1250
   m_fDashCooldown: 4
   m_fDashVibrationTime: 0.5
   m_fDashVibrationStrength: 1
@@ -661,12 +661,12 @@ MonoBehaviour:
   m_fVelocity: 30
   m_fCorrectionSpeed: 0.5
   m_fHoverHeight: 2
-  m_fHoverForce: 750
+  m_fHoverForce: 1500
   m_fHeightFromHoverMultiplier: 50
   m_fRotateSpeedKeyboard: 10
   m_fRotateSpeedController: 0.15
   m_fCruiseRotateSpeed: 0.4
-  m_fCruiseSpeed: 25
+  m_fCruiseSpeed: 17
   m_fAttackSpeed: 0.25
   m_fClawSpeed: 25
   m_fPickupSpeed: 25
@@ -677,7 +677,7 @@ MonoBehaviour:
   m_fCruiseControlTime: 5
   m_fWeaponSizeTime: 3
   m_weapon: {fileID: 1585784131446886}
-  m_fStopCruiseAfterHitTime: 0.5
+  m_fStopCruiseAfterHitTime: 1
   m_pauseGameCanvas: {fileID: 0}
   m_gameOverCanvas: {fileID: 0}
   m_claw: {fileID: 0}
