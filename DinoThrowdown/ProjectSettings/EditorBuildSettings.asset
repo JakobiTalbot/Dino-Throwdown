@@ -5,15 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/MainMenu.unity
-    guid: 7475117d615e3934a86250ef72b134e2
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 0691ffc6b69172443a9cce287b164f62
+  - enabled: 0
     path: Assets/Scenes/Tyson/TysonMenu.unity
     guid: 3d58e0ec9d86ec744829c2cf572a8bf6
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/MainCombineGameMode.unity
     guid: 9832e5d2520e83345b77e2ed0d994cf3
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Tyson/Tyson.unity
     guid: 2a7aedb699623ed4ebae6897866c421c
