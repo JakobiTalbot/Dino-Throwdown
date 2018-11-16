@@ -34,8 +34,15 @@ public class RestartGame : MonoBehaviour
             {
                 if (m_players[i].m_bWinner)
                 {
-                    m_playerViewers[0].GetComponent<MeshFilter>().mesh = m_players[i].GetComponentsInChildren<MeshFilter>()[1].mesh;
-                    m_playerViewers[0].GetComponent<MeshRenderer>().material = m_players[i].GetComponentsInChildren<MeshRenderer>()[1].material;
+                    for (int j = 0; j < m_players[i].m_dinos.Length; j++)
+                    {
+                        if (m_players[i].m_dinos[j].activeSelf)
+                        {
+                            m_players[i].m_dinos[j].transform.position = m_playerViewers[0].transform.position;
+                            m_players[i].m_dinos[j].transform.rotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
+                            break;
+                        }
+                    }
                     bAdded[i] = true;
                     break;
                 }
@@ -48,8 +55,15 @@ public class RestartGame : MonoBehaviour
                 {
                     if (!bAdded[j])
                     {
-                        m_playerViewers[i].GetComponent<MeshFilter>().mesh = m_players[j].GetComponentsInChildren<MeshFilter>()[1].mesh;
-                        m_playerViewers[i].GetComponent<MeshRenderer>().material = m_players[j].GetComponentsInChildren<MeshRenderer>()[1].material;
+                        for (int k = 0; k < m_players[j].m_dinos.Length; k++)
+                        {
+                            if (m_players[j].m_dinos[k].activeSelf)
+                            {
+                                m_players[j].m_dinos[k].transform.position = m_playerViewers[i].transform.position;
+                                m_players[j].m_dinos[k].transform.rotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
+                                break;
+                            }
+                        }
                         bAdded[j] = true;
                         break;
                     }
