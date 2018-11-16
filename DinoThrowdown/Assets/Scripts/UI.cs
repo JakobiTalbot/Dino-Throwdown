@@ -42,24 +42,35 @@ public class UI : MonoBehaviour
                     m_playerPortraits[j].GetComponent<RawImage>().texture = m_portraits.rows[charManager.m_nDinoColourIndex[j]].row[charManager.m_nDinoTypeIndex[j]];
                 }
             }
-            
-            // set round images to active based on how many rounds there are
-            for (int j = 0; j < m_gameManager.GetComponent<GameStateManager>().m_nRoundsToWin; ++j)
-            {
-                m_p1RoundImages[j].SetActive(true);
-                m_p2RoundImages[j].SetActive(true);
-                m_p3RoundImages[j].SetActive(true);
-                m_p4RoundImages[j].SetActive(true);
-            }
 
             // Set bar size
             //m_knockbackBars[i].GetComponent<RectTransform>().sizeDelta = new Vector2(value,
             //    m_knockbackBars[i].GetComponent<RectTransform>().sizeDelta.y);
         }
+
+        // set round images to active based on how many rounds there are
+        for (int i = 0; i < m_gameManager.GetComponent<GameStateManager>().m_nRoundsToWin; ++i)
+        {
+            m_p1RoundImages[i].SetActive(true);
+            m_p2RoundImages[i].SetActive(true);
+            m_p3RoundImages[i].SetActive(true);
+            m_p4RoundImages[i].SetActive(true);
+        }
     }
+
 	// Update is called once per frame
 	void Update()
     {
+
+        // set round images to active based on how many rounds there are
+        for (int i = 0; i < m_gameManager.GetComponent<GameStateManager>().m_nRoundsToWin; ++i)
+        {
+            m_p1RoundImages[i].SetActive(true);
+            m_p2RoundImages[i].SetActive(true);
+            m_p3RoundImages[i].SetActive(true);
+            m_p4RoundImages[i].SetActive(true);
+        }
+
         for (int i = 0; i < m_players.Length; ++i)
         {
             if (m_players[i])
