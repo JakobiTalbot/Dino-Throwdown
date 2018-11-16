@@ -150,15 +150,21 @@ public class PlayerController : MonoBehaviour
 
         if (CharacterManager.InstanceExists)
         {
+            m_dinos[m_cPlayerNumber - 1].SetActive(false);
             int iDinoType = CharacterManager.Instance.m_iDinoTypes[m_cPlayerNumber - 1];
             m_dinos[iDinoType].SetActive(true);
-            m_dinos[iDinoType].GetComponentInChildren<SkinnedMeshRenderer>().material = CharacterManager.Instance.m_dinoColours[m_cPlayerNumber - 1];
         }
     }
 	
 	// Update is called once per frame
 	void Update()
     {
+        if (CharacterManager.InstanceExists)
+        {
+            int iDinoType = CharacterManager.Instance.m_iDinoTypes[m_cPlayerNumber - 1];
+            m_dinos[iDinoType].GetComponentInChildren<SkinnedMeshRenderer>().material = CharacterManager.Instance.m_dinoColours[m_cPlayerNumber - 1];
+        }
+
         // get controller input
         m_gamePadState = GamePad.GetState(m_playerIndex);
         // Get player input (keyboard)
