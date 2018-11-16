@@ -12204,7 +12204,7 @@ MonoBehaviour:
   m_fVelocity: 30
   m_fCorrectionSpeed: 0.5
   m_fHoverHeight: 2
-  m_fHoverForce: 750
+  m_fHoverForce: 850
   m_fHeightFromHoverMultiplier: 50
   m_fRotateSpeedKeyboard: 10
   m_fRotateSpeedController: 0.15
@@ -12221,6 +12221,11 @@ MonoBehaviour:
   m_fStopCruiseAfterHitTime: 0.5
   m_pauseGameCanvas: {fileID: 0}
   m_gameOverCanvas: {fileID: 0}
+  m_dinos:
+  - {fileID: 1650138995647396}
+  - {fileID: 1632385539841832}
+  - {fileID: 1640003494487690}
+  - {fileID: 1179940514875476}
   m_claw: {fileID: 0}
   m_v3BaseWeaponScale: {x: 0, y: 0, z: 0}
   m_v3BaseWeaponPosition: {x: 0, y: 0, z: 0}

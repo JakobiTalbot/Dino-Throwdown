@@ -11891,8 +11891,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 2.6, z: 0.5}
-  m_Center: {x: 0.05791977, y: 1.2640069, z: -0.063565835}
+  m_Size: {x: 0.9289633, y: 2.74227, z: 1.006258}
+  m_Center: {x: 0.1208385, y: 1.537096, z: -0.08519088}
 --- !u!82 &82598068531088534
 AudioSource:
   m_ObjectHideFlags: 1
@@ -12192,7 +12192,7 @@ MonoBehaviour:
   m_fVelocity: 30
   m_fCorrectionSpeed: 0.5
   m_fHoverHeight: 2
-  m_fHoverForce: 750
+  m_fHoverForce: 850
   m_fHeightFromHoverMultiplier: 50
   m_fRotateSpeedKeyboard: 10
   m_fRotateSpeedController: 0.15
@@ -12209,6 +12209,11 @@ MonoBehaviour:
   m_fStopCruiseAfterHitTime: 0.5
   m_pauseGameCanvas: {fileID: 0}
   m_gameOverCanvas: {fileID: 0}
+  m_dinos:
+  - {fileID: 1716078969804518}
+  - {fileID: 1624911579865498}
+  - {fileID: 1190675918190472}
+  - {fileID: 1962938142719564}
   m_claw: {fileID: 0}
   m_v3BaseWeaponScale: {x: 0, y: 0, z: 0}
   m_v3BaseWeaponPosition: {x: 0, y: 0, z: 0}

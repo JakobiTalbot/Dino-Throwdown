@@ -139,6 +139,8 @@ ModelImporter:
     100262: yee:polySurface4
     100264: yee:polySurface5
     100266: Dino_003_Triceratops2
+    100268: Dino_003_Triceratops1
+    100270: polySurface1
     400000: //RootNode
     400002: Ctrl_Eye_L
     400004: Ctrl_Eye_R
@@ -273,14 +275,20 @@ ModelImporter:
     400262: yee:polySurface4
     400264: yee:polySurface5
     400266: Dino_003_Triceratops2
+    400268: Dino_003_Triceratops1
+    400270: polySurface1
     2100000: lambert1
     2100002: lambert3
+    2100004: lambert2
     2300000: //RootNode
     3300000: //RootNode
     4300000: Dino_003_Triceratops
     4300002: Dino_003_Triceratops_Body1
     4300004: polySurface11
     7400000: Idle
+    7400002: Winning
+    7400004: Losing
+    7400006: Attacking
     9500000: //RootNode
     13700000: polySurface11
     13700002: Dino_003_Triceratops
