@@ -19,6 +19,8 @@ public class UI : MonoBehaviour
     public Text m_roundWinText;
     public Text m_roundText;
     public Texture m_roundWinIcon;
+    // collection of colours
+    public Material[] m_colours;
 
     // determines if the win text should fade
     private bool m_bFade = false;
@@ -35,6 +37,7 @@ public class UI : MonoBehaviour
             // set portrait images
             if (CharacterManager.InstanceExists)
             {
+                m_knockbackTexts[i].GetComponent<Text>().color = m_colours[CharacterManager.Instance.m_iDinoColours[m_players[i].GetComponent<PlayerController>().m_cPlayerNumber - 1]].color;
                 // reference to the character manager instance
                 CharacterManager charManager = CharacterManager.Instance;
                 for (int j = 0; j < m_playerPortraits.Length; ++j)
@@ -75,8 +78,6 @@ public class UI : MonoBehaviour
         {
             if (m_players[i])
             {
-                // sets the colour of the text based on the colour of the player
-                m_knockbackTexts[i].GetComponent<Text>().color = m_players[i].GetComponent<MeshRenderer>().material.color;
                 // Get percentage knockback (without decimal places)
                 int value = (int)m_players[i].GetComponent<Knockback>().GetKnockback();
                 m_knockbackTexts[i].GetComponent<Text>().text = value.ToString() + "%";
@@ -138,7 +139,7 @@ public class UI : MonoBehaviour
             {
                 GameObject[] playerRoundImages = null;
                 m_roundWinText.gameObject.SetActive(true);
-                m_roundWinText.GetComponent<Text>().color = m_players[i].GetComponent<MeshRenderer>().material.color;
+                m_roundWinText.GetComponent<Text>().color = m_colours[CharacterManager.Instance.m_iDinoColours[m_players[i].GetComponent<PlayerController>().m_cPlayerNumber - 1]].color;
 
                 // display text for the player who won
                 switch (i)
@@ -181,7 +182,7 @@ public class UI : MonoBehaviour
             if (m_players[i] == player)
             {
                 m_winText.gameObject.SetActive(true);
-                m_winText.GetComponent<Text>().color = m_players[i].GetComponent<MeshRenderer>().material.color;
+                m_winText.GetComponent<Text>().color = m_colours[CharacterManager.Instance.m_iDinoColours[m_players[i].GetComponent<PlayerController>().m_cPlayerNumber - 1]].color;
 
                 switch (i)
                 {

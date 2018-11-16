@@ -40,6 +40,8 @@ public class Claw : MonoBehaviour
     public float m_fWeaponSizeMultiplier = 2.0f;
     // the health of the claw with the shield
     public int m_cShieldHealth = 6;
+    // collection of materials
+    public Material[] m_colours;
 
     // determines if the claw has dropped
     [HideInInspector]
@@ -103,7 +105,10 @@ public class Claw : MonoBehaviour
             LineRenderer line = GetComponentInChildren<LineRenderer>();
             line.SetPosition(1, new Vector3(0.0f, 0.0f, m_fLineLength));
             // sets the colour of the line to the colour of the player
-            line.endColor = m_crane.m_player.GetComponent<MeshRenderer>().material.color;
+            if (CharacterManager.InstanceExists)
+            {
+                line.endColor = m_colours[CharacterManager.Instance.m_iDinoColours[m_crane.m_player.GetComponent<PlayerController>().m_cPlayerNumber - 1]].color;
+            }
 
             // checks if the claw has a player and a shield
             if (m_bHasPlayer && m_knockbackShield.bFlag)
