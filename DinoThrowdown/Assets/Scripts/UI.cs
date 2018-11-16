@@ -47,8 +47,8 @@ public class UI : MonoBehaviour
             }
 
             // Set bar size
-            //m_knockbackBars[i].GetComponent<RectTransform>().sizeDelta = new Vector2(value,
-            //    m_knockbackBars[i].GetComponent<RectTransform>().sizeDelta.y);
+            m_knockbackBars[i].GetComponent<RectTransform>().sizeDelta = new Vector2(value,
+                m_knockbackBars[i].GetComponent<RectTransform>().sizeDelta.y);
         }
 
         // set round images to active based on how many rounds there are
@@ -112,8 +112,8 @@ public class UI : MonoBehaviour
                 }
 
                 // Set bar size
-                //m_knockbackBars[i].GetComponent<RectTransform>().sizeDelta = new Vector2(value,
-                //    m_knockbackBars[i].GetComponent<RectTransform>().sizeDelta.y);
+                m_knockbackBars[i].GetComponent<RectTransform>().sizeDelta = new Vector2(value,
+                    m_knockbackBars[i].GetComponent<RectTransform>().sizeDelta.y);
             }
             else
             {
