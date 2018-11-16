@@ -292,6 +292,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\MainMenu\Editor\CustPropertyDrawer.cs" />
+    <Compile Include="Assets\Scripts\MainMenu\Editor\TextureCustPropertyDraw.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Textures\Other\Delete.txt" />

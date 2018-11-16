@@ -16,4 +16,10 @@ public class CharacterManager : PersistantSingleton<CharacterManager>
     // collection of references to the dino materials
     [HideInInspector]
     public Material[] m_dinoColours = new Material[4];
+    // stores index of dino type selected
+    [HideInInspector]
+    public int[] m_nDinoTypeIndex = new int[4];
+    // stores colour of dino type selected
+    [HideInInspector]
+    public int[] m_nDinoColourIndex = new int[4];
 }

@@ -12,6 +12,8 @@ public class UI : MonoBehaviour
     public GameObject[] m_p2RoundImages;
     public GameObject[] m_p3RoundImages;
     public GameObject[] m_p4RoundImages;
+    public GameObject[] m_playerPortraits;
+    public TextureArrayLayout m_portraits;
     public Text m_winText;
     public Text m_roundWinText;
     public Text m_roundText;
@@ -27,6 +29,16 @@ public class UI : MonoBehaviour
             // Get percentage knockback (without decimal places)
             int value = (int)m_players[i].GetComponent<Knockback>().GetKnockback();
             m_knockbackTexts[i].GetComponent<Text>().text = value.ToString() + "%";
+
+            // set portrait images
+            if (CharacterManager.InstanceExists)
+            {
+                CharacterManager charManager = CharacterManager.Instance;
+                for (int j = 0; j < m_playerPortraits.Length; ++j)
+                {
+                    //m_playerPortraits[j] = m_portraits[];
+                }
+            }
 
             // Set bar size
             //m_knockbackBars[i].GetComponent<RectTransform>().sizeDelta = new Vector2(value,
