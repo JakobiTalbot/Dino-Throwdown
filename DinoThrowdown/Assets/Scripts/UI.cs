@@ -38,7 +38,7 @@ public class UI : MonoBehaviour
                 CharacterManager charManager = CharacterManager.Instance;
                 for (int j = 0; j < m_playerPortraits.Length; ++j)
                 {
-                    m_playerPortraits[j].GetComponent<RawImage>().texture = m_portraits.rows[charManager.m_nDinoColourIndex[j]].row[charManager.m_nDinoTypeIndex[j]];
+                    m_playerPortraits[j].GetComponent<RawImage>().texture = m_portraits.rows[charManager.m_nDinoTypeIndex[j]].row[charManager.m_nDinoColourIndex[j]];
                 }
             }
             
