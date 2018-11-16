@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class UI : MonoBehaviour
 {
+    public GameObject m_gameManager;
     public GameObject[] m_knockbackTexts = new GameObject[4];
     public GameObject[] m_players = new GameObject[4];
     public GameObject[] m_knockbackBars = new GameObject[4];
@@ -17,6 +18,7 @@ public class UI : MonoBehaviour
     public Text m_winText;
     public Text m_roundWinText;
     public Text m_roundText;
+    public Texture m_roundWinIcon;
 
     // determines if the win text should fade
     private bool m_bFade = false;
@@ -38,6 +40,15 @@ public class UI : MonoBehaviour
                 {
                     //m_playerPortraits[j] = m_portraits[];
                 }
+            }
+            
+            // set round images to active based on how many rounds there are
+            for (int j = 0; j < m_gameManager.GetComponent<GameStateManager>().m_nRoundsToWin; ++j)
+            {
+                m_p1RoundImages[j].SetActive(true);
+                m_p2RoundImages[j].SetActive(true);
+                m_p3RoundImages[j].SetActive(true);
+                m_p4RoundImages[j].SetActive(true);
             }
 
             // Set bar size
@@ -64,25 +75,25 @@ public class UI : MonoBehaviour
                     case 0:
                         foreach (GameObject image in m_p1RoundImages)
                         {
-                            image.GetComponent<Image>().color = m_players[i].GetComponent<MeshRenderer>().material.color;
+                            image.GetComponent<RawImage>().color = m_players[i].GetComponent<MeshRenderer>().material.color;
                         }
                         break;
                     case 1:
                         foreach (GameObject image in m_p2RoundImages)
                         {
-                            image.GetComponent<Image>().color = m_players[i].GetComponent<MeshRenderer>().material.color;
+                            image.GetComponent<RawImage>().color = m_players[i].GetComponent<MeshRenderer>().material.color;
                         }
                         break;
                     case 2:
                         foreach (GameObject image in m_p3RoundImages)
                         {
-                            image.GetComponent<Image>().color = m_players[i].GetComponent<MeshRenderer>().material.color;
+                            image.GetComponent<RawImage>().color = m_players[i].GetComponent<MeshRenderer>().material.color;
                         }
                         break;
                     case 3:
                         foreach (GameObject image in m_p4RoundImages)
                         {
-                            image.GetComponent<Image>().color = m_players[i].GetComponent<MeshRenderer>().material.color;
+                            image.GetComponent<RawImage>().color = m_players[i].GetComponent<MeshRenderer>().material.color;
                         }
                         break;
                 }
@@ -117,6 +128,7 @@ public class UI : MonoBehaviour
                 m_roundWinText.gameObject.SetActive(true);
                 m_roundWinText.GetComponent<Text>().color = m_players[i].GetComponent<MeshRenderer>().material.color;
 
+                // display text for the player who won
                 switch (i)
                 {
                     case 0:
@@ -139,9 +151,9 @@ public class UI : MonoBehaviour
 
                 for (int j = 0; j < GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameStateManager>().m_nRoundsToWin; ++j)
                 {
-                    if (!playerRoundImages[j].activeSelf)
+                    if (playerRoundImages[j].GetComponent<RawImage>().texture != m_roundWinIcon)
                     {
-                        playerRoundImages[j].SetActive(true);
+                        playerRoundImages[j].GetComponent<RawImage>().texture = m_roundWinIcon;
                         return;
                     }
                 }
