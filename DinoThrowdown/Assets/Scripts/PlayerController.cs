@@ -55,6 +55,8 @@ public class PlayerController : MonoBehaviour
     public PauseGame m_pauseGameCanvas;
     // reference to the game over screen
     public RestartGame m_gameOverCanvas;
+    // collection of references to the dinos
+    public GameObject[] m_dinos;
 
     // reference to the claw that will be used
     [HideInInspector]
@@ -145,6 +147,13 @@ public class PlayerController : MonoBehaviour
 
         m_v3BaseWeaponScale = m_weapon.transform.localScale;
         m_v3BaseWeaponPosition = m_weapon.transform.localPosition;
+
+        if (CharacterManager.InstanceExists)
+        {
+            int iDinoType = CharacterManager.Instance.m_iDinoTypes[m_cPlayerNumber - 1];
+            m_dinos[iDinoType].SetActive(true);
+            m_dinos[iDinoType].GetComponentInChildren<SkinnedMeshRenderer>().material = CharacterManager.Instance.m_dinoColours[m_cPlayerNumber - 1];
+        }
     }
 	
 	// Update is called once per frame

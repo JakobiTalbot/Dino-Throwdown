@@ -25,8 +25,9 @@ public class PlayerViewer : MonoBehaviour
         // stores the selected mesh and material in the character manager once the player has confirmed their character
         if (m_characterSelection.m_bConfirmed)
         {
-            CharacterManager.Instance.m_dinoTypes[m_characterSelection.m_cPlayerNumber - 1] = m_dinoTypes[m_characterSelection.m_iHoverpodType];
+            CharacterManager.Instance.m_iDinoTypes[m_characterSelection.m_cPlayerNumber - 1] = m_characterSelection.m_iHoverpodType;
             CharacterManager.Instance.m_dinoColours[m_characterSelection.m_cPlayerNumber - 1] = m_dinoColours.rows[m_characterSelection.m_iHoverpodColour].row[m_characterSelection.m_iHoverpodType];
+            CharacterManager.Instance.m_iDinoColours[m_characterSelection.m_cPlayerNumber - 1] = m_characterSelection.m_iHoverpodColour;
         }
     }
 }

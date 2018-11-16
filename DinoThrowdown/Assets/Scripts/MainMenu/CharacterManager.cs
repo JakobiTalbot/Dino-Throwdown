@@ -12,7 +12,10 @@ public class CharacterManager : PersistantSingleton<CharacterManager>
     public Material[] m_hoverpodColours = new Material[4];
     // collection of references to the dino meshs
     [HideInInspector]
-    public Mesh[] m_dinoTypes = new Mesh[4];
+    public int[] m_iDinoTypes = new int[4];
+    // collection of references to the dino materials
+    [HideInInspector]
+    public int[] m_iDinoColours = new int[4];
     // collection of references to the dino materials
     [HideInInspector]
     public Material[] m_dinoColours = new Material[4];
