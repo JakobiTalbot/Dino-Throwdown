@@ -35,10 +35,11 @@ public class UI : MonoBehaviour
             // set portrait images
             if (CharacterManager.InstanceExists)
             {
+                // reference to the character manager instance
                 CharacterManager charManager = CharacterManager.Instance;
                 for (int j = 0; j < m_playerPortraits.Length; ++j)
                 {
-                    m_playerPortraits[j].GetComponent<RawImage>().texture = m_portraits.rows[charManager.m_nDinoTypeIndex[j]].row[charManager.m_nDinoColourIndex[j]];
+                    m_playerPortraits[j].GetComponent<RawImage>().texture = m_portraits.rows[charManager.m_nDinoColourIndex[j]].row[charManager.m_nDinoTypeIndex[j]];
                 }
             }
             
