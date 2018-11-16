@@ -382,7 +382,6 @@ public class PlayerController : MonoBehaviour
         // starts attacking
         if (!m_bWeaponSwing && !m_anim.GetCurrentAnimatorStateInfo(0).IsName("Attacking"))
         {
-            Debug.Log("attack");
             m_anim.SetBool("bIsAttacking", true);
             m_weapon.GetComponent<Animator>().SetBool("bIsAttacking", true);
             m_bWeaponSwing = true;
