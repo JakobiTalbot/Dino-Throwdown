@@ -33,14 +33,14 @@ public class PlayerController : MonoBehaviour
     public float m_fCruiseRotateSpeed = 0.4f;
     // the movement speed during cruise control
     public float m_fCruiseSpeed = 8.0f;
-    // the speed at which the weapon swings
-    public float m_fAttackSpeed = 0.1f;
+    //// the speed at which the weapon swings
+    //public float m_fAttackSpeed = 0.1f;
     // speed of the claw movement
     public float m_fClawSpeed = 15.0f;
     // speed at which the player is picked up
     public float m_fPickupSpeed = 15.0f;
-    // reference to the arm which contains the weapon
-    public GameObject m_arm;
+    //// reference to the arm which contains the weapon
+    //public GameObject m_arm;
     // reference to the crane seats
     public Transform[] m_seats;
     // time to remain in cruise control
@@ -71,9 +71,6 @@ public class PlayerController : MonoBehaviour
     // stores default weapon position
     [HideInInspector]
     public Vector3 m_v3BaseWeaponPosition;
-    // stores if the attack hit
-    [HideInInspector]
-    public bool m_bWeaponHit = false;
     // determines if the player is out of bounds
     [HideInInspector]
     public bool m_bIsOut = false;
@@ -89,19 +86,27 @@ public class PlayerController : MonoBehaviour
     // determines if the player won
     [HideInInspector]
     public bool m_bWinner = false;
+    // stores if the attack hit
+    [HideInInspector]
+    public bool m_bWeaponSwing = false;
+    // stores if the attack hit
+    [HideInInspector]
+    public bool m_bWeaponHit = false;
 
     private GamePadState m_gamePadState;
     private PlayerIndex m_playerIndex;
     private Rigidbody m_rigidbody;
-    // determines if the player is attacking
-    private Vector3 m_v3StartArmRotation;
-    private Vector3 m_v3EndArmRotation;
+    //// determines if the player is attacking
+    //private Vector3 m_v3StartArmRotation;
+    //private Vector3 m_v3EndArmRotation;
     private float m_fVibrationTimer;
     private bool m_bIsAttacking = false;
     private bool m_bPauseButtonDown = false;
     private bool m_bVibrating = false;
     private bool m_bVibrationToggle = true;
     private bool m_bAttackButtonDown = false;
+    // the player animator
+    private Animator m_anim;
 
     // Use this for initialization
     void Awake()
@@ -131,10 +136,12 @@ public class PlayerController : MonoBehaviour
         m_weaponSize.bFlag = false;
         m_weaponSize.fTimer = m_fWeaponSizeTime;
 
-        // get start and end rotation for the weapon
-        m_v3StartArmRotation = m_arm.transform.localRotation.eulerAngles;
-        m_v3EndArmRotation = m_v3StartArmRotation;
-        m_v3EndArmRotation.y -= 90.0f;
+        //// get start and end rotation for the weapon
+        //m_v3StartArmRotation = m_arm.transform.localRotation.eulerAngles;
+        //m_v3EndArmRotation = m_v3StartArmRotation;
+        //m_v3EndArmRotation.y -= 90.0f;
+
+        m_anim = GetComponentsInChildren<Animator>()[1];
 
         m_v3BaseWeaponScale = m_weapon.transform.localScale;
         m_v3BaseWeaponPosition = m_weapon.transform.localPosition;
@@ -357,15 +364,13 @@ public class PlayerController : MonoBehaviour
     // swings the weapon
     private void Attack()
     {
-        // checks if the arm should still rotate
-        if (m_arm.transform.localRotation.eulerAngles.y > (360.0f + m_v3EndArmRotation.y + 1.0f) || (m_arm.transform.localRotation.eulerAngles.y <= 0.1f && m_arm.transform.localRotation.eulerAngles.y >= -0.1f))
+        // starts attacking
+        if (!m_bWeaponSwing && !m_anim.GetCurrentAnimatorStateInfo(0).IsName("Attacking"))
         {
-            // rotates the arm
-            m_arm.transform.localRotation = (Quaternion.Lerp(m_arm.transform.localRotation, Quaternion.Euler(m_v3EndArmRotation), m_fAttackSpeed));
-        }
-        else
-        {
-            StopAttack();
+            Debug.Log("attack");
+            m_anim.SetBool("bIsAttacking", true);
+            m_weapon.GetComponent<Animator>().SetBool("bIsAttacking", true);
+            m_bWeaponSwing = true;
         }
     }
 
@@ -376,12 +381,17 @@ public class PlayerController : MonoBehaviour
 
     public void StopAttack()
     {
-        // sets the transform back to the original
-        m_arm.transform.localRotation = Quaternion.Euler(m_v3StartArmRotation);
-
         // sets the player to not attacking
         m_bIsAttacking = false;
+        m_bWeaponSwing = false;
         m_bWeaponHit = false;
+
+        // sets the animation back to normal
+        if (m_weapon.GetComponent<Animator>() != null)
+        {
+            m_anim.SetBool("bIsAttacking", false);
+            m_weapon.GetComponent<Animator>().SetBool("bIsAttacking", false);
+        }
 
         // increments the amount of attacks dealt if the player is picked up
         if (m_rigidbody.isKinematic)
