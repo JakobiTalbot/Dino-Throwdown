@@ -52,6 +52,13 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\AI.cs" />
+     <Compile Include="Assets\Scripts\BallKnockback.cs" />
+     <Compile Include="Assets\Scripts\BlockArena\Block.cs" />
+     <Compile Include="Assets\Scripts\BlockArena\BlockArenaUI.cs" />
+     <Compile Include="Assets\Scripts\BlockArena\BlockBomb.cs" />
+     <Compile Include="Assets\Scripts\BlockArena\BlockCollision.cs" />
+     <Compile Include="Assets\Scripts\BlockArena\BombDropper.cs" />
+     <Compile Include="Assets\Scripts\BlockArena\GameStateManagerBlockArena.cs" />
      <Compile Include="Assets\Scripts\Claw.cs" />
      <Compile Include="Assets\Scripts\CraneManager.cs" />
      <Compile Include="Assets\Scripts\Dash.cs" />
@@ -61,15 +68,20 @@
      <Compile Include="Assets\Scripts\InnerRing.cs" />
      <Compile Include="Assets\Scripts\Knockback.cs" />
      <Compile Include="Assets\Scripts\MainMenu\ActivateMenu.cs" />
+     <Compile Include="Assets\Scripts\MainMenu\ArrayLayout.cs" />
      <Compile Include="Assets\Scripts\MainMenu\CharacterManager.cs" />
      <Compile Include="Assets\Scripts\MainMenu\CharacterSelection.cs" />
      <Compile Include="Assets\Scripts\MainMenu\ColourPicker.cs" />
+     <Compile Include="Assets\Scripts\MainMenu\CustPropertyDrawer.cs" />
+     <Compile Include="Assets\Scripts\MainMenu\GameSetup.cs" />
      <Compile Include="Assets\Scripts\MainMenu\OptionsManager.cs" />
      <Compile Include="Assets\Scripts\MainMenu\PersistantSingleton.cs" />
+     <Compile Include="Assets\Scripts\MainMenu\PlayerViewer.cs" />
      <Compile Include="Assets\Scripts\MainMenu\PlayGame.cs" />
      <Compile Include="Assets\Scripts\MainMenu\Rotator.cs" />
      <Compile Include="Assets\Scripts\MainMenu\SelectPlay.cs" />
      <Compile Include="Assets\Scripts\MainMenu\Singleton.cs" />
+     <Compile Include="Assets\Scripts\MainMenu\TextureArrayLayout.cs" />
      <Compile Include="Assets\Scripts\OutOfBounds.cs" />
      <Compile Include="Assets\Scripts\PauseGame.cs" />
      <Compile Include="Assets\Scripts\Pickups\Bomb.cs" />
@@ -83,6 +95,9 @@
      <Compile Include="Assets\Scripts\RestartGame.cs" />
      <Compile Include="Assets\Scripts\ToryTest.cs" />
      <Compile Include="Assets\Scripts\UI.cs" />
+     <Compile Include="Assets\Scripts\WeaponSwing.cs" />
+     <Compile Include="Assets\Scripts\WreckingBall.cs" />
+     <Compile Include="Assets\Tory Tries Programming\LoadScreen.cs" />
      <Compile Include="Assets\XInput\Plugins\XboxCtrlrInput.cs" />
      <Compile Include="Assets\XInput\Plugins\XboxCtrlrInput_Helpers\XciAxisDeadzoneData.cs" />
      <Compile Include="Assets\XInput\Plugins\XboxCtrlrInput_Helpers\XciInputManagerClone.cs" />
@@ -91,7 +106,7 @@
      <Compile Include="Assets\XInput\XboxCtrlrInputExample\MovePlayer.cs" />
      <Compile Include="Assets\XInput\XInputDotNet\Examples\XInputTestCS.cs" />
      <None Include="Assets\XInput\XInputDotNet\MITLicense.txt" />
-     <None Include="Assets\Textures\Delete.txt" />
+     <None Include="Assets\Textures\Other\Delete.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
