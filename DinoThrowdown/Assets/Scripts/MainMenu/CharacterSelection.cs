@@ -484,6 +484,8 @@ public class CharacterSelection : MonoBehaviour
             // stores the player preferences in the character manager
             CharacterManager.Instance.m_hoverpodTypes[m_cPlayerNumber - 1] = m_hoverpodTypes[m_iHoverpodType];
             CharacterManager.Instance.m_hoverpodColours[m_cPlayerNumber - 1] = m_hoverpodColours.rows[m_iHoverpodColour].row[m_iHoverpodType];
+            CharacterManager.Instance.m_nDinoColourIndex[m_cPlayerNumber - 1] = m_iHoverpodColour;
+            CharacterManager.Instance.m_nDinoTypeIndex[m_cPlayerNumber - 1] = m_iHoverpodType;
             // increments the amount of ready players
             GetComponentInParent<PlayGame>().m_cReadyPlayers++;
             // resets the timer
