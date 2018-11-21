@@ -16036,7 +16036,6 @@ MonoBehaviour:
   m_fWeaponSizeTime: 3
   m_weapon: {fileID: 1121006002259628}
   m_fStopCruiseAfterHitTime: 0.5
-  m_shieldSphere: {fileID: 1266904686765674}
   m_pauseGameCanvas: {fileID: 0}
   m_gameOverCanvas: {fileID: 0}
   m_dinos:
@@ -16085,8 +16084,12 @@ MonoBehaviour:
   m_fVibrateTimeWhenHitting: 0.2
   m_fVibrateStrengthWhenHitting: 0.4
   m_fKnockbackShieldTime: 5
+  m_fShieldGlowSpeed: 2
+  m_fShieldGlowRange: 25
+  m_fShieldBaseAlpha: 125
   m_hitParticles: {fileID: 1479954545993554, guid: 7d79c951af5789844b1f63509b2e7e6a,
     type: 2}
+  m_shieldSphere: {fileID: 1266904686765674}
   m_fKnockbackMeter: 0
 --- !u!137 &137130427968203296
 SkinnedMeshRenderer:

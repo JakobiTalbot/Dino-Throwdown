@@ -16004,8 +16004,12 @@ MonoBehaviour:
   m_fVibrateTimeWhenHitting: 0.2
   m_fVibrateStrengthWhenHitting: 0.4
   m_fKnockbackShieldTime: 5
+  m_fShieldGlowSpeed: 2
+  m_fShieldGlowRange: 25
+  m_fShieldBaseAlpha: 125
   m_hitParticles: {fileID: 1479954545993554, guid: 7ab8d50f7aa39104a8f7c08393d40ea6,
     type: 2}
+  m_shieldSphere: {fileID: 1916756972406634}
   m_fKnockbackMeter: 0
 --- !u!114 &114110958277428414
 MonoBehaviour:
@@ -16048,7 +16052,6 @@ MonoBehaviour:
   m_fWeaponSizeTime: 3
   m_weapon: {fileID: 1473316451120780}
   m_fStopCruiseAfterHitTime: 0.5
-  m_shieldSphere: {fileID: 1916756972406634}
   m_pauseGameCanvas: {fileID: 0}
   m_gameOverCanvas: {fileID: 0}
   m_dinos:

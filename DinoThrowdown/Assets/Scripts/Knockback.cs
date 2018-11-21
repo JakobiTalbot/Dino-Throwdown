@@ -23,8 +23,13 @@ public class Knockback : MonoBehaviour
     public float m_fVibrateTimeWhenHitting = 0.2f;
     public float m_fVibrateStrengthWhenHitting = 1.0f;
     public float m_fKnockbackShieldTime = 5.0f;
+    public float m_fShieldGlowSpeed = 1.0f;
+    public float m_fShieldGlowRange = 25.0f;
+    public float m_fShieldBaseAlpha = 125.0f;
 
     public GameObject m_hitParticles;
+    // reference to shield sphere
+    public GameObject m_shieldSphere;
 
     // handles when the player should recieve less knockback
     [HideInInspector]
@@ -38,6 +43,8 @@ public class Knockback : MonoBehaviour
     private Vector3 m_v3Larger;
     // reference to the hit music
     private AudioSource m_hitSound;
+    // shield glow variable
+    private float m_fSineCounter = 0.0f;
 
     // Use this for initialization
     void Awake()
@@ -61,13 +68,23 @@ public class Knockback : MonoBehaviour
         // checks if the shield is on
         if (m_shield.bFlag)
         {
+            // increment sine counter
+            m_fSineCounter += Time.deltaTime * m_fShieldGlowSpeed;
+
+            // create new colour
+            Color shieldColour = m_shieldSphere.GetComponent<MeshRenderer>().material.color;
+            // set colour alpha based on sine counter
+            shieldColour.a = (m_fShieldBaseAlpha + Mathf.Sin(m_fSineCounter) * m_fShieldGlowRange) / 255.0f;
+            // set colour
+            m_shieldSphere.GetComponent<MeshRenderer>().material.color = shieldColour;
+
             m_shield.fTimer -= Time.deltaTime;
             if (m_shield.fTimer <= 0.0f)
             {
                 // resets the shield
                 m_shield.bFlag = false;
                 m_shield.fTimer = m_fKnockbackShieldTime;
-                GetComponent<PlayerController>().m_shieldSphere.GetComponent<MeshRenderer>().enabled = false;
+                m_shieldSphere.GetComponent<MeshRenderer>().enabled = false;
             }
         }
     }
