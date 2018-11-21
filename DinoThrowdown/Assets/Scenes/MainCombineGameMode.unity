@@ -16578,6 +16578,16 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114701564374413658, guid: 87ac4f08abd40bd4f846490338240cd5,
+        type: 2}
+      propertyPath: m_fScreenShakeStrength
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114701564374413658, guid: 87ac4f08abd40bd4f846490338240cd5,
+        type: 2}
+      propertyPath: m_fScreenShakeDuration
+      value: 0.6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 87ac4f08abd40bd4f846490338240cd5, type: 2}
   m_IsPrefabParent: 0
@@ -20398,6 +20408,7 @@ GameObject:
   - component: {fileID: 860933870}
   - component: {fileID: 860933869}
   - component: {fileID: 860933872}
+  - component: {fileID: 860933873}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -20480,6 +20491,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: c292cb6da7f2dc64596849ddb13b2860, type: 2}
+--- !u!114 &860933873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 860933867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b991c9290cb52704b97da93be0341e5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &860977786
 GameObject:
   m_ObjectHideFlags: 0
