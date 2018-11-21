@@ -39,6 +39,9 @@ public class BombDropper : MonoBehaviour
 	// Update is called once per frame
 	void Update()
     {
+        if (OptionsManager.InstanceExists && !OptionsManager.Instance.m_bBombs)
+            return;
+
         // decrement timer
         if (m_fTimeUntilBombsDrop > 0.0f)
             m_fTimeUntilBombsDrop -= Time.deltaTime;
