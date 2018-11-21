@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class UI : MonoBehaviour
 {
+
+    public float m_fKnockbackBarFillSpeed = 0.5f;
     public GameObject m_gameManager;
     public GameObject[] m_knockbackTexts = new GameObject[4];
     public GameObject[] m_players = new GameObject[4];
@@ -31,8 +33,8 @@ public class UI : MonoBehaviour
         for (int i = 0; i < m_players.Length; ++i)
         {
             // Get percentage knockback (without decimal places)
-            int value = (int)m_players[i].GetComponent<Knockback>().GetKnockback();
-            m_knockbackTexts[i].GetComponent<Text>().text = value.ToString() + "%";
+            int nKnockbackValue = (int)m_players[i].GetComponent<Knockback>().GetKnockback();
+            m_knockbackTexts[i].GetComponent<Text>().text = nKnockbackValue.ToString() + "%";
 
             // set portrait images
             if (CharacterManager.InstanceExists)
@@ -46,9 +48,9 @@ public class UI : MonoBehaviour
                 }
             }
 
-            // Set bar size
-            m_knockbackBars[i].GetComponent<RectTransform>().sizeDelta = new Vector2(value,
-                m_knockbackBars[i].GetComponent<RectTransform>().sizeDelta.y);
+            // set black bar size
+            m_knockbackBars[i].GetComponentsInChildren<RectTransform>()[1].sizeDelta =
+                new Vector2(Mathf.Lerp(m_knockbackBars[i].GetComponentsInChildren<RectTransform>()[1].sizeDelta.x, 100.0f - nKnockbackValue, m_fKnockbackBarFillSpeed), 25.0f);
         }
 
         // set round images to active based on how many rounds there are
@@ -79,8 +81,8 @@ public class UI : MonoBehaviour
             if (m_players[i])
             {
                 // Get percentage knockback (without decimal places)
-                int value = (int)m_players[i].GetComponent<Knockback>().GetKnockback();
-                m_knockbackTexts[i].GetComponent<Text>().text = value.ToString() + "%";
+                int nKnockbackValue = (int)m_players[i].GetComponent<Knockback>().GetKnockback();
+                m_knockbackTexts[i].GetComponent<Text>().text = nKnockbackValue.ToString() + "%";
 
                 // sets the colour of the image based on the colour of the player
                 switch (i)
@@ -111,9 +113,9 @@ public class UI : MonoBehaviour
                         break;
                 }
 
-                // Set bar size
-                m_knockbackBars[i].GetComponent<RectTransform>().sizeDelta = new Vector2(value,
-                    m_knockbackBars[i].GetComponent<RectTransform>().sizeDelta.y);
+                // set black bar size
+                m_knockbackBars[i].GetComponentsInChildren<RectTransform>()[1].sizeDelta = 
+                    new Vector2(Mathf.Lerp(m_knockbackBars[i].GetComponentsInChildren<RectTransform>()[1].sizeDelta.x, 100.0f - nKnockbackValue, m_fKnockbackBarFillSpeed), 25.0f);
             }
             else
             {
