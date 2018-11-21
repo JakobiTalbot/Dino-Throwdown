@@ -29,11 +29,11 @@ MonoBehaviour:
     m_Settings:
       excludeSkybox: 1
   antialiasing:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       method: 0
       fxaaSettings:
-        preset: 2
+        preset: 1
       taaSettings:
         jitterSpread: 0.191
         sharpen: 0.3
@@ -42,7 +42,7 @@ MonoBehaviour:
   ambientOcclusion:
     m_Enabled: 1
     m_Settings:
-      intensity: 0.91
+      intensity: 0.35
       radius: 1.63
       sampleCount: 10
       downsampling: 1
@@ -71,7 +71,7 @@ MonoBehaviour:
   depthOfField:
     m_Enabled: 1
     m_Settings:
-      focusDistance: 8.3
+      focusDistance: 9
       aperture: 12
       focalLength: 118.3
       useCameraFov: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
       bloom:
         intensity: 0.09
         threshold: 1
-        softKnee: 0.079
+        softKnee: 0
         radius: 3.64
         antiFlicker: 0
       lensDirt:
@@ -114,25 +114,25 @@ MonoBehaviour:
       tonemapping:
         tonemapper: 2
         neutralBlackIn: 0.0468
-        neutralWhiteIn: 14.13
-        neutralBlackOut: 0.0207
-        neutralWhiteOut: 6.08
-        neutralWhiteLevel: 10.26
-        neutralWhiteClip: 7.25
+        neutralWhiteIn: 20
+        neutralBlackOut: 0.03
+        neutralWhiteOut: 9.7
+        neutralWhiteLevel: 20
+        neutralWhiteClip: 8.12
       basic:
         postExposure: 0
-        temperature: -24.3
+        temperature: -15
         tint: 0
         hueShift: 0
-        saturation: 1.291
-        contrast: 1.275
+        saturation: 1.25
+        contrast: 1.5
       channelMixer:
         red: {x: 1, y: 0, z: 0}
         green: {x: 0, y: 1, z: 0}
         blue: {x: 0, y: 0, z: 1}
-        currentEditingChannel: 0
+        currentEditingChannel: 2
       colorWheels:
-        mode: 1
+        mode: 0
         log:
           slope: {r: 0.99104923, g: 0.98209804, b: 1, a: 0.01438849}
           power: {r: 1, g: 0.9999998, b: 0.9999998, a: 0}
@@ -278,13 +278,13 @@ MonoBehaviour:
   userLut:
     m_Enabled: 0
     m_Settings:
-      lut: {fileID: 0}
+      lut: {fileID: 2800000, guid: 8c6a0e3bf3cc13f4ab1ac7079099e994, type: 3}
       contribution: 1
   chromaticAberration:
     m_Enabled: 0
     m_Settings:
       spectralTexture: {fileID: 0}
-      intensity: 0.659
+      intensity: 0
   grain:
     m_Enabled: 0
     m_Settings:
