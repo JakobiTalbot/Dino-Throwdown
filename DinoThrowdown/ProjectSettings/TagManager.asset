@@ -18,6 +18,7 @@ TagManager:
   - Dino
   - Bomb
   - Options
+  - Audience
   layers:
   - Default
   - TransparentFX
