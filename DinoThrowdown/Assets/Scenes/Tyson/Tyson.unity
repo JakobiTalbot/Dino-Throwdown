@@ -13864,7 +13864,6 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 401c925515e015944883f5c195afb8d0, type: 2}
   m_bDropped: 0
   m_bHasItem: 0
-  m_bItemDrop: 0
   m_item: {fileID: 0}
   m_bHasPlayer: 0
   m_pickedUpPlayer: {fileID: 0}
@@ -18768,7 +18767,6 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 401c925515e015944883f5c195afb8d0, type: 2}
   m_bDropped: 0
   m_bHasItem: 0
-  m_bItemDrop: 0
   m_item: {fileID: 0}
   m_bHasPlayer: 0
   m_pickedUpPlayer: {fileID: 0}
@@ -20418,6 +20416,7 @@ GameObject:
   - component: {fileID: 860933870}
   - component: {fileID: 860933869}
   - component: {fileID: 860933872}
+  - component: {fileID: 860933873}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -20500,6 +20499,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: c292cb6da7f2dc64596849ddb13b2860, type: 2}
+--- !u!114 &860933873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 860933867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b991c9290cb52704b97da93be0341e5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &860977786
 GameObject:
   m_ObjectHideFlags: 0
@@ -29775,6 +29785,26 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 406fe260059997446b5b1039c7c6de92, type: 2}
+    - target: {fileID: 114924182141052946, guid: e427bdf77a6feff4c880cfe107a34eb8,
+        type: 2}
+      propertyPath: m_seats.Array.data[0]
+      value: 
+      objectReference: {fileID: 1102302752}
+    - target: {fileID: 114924182141052946, guid: e427bdf77a6feff4c880cfe107a34eb8,
+        type: 2}
+      propertyPath: m_seats.Array.data[1]
+      value: 
+      objectReference: {fileID: 1582527711}
+    - target: {fileID: 114924182141052946, guid: e427bdf77a6feff4c880cfe107a34eb8,
+        type: 2}
+      propertyPath: m_pauseGameCanvas
+      value: 
+      objectReference: {fileID: 1963148031}
+    - target: {fileID: 114924182141052946, guid: e427bdf77a6feff4c880cfe107a34eb8,
+        type: 2}
+      propertyPath: m_gameOverCanvas
+      value: 
+      objectReference: {fileID: 387361479}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e427bdf77a6feff4c880cfe107a34eb8, type: 2}
   m_IsPrefabParent: 0

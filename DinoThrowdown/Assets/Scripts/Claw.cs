@@ -11,7 +11,6 @@ public class Claw : MonoBehaviour
         public float fTimer;
     }
 
-
     // reference to bombdropper
     public GameObject m_bombDropper;
     // speed at which the claw drops
@@ -49,9 +48,6 @@ public class Claw : MonoBehaviour
     // determines if the claw picked up an item
     [HideInInspector]
     public bool m_bHasItem = false;
-    // determines if the item is being dropped
-    [HideInInspector]
-    public bool m_bItemDrop = false;
     // reference to the item that is picked up
     [HideInInspector]
     public GameObject m_item = null;
@@ -286,13 +282,6 @@ public class Claw : MonoBehaviour
         v3Direction.x = fHorizontal * Time.deltaTime;
         v3Direction.z = fVertical * Time.deltaTime;
 
-        // stores the previous item position
-        Vector3 v3PrevPos = Vector3.zero;
-        if (m_bHasItem && m_bItemDrop)
-        {
-            v3PrevPos = m_item.transform.position;
-        }
-
         // changes the moving speed based on the pick up
         if (m_cruiseControl.bFlag)
         {
@@ -320,13 +309,6 @@ public class Claw : MonoBehaviour
             v2Origin.Normalize();
             v2Origin *= m_fMoveRadius;
             transform.position = new Vector3(v2Origin.x, transform.position.y, v2Origin.y);
-        }
-
-        if (m_bItemDrop)
-        {
-            // ensures that the item falls straight down
-            m_item.transform.position = new Vector3(v3PrevPos.x, m_item.transform.position.y, v3PrevPos.z);
-            m_item.transform.Translate(-m_item.transform.up * Time.deltaTime * m_fFallSpeed);
         }
     }
 
@@ -364,7 +346,9 @@ public class Claw : MonoBehaviour
         if (m_item != null && !m_bDropped)
         {
             m_item.GetComponent<Rigidbody>().isKinematic = false;
-            m_bItemDrop = true;
+            m_bHasItem = false;
+            m_item.transform.parent = null;
+            m_delay.bFlag = true;
         }
     }
 

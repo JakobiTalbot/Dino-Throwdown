@@ -34,8 +34,6 @@ public class BlockBomb : MonoBehaviour
     private GameObject m_camera;
     // stores reference to game state manager
     private GameStateManager m_gameManager;
-    // reference to the claw that drops the bomb
-    private Claw m_claw;
     // stores whether the application is quitting or not
     private bool m_bAppQuitting = false;
     // determines if vibration is on
@@ -48,7 +46,6 @@ public class BlockBomb : MonoBehaviour
     private void Start()
     {
         GetComponent<Collider>().material.bounceCombine = PhysicMaterialCombine.Minimum;
-        m_claw = GetComponentInParent<Claw>();
         // gets whether vibration is on
         if (OptionsManager.InstanceExists)
         {
@@ -70,12 +67,6 @@ public class BlockBomb : MonoBehaviour
             return;
         }
 
-        // detatches the bomb from the claw
-        if (m_claw)
-        {
-            m_claw.m_bHasItem = false;
-            m_claw.m_bItemDrop = false;
-        }
         gameObject.transform.parent = null;
         // destroys the bomb after the delay
         GetComponent<Animator>().SetTrigger("startFlashing");

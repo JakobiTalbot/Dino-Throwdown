@@ -267,6 +267,8 @@ MonoBehaviour:
   m_fVibrationStrength: 1
   m_fVibrationTime: 0.5
   m_nMaxBlocksToDestroy: 3
+  m_fScreenShakeStrength: 1
+  m_fScreenShakeDuration: 1
   m_bombDropper: {fileID: 0}
 --- !u!135 &135214495203727296
 SphereCollider:
@@ -286,7 +288,7 @@ SphereCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1578206416247968}
-  m_Material: {fileID: 13400000, guid: 5f81c667f050d0e41bdea2bdd0ccdaf2, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2

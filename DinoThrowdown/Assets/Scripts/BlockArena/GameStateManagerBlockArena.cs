@@ -267,7 +267,7 @@ public class GameStateManagerBlockArena : MonoBehaviour
             m_claws[i].transform.localRotation = m_clawOriginalRotations[i];
             m_claws[i].GetComponent<Claw>().m_bDropped = false;
             m_claws[i].GetComponent<Claw>().m_bHasItem = false;
-            m_claws[i].GetComponent<Claw>().m_bItemDrop = false;
+            //m_claws[i].GetComponent<Claw>().m_bItemDrop = false;
             m_claws[i].GetComponent<Claw>().m_item = null;
             m_claws[i].GetComponent<Claw>().m_bHasPlayer = false;
             m_claws[i].GetComponent<Claw>().m_pickedUpPlayer = null;
