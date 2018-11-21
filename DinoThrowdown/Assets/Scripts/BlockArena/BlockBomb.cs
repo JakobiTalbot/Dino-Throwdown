@@ -22,10 +22,17 @@ public class BlockBomb : MonoBehaviour
     public float m_fVibrationTime = 0.5f;
     // maximum amount of blocks that can be destroyed by one explosion
     public int m_nMaxBlocksToDestroy = 3;
+    // strength to shake the screen (random range)
+    public float m_fScreenShakeStrength = 1.0f;
+    // time to shake the screen for in seconds
+    public float m_fScreenShakeDuration = 1.0f;
 
     [HideInInspector]
     public GameObject m_bombDropper;
 
+    // stores reference to game camera
+    private GameObject m_camera;
+    // stores reference to game state manager
     private GameStateManager m_gameManager;
     // reference to the claw that drops the bomb
     private Claw m_claw;
@@ -48,6 +55,9 @@ public class BlockBomb : MonoBehaviour
             m_bVibrationToggle = OptionsManager.Instance.m_bVibration;
         }
 
+        // find camera object
+        m_camera = GameObject.FindGameObjectWithTag("MainCamera");
+        // find game manager object
         m_gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameStateManager>();
         m_nRoundSpawned = m_gameManager.m_nRoundNumber;
     }
@@ -132,6 +142,9 @@ public class BlockBomb : MonoBehaviour
             {
                 GameObject explosion = Instantiate(m_explosion, transform.position, transform.rotation);
                 explosion.transform.localScale *= m_fParticleSize;
+
+                // do screen shake
+                m_camera.GetComponent<ScreenShake>().SetShake(m_fScreenShakeStrength, m_fScreenShakeDuration);
 
                 // gets the sfx volume from the options
                 if (OptionsManager.InstanceExists)
