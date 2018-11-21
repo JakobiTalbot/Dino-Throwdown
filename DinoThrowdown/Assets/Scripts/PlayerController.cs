@@ -51,6 +51,8 @@ public class PlayerController : MonoBehaviour
     public GameObject m_weapon;
     // stores the amount of time to not be able to cruise after being hit
     public float m_fStopCruiseAfterHitTime = 2.0f;
+    // reference to shield sphere
+    public GameObject m_shieldSphere;
     // reference to pause screen
     public PauseGame m_pauseGameCanvas;
     // reference to the game over screen

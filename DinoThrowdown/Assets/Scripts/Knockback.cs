@@ -67,6 +67,7 @@ public class Knockback : MonoBehaviour
                 // resets the shield
                 m_shield.bFlag = false;
                 m_shield.fTimer = m_fKnockbackShieldTime;
+                GetComponent<PlayerController>().m_shieldSphere.GetComponent<MeshRenderer>().enabled = false;
             }
         }
     }

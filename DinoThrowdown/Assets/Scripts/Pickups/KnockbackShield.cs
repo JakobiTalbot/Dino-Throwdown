@@ -42,6 +42,7 @@ public class KnockbackShield : Pickup
             // turns on the player's shield
             other.GetComponent<Knockback>().m_shield.bFlag = true;
             other.GetComponent<Knockback>().m_shield.fTimer = other.GetComponent<Knockback>().m_fKnockbackShieldTime;
+            other.GetComponent<PlayerController>().m_shieldSphere.GetComponent<MeshRenderer>().enabled = true;
             // sets this object to inactive
             gameObject.SetActive(false);
             // empties the spawn point
