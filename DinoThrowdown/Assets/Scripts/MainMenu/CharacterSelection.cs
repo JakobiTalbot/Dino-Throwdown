@@ -4,6 +4,7 @@ using UnityEngine;
 using XboxCtrlrInput;
 using XInputDotNetPure;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CharacterSelection : MonoBehaviour
 {
@@ -29,6 +30,8 @@ public class CharacterSelection : MonoBehaviour
     public ArrayLayout m_hoverpodColours;
     // reference to the confirm game object
     public GameObject m_confirmCanvas;
+    // reference to the play game object
+    public GameObject m_playCanvas = null;
 
     // the current dino type
     [HideInInspector]
@@ -39,6 +42,9 @@ public class CharacterSelection : MonoBehaviour
     // determines if the player has confirmed their player
     [HideInInspector]
     public bool m_bConfirmed = false;
+    // determines if the player is playing
+    [HideInInspector]
+    public bool m_bPlaying = true;
 
     // reference to the game pad
     private GamePadState m_gamePadState;
@@ -67,6 +73,21 @@ public class CharacterSelection : MonoBehaviour
         m_iHoverpodColour = m_cPlayerNumber - 1;
 
         m_colourPicker = GetComponentInChildren<ColourPicker>();
+
+        if (CharacterManager.InstanceExists)
+        {
+            CharacterManager.Instance.m_bActivePlayers[m_cPlayerNumber - 1] = false;
+        }
+
+        // the first 2 players are automatically playing
+        if (m_cPlayerNumber == 3 || m_cPlayerNumber == 4)
+        {
+            m_bPlaying = false;
+        }
+        else
+        {
+            m_bPlaying = true;
+        }
     }
 
     private void Update()
@@ -85,7 +106,7 @@ public class CharacterSelection : MonoBehaviour
         }
 
         // checks if the dino type button is selected, the input timer is finished and the player has not yet confirmed their character
-        if (m_iCurrentSelectable == 0 && m_fInputTimer < 0.0f && !m_bConfirmed)
+        if (m_iCurrentSelectable == 0 && m_fInputTimer < 0.0f && !m_bConfirmed && m_bPlaying)
         {
             // checks if a left input is given
             if (m_gamePadState.ThumbSticks.Left.X < -m_fInputPrerequisite || m_gamePadState.DPad.Left == ButtonState.Pressed || Input.GetAxis("Horizontal" + m_cPlayerNumber) < 0.0f)
@@ -180,8 +201,8 @@ public class CharacterSelection : MonoBehaviour
                 m_fInputTimer = m_fInputDelay;
             }
         }
-        // checks if the left or right dino type button is selected, the delay is finished and the player has not yet confirmed
-        else if ((m_iCurrentSelectable == 1 || m_iCurrentSelectable == 2) && m_fHorizontalTimer < 0.0f && !m_bConfirmed)
+        // checks if the left or right dino type button is selected and the delay is finished
+        else if ((m_iCurrentSelectable == 1 || m_iCurrentSelectable == 2) && m_fHorizontalTimer < 0.0f)
         {
             // sets the selected object to the dino type button
             m_iCurrentSelectable = 0;
@@ -190,7 +211,7 @@ public class CharacterSelection : MonoBehaviour
             m_selectables[2].image.color = Color.white;
         }
         // checks if the colour blue is selected, the input timer is finished and the player has not yet confirmed their character
-        else if (m_iCurrentSelectable == 3 && m_fInputTimer < 0.0f && !m_bConfirmed)
+        else if (m_iCurrentSelectable == 3 && m_fInputTimer < 0.0f && !m_bConfirmed && m_bPlaying)
         {
             // checks if a left input is given
             if (m_gamePadState.ThumbSticks.Left.X < -m_fInputPrerequisite || m_gamePadState.DPad.Left == ButtonState.Pressed || Input.GetAxis("Horizontal" + m_cPlayerNumber) < 0.0f)
@@ -240,7 +261,7 @@ public class CharacterSelection : MonoBehaviour
             }
         }
         // checks if the colour red is selected, the input timer is finished and the player has not yet confirmed their character
-        else if (m_iCurrentSelectable == 4 && m_fInputTimer < 0.0f && !m_bConfirmed)
+        else if (m_iCurrentSelectable == 4 && m_fInputTimer < 0.0f && !m_bConfirmed && m_bPlaying)
         {
             // checks if a left input is given
             if (m_gamePadState.ThumbSticks.Left.X < -m_fInputPrerequisite || m_gamePadState.DPad.Left == ButtonState.Pressed || Input.GetAxis("Horizontal" + m_cPlayerNumber) < 0.0f)
@@ -290,7 +311,7 @@ public class CharacterSelection : MonoBehaviour
             }
         }
         // checks if the colour green is selected, the input timer is finished and the player has not yet confirmed their character
-        else if (m_iCurrentSelectable == 5 && m_fInputTimer < 0.0f && !m_bConfirmed)
+        else if (m_iCurrentSelectable == 5 && m_fInputTimer < 0.0f && !m_bConfirmed && m_bPlaying)
         {
             // checks if a left input is given
             if (m_gamePadState.ThumbSticks.Left.X < -m_fInputPrerequisite || m_gamePadState.DPad.Left == ButtonState.Pressed || Input.GetAxis("Horizontal" + m_cPlayerNumber) < 0.0f)
@@ -340,7 +361,7 @@ public class CharacterSelection : MonoBehaviour
             }
         }
         // checks if the colour yellow is selected, the input timer is finished and the player has not yet confirmed their character
-        else if (m_iCurrentSelectable == 6 && m_fInputTimer < 0.0f && !m_bConfirmed)
+        else if (m_iCurrentSelectable == 6 && m_fInputTimer < 0.0f && !m_bConfirmed && m_bPlaying)
         {
             // checks if a left input is given
             if (m_gamePadState.ThumbSticks.Left.X < -m_fInputPrerequisite || m_gamePadState.DPad.Left == ButtonState.Pressed || Input.GetAxis("Horizontal" + m_cPlayerNumber) < 0.0f)
@@ -391,7 +412,7 @@ public class CharacterSelection : MonoBehaviour
         }
 
         // checks if the player wants to confirm their player, the colour they want is available, the input timer is finished and the player has not yet confirmed their character
-        if ((m_gamePadState.Buttons.A == ButtonState.Pressed || Input.GetAxis("Fire" + m_cPlayerNumber) != 0.0f) && m_colourPicker.IsAvailable(m_iHoverpodColour) && !m_bConfirmed && m_fInputTimer < 0.0f)
+        if ((m_gamePadState.Buttons.A == ButtonState.Pressed || Input.GetAxis("Fire" + m_cPlayerNumber) != 0.0f) && m_colourPicker.IsAvailable(m_iHoverpodColour) && !m_bConfirmed && m_bPlaying && m_fInputTimer < 0.0f)
         {
             // sets the colour to unavailable
             m_colourPicker.SetOtherAvailability(false, m_iHoverpodColour);
@@ -404,13 +425,39 @@ public class CharacterSelection : MonoBehaviour
             CharacterManager.Instance.m_hoverpodColours[m_cPlayerNumber - 1] = m_hoverpodColours.rows[m_iHoverpodColour].row[m_iHoverpodType];
             CharacterManager.Instance.m_nDinoColourIndex[m_cPlayerNumber - 1] = m_iHoverpodColour;
             CharacterManager.Instance.m_nDinoTypeIndex[m_cPlayerNumber - 1] = m_iHoverpodType;
+            CharacterManager.Instance.m_bActivePlayers[m_cPlayerNumber - 1] = true;
             // increments the amount of ready players
             GetComponentInParent<PlayGame>().m_cReadyPlayers++;
             // resets the timer
             m_fInputTimer = m_fInputDelay;
         }
+        // checks if the player wants to play
+        else if ((m_gamePadState.Buttons.A == ButtonState.Pressed || Input.GetAxis("Fire" + m_cPlayerNumber) != 0.0f) && !m_bConfirmed && !m_bPlaying && m_fInputTimer < 0.0f)
+        {
+            // adds the player
+            m_bPlaying = true;
+            // hides the play screen
+            m_playCanvas.SetActive(false);
+            // decrements the amount of ready players
+            GetComponentInParent<PlayGame>().m_cReadyPlayers--;
+            // resets the timer
+            m_fInputTimer = m_fInputDelay;
+        }
+        // checks if the player wants to start the game
+        else if ((m_gamePadState.Buttons.Start == ButtonState.Pressed || Input.GetAxis("Pause" + m_cPlayerNumber) != 0.0f) && m_bConfirmed && m_fInputTimer < 0.0f)
+        {
+            // checks if everyone is ready
+            if (GetComponentInParent<PlayGame>().m_cReadyPlayers == 4)
+            {
+                SceneManager.LoadScene(1);
+            }
+            else
+            {
+                m_fInputTimer = m_fInputDelay;
+            }
+        }
         // checks if the player wants to leave the confirm screen, the input timer is finished and the player has confirmed their character
-        if ((m_gamePadState.Buttons.B == ButtonState.Pressed || Input.GetAxis("Pause" + m_cPlayerNumber.ToString()) != 0.0f) && m_bConfirmed && m_fInputTimer < 0.0f)
+        if ((m_gamePadState.Buttons.B == ButtonState.Pressed || Input.GetAxis("Jump" + m_cPlayerNumber.ToString()) != 0.0f) && m_bConfirmed && m_fInputTimer < 0.0f)
         {
             // sets the colour to available
             m_colourPicker.SetOtherAvailability(true, m_iHoverpodColour);
@@ -423,15 +470,34 @@ public class CharacterSelection : MonoBehaviour
             // resets the timer
             m_fInputTimer = m_fInputDelay;
         }
-        // checks if the player wants to leave the character selection screen, the input timer is finished
-        else if ((m_gamePadState.Buttons.B == ButtonState.Pressed || Input.GetAxis("Pause" + m_cPlayerNumber.ToString()) != 0.0f) && m_fInputTimer < 0.0f)
+        // checks if the player wants to leave the character selection screen and the input timer is finished
+        else if ((m_gamePadState.Buttons.B == ButtonState.Pressed || Input.GetAxis("Jump" + m_cPlayerNumber.ToString()) != 0.0f) && m_bPlaying && m_fInputTimer < 0.0f)
         {
-            // activates the game setup canvas
-            transform.parent.GetComponentInParent<ActivateMenu>().GameSetup();
-            // deactivates the character selection screen
-            transform.parent.gameObject.SetActive(false);
-            // resets the timer
-            m_fInputTimer = m_fInputDelay;
+            if (m_cPlayerNumber == 3 || m_cPlayerNumber == 4)
+            {
+                // removes the player
+                m_bPlaying = false;
+                // shows the play screen
+                m_playCanvas.SetActive(true);
+                // increments the amount of ready players
+                GetComponentInParent<PlayGame>().m_cReadyPlayers++;
+                // sets the player as inactive
+                CharacterManager.Instance.m_bActivePlayers[m_cPlayerNumber - 1] = false;
+            }
+            else
+            {
+                // sets all the players as inactive
+                for (int i = 0; i < CharacterManager.Instance.m_bActivePlayers.Length; i++)
+                {
+                    CharacterManager.Instance.m_bActivePlayers[i] = false;
+                }
+                // activates the game setup canvas
+                transform.parent.GetComponentInParent<ActivateMenu>().GameSetup();
+                // deactivates the character selection screen
+                transform.parent.gameObject.SetActive(false);
+                // resets the timer
+                m_fInputTimer = m_fInputDelay;
+            }
         }
 
         // moves the colour to the next available one
@@ -479,6 +545,18 @@ public class CharacterSelection : MonoBehaviour
         m_fInputTimer = m_fInputDelay;
         m_fHorizontalTimer = 0.0f;
 
-        GetComponentInParent<PlayGame>().m_cReadyPlayers = 0;
+        GetComponentInParent<PlayGame>().m_cReadyPlayers = 2;
+
+        // sets players 3 and 4 to not playing
+        if (m_cPlayerNumber == 3 || m_cPlayerNumber == 4)
+        {
+            m_bPlaying = false;
+            m_playCanvas.SetActive(true);
+        }
+        else
+        {
+            m_bPlaying = true;
+            m_playCanvas.SetActive(false);
+        }
     }
 }

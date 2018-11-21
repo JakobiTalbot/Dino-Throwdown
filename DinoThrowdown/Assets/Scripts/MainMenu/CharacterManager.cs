@@ -25,4 +25,7 @@ public class CharacterManager : PersistantSingleton<CharacterManager>
     // stores colour of dino type selected
     [HideInInspector]
     public int[] m_nDinoColourIndex = new int[4];
+    // determines which players are playing
+    [HideInInspector]
+    public bool[] m_bActivePlayers = new bool[4];
 }

@@ -77,13 +77,25 @@ public class GameStateManager : MonoBehaviour
         {
             for (int i = 0; i < m_players.Length; i++)
             {
-                m_players[i].GetComponent<MeshFilter>().mesh = CharacterManager.Instance.m_hoverpodTypes[i];
-                m_players[i].GetComponent<MeshRenderer>().material = CharacterManager.Instance.m_hoverpodColours[i];
+                if (CharacterManager.Instance.m_bActivePlayers[i])
+                {
+                    m_players[i].GetComponent<MeshFilter>().mesh = CharacterManager.Instance.m_hoverpodTypes[i];
+                    m_players[i].GetComponent<MeshRenderer>().material = CharacterManager.Instance.m_hoverpodColours[i];
+                }
+                else
+                {
+                    m_players[i].SetActive(false);
+                }
             }
         }
 
         for (int i = 0; i < m_players.Length; ++i)
         {
+            if (!m_players[i].activeSelf)
+            {
+                continue;
+            }
+
             // set each player's rounds won to 0
             m_nRoundsWon[i] = 0;
 
@@ -130,9 +142,15 @@ public class GameStateManager : MonoBehaviour
             DisableControls();
             foreach (var player in m_players)
             {
+                if (!player.activeSelf)
+                {
+                    continue;
+                }
+
                 player.GetComponent<PlayerController>().m_bIsOut = true;
             }
             m_canvas.GetComponent<UI>().FadeText();
+            m_canvas.GetComponent<UI>().DisableUI();
             m_gameOverCanvas.PlayAnimation();
             m_gameOverCanvas.m_winText.text = m_canvas.GetComponent<UI>().m_winText.text;
             m_gameOverCanvas.m_winText.color = new Color(m_canvas.GetComponent<UI>().m_winText.color.r, m_canvas.GetComponent<UI>().m_winText.color.g, m_canvas.GetComponent<UI>().m_winText.color.b, 0.0f);
@@ -180,6 +198,11 @@ public class GameStateManager : MonoBehaviour
 
             for (int i = 0; i < m_players.Length; ++i)
             {
+                if (!m_players[i].activeSelf)
+                {
+                    continue;
+                }
+
                 // add players back
                 if (!m_players[i].GetComponent<PlayerController>().m_bIsOut
                     && !m_players[i].GetComponent<PlayerController>().m_bInCrane
@@ -199,6 +222,11 @@ public class GameStateManager : MonoBehaviour
     {
         for (int i = 0; i < m_players.Length; ++i)
         {
+            if (!m_players[i].activeSelf)
+            {
+                continue;
+            }
+
             // find which player it was
             if (m_playersRemaining[0] == m_players[i])
             {
@@ -227,6 +255,11 @@ public class GameStateManager : MonoBehaviour
         m_playersRemaining.Clear();
         for (int i = 0; i < m_players.Length; ++i)
         {
+            if (!m_players[i].activeSelf)
+            {
+                continue;
+            }
+
             // add players to remaining players
             m_playersRemaining.Add(m_players[i]);
 
@@ -320,6 +353,11 @@ public class GameStateManager : MonoBehaviour
     {
         foreach (var player in m_players)
         {
+            if (!player.activeSelf)
+            {
+                continue;
+            }
+
             player.GetComponent<Rigidbody>().isKinematic = true;
         }
     }
@@ -328,6 +366,11 @@ public class GameStateManager : MonoBehaviour
     {
         foreach (var player in m_players)
         {
+            if (!player.activeSelf)
+            {
+                continue;
+            }
+
             player.GetComponent<Rigidbody>().isKinematic = false;
         }
     }

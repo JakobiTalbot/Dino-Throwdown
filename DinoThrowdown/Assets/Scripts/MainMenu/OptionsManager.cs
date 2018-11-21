@@ -5,25 +5,6 @@ using UnityEngine.UI;
 
 public class OptionsManager : PersistantSingleton<OptionsManager>
 {
-    // reference to the master volume slider
-    public Slider m_masterSlider;
-    // reference to the music volume slider
-    public Slider m_musicSlider;
-    // reference to the sfx volume slider
-    public Slider m_sfxSlider;
-    // reference to the vibration toggle
-    public Toggle m_vibrationToggle;
-    // reference to the round amount dropdown
-    public Dropdown m_roundDropdown;
-    // reference to the wrecking ball toggle
-    public Toggle m_wreckingBallToggle;
-    // reference to the bombs toggle
-    public Toggle m_bombsToggle;
-    // reference to the pickups toggle
-    public Toggle m_pickupsToggle;
-    // reference to the indicator toggle
-    public Toggle m_indicatorToggle;
-
     // the value of the master volume
     [HideInInspector]
     public float m_fMasterVolume = 100.0f;
@@ -52,19 +33,44 @@ public class OptionsManager : PersistantSingleton<OptionsManager>
     [HideInInspector]
     public int m_iRound = 1;
 
+    // reference to the game setup screen
+    private GameObject m_gameSetup;
+    // reference to the options screen
+    private GameObject m_options;
+    // references to the sliders
+    private Slider[] m_sliders;
+    // references to the toggles
+    private Toggle[] m_toggles;
+    // reference to the round dropdown
+    private Dropdown m_dropdown;
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        m_sliders = Object.FindObjectsOfType<Slider>();
+        m_toggles = Object.FindObjectsOfType<Toggle>();
+        m_dropdown = Object.FindObjectOfType<Dropdown>();
+
+        m_gameSetup = GameObject.Find("GameSetup");
+        m_gameSetup.SetActive(false);
+        m_options = GameObject.Find("Options");
+        m_options.SetActive(false);
+    }
+
     private void Update()
     {
         // gets the values from the sliders
-        m_fMasterVolume = m_masterSlider.value;
-        m_fMusicVolume = m_musicSlider.value;
-        m_fSFXVolume = m_sfxSlider.value;
+        m_fMasterVolume = m_sliders[1].value;
+        m_fMusicVolume = m_sliders[2].value;
+        m_fSFXVolume = m_sliders[0].value;
         // gets the toggle status
-        m_bVibration = m_vibrationToggle.isOn;
-        m_bWreckingBall = m_wreckingBallToggle.isOn;
-        m_bBombs = m_bombsToggle.isOn;
-        m_bPickups = m_pickupsToggle.isOn;
-        m_bIndicator = m_indicatorToggle.isOn;
+        m_bWreckingBall = m_toggles[1].isOn;
+        m_bBombs = m_toggles[0].isOn;
+        m_bPickups = m_toggles[4].isOn;
+        m_bIndicator = m_toggles[3].isOn;
+        m_bVibration = m_toggles[2].isOn;
         // gets the value from the dropdown
-        m_iRound = m_roundDropdown.value;
+        m_iRound = m_dropdown.value;
     }
 }

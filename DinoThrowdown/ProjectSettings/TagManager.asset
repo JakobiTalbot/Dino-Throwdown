@@ -17,6 +17,7 @@ TagManager:
   - BombDropper
   - Dino
   - Bomb
+  - Options
   layers:
   - Default
   - TransparentFX

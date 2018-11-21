@@ -83,6 +83,11 @@ public class RestartGame : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+    // selects the play button
+    public void SelectPlay()
+    {
+        GetComponentInChildren<Button>().Select();
+    }
     // loads the main menu scene
     public void MainMenu()
     {

@@ -35,6 +35,9 @@ public class UI : MonoBehaviour
             // Get percentage knockback (without decimal places)
             int nKnockbackValue = (int)m_players[i].GetComponent<Knockback>().GetKnockback();
             m_knockbackTexts[i].GetComponent<Text>().text = nKnockbackValue.ToString() + "%";
+            // set black bar size
+            m_knockbackBars[i].GetComponentsInChildren<RectTransform>()[1].sizeDelta =
+                new Vector2(Mathf.Lerp(m_knockbackBars[i].GetComponentsInChildren<RectTransform>()[1].sizeDelta.x, 100.0f - nKnockbackValue, m_fKnockbackBarFillSpeed), 25.0f);
 
             // set portrait images
             if (CharacterManager.InstanceExists)
@@ -42,43 +45,46 @@ public class UI : MonoBehaviour
                 m_knockbackTexts[i].GetComponent<Text>().color = m_colours[CharacterManager.Instance.m_iDinoColours[m_players[i].GetComponent<PlayerController>().m_cPlayerNumber - 1]].color;
                 // reference to the character manager instance
                 CharacterManager charManager = CharacterManager.Instance;
-                for (int j = 0; j < m_playerPortraits.Length; ++j)
+
+                if (!CharacterManager.Instance.m_bActivePlayers[i])
                 {
-                    m_playerPortraits[j].GetComponent<RawImage>().texture = m_portraits.rows[charManager.m_nDinoColourIndex[j]].row[charManager.m_nDinoTypeIndex[j]];
+                    m_knockbackTexts[i].transform.parent.gameObject.SetActive(false);
+                }
+                else
+                {
+                    m_playerPortraits[i].GetComponent<RawImage>().texture = m_portraits.rows[charManager.m_nDinoColourIndex[i]].row[charManager.m_nDinoTypeIndex[i]];
                 }
             }
-
-            // set black bar size
-            m_knockbackBars[i].GetComponentsInChildren<RectTransform>()[1].sizeDelta =
-                new Vector2(Mathf.Lerp(m_knockbackBars[i].GetComponentsInChildren<RectTransform>()[1].sizeDelta.x, 100.0f - nKnockbackValue, m_fKnockbackBarFillSpeed), 25.0f);
         }
 
         // set round images to active based on how many rounds there are
         for (int i = 0; i < m_gameManager.GetComponent<GameStateManager>().m_nRoundsToWin; ++i)
         {
-            m_p1RoundImages[i].SetActive(true);
-            m_p2RoundImages[i].SetActive(true);
-            m_p3RoundImages[i].SetActive(true);
-            m_p4RoundImages[i].SetActive(true);
+            if (m_knockbackTexts[0].transform.parent.gameObject.activeSelf)
+            {
+                m_p1RoundImages[i].SetActive(true);
+            }
+            if (m_knockbackTexts[1].transform.parent.gameObject.activeSelf)
+            {
+                m_p2RoundImages[i].SetActive(true);
+            }
+            if (m_knockbackTexts[2].transform.parent.gameObject.activeSelf)
+            {
+                m_p3RoundImages[i].SetActive(true);
+            }
+            if (m_knockbackTexts[3].transform.parent.gameObject.activeSelf)
+            {
+                m_p4RoundImages[i].SetActive(true);
+            }
         }
     }
 
 	// Update is called once per frame
 	void Update()
     {
-
-        // set round images to active based on how many rounds there are
-        for (int i = 0; i < m_gameManager.GetComponent<GameStateManager>().m_nRoundsToWin; ++i)
-        {
-            m_p1RoundImages[i].SetActive(true);
-            m_p2RoundImages[i].SetActive(true);
-            m_p3RoundImages[i].SetActive(true);
-            m_p4RoundImages[i].SetActive(true);
-        }
-
         for (int i = 0; i < m_players.Length; ++i)
         {
-            if (m_players[i])
+            if (m_knockbackTexts[i].transform.parent.gameObject.activeSelf)
             {
                 // Get percentage knockback (without decimal places)
                 int nKnockbackValue = (int)m_players[i].GetComponent<Knockback>().GetKnockback();
@@ -117,13 +123,6 @@ public class UI : MonoBehaviour
                 m_knockbackBars[i].GetComponentsInChildren<RectTransform>()[1].sizeDelta = 
                     new Vector2(Mathf.Lerp(m_knockbackBars[i].GetComponentsInChildren<RectTransform>()[1].sizeDelta.x, 100.0f - nKnockbackValue, m_fKnockbackBarFillSpeed), 25.0f);
             }
-            else
-            {
-                // Set text for player to dead
-                m_knockbackTexts[i].GetComponent<Text>().text = "DEAD";
-                m_knockbackBars[i].GetComponent<RectTransform>().sizeDelta = new Vector2(0,
-                    m_knockbackBars[i].GetComponent<RectTransform>().sizeDelta.y);
-            }
         }
 
         if (m_bFade)
@@ -137,6 +136,10 @@ public class UI : MonoBehaviour
     {
         for (int i = 0; i < m_players.Length; ++i)
         {
+            if (!m_knockbackTexts[i].transform.parent.gameObject.activeSelf)
+            {
+                continue;
+            }
             if (m_players[i] == player)
             {
                 GameObject[] playerRoundImages = null;
@@ -181,6 +184,10 @@ public class UI : MonoBehaviour
     {
         for (int i = 0; i < m_players.Length; ++i)
         {
+            if (!m_knockbackTexts[i].transform.parent.gameObject.activeSelf)
+            {
+                continue;
+            }
             if (m_players[i] == player)
             {
                 m_winText.gameObject.SetActive(true);
@@ -224,5 +231,13 @@ public class UI : MonoBehaviour
     public void FadeText()
     {
         m_bFade = true;
+    }
+    // hides all the UI
+    public void DisableUI()
+    {
+        for (int i = 0; i < m_knockbackTexts.Length; i++)
+        {
+            m_knockbackTexts[i].transform.parent.gameObject.SetActive(false);
+        }
     }
 }
