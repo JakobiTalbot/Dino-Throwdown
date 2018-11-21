@@ -5,7 +5,7 @@ using UnityEngine;
 public class ScreenShake : MonoBehaviour
 {
     // stores original camera position
-    private Vector3 m_originalCameraPosition;
+    private Vector3 m_v3OriginalCameraPosition;
     // stores shake strength (random range)
     private float m_fShakeStrength;
     // stores original shake strength
@@ -21,7 +21,7 @@ public class ScreenShake : MonoBehaviour
 	void Awake()
     {
         // get original camera transform
-        m_originalCameraPosition = transform.position;
+        m_v3OriginalCameraPosition = transform.position;
     }
 	
 	// Update is called once per frame
@@ -38,7 +38,7 @@ public class ScreenShake : MonoBehaviour
         if (m_fShakeTimer <= 0.0f)
         {
             // reset camera position
-            transform.position = m_originalCameraPosition;
+            transform.position = m_v3OriginalCameraPosition;
             m_bShake = false;
         }
         else // camera is still shaking
@@ -46,16 +46,15 @@ public class ScreenShake : MonoBehaviour
             // decrease screen shake strength over time
             m_fShakeStrength -= m_fOriginalShakeStrength / m_fShakeDuration * Time.deltaTime;
 
-            // create random position
-            Vector3 v3NewPos = new Vector3
+            // get offset
+            Vector3 v3PosOffset = new Vector3
             {
-                x = Random.Range(m_originalCameraPosition.x - m_fShakeStrength, m_originalCameraPosition.x + m_fShakeStrength),
-                y = Random.Range(m_originalCameraPosition.y - m_fShakeStrength, m_originalCameraPosition.y + m_fShakeStrength),
-                z = m_originalCameraPosition.z
+                x = Random.Range(-m_fShakeStrength, m_fShakeStrength),
+                y = Random.Range(-m_fShakeStrength, m_fShakeStrength)
             };
 
-            // set random position
-            transform.position = v3NewPos;
+            // set offset position
+            transform.position = m_v3OriginalCameraPosition + v3PosOffset;
         }
 	}
 
