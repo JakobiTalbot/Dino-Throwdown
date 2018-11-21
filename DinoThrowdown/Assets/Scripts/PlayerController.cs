@@ -367,15 +367,14 @@ public class PlayerController : MonoBehaviour
     // swings the weapon
     private void Attack()
     {
-        if (m_cPlayerNumber == 3)
-        {
-            Debug.Log("Attack");
-        }
         // starts attacking
         if (!m_bWeaponSwing && !m_weapon.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("WeaponSwing"))
         {
-            m_anim.SetBool("bIsAttacking", true);
-            m_weapon.GetComponent<Animator>().SetBool("bIsAttacking", true);
+            if (!m_anim.GetBool("bIsAttacking"))
+            {
+                m_anim.SetBool("bIsAttacking", true);
+            }
+            m_weapon.GetComponent<Animator>().SetTrigger("Attack");
             m_bWeaponSwing = true;
         }
     }
@@ -387,20 +386,18 @@ public class PlayerController : MonoBehaviour
 
     public void StopAttack()
     {
-        if (m_cPlayerNumber == 3)
-        {
-            Debug.Log("Stop Attack");
-        }
         // sets the player to not attacking
         m_bIsAttacking = false;
-        m_bWeaponSwing = false;
         m_bWeaponHit = false;
 
         // sets the animation back to normal
         if (m_weapon.GetComponent<Animator>() != null)
         {
-            m_anim.SetBool("bIsAttacking", false);
-            m_weapon.GetComponent<Animator>().SetBool("bIsAttacking", false);
+            if (m_anim.GetBool("bIsAttacking"))
+            {
+                m_anim.SetBool("bIsAttacking", false);
+            }
+            m_bWeaponSwing = false;
         }
 
         // increments the amount of attacks dealt if the player is picked up
