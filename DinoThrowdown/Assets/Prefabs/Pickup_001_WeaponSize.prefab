@@ -19,9 +19,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4106680853855732}
-  - component: {fileID: 23021854274881372}
-  - component: {fileID: 114566066147954834}
   - component: {fileID: 33242729750465632}
+  - component: {fileID: 23021854274881372}
+  - component: {fileID: 95219833238516736}
+  - component: {fileID: 114566066147954834}
   - component: {fileID: 65324120398145750}
   - component: {fileID: 108818974485126164}
   m_Layer: 0
@@ -37,8 +38,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1177029968323070}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.097625, y: 2.11947, z: -6.393721}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -7.9747, y: 2.134, z: -6.3934474}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -58,6 +59,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
+  - {fileID: 2100002, guid: 5401e9eb570bdc84a846243ff77965e6, type: 3}
   - {fileID: 2100000, guid: 7366943588923fa4d88ee6640963609c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -66,7 +68,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
+  m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 0
@@ -84,7 +86,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1177029968323070}
-  m_Mesh: {fileID: 4300000, guid: 5401e9eb570bdc84a846243ff77965e6, type: 3}
+  m_Mesh: {fileID: 4300002, guid: 5401e9eb570bdc84a846243ff77965e6, type: 3}
 --- !u!65 &65324120398145750
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -97,6 +99,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.43767273, y: 1.308291, z: 1.4343544}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &95219833238516736
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1177029968323070}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 5401e9eb570bdc84a846243ff77965e6, type: 3}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!108 &108818974485126164
 Light:
   m_ObjectHideFlags: 1
@@ -107,7 +126,7 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 1, g: 0, b: 1, a: 1}
-  m_Intensity: 2.31
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10

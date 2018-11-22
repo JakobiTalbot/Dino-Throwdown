@@ -8,9 +8,12 @@ ModelImporter:
     100000: //RootNode
     400000: //RootNode
     2100000: lambert1
+    2100002: lambert8
+    2100004: lambert9
     2300000: //RootNode
     3300000: //RootNode
     4300000: PickUp_001_WeaponSize
+    4300002: Pickup_001_WeaponSize
     9500000: //RootNode
   externalObjects: {}
   materials:

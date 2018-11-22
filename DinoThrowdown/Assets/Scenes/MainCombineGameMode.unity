@@ -1623,16 +1623,6 @@ Prefab:
       propertyPath: m_gameOverCanvas
       value: 
       objectReference: {fileID: 671012723}
-    - target: {fileID: 114032290848436392, guid: 008f907a5e2af0d438d2ee0f13707a0a,
-        type: 2}
-      propertyPath: m_fWeaponKnockbackForce
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 114032290848436392, guid: 008f907a5e2af0d438d2ee0f13707a0a,
-        type: 2}
-      propertyPath: m_fBaseWeaponKnockbackForce
-      value: 1250
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 008f907a5e2af0d438d2ee0f13707a0a, type: 2}
   m_IsPrefabParent: 0
@@ -4367,52 +4357,6 @@ Transform:
   m_Father: {fileID: 713024663}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &168275326
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4106680853855732, guid: d723e3a13b282a041b69d58ad06d2074, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -8.097625
-      objectReference: {fileID: 0}
-    - target: {fileID: 4106680853855732, guid: d723e3a13b282a041b69d58ad06d2074, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 2.11947
-      objectReference: {fileID: 0}
-    - target: {fileID: 4106680853855732, guid: d723e3a13b282a041b69d58ad06d2074, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -6.393721
-      objectReference: {fileID: 0}
-    - target: {fileID: 4106680853855732, guid: d723e3a13b282a041b69d58ad06d2074, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4106680853855732, guid: d723e3a13b282a041b69d58ad06d2074, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4106680853855732, guid: d723e3a13b282a041b69d58ad06d2074, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4106680853855732, guid: d723e3a13b282a041b69d58ad06d2074, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4106680853855732, guid: d723e3a13b282a041b69d58ad06d2074, type: 2}
-      propertyPath: m_RootOrder
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 1177029968323070, guid: d723e3a13b282a041b69d58ad06d2074, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: d723e3a13b282a041b69d58ad06d2074, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &174171061
 GameObject:
   m_ObjectHideFlags: 0
@@ -11893,6 +11837,48 @@ Transform:
   m_Father: {fileID: 979136875}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &490595775
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4106680853855732, guid: d723e3a13b282a041b69d58ad06d2074, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -7.9747
+      objectReference: {fileID: 0}
+    - target: {fileID: 4106680853855732, guid: d723e3a13b282a041b69d58ad06d2074, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 2.134
+      objectReference: {fileID: 0}
+    - target: {fileID: 4106680853855732, guid: d723e3a13b282a041b69d58ad06d2074, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -6.3934474
+      objectReference: {fileID: 0}
+    - target: {fileID: 4106680853855732, guid: d723e3a13b282a041b69d58ad06d2074, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4106680853855732, guid: d723e3a13b282a041b69d58ad06d2074, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4106680853855732, guid: d723e3a13b282a041b69d58ad06d2074, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4106680853855732, guid: d723e3a13b282a041b69d58ad06d2074, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4106680853855732, guid: d723e3a13b282a041b69d58ad06d2074, type: 2}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: d723e3a13b282a041b69d58ad06d2074, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &491445807
 GameObject:
   m_ObjectHideFlags: 0
@@ -13980,16 +13966,6 @@ Prefab:
       propertyPath: m_gameOverCanvas
       value: 
       objectReference: {fileID: 671012723}
-    - target: {fileID: 114117240950992870, guid: 50bf12865d9afe14b99e104a2628e514,
-        type: 2}
-      propertyPath: m_fWeaponKnockbackForce
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 114117240950992870, guid: 50bf12865d9afe14b99e104a2628e514,
-        type: 2}
-      propertyPath: m_fBaseWeaponKnockbackForce
-      value: 1250
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 50bf12865d9afe14b99e104a2628e514, type: 2}
   m_IsPrefabParent: 0
@@ -23330,6 +23306,7 @@ GameObject:
   - component: {fileID: 934216314}
   - component: {fileID: 934216316}
   - component: {fileID: 934216315}
+  - component: {fileID: 934216317}
   m_Layer: 5
   m_Name: P3Text
   m_TagString: Untagged
@@ -23394,6 +23371,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 934216313}
+--- !u!114 &934216317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 934216313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 2.56, y: -1.82}
+  m_UseGraphicAlpha: 1
 --- !u!1 &939774571
 GameObject:
   m_ObjectHideFlags: 0
@@ -25042,6 +25033,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1834185002968710, guid: fed0e3bf2bd0450498ba9fef05bef92f, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fed0e3bf2bd0450498ba9fef05bef92f, type: 2}
   m_IsPrefabParent: 0
@@ -26577,6 +26572,7 @@ GameObject:
   - component: {fileID: 1080541344}
   - component: {fileID: 1080541346}
   - component: {fileID: 1080541345}
+  - component: {fileID: 1080541347}
   m_Layer: 5
   m_Name: P1Text
   m_TagString: Untagged
@@ -26624,7 +26620,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 3cc234581f7d7924aac2b8ada7164604, type: 3}
     m_FontSize: 49
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 68
@@ -26641,6 +26637,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1080541343}
+--- !u!114 &1080541347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1080541343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 2.56, y: -1.82}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1082255035
 GameObject:
   m_ObjectHideFlags: 0
@@ -32761,6 +32771,7 @@ GameObject:
   - component: {fileID: 1370199747}
   - component: {fileID: 1370199749}
   - component: {fileID: 1370199748}
+  - component: {fileID: 1370199750}
   m_Layer: 5
   m_Name: P4Text
   m_TagString: Untagged
@@ -32825,6 +32836,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1370199746}
+--- !u!114 &1370199750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1370199746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 2.56, y: -1.82}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1372530936
 GameObject:
   m_ObjectHideFlags: 0
@@ -40222,6 +40247,7 @@ GameObject:
   - component: {fileID: 1724335768}
   - component: {fileID: 1724335770}
   - component: {fileID: 1724335769}
+  - component: {fileID: 1724335771}
   m_Layer: 5
   m_Name: P2Text
   m_TagString: Untagged
@@ -40286,6 +40312,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1724335767}
+--- !u!114 &1724335771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1724335767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 2.56, y: -1.82}
+  m_UseGraphicAlpha: 1
 --- !u!1001 &1724919431
 Prefab:
   m_ObjectHideFlags: 0
@@ -41629,16 +41669,6 @@ Prefab:
       propertyPath: m_gameOverCanvas
       value: 
       objectReference: {fileID: 671012723}
-    - target: {fileID: 114949829891543848, guid: 71219fca27827c048b39d2a773f5ed00,
-        type: 2}
-      propertyPath: m_fWeaponKnockbackForce
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 114949829891543848, guid: 71219fca27827c048b39d2a773f5ed00,
-        type: 2}
-      propertyPath: m_fBaseWeaponKnockbackForce
-      value: 1250
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 71219fca27827c048b39d2a773f5ed00, type: 2}
   m_IsPrefabParent: 0
@@ -50964,16 +50994,6 @@ Prefab:
       propertyPath: m_gameOverCanvas
       value: 
       objectReference: {fileID: 671012723}
-    - target: {fileID: 114835772301802948, guid: e427bdf77a6feff4c880cfe107a34eb8,
-        type: 2}
-      propertyPath: m_fWeaponKnockbackForce
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 114835772301802948, guid: e427bdf77a6feff4c880cfe107a34eb8,
-        type: 2}
-      propertyPath: m_fBaseWeaponKnockbackForce
-      value: 1250
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e427bdf77a6feff4c880cfe107a34eb8, type: 2}
   m_IsPrefabParent: 0
