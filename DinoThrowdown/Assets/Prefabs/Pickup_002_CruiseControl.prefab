@@ -19,9 +19,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4640511509444302}
-  - component: {fileID: 23421873972451650}
-  - component: {fileID: 114233394991069436}
   - component: {fileID: 33634013097060174}
+  - component: {fileID: 23421873972451650}
+  - component: {fileID: 95119027448065720}
   - component: {fileID: 65501264350114694}
   - component: {fileID: 108672734423931972}
   m_Layer: 0
@@ -37,9 +37,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1376881934740160}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.730879, y: 2.5738153, z: -7.0801373}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.7276845, y: 2.578828, z: -6.695304}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -58,7 +58,8 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: bc3c6b14bda578b4cb6ed2a0cefc019b, type: 2}
+  - {fileID: 2100002, guid: 36bbfc8772f3aeb449e761041eb6fdd4, type: 3}
+  - {fileID: 2100000, guid: 36bbfc8772f3aeb449e761041eb6fdd4, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -66,7 +67,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
+  m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 0
@@ -95,8 +96,25 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.477988, y: 1.4779876, z: 0.17518196}
-  m_Center: {x: -0.00000008940697, y: -0.00000023841858, z: 0.0000000037252903}
+  m_Size: {x: 2.1444516, y: 1.8126183, z: 0.17518196}
+  m_Center: {x: 0.027415037, y: 0.167315, z: 0}
+--- !u!95 &95119027448065720
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1376881934740160}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 36bbfc8772f3aeb449e761041eb6fdd4, type: 3}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!108 &108672734423931972
 Light:
   m_ObjectHideFlags: 1
@@ -133,20 +151,3 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &114233394991069436
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1376881934740160}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f3580075254a5f4a8e646bce756853c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_spawnPoint: {fileID: 0}
-  m_pickupParticles: {fileID: 1406926815989992, guid: c02fc91f8d3963946ae5b9ae535ecefa,
-    type: 2}
-  m_fRotateSpeed: 60
-  m_fBobSpeed: 2.5
-  m_fBobAmount: 0.4
