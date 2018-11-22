@@ -15136,6 +15136,7 @@ MonoBehaviour:
   m_seats:
   - {fileID: 1102302752}
   - {fileID: 1582527711}
+  m_fCheerDuration: 2
 --- !u!65 &609824574
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23674,6 +23675,7 @@ MonoBehaviour:
   m_seats:
   - {fileID: 1102302752}
   - {fileID: 1582527711}
+  m_fCheerDuration: 2
 --- !u!65 &954722848
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24357,6 +24359,7 @@ MonoBehaviour:
   m_seats:
   - {fileID: 1102302752}
   - {fileID: 1582527711}
+  m_fCheerDuration: 2
 --- !u!65 &999647042
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25038,10 +25041,6 @@ Prefab:
     - target: {fileID: 4126103197260228, guid: fed0e3bf2bd0450498ba9fef05bef92f, type: 2}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1834185002968710, guid: fed0e3bf2bd0450498ba9fef05bef92f, type: 2}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fed0e3bf2bd0450498ba9fef05bef92f, type: 2}
@@ -26325,6 +26324,7 @@ MonoBehaviour:
   m_seats:
   - {fileID: 1102302752}
   - {fileID: 1582527711}
+  m_fCheerDuration: 2
 --- !u!65 &1069654658
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -38283,6 +38283,7 @@ MonoBehaviour:
   m_seats:
   - {fileID: 1102302752}
   - {fileID: 1582527711}
+  m_fCheerDuration: 2
 --- !u!65 &1632306928
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -50024,6 +50025,7 @@ MonoBehaviour:
   m_seats:
   - {fileID: 1102302752}
   - {fileID: 1582527711}
+  m_fCheerDuration: 2
 --- !u!65 &2005596371
 BoxCollider:
   m_ObjectHideFlags: 0
