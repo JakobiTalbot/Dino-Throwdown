@@ -177,7 +177,7 @@ public class PlayerController : MonoBehaviour
                 Move(v2Movement.x, v2Movement.y);
 
             // look to movement
-            if (v2Movement.sqrMagnitude != 0.0f)
+            if (v2Movement.sqrMagnitude != 0.0f && Time.timeScale > 0.0f)
                 transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(new Vector3(v2Movement.x, 0.0f, v2Movement.y)), m_fCruiseRotateSpeed);
         }
         // checks if the player is in the game and not on cruise control
@@ -186,7 +186,7 @@ public class PlayerController : MonoBehaviour
             Move(v2Movement.x, v2Movement.y);
 
             // look to movement
-            if (v2Movement.sqrMagnitude != 0.0f)
+            if (v2Movement.sqrMagnitude != 0.0f && Time.timeScale > 0.0f)
                 transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(new Vector3(v2Movement.x, 0.0f, v2Movement.y)), m_fRotateSpeedController);
         }
 
@@ -197,6 +197,7 @@ public class PlayerController : MonoBehaviour
             {
                 Time.timeScale = 0.0f;
                 m_pauseGameCanvas.gameObject.SetActive(true);
+                m_pauseGameCanvas.m_buttons[0].Select();
             }
             else
             {

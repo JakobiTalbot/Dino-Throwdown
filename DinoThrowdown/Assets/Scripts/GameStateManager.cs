@@ -279,7 +279,7 @@ public class GameStateManager : MonoBehaviour
             m_players[i].GetComponent<PlayerController>().m_cruiseControl.fTimer = 0.0f;
             m_players[i].GetComponent<Knockback>().m_shield.bFlag = false;
             m_players[i].GetComponent<Knockback>().m_shield.fTimer = 0.0f;
-            m_players[i].GetComponent<Knockback>().m_shieldSphere.GetComponent<MeshRenderer>().enabled = false;
+            m_players[i].GetComponent<Knockback>().m_shieldSphere.SetActive(false);
             m_players[i].GetComponent<PlayerController>().m_weaponSize.bFlag = false;
             m_players[i].GetComponent<PlayerController>().m_weaponSize.fTimer = 0.0f;
             m_players[i].GetComponent<PlayerController>().m_weapon.transform.localScale = m_players[i].GetComponent<PlayerController>().m_v3BaseWeaponScale;
