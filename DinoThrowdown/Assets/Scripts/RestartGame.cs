@@ -39,7 +39,12 @@ public class RestartGame : MonoBehaviour
                         if (m_players[i].m_dinos[j].activeSelf)
                         {
                             m_players[i].m_dinos[j].transform.position = m_playerViewers[0].transform.position;
-                            m_players[i].m_dinos[j].transform.rotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
+                            m_players[i].m_dinos[j].transform.rotation = Quaternion.Euler(330.0f, 180.0f, 0.0f);
+                            if (!m_players[i].m_dinos[j].GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Win") &&
+                                !m_players[i].m_dinos[j].GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Win 0"))
+                            {
+                                m_players[i].m_dinos[j].GetComponent<Animator>().SetTrigger("Win");
+                            }
                             break;
                         }
                     }
@@ -60,7 +65,12 @@ public class RestartGame : MonoBehaviour
                             if (m_players[j].m_dinos[k].activeSelf)
                             {
                                 m_players[j].m_dinos[k].transform.position = m_playerViewers[i].transform.position;
-                                m_players[j].m_dinos[k].transform.rotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
+                                m_players[j].m_dinos[k].transform.rotation = Quaternion.Euler(315.0f, 180.0f, 0.0f);
+                                if (!m_players[j].m_dinos[k].GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Lose") &&
+                                    !m_players[j].m_dinos[k].GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Lose 0"))
+                                {
+                                    m_players[j].m_dinos[k].GetComponent<Animator>().SetTrigger("Lose");
+                                }
                                 break;
                             }
                         }
