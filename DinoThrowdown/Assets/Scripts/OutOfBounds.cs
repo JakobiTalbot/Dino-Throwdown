@@ -8,18 +8,50 @@ public class OutOfBounds : MonoBehaviour
     public CraneManager[] m_crane;
     // reference to the crane seats
     public Transform[] m_seats;
+    // duration of cheering
+    public float m_fCheerDuration = 2.0f;
 
+    // reference to dinosaurs in the audience
+    private GameObject m_audience;
     // reference to the claw
     private Claw[] m_claw;
+    // used to time how long the audience cheers for
+    private Claw.PickupTimer m_cheerTimer;
+    // stores all the animators of the audience
+    private Animator[] m_anims;
 
     private void Start()
     {
         m_claw = new Claw[2];
 
+        m_audience = GameObject.FindGameObjectWithTag("Audience");
+        m_anims = m_audience.GetComponentsInChildren<Animator>();
+
         // gets and sets the claw component from each crane
         for (int i = 0; i < m_crane.Length; i++)
         {
             m_claw[i] = m_crane[i].GetComponentInChildren<Claw>();
+        }
+
+        m_cheerTimer.bFlag = false;
+        m_cheerTimer.fTimer = m_fCheerDuration;
+    }
+
+    private void Update()
+    {
+        if (m_cheerTimer.bFlag)
+        {
+            m_cheerTimer.fTimer -= Time.deltaTime;
+            if (m_cheerTimer.fTimer < 0.0f)
+            {
+                m_cheerTimer.bFlag = false;
+                m_cheerTimer.fTimer = m_fCheerDuration;
+                // stop cheer animation
+                foreach (var dino in m_anims)
+                {
+                    dino.SetTrigger("Idle");
+                }
+            }
         }
     }
 
@@ -32,6 +64,13 @@ public class OutOfBounds : MonoBehaviour
             {
                 return;
             }
+
+            // play cheer animation
+            foreach (var dino in m_anims)
+            {
+                dino.SetTrigger("Win");
+            }
+            m_cheerTimer.bFlag = true;
 
             PlayerController playerController = other.GetComponent<PlayerController>();
 

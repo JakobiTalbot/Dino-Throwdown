@@ -10,10 +10,10 @@ EditorBuildSettings:
     guid: 0691ffc6b69172443a9cce287b164f62
   - enabled: 0
     path: Assets/Scenes/Tyson/TysonMenu.unity
-    guid: de9763d7fb73a484a880075e16ca027d
+    guid: dc2116cf4bad51849a7c5949ffed8820
   - enabled: 1
     path: Assets/Scenes/MainCombineGameMode.unity
     guid: 9832e5d2520e83345b77e2ed0d994cf3
   - enabled: 0
     path: Assets/Scenes/Tyson/Tyson.unity
-    guid: fad2e2b6bb7f6a447a227141c16429e4
+    guid: ae14f887ab3f6094a9830ffa9f68befc
