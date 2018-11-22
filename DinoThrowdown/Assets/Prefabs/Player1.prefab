@@ -7613,7 +7613,7 @@ Transform:
   m_Children:
   - {fileID: 4846689804207236}
   m_Father: {fileID: 4073932368103646}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &4047545677784132
 Transform:
@@ -7865,14 +7865,14 @@ Transform:
   m_LocalPosition: {x: -15, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4917110823916270}
+  - {fileID: 4394162453578704}
   - {fileID: 4891165636307716}
   - {fileID: 4490660551892302}
-  - {fileID: 4903186509032428}
   - {fileID: 4047330830998814}
+  - {fileID: 4917110823916270}
+  - {fileID: 4903186509032428}
   - {fileID: 4741489474106216}
   - {fileID: 4466628397430266}
-  - {fileID: 4394162453578704}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -10272,7 +10272,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4073932368103646}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4397514045004204
 Transform:
@@ -10829,7 +10829,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4073932368103646}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 330}
 --- !u!4 &4467359918851926
 Transform:
@@ -12370,7 +12370,7 @@ Transform:
   m_Children:
   - {fileID: 4702939410467352}
   m_Father: {fileID: 4073932368103646}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &4745708629496030
 Transform:
@@ -13479,7 +13479,7 @@ Transform:
   - {fileID: 4168292253625902}
   - {fileID: 4695852666643532}
   m_Father: {fileID: 4073932368103646}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4905297893345486
 Transform:
@@ -13605,7 +13605,7 @@ Transform:
   - {fileID: 4075358789507154}
   - {fileID: 4434090017973142}
   m_Father: {fileID: 4073932368103646}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4920599022852456
 Transform:
@@ -19154,16 +19154,16 @@ ParticleSystem:
           outSlope: 0.1662427
           tangentMode: 0
         - serializedVersion: 2
-          time: 0.36781403
-          value: 0.9133149
+          time: 0.37559602
+          value: 0.6840058
           inSlope: 0.73632485
           outSlope: 0.73632485
           tangentMode: 0
         - serializedVersion: 2
-          time: 0.59228694
-          value: 0.9721236
-          inSlope: -0.90236604
-          outSlope: -0.90236604
+          time: 0.6370476
+          value: 0.8514341
+          inSlope: -4.5391574
+          outSlope: -4.5391574
           tangentMode: 0
         - serializedVersion: 2
           time: 0.88693255

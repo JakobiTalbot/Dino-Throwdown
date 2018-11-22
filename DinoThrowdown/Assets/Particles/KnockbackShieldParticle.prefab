@@ -765,16 +765,16 @@ ParticleSystem:
           outSlope: 0.1662427
           tangentMode: 0
         - serializedVersion: 2
-          time: 0.36781403
-          value: 0.9133149
+          time: 0.37559602
+          value: 0.6840058
           inSlope: 0.73632485
           outSlope: 0.73632485
           tangentMode: 0
         - serializedVersion: 2
-          time: 0.59228694
-          value: 0.9721236
-          inSlope: -0.90236604
-          outSlope: -0.90236604
+          time: 0.6370476
+          value: 0.8514341
+          inSlope: -4.5391574
+          outSlope: -4.5391574
           tangentMode: 0
         - serializedVersion: 2
           time: 0.88693255
