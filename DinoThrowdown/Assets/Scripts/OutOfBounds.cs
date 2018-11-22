@@ -9,16 +9,12 @@ public class OutOfBounds : MonoBehaviour
     // reference to the crane seats
     public Transform[] m_seats;
 
-    // reference to dinosaurs in the audience
-    private GameObject[] m_audience;
     // reference to the claw
     private Claw[] m_claw;
 
     private void Start()
     {
         m_claw = new Claw[2];
-
-        m_audience = GameObject.FindGameObjectsWithTag("Audience");
 
         // gets and sets the claw component from each crane
         for (int i = 0; i < m_crane.Length; i++)
@@ -35,12 +31,6 @@ public class OutOfBounds : MonoBehaviour
             if (other.GetComponent<Rigidbody>().isKinematic)
             {
                 return;
-            }
-
-            // play cheer animation
-            foreach (var dino in m_audience)
-            {
-                //dino.GetComponent<Animator>().
             }
 
             PlayerController playerController = other.GetComponent<PlayerController>();
