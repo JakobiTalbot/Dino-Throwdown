@@ -42,6 +42,7 @@ public class CruiseControl : Pickup
             // turns on the player's cruise control
             other.GetComponent<PlayerController>().m_cruiseControl.bFlag = true;
             other.GetComponent<PlayerController>().m_cruiseControl.fTimer = other.GetComponent<PlayerController>().m_fCruiseControlTime;
+            other.GetComponent<PlayerController>().m_cruiseControlParticle.SetActive(true);
             other.GetComponent<Rigidbody>().velocity = Vector3.zero;
             // sets this object to inactive
             gameObject.SetActive(false);

@@ -94,6 +94,7 @@ public class PauseGame : MonoBehaviour
         }
     }
 
+    // when the resume button is pressed (not the start button on the controller)
     public void Resume()
     {
         Time.timeScale = 1.0f;
@@ -103,8 +104,10 @@ public class PauseGame : MonoBehaviour
 
     public void ToggleShowOptions()
     {
+        // toggle displaying pause or options screen
         m_options.SetActive(!m_options.activeSelf);
         m_pausedText.gameObject.SetActive(!m_pausedText.isActiveAndEnabled);
+
         foreach (var button in m_buttons)
         {
             button.gameObject.SetActive(!button.isActiveAndEnabled);
@@ -122,9 +125,11 @@ public class PauseGame : MonoBehaviour
 
     public void ToggleShowControls()
     {
+        // toggle displaying options or controls screen
         m_controls.SetActive(!m_controls.activeSelf);
         m_options.SetActive(!m_options.activeSelf);
 
+        // select button based on which screen is showing
         if (m_controls.activeSelf)
         {
             m_controlsReturnButton.Select();
@@ -137,6 +142,7 @@ public class PauseGame : MonoBehaviour
 
     public void Quit()
     {
+        // reset time scale so it doesn't break the main menu
         Time.timeScale = 1.0f;
         SceneManager.LoadScene(0);
     }

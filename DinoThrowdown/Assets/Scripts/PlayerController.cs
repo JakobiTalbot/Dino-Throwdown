@@ -53,6 +53,8 @@ public class PlayerController : MonoBehaviour
     public RestartGame m_gameOverCanvas;
     // collection of references to the dinos
     public GameObject[] m_dinos;
+    // reference to cruise control particle
+    public GameObject m_cruiseControlParticle;
 
     // reference to the claw that will be used
     [HideInInspector]
@@ -320,6 +322,7 @@ public class PlayerController : MonoBehaviour
             if (m_cruiseControl.fTimer <= 0.0f)
             {
                 // resets the cruise control
+                m_cruiseControlParticle.SetActive(false);
                 m_cruiseControl.bFlag = false;
                 m_cruiseControl.fTimer = m_fCruiseControlTime;
                 m_rigidbody.velocity = new Vector3(v2Movement.x * m_fVelocity, m_rigidbody.velocity.y, v2Movement.y * m_fVelocity);
