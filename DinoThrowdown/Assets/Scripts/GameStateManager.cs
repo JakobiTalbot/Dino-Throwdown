@@ -21,6 +21,8 @@ public class GameStateManager : MonoBehaviour
 
     [HideInInspector]
     public int m_nRoundNumber = 0;
+    [HideInInspector]
+    public bool m_bPlayerWon = false;
 
     private GameObject[] m_cranes;
     private GameObject[] m_claws;
@@ -31,7 +33,6 @@ public class GameStateManager : MonoBehaviour
     private Vector3[] m_clawOriginalPositions;
     private Quaternion[] m_clawOriginalRotations;
     private int[] m_nRoundsWon;
-    private bool m_bPlayerWon = false;
     // used to wait before the round starts
     private WaitForSeconds m_startWait;
     // used to wait before the round ends

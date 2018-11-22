@@ -92,6 +92,7 @@ public class PlayerController : MonoBehaviour
     public bool m_bWeaponHit = false;
 
     private GamePadState m_gamePadState;
+    private GameStateManager m_gameManager;
     private PlayerIndex m_playerIndex;
     private Rigidbody m_rigidbody;
     private float m_fVibrationTimer;
@@ -110,7 +111,8 @@ public class PlayerController : MonoBehaviour
         {
             m_bVibrationToggle = OptionsManager.Instance.m_bVibration;
         }
-
+        // get game manager script
+        m_gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameStateManager>();
         m_rigidbody = GetComponent<Rigidbody>();
 
         // Get playerindex (-1 because XInput starts index at 0)
@@ -191,7 +193,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // pause game
-        if ((Input.GetButtonDown("Pause" + m_cPlayerNumber.ToString()) || (m_gamePadState.Buttons.Start == ButtonState.Pressed && !m_bPauseButtonDown)) && !m_gameOverCanvas.gameObject.activeSelf)
+        if (!m_gameManager.m_bPlayerWon && (Input.GetButtonDown("Pause" + m_cPlayerNumber.ToString()) || (m_gamePadState.Buttons.Start == ButtonState.Pressed && !m_bPauseButtonDown)))
         {
             if (Time.timeScale > 0.0f)
             {
