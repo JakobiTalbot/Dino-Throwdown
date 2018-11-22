@@ -40,7 +40,6 @@ public class PauseGame : MonoBehaviour
     // used to know if the options values have been imported from singleton
     private bool m_bValuesSet = false;
 
-
     // Use this for initialization
     void Awake()
     {
@@ -138,6 +137,7 @@ public class PauseGame : MonoBehaviour
 
     public void Quit()
     {
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene(0);
     }
 
