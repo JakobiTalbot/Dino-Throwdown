@@ -15309,7 +15309,7 @@ Animator:
   m_GameObject: {fileID: 1671247661137974}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 072290b42e1763b4f979c2a073437eb3, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d80db6bae9f642142960eb069966fb74, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -15411,7 +15411,7 @@ MonoBehaviour:
   m_gameOverCanvas: {fileID: 0}
   m_dinos:
   - {fileID: 1629182072118328}
-  - {fileID: 0}
+  - {fileID: 1671247661137974}
   - {fileID: 1422226751190808}
   - {fileID: 1639237109689020}
   m_claw: {fileID: 0}
@@ -15840,7 +15840,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 394257062
+  randomSeed: -2100478319
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -15930,7 +15930,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.51724136, b: 0, a: 0.547}
+      maxColor: {r: 0.5058824, g: 0.3529412, b: 0.14901961, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -22566,7 +22566,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 206410878
+  randomSeed: 1906281105
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -22656,7 +22656,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.51724136, b: 0, a: 0.547}
+      maxColor: {r: 0.5058824, g: 0.3529412, b: 0.14901961, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
