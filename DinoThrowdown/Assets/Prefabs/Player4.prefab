@@ -15362,7 +15362,7 @@ MonoBehaviour:
   m_pauseGameCanvas: {fileID: 0}
   m_gameOverCanvas: {fileID: 0}
   m_dinos:
-  - {fileID: 0}
+  - {fileID: 1068307257024682}
   - {fileID: 1279365827130414}
   - {fileID: 1190675918190472}
   - {fileID: 1962938142719564}

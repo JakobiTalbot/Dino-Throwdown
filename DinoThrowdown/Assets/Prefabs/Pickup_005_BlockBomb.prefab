@@ -38,16 +38,16 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4184429657140274}
+  - component: {fileID: 33332920730506934}
   - component: {fileID: 23128652396099650}
   - component: {fileID: 54706232879971178}
   - component: {fileID: 114701564374413658}
-  - component: {fileID: 33332920730506934}
   - component: {fileID: 95281036989144872}
   - component: {fileID: 135311469022379856}
   - component: {fileID: 135214495203727296}
   m_Layer: 0
   m_Name: Pickup_005_BlockBomb
-  m_TagString: Bomb
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,8 +58,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1578206416247968}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -7.0606117, y: -2.3404248, z: 16.45466}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4305643673491746}
@@ -72,8 +72,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1273663031087934}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 4.614931, y: -0.37000012, z: -1.419549}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4184429657140274}
@@ -86,14 +86,14 @@ MeshRenderer:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1578206416247968}
   m_Enabled: 1
-  m_CastShadows: 0
+  m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 612e4afc17b47764da784b60ca002adb, type: 2}
+  - {fileID: 2100000, guid: 320b7a39ff5e44d47aa0052115bb71bb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -101,7 +101,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
+  m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 0
@@ -267,8 +267,8 @@ MonoBehaviour:
   m_fVibrationStrength: 1
   m_fVibrationTime: 0.5
   m_nMaxBlocksToDestroy: 3
-  m_fScreenShakeStrength: 0.25
-  m_fScreenShakeDuration: 1
+  m_fScreenShakeStrength: 0.5
+  m_fScreenShakeDuration: 0.6
   m_bombDropper: {fileID: 0}
 --- !u!135 &135214495203727296
 SphereCollider:
@@ -354,7 +354,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1831683813
+  randomSeed: -1315484700
   InitialModule:
     serializedVersion: 3
     enabled: 1

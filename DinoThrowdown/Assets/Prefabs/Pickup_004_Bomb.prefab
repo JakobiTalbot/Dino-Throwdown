@@ -45,6 +45,8 @@ GameObject:
   - component: {fileID: 95156004689659514}
   - component: {fileID: 135543139654086338}
   - component: {fileID: 135250545377108044}
+  - component: {fileID: 135972164653113156}
+  - component: {fileID: 135883966536862294}
   m_Layer: 0
   m_Name: Pickup_004_Bomb
   m_TagString: Untagged
@@ -58,8 +60,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1578206416247968}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.4456804, y: -2.710425, z: 15.035111}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4305643673491746}
@@ -93,7 +95,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 612e4afc17b47764da784b60ca002adb, type: 2}
+  - {fileID: 2100000, guid: 320b7a39ff5e44d47aa0052115bb71bb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -284,6 +286,30 @@ SphereCollider:
   m_GameObject: {fileID: 1578206416247968}
   m_Material: {fileID: 13400000, guid: 5f81c667f050d0e41bdea2bdd0ccdaf2, type: 2}
   m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.78246677
+  m_Center: {x: 0.040131122, y: -0.12700468, z: 0}
+--- !u!135 &135883966536862294
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1578206416247968}
+  m_Material: {fileID: 13400000, guid: 5f81c667f050d0e41bdea2bdd0ccdaf2, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.78246677
+  m_Center: {x: 0.040131122, y: -0.12700468, z: 0}
+--- !u!135 &135972164653113156
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1578206416247968}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.78246677
