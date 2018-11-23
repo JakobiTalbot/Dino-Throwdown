@@ -24,12 +24,16 @@ public class UI : MonoBehaviour
     // collection of colours
     public Material[] m_colours;
 
+    // stores original size of knockbackbars
+    private Vector2 m_v2OriginalBarSizeDelta;
     // determines if the win text should fade
     private bool m_bFade = false;
 
     // Use this for initialization
     void Awake()
     {
+        // get original bar size delta
+        m_v2OriginalBarSizeDelta = m_knockbackBars[0].GetComponent<RectTransform>().sizeDelta;
         for (int i = 0; i < m_players.Length; ++i)
         {
             // Get percentage knockback (without decimal places)
@@ -37,7 +41,7 @@ public class UI : MonoBehaviour
             m_knockbackTexts[i].GetComponent<Text>().text = nKnockbackValue.ToString() + "%";
             // set black bar size
             m_knockbackBars[i].GetComponentsInChildren<RectTransform>()[1].sizeDelta =
-                new Vector2(Mathf.Lerp(m_knockbackBars[i].GetComponentsInChildren<RectTransform>()[1].sizeDelta.x, 100.0f - nKnockbackValue, m_fKnockbackBarFillSpeed), 25.0f);
+                new Vector2(Mathf.Lerp(m_knockbackBars[i].GetComponentsInChildren<RectTransform>()[1].sizeDelta.x, m_v2OriginalBarSizeDelta.x - (nKnockbackValue / 100.0f * m_v2OriginalBarSizeDelta.x), m_fKnockbackBarFillSpeed), m_v2OriginalBarSizeDelta.y);
 
             // set portrait images
             if (CharacterManager.InstanceExists)
@@ -121,7 +125,7 @@ public class UI : MonoBehaviour
 
                 // set black bar size
                 m_knockbackBars[i].GetComponentsInChildren<RectTransform>()[1].sizeDelta = 
-                    new Vector2(Mathf.Lerp(m_knockbackBars[i].GetComponentsInChildren<RectTransform>()[1].sizeDelta.x, 100.0f - nKnockbackValue, m_fKnockbackBarFillSpeed), 25.0f);
+                    new Vector2(Mathf.Lerp(m_knockbackBars[i].GetComponentsInChildren<RectTransform>()[1].sizeDelta.x, m_v2OriginalBarSizeDelta.x - (nKnockbackValue / 100.0f * m_v2OriginalBarSizeDelta.x), m_fKnockbackBarFillSpeed), m_v2OriginalBarSizeDelta.y);
             }
         }
 
