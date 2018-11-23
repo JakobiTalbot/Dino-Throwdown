@@ -41,6 +41,10 @@ public class Claw : MonoBehaviour
     public int m_cShieldHealth = 6;
     // collection of materials
     public Material[] m_colours;
+    // reference to the bottom light
+    public GameObject m_bottomLight;
+    // determines if the flashing should be constant or once off
+    public bool m_bConstantFlashing = true;
 
     // determines if the claw has dropped
     [HideInInspector]
@@ -77,6 +81,7 @@ public class Claw : MonoBehaviour
     private CraneManager m_crane;
     private bool m_bClawDownSoundPlayed = false;
     private bool m_bClawUpSoundPlayed = false;
+    private bool[] m_bFlashed = new bool[4];
 
     private void Start()
     {
@@ -91,10 +96,17 @@ public class Claw : MonoBehaviour
         m_knockbackShield.fTimer = m_fKnockbackShieldTime;
         m_delay.bFlag = false;
         m_delay.fTimer = m_fDelayTime;
+
+        for (int i = 0; i < m_bFlashed.Length; i++)
+        {
+            m_bFlashed[i] = false;
+        }
     }
 
     private void Update()
     {
+        m_bottomLight.GetComponent<Animator>().SetBool("bConstant", m_bConstantFlashing);
+
         // checks if there is someone in the crane
         if (m_crane.m_bOccupied)
         {
@@ -132,6 +144,8 @@ public class Claw : MonoBehaviour
                     m_bHasPlayer = false;
                     transform.position = new Vector3(transform.position.x, 16.0f, transform.position.z);
                     m_delay.bFlag = true;
+                    // stops the flashing animation
+                    StopFlashing();
                 }
             }
         }
@@ -331,6 +345,31 @@ public class Claw : MonoBehaviour
 
             // plays the audio
             other.GetComponent<AudioSource>().Play();
+
+            if (!m_bConstantFlashing)
+            {
+                if (!m_bFlashed[m_crane.m_player.GetComponent<PlayerController>().m_cPlayerNumber])
+                {
+                    if (!m_bottomLight.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("FlashingLight") &&
+                    !m_bottomLight.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("FlashingLight 0"))
+                    {
+                        // makes the bottom light flash
+                        m_bottomLight.GetComponent<Light>().color = GetComponentInChildren<LineRenderer>().endColor;
+                        m_bottomLight.GetComponent<Animator>().SetTrigger("Flash");
+                    }
+                    m_bFlashed[m_crane.m_player.GetComponent<PlayerController>().m_cPlayerNumber] = true;
+                }
+            }
+            else
+            {
+                if (!m_bottomLight.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("FlashingLight") && 
+                    !m_bottomLight.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("FlashingLight 0"))
+                {
+                    // makes the bottom light flash
+                    m_bottomLight.GetComponent<Light>().color = GetComponentInChildren<LineRenderer>().endColor;
+                    m_bottomLight.GetComponent<Animator>().SetTrigger("Flash");
+                }
+            }
         }
         // checks if the claw collided with the platform
         else if (other.CompareTag("Ground"))
@@ -379,16 +418,18 @@ public class Claw : MonoBehaviour
         }
         else
         {
+            StopFlashing();
+
             // sets the dropped status to true
             m_bDropped = true;
 
-            // moves the player from the crane back into the arena
             // get random block index
             int nBlockIndex = Random.Range(0, m_bombDropper.GetComponent<BombDropper>().m_blocks.Count);
 
             // get bomb position above random block
             Vector3 v3PlayerPos = m_bombDropper.GetComponent<BombDropper>().m_blocks[nBlockIndex].transform.position;
             v3PlayerPos.y = 5.0f;
+            // moves the player from the crane back into the arena
             m_crane.m_player.transform.position = v3PlayerPos;
             m_crane.m_player.GetComponent<PlayerController>().m_bInCrane = false;
             m_crane.m_player.GetComponent<PlayerController>().m_claw = null;
@@ -419,5 +460,11 @@ public class Claw : MonoBehaviour
             m_pickedUpPlayer.m_claw = this;
             m_pickedUpPlayer.m_cAttackAmount = 0;
         }
+    }
+
+    // stops the bottom light from flashing
+    public void StopFlashing()
+    {
+        m_bottomLight.GetComponent<Animator>().SetTrigger("StopFlash");
     }
 }

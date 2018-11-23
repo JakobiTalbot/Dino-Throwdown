@@ -247,6 +247,12 @@ public class GameStateManager : MonoBehaviour
             }
         }
 
+        for (int i = 0; i < m_claws.Length; i++)
+        {
+            // stops the flashing animation
+            m_claws[i].GetComponent<Claw>().StopFlashing();
+        }
+
         // waits for the end delay
         yield return m_endWait;
     }
