@@ -360,6 +360,7 @@
     <Compile Include="Assets\Scripts\MainMenu\SelectPlay.cs" />
     <Compile Include="Assets\Scripts\MainMenu\Singleton.cs" />
     <Compile Include="Assets\Scripts\MainMenu\TextureArrayLayout.cs" />
+    <Compile Include="Assets\Scripts\MainMenu\ToggleHighlighted.cs" />
     <Compile Include="Assets\Scripts\OutOfBounds.cs" />
     <Compile Include="Assets\Scripts\PauseGame.cs" />
     <Compile Include="Assets\Scripts\Pickups\Bomb.cs" />
