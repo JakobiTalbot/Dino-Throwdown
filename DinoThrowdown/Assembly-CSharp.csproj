@@ -151,6 +151,8 @@
      <Compile Include="Assets\XInput\XboxCtrlrInputExample\MovePlayer.cs" />
      <Compile Include="Assets\XInput\XInputDotNet\Examples\XInputTestCS.cs" />
      <None Include="Assets\Imported\PostProcessing\Resources\Shaders\DepthOfField.shader" />
+     <None Include="Assets\Shaders\Test.shader" />
+     <None Include="Assets\Shaders\PowerupControl.shader" />
      <None Include="Assets\Imported\PostProcessing\Resources\Shaders\MotionBlur.cginc" />
      <None Include="Assets\Imported\PostProcessing\Resources\Shaders\Fog.shader" />
      <None Include="Assets\Imported\PostProcessing\Editor Resources\Monitors\ParadeRender.shader" />
@@ -186,6 +188,7 @@
      <None Include="Assets\Imported\PostProcessing\Resources\Shaders\FXAA.shader" />
      <None Include="Assets\Imported\PostProcessing\Resources\Shaders\DiskKernels.cginc" />
      <None Include="Assets\Imported\PostProcessing\Resources\Shaders\DepthOfField.cginc" />
+     <None Include="Assets\Shaders\PowerupShield.shader" />
      <None Include="Assets\Imported\PostProcessing\Resources\Shaders\ScreenSpaceRaytrace.cginc" />
      <None Include="Assets\Imported\PostProcessing\Resources\Shaders\Bloom.shader" />
      <None Include="Assets\Imported\PostProcessing\Editor Resources\Monitors\VectorscopeRender.shader" />
