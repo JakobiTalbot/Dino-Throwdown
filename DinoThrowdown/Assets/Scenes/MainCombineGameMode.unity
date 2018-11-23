@@ -11742,7 +11742,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4106680853855732, guid: d723e3a13b282a041b69d58ad06d2074, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.0576
+      value: 3.432
       objectReference: {fileID: 0}
     - target: {fileID: 4106680853855732, guid: d723e3a13b282a041b69d58ad06d2074, type: 2}
       propertyPath: m_LocalPosition.z
@@ -11768,11 +11768,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
-    - target: {fileID: 23021854274881372, guid: d723e3a13b282a041b69d58ad06d2074,
-        type: 2}
-      propertyPath: m_Materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: 7366943588923fa4d88ee6640963609c, type: 2}
     - target: {fileID: 1177029968323070, guid: d723e3a13b282a041b69d58ad06d2074, type: 2}
       propertyPath: m_IsActive
       value: 0
