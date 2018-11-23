@@ -259,6 +259,9 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
+    <Reference Include="ShaderForge">
+      <HintPath>Assets/Imported/ShaderForge/Editor/ShaderForge.dll</HintPath>
+    </Reference>
     <Reference Include="XInputDotNetPure">
       <HintPath>Assets/XInput/Plugins/x86_64/XInputDotNetPure.dll</HintPath>
     </Reference>
@@ -282,9 +285,6 @@
     </Reference>
     <Reference Include="UnityEngine.StandardEvents">
       <HintPath>C:/Users/s181299/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
-    </Reference>
-    <Reference Include="ShaderForge">
-      <HintPath>Assets/Imported/ShaderForge/Editor/ShaderForge.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -571,6 +571,7 @@
     <None Include="Assets\Imported\ShaderForge\Readme.txt" />
     <None Include="Assets\Shaders\PowerupControl.shader" />
     <None Include="Assets\Shaders\PowerupShield.shader" />
+    <None Include="Assets\Shaders\Test.shader" />
     <None Include="Assets\Textures\Other\Delete.txt" />
     <None Include="Assets\XInput\XInputDotNet\MITLicense.txt" />
   </ItemGroup>
