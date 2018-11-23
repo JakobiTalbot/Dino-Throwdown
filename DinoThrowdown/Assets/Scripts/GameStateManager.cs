@@ -166,10 +166,11 @@ public class GameStateManager : MonoBehaviour
     // sets up the round
     private IEnumerator RoundStarting()
     {
-        // resets the round
-        NewRound();
         // increment round number
         ++m_nRoundNumber;
+        // resets the round
+        NewRound();
+
         m_canvas.GetComponent<UI>().RoundText(m_nRoundNumber);
         DisableControls();
 
@@ -330,6 +331,9 @@ public class GameStateManager : MonoBehaviour
         dropperScript.m_bHasBomb = false;
         dropperScript.ResetTimer();
         dropperScript.transform.position = new Vector3(0.0f, dropperScript.m_fStartYPos, 0.0f);
+        // destroy bomb if there is one
+        if (dropperScript.m_currentBomb)
+            Destroy(dropperScript.m_currentBomb);
 
         m_bombDropper.GetComponent<BombDropper>().m_fTimeUntilBombsDrop = m_bombDropper.GetComponent<BombDropper>().m_fSecondsUntilBombsStartDropping;
         m_bombDropper.GetComponent<BombDropper>().m_fDropTimer = m_bombDropper.GetComponent<BombDropper>().m_fDropInterval;
