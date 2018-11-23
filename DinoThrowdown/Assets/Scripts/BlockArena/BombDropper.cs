@@ -126,6 +126,7 @@ public class BombDropper : MonoBehaviour
                         m_currentBomb.GetComponent<BlockBomb>().m_nMaxBlocksToDestroy = m_nMaxBlocksToDestroy;
                         m_currentBomb.GetComponent<BlockBomb>().m_bombDropper = gameObject;
                         m_currentBomb.GetComponent<BlockBomb>().enabled = false;
+                        m_currentBomb.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
                         m_bHasBomb = true;
                         m_bGettingBomb = false;
                         m_bReachedLocation = false;
