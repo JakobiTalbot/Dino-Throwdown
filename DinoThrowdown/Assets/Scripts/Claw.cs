@@ -33,6 +33,8 @@ public class Claw : MonoBehaviour
     public float m_fKnockbackShieldTime = 5.0f;
     // delay time after a player breaks free
     public float m_fDelayTime = 1.0f;
+    // delay time after a bomb is dropped
+    public float m_fBombDelayTime = 1.0f;
     // the speed of the claw when cruising
     public float m_fCruiseSpeed = 25.0f;
     // the size multiplier when the claw is bigger
@@ -81,7 +83,10 @@ public class Claw : MonoBehaviour
     private CraneManager m_crane;
     private bool m_bClawDownSoundPlayed = false;
     private bool m_bClawUpSoundPlayed = false;
+    // used to make sure that the bottom light only flashes once per player
     private bool[] m_bFlashed = new bool[4];
+    // used to check if a bomb delay is on
+    private bool m_bBombDelay = false;
 
     private void Start()
     {
@@ -164,7 +169,15 @@ public class Claw : MonoBehaviour
             {
                 // resets the delay
                 m_delay.bFlag = false;
-                m_delay.fTimer = m_fDelayTime;
+                if (m_bBombDelay)
+                {
+                    m_bBombDelay = false;
+                    m_delay.fTimer = m_fBombDelayTime;
+                }
+                else
+                {
+                    m_delay.fTimer = m_fDelayTime;
+                }
             }
         }
 
@@ -388,6 +401,7 @@ public class Claw : MonoBehaviour
             m_bHasItem = false;
             m_item.transform.parent = null;
             m_delay.bFlag = true;
+            m_bBombDelay = true;
         }
     }
 

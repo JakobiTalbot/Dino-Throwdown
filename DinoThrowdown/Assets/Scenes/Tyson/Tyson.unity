@@ -14731,6 +14731,7 @@ MonoBehaviour:
   m_fWeaponSizeTime: 3
   m_fKnockbackShieldTime: 5
   m_fDelayTime: 1.5
+  m_fBombDelayTime: 0.5
   m_fCruiseSpeed: 45
   m_fWeaponSizeMultiplier: 2
   m_cShieldHealth: 6
@@ -14740,6 +14741,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 205eee28a959f764990f75ed4e6ab6eb, type: 2}
   - {fileID: 2100000, guid: 401c925515e015944883f5c195afb8d0, type: 2}
   m_bottomLight: {fileID: 678255060}
+  m_bConstantFlashing: 1
   m_bDropped: 0
   m_bHasItem: 0
   m_item: {fileID: 0}
@@ -23342,6 +23344,7 @@ MonoBehaviour:
   m_fWeaponSizeTime: 3
   m_fKnockbackShieldTime: 5
   m_fDelayTime: 1.5
+  m_fBombDelayTime: 0.5
   m_fCruiseSpeed: 45
   m_fWeaponSizeMultiplier: 2
   m_cShieldHealth: 6
@@ -23351,6 +23354,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 205eee28a959f764990f75ed4e6ab6eb, type: 2}
   - {fileID: 2100000, guid: 401c925515e015944883f5c195afb8d0, type: 2}
   m_bottomLight: {fileID: 32584529}
+  m_bConstantFlashing: 1
   m_bDropped: 0
   m_bHasItem: 0
   m_item: {fileID: 0}
@@ -35279,11 +35283,19 @@ MonoBehaviour:
   m_bomb: {fileID: 1578206416247968, guid: 87ac4f08abd40bd4f846490338240cd5, type: 2}
   m_fDropInterval: 7
   m_fSecondsUntilBombsStartDropping: 10
+  m_fCraneMoveSpeed: 10
+  m_fCraneDropSpeed: 10
+  m_fCraneDownYPosition: -10
+  m_fOutPositionRange: 26
   m_nDropHeight: 20
   m_nMaxBlocksToDestroy: 4
+  m_currentBomb: {fileID: 0}
   m_fDropTimer: 0
   m_blocks: []
   m_fTimeUntilBombsDrop: 0
+  m_bHasBomb: 0
+  m_bGettingBomb: 0
+  m_fStartYPos: 0
 --- !u!1001 &1328361355
 Prefab:
   m_ObjectHideFlags: 0
