@@ -32,6 +32,12 @@ public class CharacterSelection : MonoBehaviour
     public GameObject m_confirmCanvas;
     // reference to the play game object
     public GameObject m_playCanvas = null;
+    // strength the box shakes
+    public float m_fShakeStrength = 0.5f;
+    // duration the box shakes
+    public float m_fShakeDuration = 0.6f;
+    // determines if the text or the box shakes
+    public bool m_bShakeBox = true;
 
     // the current dino type
     [HideInInspector]
@@ -451,8 +457,14 @@ public class CharacterSelection : MonoBehaviour
             {
                 SceneManager.LoadScene(1);
             }
+            else if (m_bShakeBox)
+            {
+                GetComponent<ScreenShake>().SetShake(m_fShakeStrength, m_fShakeDuration);
+                m_fInputTimer = m_fInputDelay;
+            }
             else
             {
+                m_confirmCanvas.GetComponentInChildren<ScreenShake>().SetShake(m_fShakeStrength, m_fShakeDuration);
                 m_fInputTimer = m_fInputDelay;
             }
         }
