@@ -55,6 +55,10 @@ public class PlayerController : MonoBehaviour
     public GameObject[] m_dinos;
     // reference to cruise control particle
     public GameObject m_cruiseControlParticle;
+    // duration between input before buffer clears
+    public float m_fKONAMIDuration = 2.0f;
+    // delay between input
+    public float m_fInputDelay = 0.2f;
 
     // reference to the claw that will be used
     [HideInInspector]
@@ -105,6 +109,14 @@ public class PlayerController : MonoBehaviour
     private bool m_bAttackButtonDown = false;
     // the player animator
     private Animator m_anim;
+    // stores the player input as a string
+    private string m_sBuffer = string.Empty;
+    // the code that the buffer needs to match in order to utilise the konami code\
+    private string m_sKonami = "uuddlrlrbas";
+    // used to delay between input
+    private Claw.PickupTimer m_inputDelay;
+    // used to time input
+    private float m_fKonamiTimer = 0.0f;
 
     // Use this for initialization
     void Awake()
@@ -134,6 +146,8 @@ public class PlayerController : MonoBehaviour
         m_cruiseControl.fTimer = m_fCruiseControlTime;
         m_weaponSize.bFlag = false;
         m_weaponSize.fTimer = m_fWeaponSizeTime;
+        m_inputDelay.bFlag = false;
+        m_inputDelay.fTimer = m_fInputDelay;
 
         m_anim = GetComponentsInChildren<Animator>()[1];
 
@@ -164,8 +178,10 @@ public class PlayerController : MonoBehaviour
         // Get player input (controller)
         v2Movement.x += m_gamePadState.ThumbSticks.Left.X;
         v2Movement.y += m_gamePadState.ThumbSticks.Left.Y;
-
         v2Movement.Normalize();
+
+        // KONAMI
+        KONAMI(m_gamePadState);
 
         // checks if the player is in the crane
         if (m_bInCrane && !m_bIsAttacking && !m_bIsOut)
@@ -420,6 +436,140 @@ public class PlayerController : MonoBehaviour
             GamePad.SetVibration((PlayerIndex)m_cPlayerNumber - 1, fVibrationStrength, fVibrationStrength);
             m_fVibrationTimer = fVibrationTime;
             m_bVibrating = true;
+        }
+    }
+
+    public void KONAMI(GamePadState gamePadState)
+    {
+        if (gamePadState.DPad.Up == ButtonState.Pressed && !m_inputDelay.bFlag)
+        {
+            if (m_fKonamiTimer >= m_fKONAMIDuration)
+            {
+                m_fKonamiTimer = 0.0f;
+                m_sBuffer = string.Empty;
+            }
+
+            m_sBuffer += "u";
+            m_inputDelay.bFlag = true;
+            m_fKonamiTimer = 0.0f;
+        }
+        else if (gamePadState.DPad.Down == ButtonState.Pressed && !m_inputDelay.bFlag)
+        {
+            if (m_fKonamiTimer >= m_fKONAMIDuration)
+            {
+                m_fKonamiTimer = 0.0f;
+                m_sBuffer = string.Empty;
+            }
+
+            m_sBuffer += "d";
+            m_inputDelay.bFlag = true;
+            m_fKonamiTimer = 0.0f;
+        }
+        else if (gamePadState.DPad.Left == ButtonState.Pressed && !m_inputDelay.bFlag)
+        {
+            if (m_fKonamiTimer >= m_fKONAMIDuration)
+            {
+                m_fKonamiTimer = 0.0f;
+                m_sBuffer = string.Empty;
+            }
+
+            m_sBuffer += "l";
+            m_inputDelay.bFlag = true;
+            m_fKonamiTimer = 0.0f;
+        }
+        else if (gamePadState.DPad.Right == ButtonState.Pressed && !m_inputDelay.bFlag)
+        {
+            if (m_fKonamiTimer >= m_fKONAMIDuration)
+            {
+                m_fKonamiTimer = 0.0f;
+                m_sBuffer = string.Empty;
+            }
+
+            m_sBuffer += "r";
+            m_inputDelay.bFlag = true;
+            m_fKonamiTimer = 0.0f;
+        }
+        else if (gamePadState.Buttons.B == ButtonState.Pressed && !m_inputDelay.bFlag)
+        {
+            if (m_fKonamiTimer >= m_fKONAMIDuration)
+            {
+                m_fKonamiTimer = 0.0f;
+                m_sBuffer = string.Empty;
+            }
+
+            m_sBuffer += "b";
+            m_inputDelay.bFlag = true;
+            m_fKonamiTimer = 0.0f;
+        }
+        else if (gamePadState.Buttons.A == ButtonState.Pressed && !m_inputDelay.bFlag)
+        {
+            if (m_fKonamiTimer >= m_fKONAMIDuration)
+            {
+                m_fKonamiTimer = 0.0f;
+                m_sBuffer = string.Empty;
+            }
+
+            m_sBuffer += "a";
+            m_inputDelay.bFlag = true;
+            m_fKonamiTimer = 0.0f;
+        }
+        else if (gamePadState.Buttons.Start == ButtonState.Pressed && !m_inputDelay.bFlag)
+        {
+            if (m_fKonamiTimer >= m_fKONAMIDuration)
+            {
+                m_fKonamiTimer = 0.0f;
+                m_sBuffer = string.Empty;
+            }
+
+            m_sBuffer += "s";
+            m_inputDelay.bFlag = true;
+            m_fKonamiTimer = 0.0f;
+        }
+        else if (gamePadState.Buttons.X == ButtonState.Pressed && gamePadState.Buttons.Y == ButtonState.Pressed
+                && gamePadState.Buttons.Back == ButtonState.Pressed && gamePadState.Buttons.Guide == ButtonState.Pressed
+                && gamePadState.Buttons.LeftShoulder == ButtonState.Pressed && gamePadState.Buttons.RightShoulder == ButtonState.Pressed
+                && gamePadState.Buttons.LeftStick == ButtonState.Pressed && gamePadState.Buttons.RightStick == ButtonState.Pressed
+                && gamePadState.Triggers.Left != 0.0f && gamePadState.Triggers.Right != 0.0f
+                && gamePadState.ThumbSticks.Left.X != 0.0f && gamePadState.ThumbSticks.Left.Y != 0.0f
+                && gamePadState.ThumbSticks.Right.X != 0.0f && gamePadState.ThumbSticks.Right.Y != 0.0f 
+                && !m_inputDelay.bFlag)
+        {
+            if (m_fKonamiTimer >= m_fKONAMIDuration)
+            {
+                m_fKonamiTimer = 0.0f;
+                m_sBuffer = string.Empty;
+            }
+
+            m_sBuffer += "-";
+            m_inputDelay.bFlag = true;
+            m_fKonamiTimer = 0.0f;
+        }
+
+        if (m_sBuffer.Length > 22)
+        {
+            m_sBuffer.Remove(0);
+        }
+
+        if (m_fKonamiTimer <= m_fKONAMIDuration)
+        {
+            m_fKonamiTimer += Time.deltaTime;
+        }
+
+        Debug.Log(m_sBuffer);
+
+        if (m_sBuffer == m_sKonami)
+        {
+            Debug.Log("KONAMI");
+        }
+
+        if (m_inputDelay.bFlag)
+        {
+            m_inputDelay.fTimer -= Time.deltaTime;
+            if (m_inputDelay.fTimer < 0.0f)
+            {
+                m_inputDelay.fTimer = m_fInputDelay;
+                m_inputDelay.bFlag = false;
+            }
         }
     }
 }

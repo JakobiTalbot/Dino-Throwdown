@@ -1706,6 +1706,20 @@ Prefab:
       propertyPath: m_gameOverCanvas
       value: 
       objectReference: {fileID: 671012723}
+    - target: {fileID: 4368753661838716, guid: 008f907a5e2af0d438d2ee0f13707a0a, type: 2}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114499154202491686, guid: 008f907a5e2af0d438d2ee0f13707a0a,
+        type: 2}
+      propertyPath: m_fInputDelay
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114499154202491686, guid: 008f907a5e2af0d438d2ee0f13707a0a,
+        type: 2}
+      propertyPath: m_fKONAMIDuration
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 008f907a5e2af0d438d2ee0f13707a0a, type: 2}
   m_IsPrefabParent: 0
@@ -14052,6 +14066,16 @@ Prefab:
       propertyPath: m_gameOverCanvas
       value: 
       objectReference: {fileID: 671012723}
+    - target: {fileID: 114687796534182432, guid: 50bf12865d9afe14b99e104a2628e514,
+        type: 2}
+      propertyPath: m_fInputDelay
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114687796534182432, guid: 50bf12865d9afe14b99e104a2628e514,
+        type: 2}
+      propertyPath: m_fKONAMIDuration
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 50bf12865d9afe14b99e104a2628e514, type: 2}
   m_IsPrefabParent: 0
@@ -24969,7 +24993,7 @@ Transform:
   m_GameObject: {fileID: 860933867}
   m_LocalRotation: {x: 0.30070576, y: -0, z: -0, w: 0.953717}
   m_LocalPosition: {x: 0.3700037, y: 16.55, z: -33.27}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.0000001, z: 1}
   m_Children: []
   m_Father: {fileID: 136618955}
   m_RootOrder: 0
@@ -45203,6 +45227,16 @@ Prefab:
       propertyPath: m_gameOverCanvas
       value: 
       objectReference: {fileID: 671012723}
+    - target: {fileID: 114799004119950736, guid: 71219fca27827c048b39d2a773f5ed00,
+        type: 2}
+      propertyPath: m_fInputDelay
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114799004119950736, guid: 71219fca27827c048b39d2a773f5ed00,
+        type: 2}
+      propertyPath: m_fKONAMIDuration
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 71219fca27827c048b39d2a773f5ed00, type: 2}
   m_IsPrefabParent: 0
@@ -54528,6 +54562,16 @@ Prefab:
       propertyPath: m_gameOverCanvas
       value: 
       objectReference: {fileID: 671012723}
+    - target: {fileID: 114924182141052946, guid: e427bdf77a6feff4c880cfe107a34eb8,
+        type: 2}
+      propertyPath: m_fInputDelay
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114924182141052946, guid: e427bdf77a6feff4c880cfe107a34eb8,
+        type: 2}
+      propertyPath: m_fKONAMIDuration
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e427bdf77a6feff4c880cfe107a34eb8, type: 2}
   m_IsPrefabParent: 0
