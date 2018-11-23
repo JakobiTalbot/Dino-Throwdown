@@ -139,15 +139,18 @@ public class BombDropper : MonoBehaviour
                 v3RandPos.y = m_fStartYPos;
 
                 int nGrabbingAxis = Random.Range(0, 1);
+                int nNegative = Random.Range(0, 1);
+                if (nNegative == 0)
+                    nNegative = -1;
                 switch (nGrabbingAxis)
                 {
                     case 0:
-                        v3RandPos.x = Random.Range(-m_fOutPositionRange, m_fOutPositionRange);
+                        v3RandPos.x = m_fOutPositionRange * nNegative;
                         v3RandPos.z = Random.Range(-20.0f, 20.0f);
                         break;
                     case 1:
                         v3RandPos.x = Random.Range(-20.0f, 20.0f);
-                        v3RandPos.z = Random.Range(-m_fOutPositionRange, m_fOutPositionRange);
+                        v3RandPos.z = m_fOutPositionRange * nNegative;
                         break;
                 }
 
