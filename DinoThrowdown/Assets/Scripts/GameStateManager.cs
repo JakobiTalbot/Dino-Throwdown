@@ -315,14 +315,15 @@ public class GameStateManager : MonoBehaviour
         // resets the wrecking ball
         m_wreckingBall.ResetBall();
 
-        if (m_bombDropper.activeInHierarchy)
-        {
-            BombDropper dropperScript = m_bombDropper.GetComponent<BombDropper>();
-            // reset bombdropper
-            dropperScript.m_blocks.Clear();
-            dropperScript.AddBlocks();
-            dropperScript.ResetBlocks();
-        }
+        BombDropper dropperScript = m_bombDropper.GetComponent<BombDropper>();
+        // reset bombdropper
+        dropperScript.m_blocks.Clear();
+        dropperScript.AddBlocks();
+        dropperScript.ResetBlocks();
+        dropperScript.m_bGettingBomb = false;
+        dropperScript.m_bHasBomb = false;
+        dropperScript.ResetTimer();
+        dropperScript.transform.position = new Vector3(0.0f, dropperScript.m_fStartYPos, 0.0f);
 
         m_bombDropper.GetComponent<BombDropper>().m_fTimeUntilBombsDrop = m_bombDropper.GetComponent<BombDropper>().m_fSecondsUntilBombsStartDropping;
         m_bombDropper.GetComponent<BombDropper>().m_fDropTimer = m_bombDropper.GetComponent<BombDropper>().m_fDropInterval;

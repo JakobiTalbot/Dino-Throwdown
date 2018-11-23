@@ -32,8 +32,6 @@ public class BlockBomb : MonoBehaviour
 
     // stores reference to game camera
     private GameObject m_camera;
-    // stores reference to game state manager
-    private GameStateManager m_gameManager;
     // stores whether the application is quitting or not
     private bool m_bAppQuitting = false;
     // determines if vibration is on
@@ -51,22 +49,18 @@ public class BlockBomb : MonoBehaviour
         {
             m_bVibrationToggle = OptionsManager.Instance.m_bVibration;
         }
-
+        m_nRoundSpawned = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameStateManager>().m_nRoundNumber;
         // find camera object
         m_camera = GameObject.FindGameObjectWithTag("MainCamera");
-        // find game manager object
-        m_gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameStateManager>();
-        m_nRoundSpawned = m_gameManager.m_nRoundNumber;
     }
 
     // find all the players in the area around the bomb and damage them
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Deadzone") || other.CompareTag("Claw") || other.CompareTag("Untagged"))
+        if (other.CompareTag("Deadzone") || other.CompareTag("Claw") || other.CompareTag("Untagged") || transform.parent)
         {
             return;
         }
-
         gameObject.transform.parent = null;
         // destroys the bomb after the delay
         GetComponent<Animator>().SetTrigger("startFlashing");
@@ -94,7 +88,7 @@ public class BlockBomb : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (m_nRoundSpawned == m_gameManager.m_nRoundNumber)
+        if (!m_bAppQuitting && m_nRoundSpawned == GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameStateManager>().m_nRoundNumber)
         {
             // adds all colliders that collide with a sphere of radius m_fExplosionRadius to an array
             Collider[] colliders = Physics.OverlapSphere(transform.position, m_fExplosionRadius);
@@ -129,19 +123,16 @@ public class BlockBomb : MonoBehaviour
             }
 
             // create explosion at bomb position if application is not quitting
-            if (!m_bAppQuitting)
+            GameObject explosion = Instantiate(m_explosion, transform.position, transform.rotation);
+            explosion.transform.localScale *= m_fParticleSize;
+
+            // do screen shake
+            m_camera.GetComponent<ScreenShake>().SetShake(m_fScreenShakeStrength, m_fScreenShakeDuration);
+
+            // gets the sfx volume from the options
+            if (OptionsManager.InstanceExists)
             {
-                GameObject explosion = Instantiate(m_explosion, transform.position, transform.rotation);
-                explosion.transform.localScale *= m_fParticleSize;
-
-                // do screen shake
-                m_camera.GetComponent<ScreenShake>().SetShake(m_fScreenShakeStrength, m_fScreenShakeDuration);
-
-                // gets the sfx volume from the options
-                if (OptionsManager.InstanceExists)
-                {
-                    explosion.GetComponent<AudioSource>().volume = OptionsManager.Instance.m_fSFXVolume * OptionsManager.Instance.m_fMasterVolume;
-                }
+                explosion.GetComponent<AudioSource>().volume = OptionsManager.Instance.m_fSFXVolume * OptionsManager.Instance.m_fMasterVolume;
             }
 
             // vibrates the controllers of all the hit players
