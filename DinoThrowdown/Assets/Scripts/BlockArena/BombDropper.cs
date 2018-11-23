@@ -11,6 +11,7 @@ public class BombDropper : MonoBehaviour
     public float m_fCraneMoveSpeed = 10.0f;
     public float m_fCraneDropSpeed = 10.0f;
     public float m_fCraneDownYPosition = -10.0f;
+    public float m_fOutPositionRange = 26.0f;
     public int m_nDropHeight = 20;
     public int m_nMaxBlocksToDestroy = 3;
 
@@ -141,12 +142,12 @@ public class BombDropper : MonoBehaviour
                 switch (nGrabbingAxis)
                 {
                     case 0:
-                        v3RandPos.x = 28.0f;
+                        v3RandPos.x = Random.Range(-m_fOutPositionRange, m_fOutPositionRange);
                         v3RandPos.z = Random.Range(-20.0f, 20.0f);
                         break;
                     case 1:
                         v3RandPos.x = Random.Range(-20.0f, 20.0f);
-                        v3RandPos.z = 28.0f;
+                        v3RandPos.z = Random.Range(-m_fOutPositionRange, m_fOutPositionRange);
                         break;
                 }
 
