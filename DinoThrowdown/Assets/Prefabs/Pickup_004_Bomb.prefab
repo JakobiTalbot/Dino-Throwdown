@@ -2892,7 +2892,7 @@ ParticleSystem:
     radiusScale: 1
   SubModule:
     serializedVersion: 2
-    enabled: 0
+    enabled: 1
     subEmitters:
     - serializedVersion: 2
       emitter: {fileID: 198675624764289260, guid: 81cbbf114f0eabc4fab8ef2756da02df,
