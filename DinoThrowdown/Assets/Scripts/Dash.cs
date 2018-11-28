@@ -84,10 +84,10 @@ public class Dash : MonoBehaviour
             // gets the sfx volume from the options
             if (OptionsManager.InstanceExists)
             {
-                GetComponents<AudioSource>()[1].volume = OptionsManager.Instance.m_fSFXVolume * OptionsManager.Instance.m_fMasterVolume;
+                GetComponents<AudioSource>()[4].volume = OptionsManager.Instance.m_fSFXVolume * OptionsManager.Instance.m_fMasterVolume;
             }
             // play dash sound
-            GetComponents<AudioSource>()[1].Play();
+            GetComponents<AudioSource>()[4].Play();
             m_bCanDash = false;
         }
     }
