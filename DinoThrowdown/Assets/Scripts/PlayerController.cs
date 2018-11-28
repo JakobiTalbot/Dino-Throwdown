@@ -276,7 +276,6 @@ public class PlayerController : MonoBehaviour
         {
             // sets the player to attacking
             m_bIsAttacking = true;
-            GetComponents<AudioSource>()[1].Play();
         }
 
         if (m_gamePadState.Triggers.Right > 0.0f)
@@ -554,8 +553,6 @@ public class PlayerController : MonoBehaviour
         {
             m_fKonamiTimer += Time.deltaTime;
         }
-
-        Debug.Log(m_sBuffer);
 
         if (m_sBuffer == m_sKonami)
         {
