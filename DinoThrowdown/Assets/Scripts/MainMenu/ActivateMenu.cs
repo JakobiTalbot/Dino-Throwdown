@@ -8,14 +8,12 @@ public class ActivateMenu : MonoBehaviour
     public GameObject m_menuButtons;
     // reference to the game setup canvas
     public GameObject m_gameSetup;
-
     // reference to the background music
-    private AudioSource m_backgroundMusic;
+    public AudioSource m_backgroundMusic;
 
     private void Start()
     {
         MenuButtons();
-        m_backgroundMusic = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -37,5 +35,6 @@ public class ActivateMenu : MonoBehaviour
     {
         m_gameSetup.SetActive(true);
         m_gameSetup.GetComponent<GameSetup>().SelectButton();
+        m_backgroundMusic.Play();
     }
 }
