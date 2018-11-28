@@ -461,6 +461,7 @@ public class PlayerController : MonoBehaviour
         if (m_rigidbody.isKinematic)
         {
             m_cAttackAmount++;
+            Instantiate(GetComponent<Knockback>().m_hitParticles, new Vector3(transform.position.x, transform.position.y + 3.0f, transform.position.z), transform.rotation);
         }
     }
 
