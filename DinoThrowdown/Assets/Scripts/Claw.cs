@@ -335,8 +335,19 @@ public class Claw : MonoBehaviour
     {
         //direction based on input
         Vector3 v3Direction = new Vector3(0.0f, 0.0f, 0.0f);
-        v3Direction.x = fHorizontal * Time.deltaTime;
-        v3Direction.z = fVertical * Time.deltaTime;
+
+        if (m_crane.m_player.GetComponent<PlayerController>().m_bKonami)
+        {
+            v3Direction.x += m_crane.m_player.transform.forward.x * fVertical * Time.deltaTime;
+            v3Direction.z += m_crane.m_player.transform.forward.z * fVertical * Time.deltaTime;
+            v3Direction.x += m_crane.m_player.transform.right.x * fHorizontal * Time.deltaTime;
+            v3Direction.z += m_crane.m_player.transform.right.z * fHorizontal * Time.deltaTime;
+        }
+        else
+        {
+            v3Direction.x = fHorizontal * Time.deltaTime;
+            v3Direction.z = fVertical * Time.deltaTime;
+        }
 
         // changes the moving speed based on the pick up
         if (m_cruiseControl.bFlag)

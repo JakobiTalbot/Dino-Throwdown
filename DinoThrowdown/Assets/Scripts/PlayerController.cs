@@ -100,6 +100,9 @@ public class PlayerController : MonoBehaviour
     // stores if the attack hit
     [HideInInspector]
     public bool m_bWeaponHit = false;
+    // determines if the movement should change due to the konami code
+    [HideInInspector]
+    public bool m_bKonami = false;
 
     private GamePadState m_gamePadState;
     private GameStateManager m_gameManager;
@@ -121,8 +124,6 @@ public class PlayerController : MonoBehaviour
     private Claw.PickupTimer m_inputDelay;
     // used to time input
     private float m_fKonamiTimer = 0.0f;
-    // determines if the movement should change due to the konami code
-    private bool m_bKonami = false;
 
     // Use this for initialization
     void Awake()
