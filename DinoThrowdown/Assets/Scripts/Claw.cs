@@ -502,6 +502,7 @@ public class Claw : MonoBehaviour
             m_crane.m_player.transform.position = v3PlayerPos;
             m_crane.m_player.GetComponent<PlayerController>().m_bInCrane = false;
             m_crane.m_player.GetComponent<PlayerController>().m_claw = null;
+            m_crane.m_player.GetComponent<PlayerController>().m_smokeParticle.Play();
             m_crane.m_player.GetComponent<Rigidbody>().isKinematic = false;
 
             // resets the claw
@@ -528,6 +529,7 @@ public class Claw : MonoBehaviour
             m_pickedUpPlayer.m_bInCrane = true;
             m_pickedUpPlayer.m_claw = this;
             m_pickedUpPlayer.m_cAttackAmount = 0;
+            m_pickedUpPlayer.m_smokeParticle.Play();
 
             if (m_bAudioPlaying)
             {

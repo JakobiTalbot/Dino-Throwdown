@@ -102,6 +102,8 @@ public class OutOfBounds : MonoBehaviour
                     // gives the player control of the claw
                     playerController.m_claw = m_claw[i];
 
+                    playerController.m_smokeParticle.Play();
+
                     other.GetComponent<Rigidbody>().velocity = new Vector3(0.0f, 0.0f, 0.0f);
                     other.GetComponent<Rigidbody>().isKinematic = true;
 

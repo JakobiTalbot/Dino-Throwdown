@@ -298,6 +298,7 @@ public class GameStateManager : MonoBehaviour
             m_players[i].GetComponent<PlayerController>().m_bIsOut = false;
             m_players[i].GetComponent<PlayerController>().StopAttack();
             m_players[i].GetComponent<PlayerController>().m_cAttackAmount = 0;
+            m_players[i].GetComponent<PlayerController>().m_smokeParticle.Play();
             // set claw to null
             m_players[i].GetComponent<PlayerController>().m_claw = null;
             // reset dash timer

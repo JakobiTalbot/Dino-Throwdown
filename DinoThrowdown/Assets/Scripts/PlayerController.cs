@@ -55,6 +55,8 @@ public class PlayerController : MonoBehaviour
     public GameObject[] m_dinos;
     // reference to cruise control particle
     public GameObject m_cruiseControlParticle;
+    // reference to smoke particle
+    public ParticleSystem m_smokeParticle;
     // duration between input before buffer clears
     public float m_fKONAMIDuration = 2.0f;
     // delay between input
