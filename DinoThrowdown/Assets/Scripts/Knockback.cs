@@ -52,14 +52,15 @@ public class Knockback : MonoBehaviour
         m_v3Larger = new Vector3(4.0f, 0.4f, 0.4f);
 
         m_hitSound = m_hitParticles.GetComponent<AudioSource>();
-        if (OptionsManager.InstanceExists)
-        {
-            m_hitSound.volume = OptionsManager.Instance.m_fSFXVolume * OptionsManager.Instance.m_fMasterVolume;
-        }
 	}
 
     private void Update()
     {
+        if (OptionsManager.InstanceExists)
+        {
+            m_hitSound.volume = OptionsManager.Instance.m_fSFXVolume * OptionsManager.Instance.m_fMasterVolume;
+        }
+
         // checks if the shield is on
         if (m_shield.bFlag)
         {

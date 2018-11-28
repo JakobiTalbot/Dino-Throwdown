@@ -80,6 +80,12 @@ public class Dash : MonoBehaviour
 
             // add dash force
             m_rigidbody.AddExplosionForce(m_fDashForce, v3ExplosionPos, 20.0f);
+
+            // gets the sfx volume from the options
+            if (OptionsManager.InstanceExists)
+            {
+                GetComponents<AudioSource>()[1].volume = OptionsManager.Instance.m_fSFXVolume * OptionsManager.Instance.m_fMasterVolume;
+            }
             // play dash sound
             GetComponents<AudioSource>()[1].Play();
             m_bCanDash = false;

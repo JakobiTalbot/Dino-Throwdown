@@ -80,6 +80,12 @@ public class BallKnockback : MonoBehaviour
         // creates hit particles
         Instantiate(player.m_hitParticles, v3ExplosionPos, Quaternion.Euler(0, 0, 0));
 
+        // gets the sfx volume from the options
+        if (OptionsManager.InstanceExists)
+        {
+            GetComponent<AudioSource>().volume = OptionsManager.Instance.m_fSFXVolume * OptionsManager.Instance.m_fMasterVolume;
+        }
+
         GetComponent<AudioSource>().Play();
     }
 }

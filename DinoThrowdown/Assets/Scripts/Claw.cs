@@ -110,6 +110,13 @@ public class Claw : MonoBehaviour
 
     private void Update()
     {
+        // gets the sfx volume from the options
+        if (OptionsManager.InstanceExists)
+        {
+            GetComponents<AudioSource>()[0].volume = OptionsManager.Instance.m_fSFXVolume * OptionsManager.Instance.m_fMasterVolume;
+            GetComponents<AudioSource>()[1].volume = OptionsManager.Instance.m_fSFXVolume * OptionsManager.Instance.m_fMasterVolume;
+        }
+
         m_bottomLight.GetComponent<Animator>().SetBool("bConstant", m_bConstantFlashing);
 
         // checks if there is someone in the crane
