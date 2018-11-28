@@ -180,6 +180,11 @@ public class PlayerController : MonoBehaviour
             m_dinos[iDinoType].GetComponentInChildren<SkinnedMeshRenderer>().material = CharacterManager.Instance.m_dinoColours[m_cPlayerNumber - 1];
         }
 
+        if (!m_rigidbody.isKinematic)
+        {
+            m_cAttackAmount = 0;
+        }
+
         // get controller input
         m_gamePadState = GamePad.GetState(m_playerIndex);
         // Get player input (keyboard)
@@ -461,7 +466,15 @@ public class PlayerController : MonoBehaviour
         if (m_rigidbody.isKinematic)
         {
             m_cAttackAmount++;
-            Instantiate(GetComponent<Knockback>().m_hitParticles, new Vector3(transform.position.x, transform.position.y + 3.0f, transform.position.z), transform.rotation);
+            GameObject[] claws = GameObject.FindGameObjectsWithTag("Claw");
+            foreach (var claw in claws)
+            {
+                if (claw.GetComponent<Claw>().m_bHasPlayer)
+                {
+                    Instantiate(GetComponent<Knockback>().m_hitParticles, new Vector3(transform.position.x, transform.position.y + 3.0f, transform.position.z), transform.rotation);
+                    break;
+                }
+            }
         }
     }
 
