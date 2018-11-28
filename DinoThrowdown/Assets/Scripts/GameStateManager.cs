@@ -149,6 +149,7 @@ public class GameStateManager : MonoBehaviour
                 }
 
                 player.GetComponent<PlayerController>().m_bIsOut = true;
+                player.GetComponent<PlayerController>().m_konamiCamera.gameObject.SetActive(false);
             }
             m_canvas.GetComponent<UI>().FadeText();
             m_canvas.GetComponent<UI>().DisableUI();
