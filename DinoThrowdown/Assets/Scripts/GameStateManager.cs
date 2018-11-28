@@ -313,10 +313,11 @@ public class GameStateManager : MonoBehaviour
             m_claws[i].transform.localRotation = m_clawOriginalRotations[i];
             m_claws[i].GetComponent<Claw>().m_bDropped = false;
             m_claws[i].GetComponent<Claw>().m_bHasItem = false;
+            GameObject clawBomb = m_claws[i].GetComponent<Claw>().m_item;
+            Destroy(clawBomb);
             m_claws[i].GetComponent<Claw>().m_item = null;
             m_claws[i].GetComponent<Claw>().m_bHasPlayer = false;
             m_claws[i].GetComponent<Claw>().m_pickedUpPlayer = null;
-            Destroy(m_claws[i].GetComponent<Claw>().m_item);
             m_claws[i].GetComponentInChildren<LineRenderer>().SetPosition(1, Vector3.zero);
         }
 
