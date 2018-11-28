@@ -339,7 +339,6 @@ public class GameStateManager : MonoBehaviour
             Destroy(dropperScript.m_currentBomb);
 
         m_bombDropper.GetComponent<BombDropper>().m_fTimeUntilBombsDrop = m_bombDropper.GetComponent<BombDropper>().m_fSecondsUntilBombsStartDropping;
-        m_bombDropper.GetComponent<BombDropper>().m_fDropTimer = m_bombDropper.GetComponent<BombDropper>().m_fDropInterval;
 
         // reset all pickup spawnpoints
         foreach (var spawnPoint in m_powerupSpawnPoints)
