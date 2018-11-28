@@ -36,12 +36,23 @@ public class UI : MonoBehaviour
         m_v2OriginalBarSizeDelta = m_knockbackBars[0].GetComponent<RectTransform>().sizeDelta;
         for (int i = 0; i < m_players.Length; ++i)
         {
-            // Get percentage knockback (without decimal places)
+            // get percentage knockback (without decimal places)
             int nKnockbackValue = (int)m_players[i].GetComponent<Knockback>().GetKnockback();
             m_knockbackTexts[i].GetComponent<Text>().text = nKnockbackValue.ToString() + "%";
             // set bar size
-            m_knockbackBars[i].GetComponentsInChildren<RectTransform>()[0].sizeDelta =
+            m_knockbackBars[i].GetComponent<RectTransform>().sizeDelta =
                 new Vector2(Mathf.Lerp(m_knockbackBars[i].GetComponentsInChildren<RectTransform>()[0].sizeDelta.x, 0.0f +  (nKnockbackValue / 100.0f * m_v2OriginalBarSizeDelta.x), m_fKnockbackBarFillSpeed), m_v2OriginalBarSizeDelta.y);
+
+            // set black bar size
+            if (m_knockbackBars[i].GetComponent<RectTransform>().sizeDelta.x > 1.0f)
+                m_knockbackBars[i].GetComponentsInParent<RectTransform>()[1].sizeDelta = 
+                    new Vector2(m_knockbackBars[i].GetComponent<RectTransform>().sizeDelta.x + 4.0f,
+                    m_knockbackBars[i].GetComponentsInParent<RectTransform>()[1].sizeDelta.y);
+            else
+                m_knockbackBars[i].GetComponentsInParent<RectTransform>()[1].sizeDelta =
+                    new Vector2(0.0f,
+                    m_knockbackBars[i].GetComponentInParent<RectTransform>().sizeDelta.y);
+
 
             Rect rect = m_knockbackBars[i].GetComponent<RawImage>().uvRect;
             rect.width = m_knockbackBars[i].GetComponent<RectTransform>().sizeDelta.x / m_v2OriginalBarSizeDelta.x;
@@ -128,8 +139,18 @@ public class UI : MonoBehaviour
                 }
 
                 // set bar size
-                m_knockbackBars[i].GetComponentsInChildren<RectTransform>()[0].sizeDelta =
+                m_knockbackBars[i].GetComponent<RectTransform>().sizeDelta =
                     new Vector2(Mathf.Lerp(m_knockbackBars[i].GetComponentsInChildren<RectTransform>()[0].sizeDelta.x, 0.0f + (nKnockbackValue / 100.0f * m_v2OriginalBarSizeDelta.x), m_fKnockbackBarFillSpeed), m_v2OriginalBarSizeDelta.y);
+
+                // set black bar size
+                if (m_knockbackBars[i].GetComponent<RectTransform>().sizeDelta.x > 1.0f)
+                    m_knockbackBars[i].GetComponentsInParent<RectTransform>()[1].sizeDelta =
+                        new Vector2(Mathf.Lerp(m_knockbackBars[i].GetComponentsInParent<RectTransform>()[1].sizeDelta.x, m_knockbackBars[i].GetComponent<RectTransform>().sizeDelta.x + 4.0f, m_fKnockbackBarFillSpeed),
+                        m_knockbackBars[i].GetComponentsInParent<RectTransform>()[1].sizeDelta.y);
+                else
+                    m_knockbackBars[i].GetComponentsInParent<RectTransform>()[1].sizeDelta =
+                        new Vector2(0.0f,
+                        m_knockbackBars[i].GetComponentInParent<RectTransform>().sizeDelta.y);
 
                 Rect rect = m_knockbackBars[i].GetComponent<RawImage>().uvRect;
                 rect.width = m_knockbackBars[i].GetComponent<RectTransform>().sizeDelta.x / m_v2OriginalBarSizeDelta.x;
