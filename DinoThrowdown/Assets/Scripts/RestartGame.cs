@@ -103,4 +103,13 @@ public class RestartGame : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
+    // turns on the konami functionality
+    public void KONAMI()
+    {
+        foreach (var player in m_players)
+        {
+            player.KonamiOn();
+        }
+    }
 }

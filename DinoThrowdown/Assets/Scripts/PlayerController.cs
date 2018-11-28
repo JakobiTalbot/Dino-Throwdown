@@ -59,6 +59,10 @@ public class PlayerController : MonoBehaviour
     public float m_fKONAMIDuration = 2.0f;
     // delay between input
     public float m_fInputDelay = 0.2f;
+    // reference to the konami camera
+    public Camera m_konamiCamera;
+    // rotation speed when konami is on
+    public float m_fKonamiRotateSpeed = 5.0f;
 
     // reference to the claw that will be used
     [HideInInspector]
@@ -117,6 +121,8 @@ public class PlayerController : MonoBehaviour
     private Claw.PickupTimer m_inputDelay;
     // used to time input
     private float m_fKonamiTimer = 0.0f;
+    // determines if the movement should change due to the konami code
+    private bool m_bKonami = false;
 
     // Use this for initialization
     void Awake()
@@ -197,8 +203,10 @@ public class PlayerController : MonoBehaviour
                 Move(v2Movement.x, v2Movement.y);
 
             // look to movement
-            if (v2Movement.sqrMagnitude != 0.0f && Time.timeScale > 0.0f)
+            if (v2Movement.sqrMagnitude != 0.0f && Time.timeScale > 0.0f && !m_bKonami)
+            {
                 transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(new Vector3(v2Movement.x, 0.0f, v2Movement.y)), m_fCruiseRotateSpeed);
+            }
         }
         // checks if the player is in the game and not on cruise control
         else if (!m_bIsOut && !m_bInCrane)
@@ -206,8 +214,10 @@ public class PlayerController : MonoBehaviour
             Move(v2Movement.x, v2Movement.y);
 
             // look to movement
-            if (v2Movement.sqrMagnitude != 0.0f && Time.timeScale > 0.0f)
+            if (v2Movement.sqrMagnitude != 0.0f && Time.timeScale > 0.0f && !m_bKonami)
+            {
                 transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(new Vector3(v2Movement.x, 0.0f, v2Movement.y)), m_fRotateSpeedController);
+            }
         }
 
         // pause game
@@ -363,8 +373,19 @@ public class PlayerController : MonoBehaviour
     {
         // Put input into force vector3
         Vector3 v3Direction = new Vector3();
-        v3Direction += Vector3.forward * forwardMovement;
-        v3Direction += Vector3.right * rightMovement;
+        if (m_bKonami)
+        {
+            v3Direction += transform.forward * forwardMovement;
+            if (rightMovement != 0.0f)
+            {
+                transform.Rotate(new Vector3(0.0f, rightMovement * m_fKonamiRotateSpeed, 0.0f));
+            }
+        }
+        else
+        {
+            v3Direction += Vector3.forward * forwardMovement;
+            v3Direction += Vector3.right * rightMovement;
+        }
 
         if (v3Direction.sqrMagnitude > 1)
             v3Direction.Normalize();
@@ -377,9 +398,21 @@ public class PlayerController : MonoBehaviour
     private void Cruise(float fHorizontal, float fVertical)
     {
         // direction based on input
-        Vector3 v3Direction = new Vector3(0.0f, 0.0f, 0.0f);
-        v3Direction.x = fHorizontal * m_fCruiseSpeed * Time.deltaTime;
-        v3Direction.z = fVertical * m_fCruiseSpeed * Time.deltaTime;
+        Vector3 v3Direction = new Vector3();
+        if (m_bKonami)
+        {
+            v3Direction.x = transform.forward.x * fVertical * m_fCruiseSpeed * Time.deltaTime;
+            v3Direction.z = transform.forward.z * fVertical * m_fCruiseSpeed * Time.deltaTime;
+            if (fHorizontal != 0.0f)
+            {
+                transform.Rotate(new Vector3(0.0f, fHorizontal * m_fKonamiRotateSpeed, 0.0f));
+            }
+        }
+        else
+        {
+            v3Direction.x = fHorizontal * m_fCruiseSpeed * Time.deltaTime;
+            v3Direction.z = fVertical * m_fCruiseSpeed * Time.deltaTime;
+        }
 
         // moves the rigidbody by the direction
         transform.position += v3Direction;
@@ -544,9 +577,14 @@ public class PlayerController : MonoBehaviour
             m_fKonamiTimer = 0.0f;
         }
 
-        if (m_sBuffer.Length > 22)
+        if (m_sBuffer.Length > 11)
         {
-            m_sBuffer.Remove(0);
+            char[] sBuffer = m_sBuffer.ToCharArray(1, 11);
+            m_sBuffer = string.Empty;
+            for (int i = 0; i < sBuffer.Length; i++)
+            {
+                m_sBuffer += sBuffer[i];
+            }
         }
 
         if (m_fKonamiTimer <= m_fKONAMIDuration)
@@ -556,7 +594,7 @@ public class PlayerController : MonoBehaviour
 
         if (m_sBuffer == m_sKonami)
         {
-            Debug.Log("KONAMI");
+            m_gameOverCanvas.KONAMI();
         }
 
         if (m_inputDelay.bFlag)
@@ -568,5 +606,12 @@ public class PlayerController : MonoBehaviour
                 m_inputDelay.bFlag = false;
             }
         }
+    }
+
+    // turns on the konami function
+    public void KonamiOn()
+    {
+        m_bKonami = true;
+        m_konamiCamera.gameObject.SetActive(true);
     }
 }

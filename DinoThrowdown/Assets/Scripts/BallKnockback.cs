@@ -79,5 +79,7 @@ public class BallKnockback : MonoBehaviour
         player.GetComponent<PlayerController>().m_fKnockedBackTimer = player.GetComponent<PlayerController>().m_fStopCruiseAfterHitTime;
         // creates hit particles
         Instantiate(player.m_hitParticles, v3ExplosionPos, Quaternion.Euler(0, 0, 0));
+
+        GetComponent<AudioSource>().Play();
     }
 }

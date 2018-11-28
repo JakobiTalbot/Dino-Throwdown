@@ -81,12 +81,12 @@ public class Claw : MonoBehaviour
 
     // reference to the crane
     private CraneManager m_crane;
-    private bool m_bClawDownSoundPlayed = false;
-    private bool m_bClawUpSoundPlayed = false;
     // used to make sure that the bottom light only flashes once per player
     private bool[] m_bFlashed = new bool[4];
     // used to check if a bomb delay is on
     private bool m_bBombDelay = false;
+    // checks if an audio is playing
+    private bool m_bAudioPlaying = false;
 
     private void Start()
     {
@@ -134,7 +134,14 @@ public class Claw : MonoBehaviour
                     m_pickedUpPlayer.GetComponent<Rigidbody>().isKinematic = false;
                     m_bHasPlayer = false;
                     transform.position = new Vector3(transform.position.x, 16.0f, transform.position.z);
+                    // stops the flashing animation
+                    StopFlashing();
                     m_delay.bFlag = true;
+                    if (m_bAudioPlaying)
+                    {
+                        GetComponents<AudioSource>()[0].Stop();
+                        m_bAudioPlaying = false;
+                    }
                 }
             }
             // checks if the claw has a player
@@ -151,6 +158,11 @@ public class Claw : MonoBehaviour
                     m_delay.bFlag = true;
                     // stops the flashing animation
                     StopFlashing();
+                    if (m_bAudioPlaying)
+                    {
+                        GetComponents<AudioSource>()[0].Stop();
+                        m_bAudioPlaying = false;
+                    }
                 }
             }
         }
@@ -238,9 +250,11 @@ public class Claw : MonoBehaviour
         {
             // moves the claw down
             transform.Translate(-transform.up * Time.deltaTime * m_fMoveSpeed);
-            if (!m_bClawDownSoundPlayed)
+            if (!m_bAudioPlaying)
+            {
                 GetComponents<AudioSource>()[0].Play();
-            m_bClawDownSoundPlayed = true;
+                m_bAudioPlaying = true;
+            }
         }
         else
         {
@@ -250,6 +264,11 @@ public class Claw : MonoBehaviour
             m_bHasItem = true;
             // sets the dropped status to true
             m_bDropped = true;
+            if (m_bAudioPlaying)
+            {
+                GetComponents<AudioSource>()[0].Stop();
+                m_bAudioPlaying = false;
+            }
         }
     }
     // raises the claw
@@ -260,9 +279,11 @@ public class Claw : MonoBehaviour
         {
             // moves the claw up
             transform.Translate(transform.up * Time.deltaTime * m_fMoveSpeed);
-            if (!m_bClawUpSoundPlayed)
+            if (!m_bAudioPlaying)
+            {
                 GetComponents<AudioSource>()[1].Play();
-            m_bClawUpSoundPlayed = true;
+                m_bAudioPlaying = true;
+            }
             return true;
         }
         // checks if the claw has a player
@@ -274,14 +295,22 @@ public class Claw : MonoBehaviour
             m_pickedUpPlayer.transform.position = Vector3.Lerp(m_pickedUpPlayer.transform.position,
                 new Vector3(transform.position.x, m_pickedUpPlayer.transform.position.y, transform.position.z),
                 m_fMoveSpeed * Time.deltaTime);
+            if (!m_bAudioPlaying)
+            {
+                GetComponents<AudioSource>()[1].Play();
+                m_bAudioPlaying = true;
+            }
             return true;
         }
         else
         {
+            if (m_bAudioPlaying)
+            {
+                GetComponents<AudioSource>()[0].Stop();
+                m_bAudioPlaying = false;
+            }
             // the claw has risen back to the top
             m_bDropped = false;
-            m_bClawDownSoundPlayed = false;
-            m_bClawUpSoundPlayed = false;
             return false;
         }
     }
@@ -351,14 +380,6 @@ public class Claw : MonoBehaviour
             // sets the claw to have dropped
             m_bDropped = true;
 
-            if (OptionsManager.InstanceExists)
-            {
-                other.GetComponent<AudioSource>().volume = OptionsManager.Instance.m_fSFXVolume * OptionsManager.Instance.m_fMasterVolume;
-            }
-
-            // plays the audio
-            other.GetComponent<AudioSource>().Play();
-
             if (!m_bConstantFlashing)
             {
                 if (!m_bFlashed[m_crane.m_player.GetComponent<PlayerController>().m_cPlayerNumber])
@@ -383,10 +404,21 @@ public class Claw : MonoBehaviour
                     m_bottomLight.GetComponent<Animator>().SetTrigger("Flash");
                 }
             }
+
+            if (m_bAudioPlaying)
+            {
+                GetComponents<AudioSource>()[0].Stop();
+                m_bAudioPlaying = false;
+            }
         }
         // checks if the claw collided with the platform
         else if (other.CompareTag("Ground"))
         {
+            if (m_bAudioPlaying)
+            {
+                GetComponents<AudioSource>()[0].Stop();
+                m_bAudioPlaying = false;
+            }
             // sets the claw to have dropped
             m_bDropped = true;
         }
@@ -429,6 +461,11 @@ public class Claw : MonoBehaviour
             // moves the claw down
             transform.Translate(-transform.up * Time.deltaTime * m_fMoveSpeed);
             m_pickedUpPlayer.transform.Translate(-transform.up * Time.deltaTime * m_fMoveSpeed);
+            if (!m_bAudioPlaying)
+            {
+                GetComponents<AudioSource>()[0].Play();
+                m_bAudioPlaying = true;
+            }
         }
         else
         {
@@ -473,6 +510,12 @@ public class Claw : MonoBehaviour
             m_pickedUpPlayer.m_bInCrane = true;
             m_pickedUpPlayer.m_claw = this;
             m_pickedUpPlayer.m_cAttackAmount = 0;
+
+            if (m_bAudioPlaying)
+            {
+                GetComponents<AudioSource>()[0].Stop();
+                m_bAudioPlaying = false;
+            }
         }
     }
 
