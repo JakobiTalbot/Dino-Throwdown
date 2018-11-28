@@ -38,6 +38,8 @@ public class CharacterSelection : MonoBehaviour
     public float m_fShakeDuration = 0.6f;
     // determines if the text or the box shakes
     public bool m_bShakeBox = true;
+    // reference to the character selection audio
+    public GameObject m_playerMusic;
 
     // the current dino type
     [HideInInspector]
@@ -505,6 +507,7 @@ public class CharacterSelection : MonoBehaviour
                 }
                 // activates the game setup canvas
                 transform.parent.GetComponentInParent<ActivateMenu>().GameSetup();
+                m_playerMusic.SetActive(false);
                 // deactivates the character selection screen
                 transform.parent.gameObject.SetActive(false);
                 // resets the timer

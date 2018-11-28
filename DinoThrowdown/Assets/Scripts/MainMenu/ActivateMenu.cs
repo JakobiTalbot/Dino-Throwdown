@@ -35,6 +35,6 @@ public class ActivateMenu : MonoBehaviour
     {
         m_gameSetup.SetActive(true);
         m_gameSetup.GetComponent<GameSetup>().SelectButton();
-        m_backgroundMusic.Play();
+        m_backgroundMusic.gameObject.SetActive(true);
     }
 }

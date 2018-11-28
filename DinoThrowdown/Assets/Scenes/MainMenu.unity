@@ -3356,6 +3356,7 @@ MonoBehaviour:
   m_fShakeStrength: 0.5
   m_fShakeDuration: 0.6
   m_bShakeBox: 1
+  m_playerMusic: {fileID: 1054815422}
   m_iHoverpodType: 0
   m_iHoverpodColour: 0
   m_bConfirmed: 0
@@ -4761,6 +4762,7 @@ MonoBehaviour:
   m_fShakeStrength: 0.5
   m_fShakeDuration: 0.6
   m_bShakeBox: 1
+  m_playerMusic: {fileID: 1054815422}
   m_iHoverpodType: 0
   m_iHoverpodColour: 0
   m_bConfirmed: 0
@@ -14635,6 +14637,7 @@ MonoBehaviour:
   m_fShakeStrength: 0.5
   m_fShakeDuration: 0.6
   m_bShakeBox: 1
+  m_playerMusic: {fileID: 1054815422}
   m_iHoverpodType: 0
   m_iHoverpodColour: 0
   m_bConfirmed: 0
@@ -16158,6 +16161,7 @@ MonoBehaviour:
   m_fShakeStrength: 0.5
   m_fShakeDuration: 0.6
   m_bShakeBox: 1
+  m_playerMusic: {fileID: 1054815422}
   m_iHoverpodType: 0
   m_iHoverpodColour: 0
   m_bConfirmed: 0
