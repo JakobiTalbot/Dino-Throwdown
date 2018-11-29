@@ -1260,6 +1260,7 @@ GameObject:
   - component: {fileID: 20669629275792856}
   - component: {fileID: 124700345120631944}
   - component: {fileID: 81161737230659128}
+  - component: {fileID: 114001717174376454}
   m_Layer: 8
   m_Name: KonamiCamera
   m_TagString: Untagged
@@ -15679,6 +15680,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114001717174376454
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1158825420237522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: c292cb6da7f2dc64596849ddb13b2860, type: 2}
 --- !u!114 &114117240950992870
 MonoBehaviour:
   m_ObjectHideFlags: 1

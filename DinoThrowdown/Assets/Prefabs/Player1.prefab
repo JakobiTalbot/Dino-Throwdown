@@ -4219,6 +4219,7 @@ GameObject:
   - component: {fileID: 20050164387286982}
   - component: {fileID: 124467041940342184}
   - component: {fileID: 81445665954716510}
+  - component: {fileID: 114098223360161238}
   m_Layer: 8
   m_Name: KonamiCamera
   m_TagString: Untagged
@@ -15761,6 +15762,18 @@ MonoBehaviour:
     type: 2}
   m_shieldSphere: {fileID: 1893494001850904}
   m_fKnockbackMeter: 0
+--- !u!114 &114098223360161238
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1563774411510892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: c292cb6da7f2dc64596849ddb13b2860, type: 2}
 --- !u!114 &114110958277428414
 MonoBehaviour:
   m_ObjectHideFlags: 1
