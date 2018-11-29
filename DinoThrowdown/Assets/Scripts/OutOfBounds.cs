@@ -55,7 +55,7 @@ public class OutOfBounds : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         // checks if the collider is a player
         if (other.CompareTag("Player"))
