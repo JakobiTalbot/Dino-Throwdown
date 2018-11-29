@@ -23,6 +23,11 @@ public class ActivateMenu : MonoBehaviour
             // changes the volume based on the options
             m_backgroundMusic.volume = OptionsManager.Instance.m_fMusicVolume * OptionsManager.Instance.m_fMasterVolume;
         }
+
+        if (Time.timeScale == 0)
+        {
+            Time.timeScale = 1;
+        }
     }
 
     public void MenuButtons()
