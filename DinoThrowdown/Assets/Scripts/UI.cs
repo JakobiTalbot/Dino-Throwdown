@@ -62,6 +62,7 @@ public class UI : MonoBehaviour
             if (CharacterManager.InstanceExists)
             {
                 m_knockbackTexts[i].GetComponent<Text>().color = m_colours[CharacterManager.Instance.m_iDinoColours[m_players[i].GetComponent<PlayerController>().m_cPlayerNumber - 1]].color;
+                m_knockbackTexts[i].GetComponents<Shadow>()[0].effectColor = m_colours[CharacterManager.Instance.m_iDinoColours[m_players[i].GetComponent<PlayerController>().m_cPlayerNumber - 1]].color;
                 // reference to the character manager instance
                 CharacterManager charManager = CharacterManager.Instance;
 
