@@ -47,6 +47,8 @@ public class Claw : MonoBehaviour
     public GameObject m_bottomLight;
     // determines if the flashing should be constant or once off
     public bool m_bConstantFlashing = true;
+    // reference to the reticle
+    public GameObject m_reticle;
 
     // determines if the claw has dropped
     [HideInInspector]
@@ -131,6 +133,9 @@ public class Claw : MonoBehaviour
         {
             LineRenderer line = GetComponentInChildren<LineRenderer>();
             line.SetPosition(1, new Vector3(0.0f, 0.0f, m_fLineLength));
+
+            m_reticle.SetActive(true);
+
             // sets the colour of the line to the colour of the player
             if (CharacterManager.InstanceExists)
             {
@@ -184,6 +189,7 @@ public class Claw : MonoBehaviour
         {
             // sets the line length to zero
             GetComponentInChildren<LineRenderer>().SetPosition(1, Vector3.zero);
+            m_reticle.SetActive(false);
         }
 
         if (m_delay.bFlag)
