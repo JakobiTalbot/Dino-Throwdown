@@ -1,7 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+public enum BOMBDROPPER_STATE
+{
+    E_HASBOMB = 0,
+    E_GETTINGBOMB,
+    E_RESETTING
+}
 public class BombDropper : MonoBehaviour
 {
     // reference to the game object that contains all the blocks
@@ -37,15 +42,12 @@ public class BombDropper : MonoBehaviour
     // used to time when the bombs should start dropping
     [HideInInspector]
     public float m_fTimeUntilBombsDrop;
-    // determines if the claw has a bomb
-    [HideInInspector]
-    public bool m_bHasBomb;
-    // determines if the claw is in the process of getting a bomb
-    [HideInInspector]
-    public bool m_bGettingBomb;
     // initial y position of the claw
     [HideInInspector]
     public float m_fStartYPos;
+    // enum to store state of bomb dropper crane
+    [HideInInspector]
+    public BOMBDROPPER_STATE m_state = BOMBDROPPER_STATE.E_RESETTING;
 
     // collection of the original positions of the blocks
     private Vector3[] m_v3OriginalBlockPositions;
@@ -86,76 +88,79 @@ public class BombDropper : MonoBehaviour
 
         if (m_fDropTimer <= 0.0f && m_blocks.Count > 0)
         {
-            if (m_bHasBomb)
+            switch (m_state)
             {
-                // if crane is down
-                if (transform.position.y < m_fStartYPos)
-                {
-                    // move crane up
-                    transform.position += Vector3.up * m_fCraneDropSpeed * Time.deltaTime;
-                }
-                else
-                {
-                    // get direction to drop location
-                    Vector3 v3Dir = m_v3BombDropPos - transform.position;
-
-                    if (v3Dir.sqrMagnitude > 1.0f)
+                case BOMBDROPPER_STATE.E_GETTINGBOMB:
+                    Vector3 v3Dir = m_v3BombPickupPos - transform.position;
+                    if ((m_v3BombPickupPos - transform.position).sqrMagnitude > 1.0f && !m_bReachedLocation)
                     {
-                        // seek drop location
+                        // move in direction
                         transform.position += v3Dir.normalized * m_fCraneMoveSpeed * Time.deltaTime;
                     }
                     else
                     {
-                        // drop bomb
-                        m_currentBomb.GetComponent<BlockBomb>().enabled = true;
-                        m_currentBomb.GetComponent<Rigidbody>().isKinematic = false;
-                        m_currentBomb.transform.parent = null;
+                        m_bReachedLocation = true;
+                        // if crane is not down
+                        if (transform.position.y >= m_fCraneDownYPosition)
+                        {
+                            // move down
+                            transform.position += Vector3.down * m_fCraneMoveSpeed * Time.deltaTime;
+                        }
+                        else //if crane is down
+                        {
+                            // get random block index
+                            int nBlockIndex = Random.Range(0, m_blocks.Count);
+                            // get bomb position above random block
+                            m_v3BombDropPos = m_blocks[nBlockIndex].transform.position;
+                            m_v3BombDropPos.y = m_nDropHeight;
 
-                        m_bHasBomb = false;
-                        ResetTimers();
+                            // create bomb
+                            m_currentBomb = Instantiate(m_bomb, transform);
+                            m_currentBomb.GetComponent<BlockBomb>().m_nMaxBlocksToDestroy = m_nMaxBlocksToDestroy;
+                            m_currentBomb.GetComponent<BlockBomb>().m_bombDropper = gameObject;
+                            m_currentBomb.GetComponent<BlockBomb>().enabled = false;
+                            m_currentBomb.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+                            m_state = BOMBDROPPER_STATE.E_HASBOMB;
+                            m_bReachedLocation = false;
+                        }
                     }
-                }
-            }
-            else if (m_bGettingBomb)
-            {
-                Vector3 v3Dir = m_v3BombPickupPos - transform.position;
-                if ((m_v3BombPickupPos - transform.position).sqrMagnitude > 1.0f && !m_bReachedLocation)
-                {
-                    // move in direction
-                    transform.position += v3Dir.normalized * m_fCraneMoveSpeed * Time.deltaTime;
-                }
-                else
-                {
-                    m_bReachedLocation = true;
-                    // if crane is not down
-                    if (transform.position.y >= m_fCraneDownYPosition)
-                    {
-                        // move down
-                        transform.position += Vector3.down * m_fCraneMoveSpeed * Time.deltaTime;
-                    }
-                    else //if crane is down
-                    {
-                        // get random block index
-                        int nBlockIndex = Random.Range(0, m_blocks.Count);
-                        // get bomb position above random block
-                        m_v3BombDropPos = m_blocks[nBlockIndex].transform.position;
-                        m_v3BombDropPos.y = m_nDropHeight;
+                    break;
 
-                        // create bomb
-                        m_currentBomb = Instantiate(m_bomb, transform);
-                        m_currentBomb.GetComponent<BlockBomb>().m_nMaxBlocksToDestroy = m_nMaxBlocksToDestroy;
-                        m_currentBomb.GetComponent<BlockBomb>().m_bombDropper = gameObject;
-                        m_currentBomb.GetComponent<BlockBomb>().enabled = false;
-                        m_currentBomb.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-                        m_bHasBomb = true;
-                        m_bGettingBomb = false;
-                        m_bReachedLocation = false;
+                case BOMBDROPPER_STATE.E_HASBOMB:
+                    {
+                        // if crane is down
+                        if (transform.position.y < m_fStartYPos)
+                        {
+                            // move crane up
+                            transform.position += Vector3.up * m_fCraneDropSpeed * Time.deltaTime;
+                        }
+                        else
+                        {
+                            // get direction to drop location
+                            Vector3 v3DropDir = m_v3BombDropPos - transform.position;
+
+                            if (v3DropDir.sqrMagnitude > 1.0f)
+                            {
+                                // seek drop location
+                                transform.position += v3DropDir.normalized * m_fCraneMoveSpeed * Time.deltaTime;
+                            }
+                            else
+                            {
+                                // drop bomb
+                                m_currentBomb.GetComponent<BlockBomb>().enabled = true;
+                                m_currentBomb.GetComponent<Rigidbody>().isKinematic = false;
+                                m_currentBomb.transform.parent = null;
+
+                                m_state = BOMBDROPPER_STATE.E_RESETTING;
+                                ResetTimers();
+                            }
+                        }
                     }
-                }
-            }
-            else
-            {
-                FindPosition();
+                    break;
+
+                case BOMBDROPPER_STATE.E_RESETTING:
+                    FindPosition();
+                    break;
             }
         }
 	}
@@ -194,9 +199,11 @@ public class BombDropper : MonoBehaviour
         v3RandPos.y = m_fStartYPos;
 
         int nGrabbingAxis = Random.Range(0, 1);
+
         int nNegative = Random.Range(0, 1);
         if (nNegative == 0)
             nNegative = -1;
+
         switch (nGrabbingAxis)
         {
             case 0:
@@ -211,6 +218,6 @@ public class BombDropper : MonoBehaviour
 
         // set seek location
         m_v3BombPickupPos = v3RandPos;
-        m_bGettingBomb = true;
+        m_state = BOMBDROPPER_STATE.E_GETTINGBOMB;
     }
 }
