@@ -458,6 +458,7 @@ public class CharacterSelection : MonoBehaviour
             // checks if everyone is ready
             if (GetComponentInParent<PlayGame>().m_cReadyPlayers == 4)
             {
+                OptionsManager.Instance.m_iScene = 1;
                 SceneManager.LoadScene(1);
             }
             // otherwise shakes the box

@@ -138,6 +138,10 @@ public class PauseGame : MonoBehaviour
     {
         // reset time scale so it doesn't break the main menu
         Time.timeScale = 1.0f;
+        if (OptionsManager.InstanceExists)
+        {
+            OptionsManager.Instance.m_iScene = 0;
+        }
         SceneManager.LoadScene(0);
     }
 

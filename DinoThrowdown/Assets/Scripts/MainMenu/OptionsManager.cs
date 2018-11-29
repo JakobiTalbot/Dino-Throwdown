@@ -32,6 +32,9 @@ public class OptionsManager : PersistantSingleton<OptionsManager>
     // the value of the dropdown
     [HideInInspector]
     public int m_iRound = 1;
+    // determines which scene is loaded
+    [HideInInspector]
+    public int m_iScene = 0;
 
     // references to the sliders
     private Slider[] m_sliders;
@@ -56,30 +59,26 @@ public class OptionsManager : PersistantSingleton<OptionsManager>
         m_dropdown = FindObjectOfType<Dropdown>();
 
         // gets the values from the sliders
-        if (m_sliders != null && m_sliders.Length >= 3)
+        if (m_sliders != null && m_sliders.Length >= 3 && m_iScene == 0)
         {
             m_fMasterVolume = m_sliders[1].value;
             m_fMusicVolume = m_sliders[2].value;
             m_fSFXVolume = m_sliders[0].value;
         }
         // gets the toggle status
-        if (m_toggles != null && m_toggles.Length >= 4)
+        if (m_toggles != null && m_toggles.Length >= 4 && m_iScene == 0)
         {
             m_bPickups = m_toggles[0].isOn;
             m_bIndicator = m_toggles[1].isOn;
             m_bBombs = m_toggles[2].isOn;
             m_bWreckingBall = m_toggles[3].isOn;
         }
-        else if (m_toggles != null && m_toggles.Length >= 1)
+        else if (m_toggles != null && m_toggles.Length >= 1 && m_iScene == 0)
         {
             m_bVibration = m_toggles[0].isOn;
         }
         // gets the value from the dropdown
         if(m_dropdown != null)
             m_iRound = m_dropdown.value;
-
-        Debug.Log(m_fMasterVolume);
-        Debug.Log(m_fMusicVolume);
-        Debug.Log(m_fSFXVolume);
     }
 }
