@@ -135,29 +135,7 @@ public class BombDropper : MonoBehaviour
             }
             else
             {
-                // create random position
-                Vector3 v3RandPos = new Vector3();
-                v3RandPos.y = m_fStartYPos;
-
-                int nGrabbingAxis = Random.Range(0, 1);
-                int nNegative = Random.Range(0, 1);
-                if (nNegative == 0)
-                    nNegative = -1;
-                switch (nGrabbingAxis)
-                {
-                    case 0:
-                        v3RandPos.x = m_fOutPositionRange * nNegative;
-                        v3RandPos.z = Random.Range(-20.0f, 20.0f);
-                        break;
-                    case 1:
-                        v3RandPos.x = Random.Range(-20.0f, 20.0f);
-                        v3RandPos.z = m_fOutPositionRange * nNegative;
-                        break;
-                }
-
-                // set seek location
-                m_v3BombPickupPos = v3RandPos;
-                m_bGettingBomb = true;
+                FindPosition();
             }
         }
 	}
@@ -183,8 +161,36 @@ public class BombDropper : MonoBehaviour
     }
 
     // reset timer
-    public void ResetTimer()
+    public void ResetTimers()
     {
         m_fDropTimer = m_fDropInterval;
+        m_fTimeUntilBombsDrop = m_fSecondsUntilBombsStartDropping;
+    }
+
+    public void FindPosition()
+    {
+        // create random position
+        Vector3 v3RandPos = new Vector3();
+        v3RandPos.y = m_fStartYPos;
+
+        int nGrabbingAxis = Random.Range(0, 1);
+        int nNegative = Random.Range(0, 1);
+        if (nNegative == 0)
+            nNegative = -1;
+        switch (nGrabbingAxis)
+        {
+            case 0:
+                v3RandPos.x = m_fOutPositionRange * nNegative;
+                v3RandPos.z = Random.Range(-20.0f, 20.0f);
+                break;
+            case 1:
+                v3RandPos.x = Random.Range(-20.0f, 20.0f);
+                v3RandPos.z = m_fOutPositionRange * nNegative;
+                break;
+        }
+
+        // set seek location
+        m_v3BombPickupPos = v3RandPos;
+        m_bGettingBomb = true;
     }
 }

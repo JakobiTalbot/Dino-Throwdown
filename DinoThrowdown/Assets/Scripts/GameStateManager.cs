@@ -328,13 +328,13 @@ public class GameStateManager : MonoBehaviour
         dropperScript.ResetBlocks();
         dropperScript.m_bGettingBomb = false;
         dropperScript.m_bHasBomb = false;
-        dropperScript.ResetTimer();
+        dropperScript.ResetTimers();
         dropperScript.transform.position = new Vector3(0.0f, dropperScript.m_fStartYPos, 0.0f);
         // destroy bomb if there is one
         if (dropperScript.m_currentBomb)
             Destroy(dropperScript.m_currentBomb);
 
-        m_bombDropper.GetComponent<BombDropper>().m_fTimeUntilBombsDrop = m_bombDropper.GetComponent<BombDropper>().m_fSecondsUntilBombsStartDropping;
+        dropperScript.FindPosition();
 
         // reset all pickup spawnpoints
         foreach (var spawnPoint in m_powerupSpawnPoints)
