@@ -9,7 +9,7 @@ public class Dash : MonoBehaviour
     public GameObject m_dashEffect;
     public Vector3 m_v3DashEffectPositionOffset;
     public float m_fYRotation = 90.0f;
-    public float m_fDashForce = 1000.0f;
+    public float m_fDashVelocity = 50.0f;
     public float m_fDashCooldown = 5.0f;
     public float m_fDashVibrationTime = 0.5f;
     public float m_fDashVibrationStrength = 1.0f;
@@ -63,14 +63,19 @@ public class Dash : MonoBehaviour
     {
         if (m_bCanDash)
         {
+            // get controller input
+            GamePadState gamePadState = GamePad.GetState((PlayerIndex)m_cPlayerNumber - 1);
+            // get input vector2
+            Vector2 v2LSInput = new Vector2(gamePadState.ThumbSticks.Left.X + Input.GetAxis("Horizontal" + m_cPlayerNumber), gamePadState.ThumbSticks.Left.Y + Input.GetAxis("Vertical" + m_cPlayerNumber));
+            v2LSInput.Normalize();
+
+            if (v2LSInput == Vector2.zero)
+                return;
+
             m_rigidbody.velocity = Vector3.zero;
-            GamePadState m_gamePadState = GamePad.GetState((PlayerIndex)m_cPlayerNumber - 1);
-            // Get position for explosive force
-            Vector3 v3ExplosionPos = transform.position;
-            v3ExplosionPos.x -= 0.5f; // because the transform.position isn't the centre of the model
-            v3ExplosionPos.x -= (Input.GetAxis("Horizontal" + m_cPlayerNumber) + m_gamePadState.ThumbSticks.Left.X) * 3.0f;
-            v3ExplosionPos.y = transform.position.y + 1.0f; // So the player doesn't dash up
-            v3ExplosionPos.z -= (Input.GetAxis("Vertical" + m_cPlayerNumber) + m_gamePadState.ThumbSticks.Left.Y) * 3.0f;
+
+            // add dash velocity
+            m_rigidbody.velocity += new Vector3(v2LSInput.x * m_fDashVelocity, 0.0f, v2LSInput.y * m_fDashVelocity);
 
             // set vibration
             GetComponent<PlayerController>().SetVibration(m_fDashVibrationTime, m_fDashVibrationStrength);
@@ -80,8 +85,6 @@ public class Dash : MonoBehaviour
             newParticles.transform.localPosition = m_v3DashEffectPositionOffset;
             newParticles.transform.localRotation = Quaternion.Euler(0.0f, transform.localRotation.y + 180.0f, 0.0f);
 
-            // add dash force
-            m_rigidbody.AddExplosionForce(m_fDashForce, v3ExplosionPos, 20.0f);
 
             // gets the sfx volume from the options
             if (OptionsManager.InstanceExists)

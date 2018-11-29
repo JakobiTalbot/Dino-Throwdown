@@ -62,18 +62,7 @@ public class GameStateManager : MonoBehaviour
         if (OptionsManager.InstanceExists)
         {
             m_backgroundMusic.volume = OptionsManager.Instance.m_fMusicVolume * OptionsManager.Instance.m_fMasterVolume * m_fOriginalVolume;
-            switch (OptionsManager.Instance.m_iRound)
-            {
-                case 0:
-                    m_nRoundsToWin = 1;
-                    break;
-                case 1:
-                    m_nRoundsToWin = 3;
-                    break;
-                case 2:
-                    m_nRoundsToWin = 5;
-                    break;
-            }
+            m_nRoundsToWin = 1 + (2 * OptionsManager.Instance.m_iRound);
         }
 
         if (CharacterManager.InstanceExists)
