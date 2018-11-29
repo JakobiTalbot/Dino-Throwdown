@@ -35,6 +35,8 @@ public class PickupManager : MonoBehaviour
     // spawns a pickup at a random location
     private void Spawn()
     {
+        if (OptionsManager.InstanceExists && !OptionsManager.Instance.m_bPickups)
+            return;
         // random location index
         int iSpawnPointIndex = Random.Range(0, m_spawnPoints.Length);
         // copy of the index minus 1
