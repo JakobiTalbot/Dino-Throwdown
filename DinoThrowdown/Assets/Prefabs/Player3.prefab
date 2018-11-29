@@ -15715,8 +15715,7 @@ MonoBehaviour:
   m_fKnockbackShieldTime: 5
   m_hitParticles: {fileID: 1479954545993554, guid: 7ab8d50f7aa39104a8f7c08393d40ea6,
     type: 2}
-  m_shieldSphere: {fileID: 1649116892724802, guid: 0be3d6acec3a8c84ab8bf177af9a4356,
-    type: 2}
+  m_shieldSphere: {fileID: 1132398182099918}
   m_fKnockbackMeter: 0
 --- !u!114 &114426262122797790
 MonoBehaviour:
