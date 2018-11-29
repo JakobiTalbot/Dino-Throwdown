@@ -330,14 +330,11 @@
     <Compile Include="Assets\Imported\PostProcessing\Runtime\Utils\MaterialFactory.cs" />
     <Compile Include="Assets\Imported\PostProcessing\Runtime\Utils\RenderTextureFactory.cs" />
     <Compile Include="Assets\Imported\PostProcessing\Utilities\CustomMotionTexture\ExampleWheelController.cs" />
-    <Compile Include="Assets\Scripts\AI.cs" />
     <Compile Include="Assets\Scripts\BallKnockback.cs" />
-    <Compile Include="Assets\Scripts\BlockArena\Block.cs" />
-    <Compile Include="Assets\Scripts\BlockArena\BlockArenaUI.cs" />
-    <Compile Include="Assets\Scripts\BlockArena\BlockBomb.cs" />
-    <Compile Include="Assets\Scripts\BlockArena\BlockCollision.cs" />
-    <Compile Include="Assets\Scripts\BlockArena\BombDropper.cs" />
-    <Compile Include="Assets\Scripts\BlockArena\GameStateManagerBlockArena.cs" />
+    <Compile Include="Assets\Scripts\Block.cs" />
+    <Compile Include="Assets\Scripts\BlockBomb.cs" />
+    <Compile Include="Assets\Scripts\BlockCollision.cs" />
+    <Compile Include="Assets\Scripts\BombDropper.cs" />
     <Compile Include="Assets\Scripts\Claw.cs" />
     <Compile Include="Assets\Scripts\CraneManager.cs" />
     <Compile Include="Assets\Scripts\Dash.cs" />
@@ -374,7 +371,6 @@
     <Compile Include="Assets\Scripts\RandomSoundOnAwake.cs" />
     <Compile Include="Assets\Scripts\RestartGame.cs" />
     <Compile Include="Assets\Scripts\ScreenShake.cs" />
-    <Compile Include="Assets\Scripts\ToryTest.cs" />
     <Compile Include="Assets\Scripts\UI.cs" />
     <Compile Include="Assets\Scripts\WeaponSwing.cs" />
     <Compile Include="Assets\Scripts\WreckingBall.cs" />
