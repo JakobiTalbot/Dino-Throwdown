@@ -9455,7 +9455,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -11961,7 +11961,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -22829,6 +22829,11 @@ Prefab:
       propertyPath: m_gameOverCanvas
       value: 
       objectReference: {fileID: 671012723}
+    - target: {fileID: 114032290848436392, guid: 008f907a5e2af0d438d2ee0f13707a0a,
+        type: 2}
+      propertyPath: m_fBigWeaponMultiplier
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 008f907a5e2af0d438d2ee0f13707a0a, type: 2}
   m_IsPrefabParent: 0
@@ -31571,7 +31576,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 431a69c4a55bb444aa6175e6ed598f1a, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -48404,6 +48409,11 @@ Prefab:
       propertyPath: m_gameOverCanvas
       value: 
       objectReference: {fileID: 671012723}
+    - target: {fileID: 114117240950992870, guid: 50bf12865d9afe14b99e104a2628e514,
+        type: 2}
+      propertyPath: m_fBigWeaponMultiplier
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 50bf12865d9afe14b99e104a2628e514, type: 2}
   m_IsPrefabParent: 0
@@ -50166,6 +50176,11 @@ Prefab:
       propertyPath: m_gameOverCanvas
       value: 
       objectReference: {fileID: 671012723}
+    - target: {fileID: 114949829891543848, guid: 71219fca27827c048b39d2a773f5ed00,
+        type: 2}
+      propertyPath: m_fBigWeaponMultiplier
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 71219fca27827c048b39d2a773f5ed00, type: 2}
   m_IsPrefabParent: 0
@@ -50708,7 +50723,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -52451,6 +52466,11 @@ Prefab:
       propertyPath: m_gameOverCanvas
       value: 
       objectReference: {fileID: 671012723}
+    - target: {fileID: 114835772301802948, guid: e427bdf77a6feff4c880cfe107a34eb8,
+        type: 2}
+      propertyPath: m_fBigWeaponMultiplier
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e427bdf77a6feff4c880cfe107a34eb8, type: 2}
   m_IsPrefabParent: 0
