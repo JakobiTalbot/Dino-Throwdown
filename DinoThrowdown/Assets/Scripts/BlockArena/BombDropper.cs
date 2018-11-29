@@ -92,7 +92,7 @@ public class BombDropper : MonoBehaviour
                         m_currentBomb.transform.parent = null;
 
                         m_bHasBomb = false;
-                        ResetTimer();
+                        ResetTimers();
                     }
                 }
             }
