@@ -7,13 +7,13 @@ public class OptionsManager : PersistantSingleton<OptionsManager>
 {
     // the value of the master volume
     [HideInInspector]
-    public float m_fMasterVolume = 100.0f;
+    public float m_fMasterVolume = 1.0f;
     // the value of the music volume
     [HideInInspector]
-    public float m_fMusicVolume = 100.0f;
+    public float m_fMusicVolume = 1.0f;
     // the value of the sfx volume
     [HideInInspector]
-    public float m_fSFXVolume = 100.0f;
+    public float m_fSFXVolume = 1.0f;
     // determines if the vibration is on
     [HideInInspector]
     public bool m_bVibration = true;
@@ -33,10 +33,6 @@ public class OptionsManager : PersistantSingleton<OptionsManager>
     [HideInInspector]
     public int m_iRound = 1;
 
-    // reference to the game setup screen
-    private GameObject m_gameSetup;
-    // reference to the options screen
-    private GameObject m_options;
     // references to the sliders
     private Slider[] m_sliders;
     // references to the toggles
@@ -48,13 +44,9 @@ public class OptionsManager : PersistantSingleton<OptionsManager>
     {
         base.Awake();
 
-        m_gameSetup = GameObject.Find("GameSetup");
-        if (m_gameSetup)
-            m_gameSetup.SetActive(false);
-
-        m_options = GameObject.Find("Options");
-        if (m_options)
-            m_options.SetActive(false);
+        m_fMasterVolume /= 100.0f;
+        m_fMusicVolume /= 100.0f;
+        m_fSFXVolume /= 100.0f;
     }
 
     private void Update()
@@ -62,8 +54,6 @@ public class OptionsManager : PersistantSingleton<OptionsManager>
         m_sliders = FindObjectsOfType<Slider>();
         m_toggles = FindObjectsOfType<Toggle>();
         m_dropdown = FindObjectOfType<Dropdown>();
-
-
 
         // gets the values from the sliders
         if (m_sliders != null && m_sliders.Length >= 3)
@@ -73,13 +63,16 @@ public class OptionsManager : PersistantSingleton<OptionsManager>
             m_fSFXVolume = m_sliders[0].value;
         }
         // gets the toggle status
-        if (m_toggles != null && m_toggles.Length >= 5)
+        if (m_toggles != null && m_toggles.Length >= 4)
         {
-            m_bWreckingBall = m_toggles[1].isOn;
-            m_bBombs = m_toggles[0].isOn;
-            m_bPickups = m_toggles[4].isOn;
-            m_bIndicator = m_toggles[3].isOn;
-            m_bVibration = m_toggles[2].isOn;
+            m_bPickups = m_toggles[0].isOn;
+            m_bIndicator = m_toggles[1].isOn;
+            m_bBombs = m_toggles[2].isOn;
+            m_bWreckingBall = m_toggles[3].isOn;
+        }
+        else if (m_toggles != null && m_toggles.Length >= 1)
+        {
+            m_bVibration = m_toggles[0].isOn;
         }
         // gets the value from the dropdown
         if(m_dropdown != null)

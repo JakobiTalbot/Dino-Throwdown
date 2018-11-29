@@ -4,42 +4,62 @@ using UnityEngine;
 
 public class BombDropper : MonoBehaviour
 {
+    // reference to the game object that contains all the blocks
     public GameObject m_blocksParent;
+    // reference to the block bomb prefab
     public GameObject m_bomb;
+    // interval between bombs being dropped
     public float m_fDropInterval = 5.0f;
+    // time before the bombs start dropping
     public float m_fSecondsUntilBombsStartDropping = 10.0f;
+    // speed at which the claw moves
     public float m_fCraneMoveSpeed = 10.0f;
+    // speed at which the claw drops
     public float m_fCraneDropSpeed = 10.0f;
+    // the y value required to pick up a bomb
     public float m_fCraneDownYPosition = -10.0f;
+    // range from the centre where the claw can move
     public float m_fOutPositionRange = 26.0f;
+    // height required before dropping
     public int m_nDropHeight = 20;
+    // maximum amount of blocks capable of being destroyed by a bomb
     public int m_nMaxBlocksToDestroy = 3;
 
+    // reference to the currently held bomb
     [HideInInspector]
     public GameObject m_currentBomb;
+    // used to time between drops
     [HideInInspector]
     public float m_fDropTimer;
+    // collection of all the blocks' transforms
     [HideInInspector]
     public List<Transform> m_blocks;
+    // used to time when the bombs should start dropping
     [HideInInspector]
     public float m_fTimeUntilBombsDrop;
+    // determines if the claw has a bomb
     [HideInInspector]
     public bool m_bHasBomb;
+    // determines if the claw is in the process of getting a bomb
     [HideInInspector]
     public bool m_bGettingBomb;
+    // initial y position of the claw
     [HideInInspector]
     public float m_fStartYPos;
 
+    // collection of the original positions of the blocks
     private Vector3[] m_v3OriginalBlockPositions;
+    // place to pick up bombs from
     private Vector3 m_v3BombPickupPos;
+    // place to drop bombs
     private Vector3 m_v3BombDropPos;
+    // determines if the claw reached its desired location
     private bool m_bReachedLocation;
 
-
-    // Use this for initialization
-    void Awake()
+    private void Awake()
     {
         m_fTimeUntilBombsDrop = m_fSecondsUntilBombsStartDropping;
+        // adds blocks to array of blocks
         AddBlocks();
         m_v3OriginalBlockPositions = new Vector3[m_blocks.Count];
 
@@ -52,9 +72,9 @@ public class BombDropper : MonoBehaviour
         m_fDropTimer = m_fDropInterval;
 	}
 	
-	// Update is called once per frame
-	void Update()
+	private void Update()
     {
+        // exits if the bombs have been toggled off
         if (OptionsManager.InstanceExists && !OptionsManager.Instance.m_bBombs)
             return;
 

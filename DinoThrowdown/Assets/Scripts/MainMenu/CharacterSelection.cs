@@ -14,7 +14,7 @@ public class CharacterSelection : MonoBehaviour
     public float m_fInputPrerequisite = 0.1f;
     // the delay between input from the controllers
     public float m_fInputDelay = 0.5f;
-    // the delay for selecting different characters or weapons
+    // the delay for selecting different characters
     public float m_fHorizontalDelay = 0.4f;
     // collection of dino type names
     public string[] m_sDinoTypes;
@@ -24,9 +24,9 @@ public class CharacterSelection : MonoBehaviour
     public GameObject[] m_indicators;
     // reference to the player viewer where the player will be displayed
     public GameObject m_playerViewer;
-    // reference to the different meshes
+    // reference to the different hoverpod meshes
     public Mesh[] m_hoverpodTypes;
-    // collections of references to the different materials
+    // collections of references to the different materials for each hoverpod
     public ArrayLayout m_hoverpodColours;
     // reference to the confirm game object
     public GameObject m_confirmCanvas;
@@ -82,6 +82,7 @@ public class CharacterSelection : MonoBehaviour
 
         m_colourPicker = GetComponentInChildren<ColourPicker>();
 
+        // sets the character to initially inactive
         if (CharacterManager.InstanceExists)
         {
             CharacterManager.Instance.m_bActivePlayers[m_cPlayerNumber - 1] = false;
@@ -459,6 +460,7 @@ public class CharacterSelection : MonoBehaviour
             {
                 SceneManager.LoadScene(1);
             }
+            // otherwise shakes the box
             else if (m_bShakeBox)
             {
                 GetComponent<ScreenShake>().SetShake(m_fShakeStrength, m_fShakeDuration);

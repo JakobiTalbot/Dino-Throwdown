@@ -15,6 +15,7 @@ public class ActivateMenu : MonoBehaviour
 
     private void Awake()
     {
+        // gets the original background music volume
         m_fOriginalVolume = m_backgroundMusic.volume;
     }
 
@@ -25,24 +26,27 @@ public class ActivateMenu : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(m_fOriginalVolume);
+        Debug.Log(m_backgroundMusic.volume);
         if (OptionsManager.InstanceExists)
         {
             // changes the volume based on the options
             m_backgroundMusic.volume = OptionsManager.Instance.m_fMusicVolume * OptionsManager.Instance.m_fMasterVolume * m_fOriginalVolume;
         }
-
+        // ensures that the time scale is 1 in the menu
         if (Time.timeScale == 0)
         {
             Time.timeScale = 1;
         }
     }
 
+    // activates the menu buttons
     public void MenuButtons()
     {
         m_menuButtons.SetActive(true);
         m_menuButtons.GetComponent<SelectPlay>().SelectButton();
     }
-
+    // activates the game setup
     public void GameSetup()
     {
         m_gameSetup.SetActive(true);

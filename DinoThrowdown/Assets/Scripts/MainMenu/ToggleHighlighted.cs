@@ -3,6 +3,7 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+// highlights toggles
 public class ToggleHighlighted : MonoBehaviour
 {
     public GameObject m_highlight;

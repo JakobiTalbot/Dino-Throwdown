@@ -44,6 +44,7 @@ public class BlockBomb : MonoBehaviour
 
     private void Awake()
     {
+        // gets the original volume from the explosion prefab
         m_fOriginalVolume = m_explosion.GetComponent<AudioSource>().volume;
     }
 
@@ -63,10 +64,12 @@ public class BlockBomb : MonoBehaviour
     // find all the players in the area around the bomb and damage them
     private void OnTriggerEnter(Collider other)
     {
+        // checks if the bomb didn't collide with a relevant surface and exits if so
         if (other.CompareTag("Deadzone") || other.CompareTag("Claw") || other.CompareTag("Untagged") || transform.parent)
         {
             return;
         }
+        // unparents the bomb from the claw
         gameObject.transform.parent = null;
         // destroys the bomb after the delay
         GetComponent<Animator>().SetTrigger("startFlashing");
@@ -74,24 +77,23 @@ public class BlockBomb : MonoBehaviour
     }
 
     // calculates the amount of damage a target should take based on its position
-    private float CalculateDamage(Vector3 targetPosition)
+    private float CalculateDamage(Vector3 v3TargetPosition)
     {
         // vector from the target to the shell
-        Vector3 explosionToTarget = targetPosition - transform.position;
+        Vector3 v3ExplosionToTarget = v3TargetPosition - transform.position;
         // magnitude of the vector
-        float fExplosionDistance = explosionToTarget.magnitude;
+        float fExplosionDistance = v3ExplosionToTarget.magnitude;
 
         // the distance relative to the explosion (starts off at 1 at the centre and ends at 0 at the radius)
-        float relativeDistance = (m_fExplosionRadius - fExplosionDistance) / m_fExplosionRadius;
-        // multiplies the distance by the maximum damage
-        float fDamage = relativeDistance/* * m_maxDamage*/;
+        float fRelativeDistance = (m_fExplosionRadius - fExplosionDistance) / m_fExplosionRadius;
 
         // ensures that the damage is not negative
-        fDamage = Mathf.Max(0.0f, fDamage);
+        fRelativeDistance = Mathf.Max(0.0f, fRelativeDistance);
 
-        return fDamage;
+        return fRelativeDistance;
     }
 
+    // applys damage to all players in the explosion radius when the bomb is being destroyed
     private void OnDestroy()
     {
         if (!m_bAppQuitting && m_nRoundSpawned == GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameStateManager>().m_nRoundNumber)

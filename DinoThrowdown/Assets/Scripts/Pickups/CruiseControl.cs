@@ -4,19 +4,25 @@ using UnityEngine;
 
 public class CruiseControl : Pickup
 {
+    // reference to the pickup particle to be instantiated
     public GameObject m_pickupParticles;
+    // speed at which the object rotates
     public float m_fRotateSpeed = 10.0f;
+    // speed at which the object bobs up and down
     public float m_fBobSpeed = 1.0f;
+    // the amount the object bobs
     public float m_fBobAmount = 0.2f;
 
+    // original y position of the object
     private float m_fOriginalY;
+    // used to time bobbing
     private float m_fSineCounter = 0.0f;
     private float m_fOriginalVolume = 1.0f;
 
     private void Awake()
     {
         m_fOriginalY = transform.localPosition.y;
-
+        // gets the original volume of the audio source attached to the pickup particle
         m_fOriginalVolume = m_pickupParticles.GetComponent<AudioSource>().volume;
     }
 
