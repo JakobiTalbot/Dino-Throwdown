@@ -75,31 +75,6 @@ public class UI : MonoBehaviour
                 }
             }
         }
-
-        //int nRounds = 0;
-        //// set round images to active based on how many rounds there are
-        //if (OptionsManager.InstanceExists)
-        //{
-        //    switch (OptionsManager.Instance.m_iRound)
-        //    {
-        //        case 0:
-        //            nRounds = 1;
-        //            break;
-        //        case 1:
-        //            nRounds = 3;
-        //            break;
-        //        case 2:
-        //            nRounds = 5;
-        //            break;
-        //    }
-        //}
-        //for (int i = 0; i < nRounds; ++i)
-        //{
-        //    m_p1RoundImages[i].SetActive(true);
-        //    m_p2RoundImages[i].SetActive(true);
-        //    m_p3RoundImages[i].SetActive(true);
-        //    m_p4RoundImages[i].SetActive(true);
-        //}
     }
 
 	// Update is called once per frame
