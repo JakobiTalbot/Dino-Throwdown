@@ -356,6 +356,7 @@ public class Claw : MonoBehaviour
         //direction based on input
         Vector3 v3Direction = new Vector3(0.0f, 0.0f, 0.0f);
 
+        // moves the crane relative to the way the player is facing
         if (m_crane.m_player.GetComponent<PlayerController>().m_bKonami)
         {
             v3Direction.x += m_crane.m_player.transform.forward.x * fVertical * Time.deltaTime;

@@ -388,6 +388,7 @@ public class PlayerController : MonoBehaviour
     {
         // Put input into force vector3
         Vector3 v3Direction = new Vector3();
+        // moves relative to the direction the player is facing
         if (m_bKonami)
         {
             v3Direction += transform.forward * forwardMovement;
@@ -414,6 +415,7 @@ public class PlayerController : MonoBehaviour
     {
         // direction based on input
         Vector3 v3Direction = new Vector3();
+        // moves relative to the direction the player is facing
         if (m_bKonami)
         {
             v3Direction.x = transform.forward.x * fVertical * m_fCruiseSpeed * Time.deltaTime;
@@ -497,6 +499,7 @@ public class PlayerController : MonoBehaviour
 
     public void KONAMI(GamePadState gamePadState)
     {
+        // stores a letter if up, down, left, right, a, b or start is pressed and a dash if something else is pressed
         if (gamePadState.DPad.Up == ButtonState.Pressed && !m_inputDelay.bFlag)
         {
             if (m_fKonamiTimer >= m_fKONAMIDuration)
@@ -601,8 +604,10 @@ public class PlayerController : MonoBehaviour
             m_fKonamiTimer = 0.0f;
         }
 
+        // checks if too many characters are given
         if (m_sBuffer.Length > 11)
         {
+            // removes the first character
             char[] sBuffer = m_sBuffer.ToCharArray(1, 11);
             m_sBuffer = string.Empty;
             for (int i = 0; i < sBuffer.Length; i++)
@@ -611,14 +616,22 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        // ensures the user is not taking too long to input the code
         if (m_fKonamiTimer <= m_fKONAMIDuration)
         {
             m_fKonamiTimer += Time.deltaTime;
         }
 
-        if (m_sBuffer == m_sKonami)
+        // checks if the konami code was entered
+        if (m_sBuffer == m_sKonami && !m_bKonami)
         {
-            m_gameOverCanvas.KONAMI();
+            m_gameOverCanvas.KONAMION();
+            m_sBuffer = string.Empty;
+        }
+        else if (m_sBuffer == m_sKonami && m_bKonami)
+        {
+            m_gameOverCanvas.KONAMIOFF();
+            m_sBuffer = string.Empty;
         }
 
         if (m_inputDelay.bFlag)
@@ -637,5 +650,11 @@ public class PlayerController : MonoBehaviour
     {
         m_bKonami = true;
         m_konamiCamera.gameObject.SetActive(true);
+    }
+    // turns off the konami function
+    public void KonamiOff()
+    {
+        m_bKonami = false;
+        m_konamiCamera.gameObject.SetActive(false);
     }
 }

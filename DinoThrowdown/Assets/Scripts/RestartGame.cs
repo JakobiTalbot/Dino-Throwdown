@@ -105,11 +105,19 @@ public class RestartGame : MonoBehaviour
     }
 
     // turns on the konami functionality
-    public void KONAMI()
+    public void KONAMION()
     {
         foreach (var player in m_players)
         {
             player.KonamiOn();
+        }
+    }
+    // turns off the konami functionality
+    public void KONAMIOFF()
+    {
+        foreach (var player in m_players)
+        {
+            player.KonamiOff();
         }
     }
 }
