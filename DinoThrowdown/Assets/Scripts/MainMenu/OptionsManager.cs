@@ -48,29 +48,41 @@ public class OptionsManager : PersistantSingleton<OptionsManager>
     {
         base.Awake();
 
-        m_sliders = Object.FindObjectsOfType<Slider>();
-        m_toggles = Object.FindObjectsOfType<Toggle>();
-        m_dropdown = Object.FindObjectOfType<Dropdown>();
-
         m_gameSetup = GameObject.Find("GameSetup");
-        m_gameSetup.SetActive(false);
+        if (m_gameSetup)
+            m_gameSetup.SetActive(false);
+
         m_options = GameObject.Find("Options");
-        m_options.SetActive(false);
+        if (m_options)
+            m_options.SetActive(false);
     }
 
     private void Update()
     {
+        m_sliders = FindObjectsOfType<Slider>();
+        m_toggles = FindObjectsOfType<Toggle>();
+        m_dropdown = FindObjectOfType<Dropdown>();
+
+
+
         // gets the values from the sliders
-        m_fMasterVolume = m_sliders[1].value;
-        m_fMusicVolume = m_sliders[2].value;
-        m_fSFXVolume = m_sliders[0].value;
+        if (m_sliders != null && m_sliders.Length >= 3)
+        {
+            m_fMasterVolume = m_sliders[1].value;
+            m_fMusicVolume = m_sliders[2].value;
+            m_fSFXVolume = m_sliders[0].value;
+        }
         // gets the toggle status
-        m_bWreckingBall = m_toggles[1].isOn;
-        m_bBombs = m_toggles[0].isOn;
-        m_bPickups = m_toggles[4].isOn;
-        m_bIndicator = m_toggles[3].isOn;
-        m_bVibration = m_toggles[2].isOn;
+        if (m_toggles != null && m_toggles.Length >= 5)
+        {
+            m_bWreckingBall = m_toggles[1].isOn;
+            m_bBombs = m_toggles[0].isOn;
+            m_bPickups = m_toggles[4].isOn;
+            m_bIndicator = m_toggles[3].isOn;
+            m_bVibration = m_toggles[2].isOn;
+        }
         // gets the value from the dropdown
-        m_iRound = m_dropdown.value;
+        if(m_dropdown != null)
+            m_iRound = m_dropdown.value;
     }
 }
