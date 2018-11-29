@@ -54,6 +54,7 @@ public class UI : MonoBehaviour
                     m_knockbackBars[i].GetComponentInParent<RectTransform>().sizeDelta.y);
 
 
+            // set UV rect size
             Rect rect = m_knockbackBars[i].GetComponent<RawImage>().uvRect;
             rect.width = m_knockbackBars[i].GetComponent<RectTransform>().sizeDelta.x / m_v2OriginalBarSizeDelta.x;
             m_knockbackBars[i].GetComponent<RawImage>().uvRect = rect;
@@ -132,6 +133,7 @@ public class UI : MonoBehaviour
                         new Vector2(0.0f,
                         m_knockbackBars[i].GetComponentInParent<RectTransform>().sizeDelta.y);
 
+                // set UV rect size
                 Rect rect = m_knockbackBars[i].GetComponent<RawImage>().uvRect;
                 rect.width = m_knockbackBars[i].GetComponent<RectTransform>().sizeDelta.x / m_v2OriginalBarSizeDelta.x;
                 m_knockbackBars[i].GetComponent<RawImage>().uvRect = rect;
@@ -156,30 +158,33 @@ public class UI : MonoBehaviour
             if (m_players[i] == player)
             {
                 GameObject[] playerRoundImages = null;
+                
+                // enable round win text
                 m_roundWinText.gameObject.SetActive(true);
+                // set round win text colour based off colour of player who won round
                 m_roundWinText.GetComponent<Text>().color = m_colours[CharacterManager.Instance.m_iDinoColours[m_players[i].GetComponent<PlayerController>().m_cPlayerNumber - 1]].color;
 
                 // display text for the player who won
+                m_roundWinText.GetComponent<Text>().text = "ROUND WIN\nPLAYER " + (i + 1);
+
+                // find round images of winning player
                 switch (i)
                 {
                     case 0:
-                        m_roundWinText.GetComponent<Text>().text = "ROUND WIN" + "\n" + "PLAYER 1";
                         playerRoundImages = m_p1RoundImages;
                         break;
                     case 1:
-                        m_roundWinText.GetComponent<Text>().text = "ROUND WIN" + "\n" + "PLAYER 2";
                         playerRoundImages = m_p2RoundImages;
                         break;
                     case 2:
-                        m_roundWinText.GetComponent<Text>().text = "ROUND WIN" + "\n" + "PLAYER 3";
                         playerRoundImages = m_p3RoundImages;
                         break;
                     case 3:
-                        m_roundWinText.GetComponent<Text>().text = "ROUND WIN" + "\n" + "PLAYER 4";
                         playerRoundImages = m_p4RoundImages;
                         break;
                 }
 
+                // activate round image
                 for (int j = 0; j < GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameStateManager>().m_nRoundsToWin; ++j)
                 {
                     if (!playerRoundImages[j].activeSelf)
@@ -203,24 +208,13 @@ public class UI : MonoBehaviour
             }
             if (m_players[i] == player)
             {
+                // activate win text
                 m_winText.gameObject.SetActive(true);
+                // set win text colour based on winner's colour
                 m_winText.GetComponent<Text>().color = m_colours[CharacterManager.Instance.m_iDinoColours[m_players[i].GetComponent<PlayerController>().m_cPlayerNumber - 1]].color;
 
-                switch (i)
-                {
-                    case 0:
-                        m_winText.GetComponent<Text>().text = "PLAYER 1 WINS!";
-                        break;
-                    case 1:
-                        m_winText.GetComponent<Text>().text = "PLAYER 2 WINS!";
-                        break;
-                    case 2:
-                        m_winText.GetComponent<Text>().text = "PLAYER 3 WINS!";
-                        break;
-                    case 3:
-                        m_winText.GetComponent<Text>().text = "PLAYER 4 WINS!";
-                        break;
-                }
+                // find which player won and display on screen
+                m_winText.GetComponent<Text>().text = "PLAYER " + (i + 1) + " WINS!";
 
                 return;
             }
