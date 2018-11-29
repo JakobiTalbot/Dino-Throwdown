@@ -16,6 +16,7 @@ public class Knockback : MonoBehaviour
     public float m_fBaseWeaponKnockbackForce = 500.0f;
 
     public float m_fForceToKnockbackMeter = 0.01f;
+    public float m_fBigWeaponMultiplier = 4.0f;
 
     public float m_fVelocityFactor = 100.0f;
     public float m_fVibrateTimeWhenHit = 0.5f;
@@ -93,8 +94,8 @@ public class Knockback : MonoBehaviour
             // checks if the object is a weapon with the increase size pickup
             if (other.gameObject.transform.localScale == m_v3Larger)
             {
-                // doubles the force
-                fExplosionForce *= 2.0f;
+                // multiply the force
+                fExplosionForce *= m_fBigWeaponMultiplier;
             }
 
             // checks if the shield is on
