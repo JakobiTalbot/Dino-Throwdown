@@ -80,5 +80,7 @@ public class OptionsManager : PersistantSingleton<OptionsManager>
         // gets the value from the dropdown
         if(m_dropdown != null)
             m_iRound = m_dropdown.value;
+
+        //Debug.Log(m_fMusicVolume);
     }
 }

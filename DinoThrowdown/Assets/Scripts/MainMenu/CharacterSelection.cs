@@ -66,6 +66,7 @@ public class CharacterSelection : MonoBehaviour
     private float m_fHorizontalTimer;
     // reference to the colour picker
     private ColourPicker m_colourPicker;
+    private float m_fOriginalVolume;
 
     private void Awake()
     {
@@ -97,6 +98,8 @@ public class CharacterSelection : MonoBehaviour
         {
             m_bPlaying = true;
         }
+
+        m_fOriginalVolume = m_playerMusic.GetComponent<AudioSource>().volume;
     }
 
     private void Update()
@@ -543,6 +546,11 @@ public class CharacterSelection : MonoBehaviour
         // updates the display of the character based on the current selected dino type and colour
         m_playerViewer.GetComponent<MeshFilter>().mesh = m_hoverpodTypes[m_iHoverpodType];
         m_playerViewer.GetComponent<MeshRenderer>().material = m_hoverpodColours.rows[m_iHoverpodColour].row[m_iHoverpodType];
+
+        if (OptionsManager.InstanceExists)
+        {
+            m_playerMusic.GetComponent<AudioSource>().volume = OptionsManager.Instance.m_fMasterVolume * OptionsManager.Instance.m_fMusicVolume * m_fOriginalVolume;
+        }
     }
 
     // resets the character selection screen

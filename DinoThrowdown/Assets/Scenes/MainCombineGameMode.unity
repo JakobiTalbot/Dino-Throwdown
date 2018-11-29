@@ -13575,7 +13575,7 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 527033244}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3f35305cafdf39342adca4ce00de084f, type: 3}
@@ -14442,9 +14442,8 @@ MonoBehaviour:
   m_fDropTimer: 0
   m_blocks: []
   m_fTimeUntilBombsDrop: 0
-  m_bHasBomb: 0
-  m_bGettingBomb: 0
   m_fStartYPos: 0
+  m_state: 2
 --- !u!4 &576515433 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 9f6604da905c6d54d980d7c9d951e380, type: 3}
@@ -49917,10 +49916,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3f35305cafdf39342adca4ce00de084f, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 0.2
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
