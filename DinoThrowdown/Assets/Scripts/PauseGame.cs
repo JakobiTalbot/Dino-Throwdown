@@ -35,10 +35,6 @@ public class PauseGame : MonoBehaviour
     public Button[] m_buttons;
     // used to increment the alpha of the objects
     private float m_fAlpha = 0.0f;
-    // reference to OptionsManager instance
-    private OptionsManager m_optionsInstance = OptionsManager.Instance;
-    // used to know if the options values have been imported from singleton
-    private bool m_bValuesSet = false;
 
     // Use this for initialization
     void Awake()
@@ -49,6 +45,15 @@ public class PauseGame : MonoBehaviour
         m_pausedText = GetComponentInChildren<Text>();
 
         m_buttons[0].Select();
+
+        if (OptionsManager.InstanceExists)
+        {
+            // import values from singleton
+            m_masterSlider.value = OptionsManager.Instance.m_fMasterVolume;
+            m_musicSlider.value = OptionsManager.Instance.m_fMusicVolume;
+            m_sfxSlider.value = OptionsManager.Instance.m_fSFXVolume;
+            m_vibrationToggle.isOn = OptionsManager.Instance.m_bVibration;
+        }
     }
 
     // Update is called once per frame
@@ -75,22 +80,11 @@ public class PauseGame : MonoBehaviour
         }
         if (m_options.activeSelf && OptionsManager.InstanceExists)
         {
-            // check if values have been imported from singleton
-            if (!m_bValuesSet)
-            {
-                // import values from singleton
-                m_masterSlider.value = m_optionsInstance.m_fMasterVolume;
-                m_musicSlider.value = m_optionsInstance.m_fMusicVolume;
-                m_sfxSlider.value = m_optionsInstance.m_fSFXVolume;
-                m_vibrationToggle.isOn = m_optionsInstance.m_bVibration;
-                m_bValuesSet = true;
-            }
-
             // export values to singleton
-            m_optionsInstance.m_fMasterVolume = m_masterSlider.value;
-            m_optionsInstance.m_fMusicVolume = m_musicSlider.value;
-            m_optionsInstance.m_fSFXVolume = m_sfxSlider.value;
-            m_optionsInstance.m_bVibration = m_vibrationToggle.isOn;
+            OptionsManager.Instance.m_fMasterVolume = m_masterSlider.value;
+            OptionsManager.Instance.m_fMusicVolume = m_musicSlider.value;
+            OptionsManager.Instance.m_fSFXVolume = m_sfxSlider.value;
+            OptionsManager.Instance.m_bVibration = m_vibrationToggle.isOn;
         }
     }
 

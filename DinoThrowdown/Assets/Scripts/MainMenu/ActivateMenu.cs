@@ -26,8 +26,6 @@ public class ActivateMenu : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(m_fOriginalVolume);
-        Debug.Log(m_backgroundMusic.volume);
         if (OptionsManager.InstanceExists)
         {
             // changes the volume based on the options
