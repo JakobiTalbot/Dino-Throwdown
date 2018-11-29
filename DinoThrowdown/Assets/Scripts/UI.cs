@@ -76,25 +76,29 @@ public class UI : MonoBehaviour
             }
         }
 
+        int nRounds = 0;
         // set round images to active based on how many rounds there are
-        for (int i = 0; i < m_gameManager.GetComponent<GameStateManager>().m_nRoundsToWin; ++i)
+        if (OptionsManager.InstanceExists)
         {
-            if (m_knockbackTexts[0].transform.parent.gameObject.activeSelf)
+            switch (OptionsManager.Instance.m_iRound)
             {
-                m_p1RoundImages[i].SetActive(true);
+                case 0:
+                    nRounds = 1;
+                    break;
+                case 1:
+                    nRounds = 3;
+                    break;
+                case 2:
+                    nRounds = 5;
+                    break;
             }
-            if (m_knockbackTexts[1].transform.parent.gameObject.activeSelf)
-            {
-                m_p2RoundImages[i].SetActive(true);
-            }
-            if (m_knockbackTexts[2].transform.parent.gameObject.activeSelf)
-            {
-                m_p3RoundImages[i].SetActive(true);
-            }
-            if (m_knockbackTexts[3].transform.parent.gameObject.activeSelf)
-            {
-                m_p4RoundImages[i].SetActive(true);
-            }
+        }
+        for (int i = 0; i < nRounds; ++i)
+        {
+            m_p1RoundImages[i].SetActive(true);
+            m_p2RoundImages[i].SetActive(true);
+            m_p3RoundImages[i].SetActive(true);
+            m_p4RoundImages[i].SetActive(true);
         }
     }
 
