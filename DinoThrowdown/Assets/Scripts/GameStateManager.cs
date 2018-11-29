@@ -41,6 +41,7 @@ public class GameStateManager : MonoBehaviour
     private AudioSource m_backgroundMusic;
     // reference to the wrecking ball
     private WreckingBall m_wreckingBall;
+    private float m_fOriginalVolume = 1.0f;
 
 	// Use this for initialization
 	void Awake()
@@ -57,9 +58,10 @@ public class GameStateManager : MonoBehaviour
         m_wreckingBall = GameObject.FindGameObjectWithTag("WreckingBall").GetComponent<WreckingBall>();
 
         m_backgroundMusic = GetComponent<AudioSource>();
+        m_fOriginalVolume = m_backgroundMusic.volume;
         if (OptionsManager.InstanceExists)
         {
-            m_backgroundMusic.volume = OptionsManager.Instance.m_fMusicVolume * OptionsManager.Instance.m_fMasterVolume;
+            m_backgroundMusic.volume = OptionsManager.Instance.m_fMusicVolume * OptionsManager.Instance.m_fMasterVolume * m_fOriginalVolume;
             switch (OptionsManager.Instance.m_iRound)
             {
                 case 0:
@@ -213,6 +215,11 @@ public class GameStateManager : MonoBehaviour
                 {
                     m_playersRemaining.Add(m_players[i]);
                 }
+            }
+
+            if (OptionsManager.InstanceExists)
+            {
+                m_backgroundMusic.volume = OptionsManager.Instance.m_fMusicVolume * OptionsManager.Instance.m_fMasterVolume * m_fOriginalVolume;
             }
 
             // waits a frame

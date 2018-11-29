@@ -40,6 +40,12 @@ public class BlockBomb : MonoBehaviour
     private int m_nBlocksDestroyed = 0;
     // stores the round the current bomb was spawned
     private int m_nRoundSpawned;
+    private float m_fOriginalVolume = 1.0f;
+
+    private void Awake()
+    {
+        m_fOriginalVolume = m_explosion.GetComponent<AudioSource>().volume;
+    }
 
     private void Start()
     {
@@ -132,7 +138,7 @@ public class BlockBomb : MonoBehaviour
             // gets the sfx volume from the options
             if (OptionsManager.InstanceExists)
             {
-                explosion.GetComponent<AudioSource>().volume = OptionsManager.Instance.m_fSFXVolume * OptionsManager.Instance.m_fMasterVolume;
+                explosion.GetComponent<AudioSource>().volume = OptionsManager.Instance.m_fSFXVolume * OptionsManager.Instance.m_fMasterVolume * m_fOriginalVolume;
             }
 
             // vibrates the controllers of all the hit players

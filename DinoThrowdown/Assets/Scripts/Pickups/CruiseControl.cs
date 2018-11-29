@@ -11,10 +11,13 @@ public class CruiseControl : Pickup
 
     private float m_fOriginalY;
     private float m_fSineCounter = 0.0f;
+    private float m_fOriginalVolume = 1.0f;
 
     private void Awake()
     {
         m_fOriginalY = transform.localPosition.y;
+
+        m_fOriginalVolume = m_pickupParticles.GetComponent<AudioSource>().volume;
     }
 
     void Update()
@@ -49,6 +52,11 @@ public class CruiseControl : Pickup
             // empties the spawn point
             m_spawnPoint.m_bHasPickup = false;
 
+            if (OptionsManager.InstanceExists)
+            {
+                m_pickupParticles.GetComponent<AudioSource>().volume = OptionsManager.Instance.m_fMasterVolume * OptionsManager.Instance.m_fSFXVolume * m_fOriginalVolume;
+            }
+
             // create pickup particles
             GameObject newParticles = Instantiate(m_pickupParticles, other.transform.position, Quaternion.Euler(0, 0, 0));
             newParticles.transform.parent = other.transform;            
@@ -67,6 +75,11 @@ public class CruiseControl : Pickup
             gameObject.SetActive(false);
             // empties the spawn point
             m_spawnPoint.m_bHasPickup = false;
+
+            if (OptionsManager.InstanceExists)
+            {
+                m_pickupParticles.GetComponent<AudioSource>().volume = OptionsManager.Instance.m_fMasterVolume * OptionsManager.Instance.m_fSFXVolume * m_fOriginalVolume;
+            }
 
             // create pickup particles
             GameObject newParticles = Instantiate(m_pickupParticles, other.transform.position, Quaternion.Euler(0, 0, 0));

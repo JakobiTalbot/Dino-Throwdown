@@ -87,6 +87,13 @@ public class Claw : MonoBehaviour
     private bool m_bBombDelay = false;
     // checks if an audio is playing
     private bool m_bAudioPlaying = false;
+    private float[] m_fOriginalVolumes = new float[2];
+
+    private void Awake()
+    {
+        m_fOriginalVolumes[0] = GetComponents<AudioSource>()[0].volume;
+        m_fOriginalVolumes[1] = GetComponents<AudioSource>()[1].volume;
+    }
 
     private void Start()
     {
@@ -113,8 +120,8 @@ public class Claw : MonoBehaviour
         // gets the sfx volume from the options
         if (OptionsManager.InstanceExists)
         {
-            GetComponents<AudioSource>()[0].volume = OptionsManager.Instance.m_fSFXVolume * OptionsManager.Instance.m_fMasterVolume;
-            GetComponents<AudioSource>()[1].volume = OptionsManager.Instance.m_fSFXVolume * OptionsManager.Instance.m_fMasterVolume;
+            GetComponents<AudioSource>()[0].volume = OptionsManager.Instance.m_fSFXVolume * OptionsManager.Instance.m_fMasterVolume * m_fOriginalVolumes[0];
+            GetComponents<AudioSource>()[1].volume = OptionsManager.Instance.m_fSFXVolume * OptionsManager.Instance.m_fMasterVolume * m_fOriginalVolumes[1];
         }
 
         m_bottomLight.GetComponent<Animator>().SetBool("bConstant", m_bConstantFlashing);

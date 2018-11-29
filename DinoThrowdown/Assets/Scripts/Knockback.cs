@@ -40,6 +40,7 @@ public class Knockback : MonoBehaviour
     private Vector3 m_v3Larger;
     // reference to the hit music
     private AudioSource m_hitSound;
+    private float m_fOriginalVolume = 1.0f;
 
     // Use this for initialization
     void Awake()
@@ -52,13 +53,14 @@ public class Knockback : MonoBehaviour
         m_v3Larger = new Vector3(4.0f, 0.4f, 0.4f);
 
         m_hitSound = m_hitParticles.GetComponent<AudioSource>();
+        m_fOriginalVolume = m_hitSound.volume;
 	}
 
     private void Update()
     {
         if (OptionsManager.InstanceExists)
         {
-            m_hitSound.volume = OptionsManager.Instance.m_fSFXVolume * OptionsManager.Instance.m_fMasterVolume;
+            m_hitSound.volume = OptionsManager.Instance.m_fSFXVolume * OptionsManager.Instance.m_fMasterVolume * m_fOriginalVolume;
         }
 
         // checks if the shield is on

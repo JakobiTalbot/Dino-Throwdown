@@ -17,6 +17,13 @@ public class BallKnockback : MonoBehaviour
     // offsets the y position of the explosion
     public float m_fExplosionYPosOffset = 1.0f;
 
+    private float m_fOriginalVolume = 1.0f;
+
+    private void Awake()
+    {
+        m_fOriginalVolume = GetComponent<AudioSource>().volume;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         // stores the knockback script from the collider if possible
@@ -83,7 +90,7 @@ public class BallKnockback : MonoBehaviour
         // gets the sfx volume from the options
         if (OptionsManager.InstanceExists)
         {
-            GetComponent<AudioSource>().volume = OptionsManager.Instance.m_fSFXVolume * OptionsManager.Instance.m_fMasterVolume;
+            GetComponent<AudioSource>().volume = OptionsManager.Instance.m_fSFXVolume * OptionsManager.Instance.m_fMasterVolume * m_fOriginalVolume;
         }
 
         GetComponent<AudioSource>().Play();

@@ -18,6 +18,7 @@ public class Dash : MonoBehaviour
     private float m_fTimer;
     private int m_cPlayerNumber;
     private bool m_bCanDash = true;
+    private float m_fOriginalVolume = 1.0f;
 
 	// Use this for initialization
 	void Awake()
@@ -26,6 +27,7 @@ public class Dash : MonoBehaviour
         m_rigidbody = GetComponent<Rigidbody>();
 
         m_cPlayerNumber = GetComponent<PlayerController>().m_cPlayerNumber;
+        m_fOriginalVolume = GetComponents<AudioSource>()[4].volume;
     }
 	
 	// Update is called once per frame
@@ -84,7 +86,7 @@ public class Dash : MonoBehaviour
             // gets the sfx volume from the options
             if (OptionsManager.InstanceExists)
             {
-                GetComponents<AudioSource>()[4].volume = OptionsManager.Instance.m_fSFXVolume * OptionsManager.Instance.m_fMasterVolume;
+                GetComponents<AudioSource>()[4].volume = OptionsManager.Instance.m_fSFXVolume * OptionsManager.Instance.m_fMasterVolume * m_fOriginalVolume;
             }
             // play dash sound
             GetComponents<AudioSource>()[4].Play();

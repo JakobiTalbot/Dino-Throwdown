@@ -126,10 +126,13 @@ public class PlayerController : MonoBehaviour
     private Claw.PickupTimer m_inputDelay;
     // used to time input
     private float m_fKonamiTimer = 0.0f;
+    private float m_fOriginalVolume = 1.0f;
 
     // Use this for initialization
     void Awake()
     {
+        m_fOriginalVolume = m_weapon.GetComponent<AudioSource>().volume;
+
         if (OptionsManager.InstanceExists)
         {
             m_bVibrationToggle = OptionsManager.Instance.m_bVibration;
@@ -178,6 +181,10 @@ public class PlayerController : MonoBehaviour
         {
             int iDinoType = CharacterManager.Instance.m_iDinoTypes[m_cPlayerNumber - 1];
             m_dinos[iDinoType].GetComponentInChildren<SkinnedMeshRenderer>().material = CharacterManager.Instance.m_dinoColours[m_cPlayerNumber - 1];
+        }
+        if (OptionsManager.InstanceExists)
+        {
+            m_weapon.GetComponent<AudioSource>().volume = OptionsManager.Instance.m_fMasterVolume * OptionsManager.Instance.m_fSFXVolume * m_fOriginalVolume;
         }
 
         if (!m_rigidbody.isKinematic)
