@@ -198,9 +198,9 @@ public class BombDropper : MonoBehaviour
         Vector3 v3RandPos = new Vector3();
         v3RandPos.y = m_fStartYPos;
 
-        int nGrabbingAxis = Random.Range(0, 1);
+        int nGrabbingAxis = Random.Range(0, 2);
 
-        int nNegative = Random.Range(0, 1);
+        int nNegative = Random.Range(0, 2);
         if (nNegative == 0)
             nNegative = -1;
 

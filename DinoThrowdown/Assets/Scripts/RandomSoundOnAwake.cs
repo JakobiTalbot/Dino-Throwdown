@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class RandomSoundOnAwake : MonoBehaviour
 {
-    public AudioSource[] m_audioSources;
+    private AudioSource[] m_audioSources;
 
     private float[] m_fOriginalVolumes;
 
     private void Awake()
     {
+        m_audioSources = GetComponents<AudioSource>();
         m_fOriginalVolumes = new float[m_audioSources.Length];
         for (int i = 0; i < m_audioSources.Length; i++)
         {
@@ -27,6 +28,6 @@ public class RandomSoundOnAwake : MonoBehaviour
             m_audioSources[nRandomAudio].volume = OptionsManager.Instance.m_fSFXVolume * OptionsManager.Instance.m_fMasterVolume * m_fOriginalVolumes[nRandomAudio];
 
         // play audio
-        m_audioSources[nRandomAudio].enabled = true;
+        m_audioSources[nRandomAudio].PlayOneShot(m_audioSources[nRandomAudio].clip);
     }
 }
